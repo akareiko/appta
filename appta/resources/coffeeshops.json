@@ -1,0 +1,87 @@
+[
+    {
+        "name": "Global Coffee",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1001,
+        "imageName": "turtle"
+    },
+    {
+        "name": "Starbucks",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1002,
+        "imageName": "turtle"
+    },
+    {
+        "name": "Zebra Coffee",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1003,
+        "imageName": "turtle"
+    },
+    {
+        "name": "Daily Cup",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1004,
+        "imageName": "turtle"
+    },
+    {
+        "name": "Coffelia",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1005,
+        "imageName": "turtle"
+    },
+    {
+        "name": "Good Day",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1006,
+        "imageName": "turtle"
+    },
+    {
+        "name": "Costa Coffee",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1007,
+        "imageName": "turtle"
+    },
+    {
+        "name": "Assylzhan Coffee",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1008,
+        "imageName": "turtle"
+    },
+    {
+        "name": "Adilbek Coffee",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1009,
+        "imageName": "turtle"
+    },
+    {
+        "name": "Hehehaha Coffee",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1010,
+        "imageName": "turtle"
+    },
+    {
+        "name": "Patric Bateman Coffee",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1011,
+        "imageName": "turtle"
+    },
+    {
+        "name": "Andrew's Arabica",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1012,
+        "imageName": "turtle"
+    }
+]
+
