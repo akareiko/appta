@@ -78,10 +78,13 @@ struct ContentView: View {
                     }
                 }
             }
-            VStack {
-                Spacer()
-                CustomTabBar(selectedTab: $selectedTab)
+            TabView{
+                
             }
+//            VStack {
+//                Spacer()
+//                CustomTabBar(selectedTab: $selectedTab)
+//            }
         }
         .edgesIgnoringSafeArea(.top)
     }
