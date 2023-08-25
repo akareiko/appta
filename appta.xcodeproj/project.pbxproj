@@ -12,14 +12,23 @@
 		BE1656412A93AFC2003CBE8C /* apptaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1656402A93AFC2003CBE8C /* apptaTests.swift */; };
 		BE16564B2A93AFC2003CBE8C /* apptaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16564A2A93AFC2003CBE8C /* apptaUITests.swift */; };
 		BE16564D2A93AFC2003CBE8C /* apptaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16564C2A93AFC2003CBE8C /* apptaUITestsLaunchTests.swift */; };
+		BE17D1FA2A98A5C100FB5054 /* sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17D1F92A98A5C100FB5054 /* sample.swift */; };
 		BE2F30582A93D89D009E72DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F30572A93D89D009E72DC /* ContentView.swift */; };
 		BE2F305A2A93D926009E72DC /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F30592A93D926009E72DC /* CustomTabBar.swift */; };
-		BE2F305C2A93D9C6009E72DC /* appta.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F305B2A93D9C6009E72DC /* appta.swift */; };
+		BE2F305C2A93D9C6009E72DC /* ApptaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F305B2A93D9C6009E72DC /* ApptaView.swift */; };
 		BE9BBC162A9407F300B0C05D /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC152A9407F300B0C05D /* ModelData.swift */; };
 		BE9BBC182A94080400B0C05D /* CoffeeShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC172A94080400B0C05D /* CoffeeShop.swift */; };
 		BED02CEF2A940B48007DEE6D /* coffeeshops.json in Resources */ = {isa = PBXBuildFile; fileRef = BED02CEE2A940B48007DEE6D /* coffeeshops.json */; };
 		BED02CF72A94168B007DEE6D /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02CF62A94168B007DEE6D /* CategoryItem.swift */; };
 		BED02CF92A9416DA007DEE6D /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02CF82A9416DA007DEE6D /* CategoryRow.swift */; };
+		BED02D032A9607B5007DEE6D /* Iska.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02D022A9607B5007DEE6D /* Iska.swift */; };
+		BED02D052A9608B1007DEE6D /* Iska-2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02D042A9608B1007DEE6D /* Iska-2.swift */; };
+		BED02D092A960AB1007DEE6D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02D082A960AB1007DEE6D /* HomeView.swift */; };
+		BED02D0B2A9617E9007DEE6D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02D0A2A9617E9007DEE6D /* MapView.swift */; };
+		BED02D0D2A9617F3007DEE6D /* SubscriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02D0C2A9617F3007DEE6D /* SubscriptionView.swift */; };
+		BED02D0F2A9617FF007DEE6D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02D0E2A9617FF007DEE6D /* ProfileView.swift */; };
+		BED02D112A961AB6007DEE6D /* QrcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02D102A961AB6007DEE6D /* QrcodeView.swift */; };
+		BEF004192A963547008CEAAD /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = BEF004182A963547008CEAAD /* CodeScanner */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,14 +57,22 @@
 		BE1656462A93AFC2003CBE8C /* apptaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = apptaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE16564A2A93AFC2003CBE8C /* apptaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apptaUITests.swift; sourceTree = "<group>"; };
 		BE16564C2A93AFC2003CBE8C /* apptaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apptaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BE17D1F92A98A5C100FB5054 /* sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sample.swift; sourceTree = "<group>"; };
 		BE2F30572A93D89D009E72DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BE2F30592A93D926009E72DC /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		BE2F305B2A93D9C6009E72DC /* appta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = appta.swift; sourceTree = "<group>"; };
+		BE2F305B2A93D9C6009E72DC /* ApptaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApptaView.swift; sourceTree = "<group>"; };
 		BE9BBC152A9407F300B0C05D /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		BE9BBC172A94080400B0C05D /* CoffeeShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShop.swift; sourceTree = "<group>"; };
 		BED02CEE2A940B48007DEE6D /* coffeeshops.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = coffeeshops.json; sourceTree = "<group>"; };
 		BED02CF62A94168B007DEE6D /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		BED02CF82A9416DA007DEE6D /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		BED02D022A9607B5007DEE6D /* Iska.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Iska.swift; sourceTree = "<group>"; };
+		BED02D042A9608B1007DEE6D /* Iska-2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Iska-2.swift"; sourceTree = "<group>"; };
+		BED02D082A960AB1007DEE6D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BED02D0A2A9617E9007DEE6D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		BED02D0C2A9617F3007DEE6D /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
+		BED02D0E2A9617FF007DEE6D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		BED02D102A961AB6007DEE6D /* QrcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrcodeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEF004192A963547008CEAAD /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,11 +124,11 @@
 		BE16562E2A93AFC1003CBE8C /* appta */ = {
 			isa = PBXGroup;
 			children = (
-				BE2F305B2A93D9C6009E72DC /* appta.swift */,
-				BE2F30572A93D89D009E72DC /* ContentView.swift */,
-				BE2F30592A93D926009E72DC /* CustomTabBar.swift */,
-				BED02CF82A9416DA007DEE6D /* CategoryRow.swift */,
-				BED02CF62A94168B007DEE6D /* CategoryItem.swift */,
+				BED02CFB2A9603D6007DEE6D /* HomeView */,
+				BED02CFE2A960404007DEE6D /* MapView */,
+				BED02CFF2A960412007DEE6D /* QrcodeView */,
+				BED02CFD2A9603F7007DEE6D /* SubscriptionView */,
+				BED02CFA2A9603C8007DEE6D /* ProfileView */,
 				BE9BBC192A940A7E00B0C05D /* resources */,
 				BE9BBC142A9407E100B0C05D /* model */,
 				BE1656332A93AFC1003CBE8C /* Assets.xcassets */,
@@ -161,6 +179,54 @@
 			path = resources;
 			sourceTree = "<group>";
 		};
+		BED02CFA2A9603C8007DEE6D /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				BED02D0E2A9617FF007DEE6D /* ProfileView.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		BED02CFB2A9603D6007DEE6D /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				BE2F305B2A93D9C6009E72DC /* ApptaView.swift */,
+				BE2F30572A93D89D009E72DC /* ContentView.swift */,
+				BE2F30592A93D926009E72DC /* CustomTabBar.swift */,
+				BED02CF82A9416DA007DEE6D /* CategoryRow.swift */,
+				BED02CF62A94168B007DEE6D /* CategoryItem.swift */,
+				BED02D022A9607B5007DEE6D /* Iska.swift */,
+				BED02D082A960AB1007DEE6D /* HomeView.swift */,
+				BED02D042A9608B1007DEE6D /* Iska-2.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		BED02CFD2A9603F7007DEE6D /* SubscriptionView */ = {
+			isa = PBXGroup;
+			children = (
+				BED02D0C2A9617F3007DEE6D /* SubscriptionView.swift */,
+			);
+			path = SubscriptionView;
+			sourceTree = "<group>";
+		};
+		BED02CFE2A960404007DEE6D /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				BED02D0A2A9617E9007DEE6D /* MapView.swift */,
+				BE17D1F92A98A5C100FB5054 /* sample.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		BED02CFF2A960412007DEE6D /* QrcodeView */ = {
+			isa = PBXGroup;
+			children = (
+				BED02D102A961AB6007DEE6D /* QrcodeView.swift */,
+			);
+			path = QrcodeView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,6 +243,9 @@
 			dependencies = (
 			);
 			name = appta;
+			packageProductDependencies = (
+				BEF004182A963547008CEAAD /* CodeScanner */,
+			);
 			productName = appta;
 			productReference = BE16562C2A93AFC1003CBE8C /* appta.app */;
 			productType = "com.apple.product-type.application";
@@ -249,6 +318,9 @@
 				Base,
 			);
 			mainGroup = BE1656232A93AFC1003CBE8C;
+			packageReferences = (
+				BEF004172A963546008CEAAD /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = BE16562D2A93AFC1003CBE8C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -292,11 +364,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BE2F305C2A93D9C6009E72DC /* appta.swift in Sources */,
+				BED02D112A961AB6007DEE6D /* QrcodeView.swift in Sources */,
+				BE2F305C2A93D9C6009E72DC /* ApptaView.swift in Sources */,
+				BED02D0F2A9617FF007DEE6D /* ProfileView.swift in Sources */,
 				BED02CF72A94168B007DEE6D /* CategoryItem.swift in Sources */,
 				BE9BBC162A9407F300B0C05D /* ModelData.swift in Sources */,
+				BED02D0B2A9617E9007DEE6D /* MapView.swift in Sources */,
+				BED02D092A960AB1007DEE6D /* HomeView.swift in Sources */,
+				BED02D0D2A9617F3007DEE6D /* SubscriptionView.swift in Sources */,
 				BE9BBC182A94080400B0C05D /* CoffeeShop.swift in Sources */,
 				BE2F30582A93D89D009E72DC /* ContentView.swift in Sources */,
+				BE17D1FA2A98A5C100FB5054 /* sample.swift in Sources */,
+				BED02D032A9607B5007DEE6D /* Iska.swift in Sources */,
+				BED02D052A9608B1007DEE6D /* Iska-2.swift in Sources */,
 				BED02CF92A9416DA007DEE6D /* CategoryRow.swift in Sources */,
 				BE2F305A2A93D926009E72DC /* CustomTabBar.swift in Sources */,
 			);
@@ -459,6 +539,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"appta/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need the camera to scan QR codes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -487,6 +568,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"appta/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need the camera to scan QR codes.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -617,6 +699,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BEF004172A963546008CEAAD /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BEF004182A963547008CEAAD /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BEF004172A963546008CEAAD /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE1656242A93AFC1003CBE8C /* Project object */;
 }

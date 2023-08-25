@@ -28,18 +28,31 @@ struct CustomTabBar: View {
         case .house:
             return .black
         case .magnifyingglass:
-            return .green
+            return .black
         case .qrcode:
-            return .green
+            return .black
         case .plus:
-            return .orange
+            return .black
         case .person:
-            return .indigo
+            return .black
         }
     }
     
     var body: some View {
         VStack {
+            switch selectedTab {
+            case .house:
+                HomeView()
+            case .magnifyingglass:
+                MapView()
+            case .qrcode:
+                QrcodeView()
+            case .plus:
+                SubscriptionView()
+            case .person:
+                HomeView()
+            }
+            
             HStack {
                 ForEach(Tab.allCases, id: \.rawValue) { tab in
                     Spacer()
@@ -57,7 +70,7 @@ struct CustomTabBar: View {
             }
             .frame(width: nil, height: 60)
             .background(.thinMaterial)
-            .cornerRadius(10)
+            .cornerRadius(30)
             .padding()
         }
     }

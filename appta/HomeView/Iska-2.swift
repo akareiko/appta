@@ -9,7 +9,14 @@ import SwiftUI
 
 struct Iska_2: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Circle()
+                .frame(width: 200, height: 200)
+                .foregroundColor(.red)
+            Text("\(1)")
+                .foregroundColor(.white)
+                .font(.system(size: 70, weight: .bold))
+        }
     }
 }
 
