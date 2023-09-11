@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
     @State private var selectedTab: Tab = .house
@@ -8,8 +9,28 @@ struct ContentView: View {
     }
     
     var body: some View {
-        CustomTabBar(selectedTab: $selectedTab)
-            .edgesIgnoringSafeArea(.bottom)
+        ZStack {
+            VStack {
+                switch selectedTab {
+                case .house:
+                    HomeView()
+                case .magnifyingglass:
+                    MapView()
+                case .qrcode:
+                    QrcodeView()
+                case .plus:
+                    SubscriptionView()
+                case .person:
+                    HomeView()
+                }
+            }
+            VStack {
+                Spacer()
+                CustomTabBar(selectedTab: $selectedTab)
+        //            .edgesIgnoringSafeArea(.bottom)
+            }
+        }
+        
     }
 }
 

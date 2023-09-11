@@ -18,6 +18,8 @@ struct CategoryItem: View {
                 .frame(width: 100, height: 120)
                 .cornerRadius(20)
             Text(coffeeshop.name)
+                .truncationMode(.tail)
+                .frame(width: 100, height: 20)
                 .foregroundColor(.primary)
                 .font(
                     .caption

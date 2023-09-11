@@ -19,6 +19,7 @@ enum Tab: String, CaseIterable {
 
 struct CustomTabBar: View {
     @Binding var selectedTab: Tab
+    
     private var fillImage: String {
         symbolMappings[selectedTab] ?? selectedTab.rawValue
     }
@@ -39,20 +40,7 @@ struct CustomTabBar: View {
     }
     
     var body: some View {
-        VStack {
-            switch selectedTab {
-            case .house:
-                HomeView()
-            case .magnifyingglass:
-                MapView()
-            case .qrcode:
-                QrcodeView()
-            case .plus:
-                SubscriptionView()
-            case .person:
-                HomeView()
-            }
-            
+        VStack(spacing: 0) {
             HStack {
                 ForEach(Tab.allCases, id: \.rawValue) { tab in
                     Spacer()
@@ -71,10 +59,11 @@ struct CustomTabBar: View {
             .frame(width: nil, height: 60)
             .background(.thinMaterial)
             .cornerRadius(30)
-            .padding()
+            .padding([.leading, .trailing])
         }
     }
 }
+
 
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {

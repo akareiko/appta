@@ -25,4 +25,8 @@ struct CoffeeShop: Hashable, Codable, Identifiable {
     var image: Image {
         Image(imageName)
     }
+    private var imageNameStory: String
+    var imagestory: Image {
+        Image(imageNameStory)
+    }
 }

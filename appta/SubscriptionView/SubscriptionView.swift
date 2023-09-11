@@ -51,6 +51,7 @@ struct SubscriptionView: View {
                                 Image(systemName: "arrow.right")
                             }
                             .padding(20)
+                            Divider()
                         }
                     }
                     .overlay(
