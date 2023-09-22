@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2311E8DE2ABD5BCF00868F63 /* CoffeeShopProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2311E8DD2ABD5BCF00868F63 /* CoffeeShopProfile.swift */; };
 		BE1656342A93AFC1003CBE8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1656332A93AFC1003CBE8C /* Assets.xcassets */; };
 		BE1656372A93AFC1003CBE8C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1656362A93AFC1003CBE8C /* Preview Assets.xcassets */; };
 		BE1656412A93AFC2003CBE8C /* apptaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1656402A93AFC2003CBE8C /* apptaTests.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2311E8DD2ABD5BCF00868F63 /* CoffeeShopProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopProfile.swift; sourceTree = "<group>"; };
 		BE16562C2A93AFC1003CBE8C /* appta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1656332A93AFC1003CBE8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE1656362A93AFC1003CBE8C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				BE2F30572A93D89D009E72DC /* ContentView.swift */,
 				BE2F30592A93D926009E72DC /* CustomTabBar.swift */,
 				BED02CF82A9416DA007DEE6D /* CategoryRow.swift */,
+				2311E8DD2ABD5BCF00868F63 /* CoffeeShopProfile.swift */,
 				BEFBB8E22AA6AA0300896A83 /* CategoryRowStory.swift */,
 				BED02CF62A94168B007DEE6D /* CategoryItem.swift */,
 				BEFBB8E02AA6A8B500896A83 /* CategoryItemStory.swift */,
@@ -399,6 +402,7 @@
 				BED02D0D2A9617F3007DEE6D /* SubscriptionView.swift in Sources */,
 				BE9BBC182A94080400B0C05D /* CoffeeShop.swift in Sources */,
 				BE2F30582A93D89D009E72DC /* ContentView.swift in Sources */,
+				2311E8DE2ABD5BCF00868F63 /* CoffeeShopProfile.swift in Sources */,
 				BE17D1FA2A98A5C100FB5054 /* sample.swift in Sources */,
 				BEFBB8E72AA6F0B100896A83 /* DarkeningScrollView.swift in Sources */,
 				BED02CF92A9416DA007DEE6D /* CategoryRow.swift in Sources */,
@@ -561,7 +565,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"appta/Preview Content\"";
-				DEVELOPMENT_TEAM = GSCFW35PK4;
+				DEVELOPMENT_TEAM = MF359GND8P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need the camera to scan QR codes.";
@@ -591,7 +595,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"appta/Preview Content\"";
-				DEVELOPMENT_TEAM = GSCFW35PK4;
+				DEVELOPMENT_TEAM = MF359GND8P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need the camera to scan QR codes.";

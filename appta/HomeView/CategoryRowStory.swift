@@ -23,6 +23,8 @@ struct CategoryRowStory: View {
             }
             .frame(height: 185)
         }
+        .padding(.bottom, -20)
+        .padding(.top, 10)
     }
 }
 
