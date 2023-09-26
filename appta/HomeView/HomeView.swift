@@ -40,6 +40,8 @@ struct HomeView: View {
                             CategoryRowStory(categoryName: ModelData().coffeeshops[0].category.rawValue, items: ModelData().coffeeshops)
                             Spacer()
                         }
+                    
+                    Divider()
 
                         VStack {
                             CategoryRow(
@@ -47,18 +49,24 @@ struct HomeView: View {
                                 items: ModelData().coffeeshops
                             )
                             Spacer()
-
                         }
+                    
+                    Divider()
 
                         VStack {
                             Image("hehtwo")
                                 .renderingMode(.original)
                                 .resizable()
-                                .frame(width: 350, height: 150)
+                                .frame(width: UIScreen.main.bounds.width - 40, height: 200)
                                 .cornerRadius(10)
+                                .padding(.top)
+                                .padding(.bottom)
 
                             Spacer()
                         }
+                    
+                    Divider()
+                    
                         VStack {
                             CategoryRow(
                                 categoryName: "Subscription+",
@@ -66,7 +74,7 @@ struct HomeView: View {
                             )
                             Spacer()
                         }
-                    
+                    Spacer()
                 }
                 .overlay(
                     NavigationBar()

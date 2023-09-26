@@ -7,20 +7,22 @@ struct CategoryRow: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(categoryName)
-                .font(.headline)
-                .padding(.leading, 15)
-                .padding(.top, 20)
+                .font(.title3)
+                .fontWeight(.bold)
+                .padding(.leading, 20)
+                .padding(.top, 10)
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(items) { coffeeshop in
-                        NavigationLink(destination: DarkeningScrollView().navigationBarBackButtonHidden(true)) {
+                        NavigationLink(destination: CoffeeShopProfile().navigationBarBackButtonHidden(true)) {
                             CategoryItem(coffeeshop: coffeeshop)
                         }
                     }
                 }
             }
             .frame(height: 185)
+            .padding(.top, -15)
         }
     }
 }

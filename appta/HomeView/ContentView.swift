@@ -19,7 +19,7 @@ struct ContentView: View {
                 case .qrcode:
                     QrcodeView()
                 case .plus:
-                    SubscriptionView()
+                    SubscriptionUpdatedView()
                 case .person:
                     HomeView()
                 }
