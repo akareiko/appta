@@ -9,19 +9,19 @@ import SwiftUI
 
 struct NavigationBar: View {
     var body: some View {
-        ZStack {
+        ZStack() {
             Color.clear
                 .background(.ultraThinMaterial)
 //                .blur(radius: 10)
             
-            Text("Featured")
-                .font(.title.weight(.bold))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
-                .foregroundColor(.black)
-                .offset(y: 25)
+                Text("appta coffee")
+                    .font(.title3.bold())
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .foregroundColor(.black)
+                    .offset(y: 25)
+                    .padding(.bottom, 10)
         }
-        .frame(height: 110)
+        .frame(height: 90)
         .frame(maxHeight: .infinity, alignment: .top)
         .edgesIgnoringSafeArea(.top)
     }

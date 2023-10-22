@@ -20,26 +20,31 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                ScrollView {
+                ScrollView(showsIndicators: false){
+                    ZStack(){
                         GeometryReader { geometry in
                             Image("hehone")
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .frame(
                                     width: geometry.size.width,
-                                    height: geometry.safeAreaInsets.top + 200
+                                    height: geometry.safeAreaInsets.top + 300
                                 )
                                 .clipped()
-                                .offset(y: 50)
-    //                            .luminanceToAlpha()
+                                .offset(y: 30)
+                            //                            .luminanceToAlpha()
                                 .overlay(TextViewHom())
                         }
-                        .frame(height: 210)
+                        .frame(height: 430)
+                        .overlay(content:{
+                            MainMenuRoundedPanel(element: Element)
+                        })
+                    }
 
-                        VStack {
-                            CategoryRowStory(categoryName: ModelData().coffeeshops[0].category.rawValue, items: ModelData().coffeeshops)
-                            Spacer()
-                        }
+//                        VStack {
+//                            CategoryRowStory(categoryName: ModelData().coffeeshops[0].category.rawValue, items: ModelData().coffeeshops)
+//                            Spacer()
+//                        }
                     
                     Divider()
 
@@ -76,6 +81,7 @@ struct HomeView: View {
                         }
                     Spacer()
                 }
+                .listStyle(PlainListStyle())
                 .overlay(
                     NavigationBar()
 //                        .offset(y: 20)
@@ -85,7 +91,9 @@ struct HomeView: View {
         }
 //        .accentColor(.white)
     }
+    
 }
+
 
 //struct HomeView: View {
 //    @State private var selectedTab: Tab = .house

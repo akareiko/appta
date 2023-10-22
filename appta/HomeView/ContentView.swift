@@ -15,7 +15,7 @@ struct ContentView: View {
                 case .house:
                     HomeView()
                 case .magnifyingglass:
-                    MapView()
+                    SearchView()
                 case .qrcode:
                     QrcodeView()
                 case .plus:
