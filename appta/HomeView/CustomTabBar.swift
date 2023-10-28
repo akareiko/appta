@@ -13,8 +13,7 @@ enum Tab: String, CaseIterable {
     case magnifyingglass
     case qrcode
     case plus
-    case person
-    
+    case person   
 }
 
 struct CustomTabBar: View {

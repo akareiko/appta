@@ -1,62 +1,62 @@
 [
     {
-        "name": "Global Coffee",
-        "category": "Featured",
-        "city": "Astana",
-        "id": 1001,
-        "imageName": "turtle",
-        "imageNameStory": "tortoise"
-    },
-    {
         "name": "Starbucks",
         "category": "Featured",
         "city": "Astana",
-        "id": 1002,
-        "imageName": "turtle",
-        "imageNameStory": "tortoise"
-    },
-    {
-        "name": "Zebra Coffee",
-        "category": "Featured",
-        "city": "Astana",
-        "id": 1003,
-        "imageName": "turtle",
-        "imageNameStory": "tortoise"
-    },
-    {
-        "name": "Daily Cup",
-        "category": "Featured",
-        "city": "Astana",
-        "id": 1004,
-        "imageName": "turtle",
-        "imageNameStory": "tortoise"
-    },
-    {
-        "name": "Coffelia",
-        "category": "Featured",
-        "city": "Astana",
-        "id": 1005,
-        "imageName": "turtle",
-        "imageNameStory": "tortoise"
-    },
-    {
-        "name": "Good Day",
-        "category": "Featured",
-        "city": "Astana",
-        "id": 1006,
-        "imageName": "turtle",
+        "id": 1001,
+        "imageName": "starbucks-logo",
         "imageNameStory": "tortoise"
     },
     {
         "name": "Costa Coffee",
         "category": "Featured",
         "city": "Astana",
-        "id": 1007,
-        "imageName": "turtle",
+        "id": 1002,
+        "imageName": "costacoffee-logo",
         "imageNameStory": "tortoise"
     },
     {
-        "name": "Assylzhan Coffee",
+        "name": "Tim Horton's",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1003,
+        "imageName": "timhortons-logo",
+        "imageNameStory": "tortoise"
+    },
+    {
+        "name": "Coffee Day",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1004,
+        "imageName": "coffeeday-logo",
+        "imageNameStory": "tortoise"
+    },
+    {
+        "name": "Zebra Coffee",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1005,
+        "imageName": "zebracoffee-logo",
+        "imageNameStory": "tortoise"
+    },
+    {
+        "name": "Cinnabon",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1006,
+        "imageName": "cinnabon-logo",
+        "imageNameStory": "tortoise"
+    },
+    {
+        "name": "Arabica",
+        "category": "Featured",
+        "city": "Astana",
+        "id": 1007,
+        "imageName": "arabica-logo",
+        "imageNameStory": "tortoise"
+    },
+    {
+        "name": "Good Day",
         "category": "Featured",
         "city": "Astana",
         "id": 1008,
@@ -76,22 +76,6 @@
         "category": "Featured",
         "city": "Astana",
         "id": 1010,
-        "imageName": "turtle",
-        "imageNameStory": "tortoise"
-    },
-    {
-        "name": "Patric Bateman Coffee",
-        "category": "Featured",
-        "city": "Astana",
-        "id": 1011,
-        "imageName": "turtle",
-        "imageNameStory": "tortoise"
-    },
-    {
-        "name": "Andrew's Arabica",
-        "category": "Featured",
-        "city": "Astana",
-        "id": 1012,
         "imageName": "turtle",
         "imageNameStory": "tortoise"
     }

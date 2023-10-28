@@ -9,7 +9,12 @@ import SwiftUI
 
 struct ProfileView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LockView(lockType: .both, lockPin: "0328", isEnabled: true){
+            Text("Profile View | Any Ideas?")
+            Image(systemName: "person")
+                .resizable()
+                .frame(width: 20, height: 20)
+        }
     }
 }
 

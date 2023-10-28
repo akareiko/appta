@@ -1,0 +1,208 @@
+//
+//  ContentView.swift
+//  SwiftUIAPICalls
+//
+//  Created by Assylzhan Tati on 9/10/23.
+//
+
+import SwiftUI
+
+struct CoffeeShopProfile: View {
+    @State private var selectedIndex: Int = 0
+    @State private var coffeeShops: [CoffeeShopModel] = []
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.presentationMode) var presentationMode
+    @State private var isTextExpanded = false
+    @State var currentIndex: Int = 0
+    @Namespace var animation
+
+    var body: some View {
+        NavigationView {
+            VStack (spacing: 10){
+//                if selectedIndex < coffeeShops.count {
+                    VStack{
+                        CoffeeShopImageScroll()
+                    }
+                    .padding(.bottom, -200)
+                    .ignoresSafeArea()
+    
+                ScrollView(showsIndicators: false){
+                    VStack{
+                            HStack{
+                                VStack (alignment: .leading, spacing: 5){
+                                    //        Text(coffeeShops[selectedIndex].name)
+                                    Text("Starbucks")
+                                        .font(.title)
+                                        .fontWeight(.semibold)
+                                    
+                                    //                                Text(coffeeShops[selectedIndex].name)
+                                    Text("Starbucks")
+                                        .font(.caption)
+                                        .foregroundColor(.gray)
+                                }
+                                
+                                Spacer()
+                                
+                                Text("5")
+                                    .font(.caption)
+                                    .padding(10)
+                                    .background(Color(.systemGray5))
+                                    .clipShape(Circle())
+                                    .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 2, y: 2)
+                                
+                            }
+                            .padding(.horizontal)
+                            .padding(.top, 30)
+                            
+                            HStack{
+                                //                            Text(coffeeShops[selectedIndex].address)
+                                Text("Таlan Towers, Dostyq St 16, Astana 010000")
+                                    .font(.caption)
+                                    .frame(width: 200, height: 40, alignment: .leading)
+                                
+                                Spacer()
+                                
+                                Text("2.4 km away")
+                                    .font(.caption)
+                            }
+                            .padding(.horizontal)
+                            .padding(.top, -5)
+                            
+                            Divider()
+                            
+                            Button {
+                                
+                            } label: {
+                                Text("Get Your Starbucks Subscription Now! ")
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(width: UIScreen.main.bounds.width - 20, height: 40)
+                                    .background(Color(.systemBlue))
+                                    .cornerRadius(20)
+                                    .shadow(color: Color.gray.opacity(0.5), radius: 10, x: 0, y: 5)
+                            }
+                            
+                            VStack(alignment: .leading){
+                                Text("About")
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
+                                    .padding(.bottom, 5)
+                                    .padding(.top)
+                                
+                                //                            Text(coffeeShops[selectedIndex].text)
+                                Text("Starbucks, an iconic coffeehouse chain founded in 1971, offers a wide range of expertly crafted coffee beverages and delectable treats. With thousands of locations worldwide, it's a go-to destination for quality coffee, delightful pastries, and a welcoming atmosphere, fostering connections and enhancing daily routines.")
+                                    .font(.body)
+                                    .foregroundColor(.black)
+                                    .lineLimit(isTextExpanded ? nil : 3)
+                                
+                                Button(action: {
+                                    withAnimation {
+                                        isTextExpanded.toggle()
+                                    }
+                                }) {
+                                    Text(isTextExpanded ? "Show less" : "Show more")
+                                        .font(.caption)
+                                        .foregroundColor(Color(.systemGray))
+                                    Image(systemName: isTextExpanded ? "chevron.down" : "chevron.up")
+                                        .foregroundColor(Color(.systemGray))
+                                        .imageScale(.small)
+                                        .padding(.leading, -5)
+                                }
+                                .padding(.top, 0.5)
+                                
+                                
+                                VStack(alignment: .leading){
+                                    
+                                    Text("Specials")
+                                        .font(.title2)
+                                        .fontWeight(.semibold)
+                                        .padding(.top)
+                                    
+                                    CoffeesScroll()
+                                    
+                                }
+                                .frame(height: 370)
+                                .padding(.bottom, 15)
+                                
+                                Text("Working Hours")
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
+                                    .padding(.top, 5)
+                                    .padding(.bottom, 5)
+                                
+                                //                            Text(coffeeShops[selectedIndex].workingHours)
+                                Text("Mon - Fri | 9am - 12pm,\nSat - Sun | 9am - 2am")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                            .frame(maxHeight: .infinity)
+                            .padding(.horizontal)
+                            .padding(.bottom, 50)
+                        }
+                        .background(Color.white)
+                            .clipShape(Rounded())
+                            .padding(.top)
+                }
+                    Spacer()
+            }
+            
+            }
+            .ignoresSafeArea()
+            .onAppear {
+                fetchData()
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Circle()
+                        .frame(width: 60)
+                        .foregroundColor(.black)
+                        .overlay(
+                            Image(systemName: "chevron.backward")
+                                .foregroundColor(.white)
+                        )
+                    }
+                }
+            }
+        }
+//    }
+
+    func fetchData() {
+        if let url = URL(string: "http://localhost:8080/apithing/apicoffeeshop.php") {
+            URLSession.shared.dataTask(with: url) { data, _, error in
+                if let data = data {
+                    if let decodedData = try? JSONDecoder().decode([CoffeeShopModel].self, from: data) {
+                        DispatchQueue.main.async {
+                            self.coffeeShops = decodedData
+                        }
+                    }
+                }
+            }.resume()
+        }
+    }
+}
+
+struct Rounded: Shape{
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 40, height: 40))
+        return Path(path.cgPath)
+    }
+    
+}
+
+struct CoffeeShopModel: Codable {
+    let coffeeshopId: String
+    let name: String
+    let address: String
+    let text: String
+    let workingHours: String
+}
+
+struct CoffeeShopProfile_Previews: PreviewProvider {
+    static var previews: some View {
+        CoffeeShopProfile()
+    }
+}

@@ -3,6 +3,8 @@ import SwiftUI
 
 @main
 struct MyApp: App {
+    @StateObject private var navigationState = NavigationState()
+    
     init() {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithTransparentBackground()
@@ -17,7 +19,11 @@ struct MyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if !navigationState.navigateToContentView {
+                GuideView(navigationState: navigationState) // Pass the shared state
+            } else {
+                ContentView()
+            }
         }
     }
 }

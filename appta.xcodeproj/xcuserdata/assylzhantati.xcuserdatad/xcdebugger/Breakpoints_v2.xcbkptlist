@@ -18,5 +18,158 @@
             endingLineNumber = "38">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "385C3554-4EE4-4773-A152-813F57EF2338"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appta/Map01/ViewModel/LocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "LocationManager"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - e298e565cc5e68e9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "property wrapper backing initializer of appta.LocationManager.searchText : Swift.String"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/appta/Map01/ViewModel/LocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "41">
+               </Location>
+               <Location
+                  uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - a7a87ec590519e07"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.LocationManager.searchText.getter : Swift.String"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/appta/Map01/ViewModel/LocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - 313523a76c7e9346"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.LocationManager.searchText.setter : Swift.String"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/appta/Map01/ViewModel/LocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - 7855bde7ebe17f77"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.LocationManager.searchText.modify : Swift.String"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/appta/Map01/ViewModel/LocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - 5ebba5be5115493c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.LocationManager.searchText.modify : Swift.String with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - 2e7202582281ad51"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.LocationManager.$searchText.getter : Combine.Published&lt;Swift.String&gt;.Publisher"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/appta/Map01/ViewModel/LocationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - e98324500ba2b15f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.LocationManager.$searchText.setter : Combine.Published&lt;Swift.String&gt;.Publisher"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "30">
+               </Location>
+               <Location
+                  uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - 401154087628228"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.LocationManager.$searchText.modify : Combine.Published&lt;Swift.String&gt;.Publisher"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - 24250ec395baf776"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.LocationManager.$searchText.modify : Combine.Published&lt;Swift.String&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
