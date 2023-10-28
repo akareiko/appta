@@ -21,7 +21,7 @@ struct ContentView: View {
                 case .plus:
                     SubscriptionUpdatedView()
                 case .person:
-                    HomeView()
+                    ProfileView()
                 }
             }
             VStack {

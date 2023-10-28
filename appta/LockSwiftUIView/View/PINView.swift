@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PINView: View {
     var body: some View {
-        LockView(lockType: .number, lockPin: "0328", isEnabled: true){
+        LockView(lockType: .both, lockPin: "0328", isEnabled: true){
             VStack(spacing: 15){
                 Image(systemName: "globe")
                     .imageScale(.large)

@@ -1,181 +1,85 @@
 import SwiftUI
 import Foundation
 
-struct TextViewHom: View {
-    var body: some View {
-        Text("appta")
-            .font(.custom("Helvetica", size: 15))
-            .bold()
-            .padding(9)
-            .foregroundColor(.white)
-            .background(Color.black)
-            .cornerRadius(15)
-            .padding(45)
-    }
-}
-
 struct HomeView: View {
     @State private var selectedTab: Tab = .house
-
+    
     var body: some View {
+        
         NavigationStack {
-            ZStack {
+            VStack {
+                Rectangle()
+                    .frame(width: UIScreen.main.bounds.width, height: 100)
+                    .foregroundColor(.white)
+                    .overlay(content: {
+                        HStack(){
+                            Image("starbucks-logo")
+                                .resizable()
+                                .frame(width: 35, height: 35)
+                                .offset(CGSize(width: 0.0, height: 3.0))
+                            
+                            Spacer()
+                            
+                            Text("DAILY CUP")
+                                .font(.custom("Helvetica", size: 15))
+                                .offset(CGSize(width: -8.0, height: 4.0))
+                                .fontWeight(.semibold)
+                            
+                            Spacer()
+                            
+                            Image(systemName: "line.3.horizontal")
+                                .resizable()
+                                .offset(CGSize(width: 0.0, height: 3.0))
+                                .frame(width: 20, height: 20)
+                            
+                        }
+                        .offset(CGSize(width: 0, height: 20.0))
+                        .padding(.horizontal, 20)
+                    })
+                
                 ScrollView(showsIndicators: false){
                     ZStack(){
-                        GeometryReader { geometry in
-                            Image("hehone")
+                        VStack{
+                            Image("main_starbucks")
                                 .resizable()
+                                .frame(width: UIScreen.main.bounds.width, height: 300)
                                 .aspectRatio(contentMode: .fill)
-                                .frame(
-                                    width: geometry.size.width,
-                                    height: geometry.safeAreaInsets.top + 300
-                                )
-                                .clipped()
-                                .offset(y: 30)
-                            //                            .luminanceToAlpha()
-                                .overlay(TextViewHom())
-                        }
-                        .frame(height: 430)
-                        .overlay(content:{
+                            
+                            Rectangle()
+                                .fill(Color("starbucks-white"))
+                                .frame(width: UIScreen.main.bounds.width, height: 420)
+                                .aspectRatio(contentMode: .fill)
+                                .padding(.top, -10)
+                            
+                            Rectangle()
+                                .fill(Color("starbucks-white"))
+                                .frame(width: UIScreen.main.bounds.width, height: 500)
+                                .aspectRatio(contentMode: .fill)
+                                .padding(.top, -10)
+                            
                             MainMenuRoundedPanel(element: Element)
-                        })
+                                .offset(x: 0, y: -970)
+                            
+                            CategoryRow(                 categoryName: ModelData().coffeeshops[0].category.rawValue,        items: ModelData().coffeeshops)
+                                .offset(x: 0, y: -400)
+                            
+                            MenuReward03(element03: Element03)
+                                .offset(y: -1080)
+                            
+                            MenuReward02(menuReward02: menuReward02)
+                                .padding(.bottom, 120)
+                            
+                            RewardCarouselView(rewardCarousel: RewardCarousels)
+                                .offset(y: -1300)
+                            
+                        }
                     }
-
-//                        VStack {
-//                            CategoryRowStory(categoryName: ModelData().coffeeshops[0].category.rawValue, items: ModelData().coffeeshops)
-//                            Spacer()
-//                        }
-                    
-                    Divider()
-
-                        VStack {
-                            CategoryRow(
-                                categoryName: ModelData().coffeeshops[0].category.rawValue,
-                                items: ModelData().coffeeshops
-                            )
-                            Spacer()
-                        }
-                    
-                    Divider()
-
-                        VStack {
-                            Image("hehtwo")
-                                .renderingMode(.original)
-                                .resizable()
-                                .frame(width: UIScreen.main.bounds.width - 40, height: 200)
-                                .cornerRadius(10)
-                                .padding(.top)
-                                .padding(.bottom)
-
-                            Spacer()
-                        }
-                    
-                    Divider()
-                    
-                        VStack {
-                            CategoryRow(
-                                categoryName: "Subscription+",
-                                items: ModelData().coffeeshops
-                            )
-                            Spacer()
-                        }
-                    Spacer()
                 }
-                .listStyle(PlainListStyle())
-                .overlay(
-                    NavigationBar()
-//                        .offset(y: 20)
-                )
             }
-//            .edgesIgnoringSafeArea(.top)
+            .ignoresSafeArea()
         }
-//        .accentColor(.white)
     }
-    
 }
-
-
-//struct HomeView: View {
-//    @State private var selectedTab: Tab = .house
-//    @State private var showNavigationBar: Bool = false
-//
-//    var body: some View {
-//        NavigationStack {
-//            ZStack {
-//                ScrollView {
-//                    VStack(spacing: 0) {
-//
-//                        GeometryReader { geometry in
-//                            Image("hehone")
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fill)
-//                                .frame(
-//                                    width: geometry.size.width,
-//                                    height: geometry.safeAreaInsets.top + 300
-//                                )
-//                                .clipped()
-//                                .offset(y: -geometry.safeAreaInsets.top)
-//                                .overlay(TextViewHom())
-//                                .background(
-//                                    GeometryReader { innerGeometry -> Color in
-//                                        let yOffset = innerGeometry.frame(in: .global).minY
-//                                        if yOffset < -300 && !showNavigationBar {
-//                                            DispatchQueue.main.async {
-//                                                showNavigationBar = true
-//                                            }
-//                                        } else if yOffset >= -300 && showNavigationBar {
-//                                            DispatchQueue.main.async {
-//                                                showNavigationBar = false
-//                                            }
-//                                        }
-//                                        return Color.clear
-//                                    }
-//                                )
-//                        }
-//                        .frame(height: 300)
-//
-//                        VStack {
-//                            CategoryRowStory(categoryName: ModelData().coffeeshops[0].category.rawValue, items: ModelData().coffeeshops)
-//                            Spacer()
-//                        }
-//
-//                        VStack {
-//                            CategoryRow(
-//                                categoryName: ModelData().coffeeshops[0].category.rawValue,
-//                                items: ModelData().coffeeshops
-//                            )
-//                            Spacer()
-//
-//                        }
-//
-//                        VStack {
-//                            Image("hehtwo")
-//                                .renderingMode(.original)
-//                                .resizable()
-//                                .frame(width: 350, height: 150)
-//                                .cornerRadius(10)
-//
-//                            Spacer()
-//                        }
-//                        VStack {
-//                            CategoryRow(
-//                                categoryName: "Subscription+",
-//                                items: ModelData().coffeeshops
-//                            )
-//                            Spacer()
-//                        }
-//                    }
-//                }
-//                if showNavigationBar {
-//                    NavigationBar()
-//                        .animation(Animation.easeInOut, value: UUID())
-//                }
-//            }
-//            .edgesIgnoringSafeArea(.top)
-//        }
-////        .accentColor(.white)
-//    }
-//}
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {

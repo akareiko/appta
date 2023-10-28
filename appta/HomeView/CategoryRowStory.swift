@@ -16,8 +16,7 @@ struct CategoryRowStory: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(items) { coffeeshop in
-                        CategoryItemStory(coffeeshop: coffeeshop)
-                            
+                        CategoryItemStory(coffeeshop: coffeeshop)     
                     }
                 }
             }

@@ -38,7 +38,6 @@ struct SubscriptionUpdatedView: View {
                         .frame(height: 45)
                 }
                 .padding(.bottom, 35)
-                
             }
             .safeAreaPadding([.horizontal, .top], 35)
             
