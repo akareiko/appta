@@ -20,7 +20,7 @@ struct CoffeesScroll: View {
         .padding(.top, -50)
         .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height - 500, alignment: .top)
 //        .background(Color("starbucks-green"))
-        .background(Color.white)
+//        .background()
     }
     
     @ViewBuilder
@@ -59,7 +59,7 @@ struct CoffeesScroll: View {
             ForEach(coffees.indices, id: \.self){index in
                 Circle()
                     .fill(Color("starbucks-green"))
-                    .frame(width: currentIndex == index ? 10 : 6, height: currentIndex == index ? 10 : 6)
+                    .frame(width: currentIndex == index ? 15 : 6, height: currentIndex == index ? 15 : 6)
                     .padding(.top, 2)
                     .background{
                         if currentIndex == index {

@@ -56,8 +56,6 @@
 		BE16564B2A93AFC2003CBE8C /* apptaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16564A2A93AFC2003CBE8C /* apptaUITests.swift */; };
 		BE16564D2A93AFC2003CBE8C /* apptaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16564C2A93AFC2003CBE8C /* apptaUITestsLaunchTests.swift */; };
 		BE17D1FA2A98A5C100FB5054 /* sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17D1F92A98A5C100FB5054 /* sample.swift */; };
-		BE2F0C202AAED0050089FD6A /* StoryPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F0C1F2AAED0050089FD6A /* StoryPageView.swift */; };
-		BE2F0C222AAED2B90089FD6A /* ETCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F0C212AAED2B90089FD6A /* ETCView.swift */; };
 		BE2F0C242AAED4790089FD6A /* hehehe.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BE2F0C232AAED3F70089FD6A /* hehehe.mp4 */; };
 		BE2F0C262AAEDBBA0089FD6A /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F0C252AAEDBBA0089FD6A /* CarouselView.swift */; };
 		BE2F30582A93D89D009E72DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F30572A93D89D009E72DC /* ContentView.swift */; };
@@ -152,8 +150,6 @@
 		BE16564A2A93AFC2003CBE8C /* apptaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apptaUITests.swift; sourceTree = "<group>"; };
 		BE16564C2A93AFC2003CBE8C /* apptaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apptaUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE17D1F92A98A5C100FB5054 /* sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sample.swift; sourceTree = "<group>"; };
-		BE2F0C1F2AAED0050089FD6A /* StoryPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPageView.swift; sourceTree = "<group>"; };
-		BE2F0C212AAED2B90089FD6A /* ETCView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETCView.swift; sourceTree = "<group>"; };
 		BE2F0C232AAED3F70089FD6A /* hehehe.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hehehe.mp4; sourceTree = "<group>"; };
 		BE2F0C252AAEDBBA0089FD6A /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		BE2F30572A93D89D009E72DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -441,21 +437,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		23A4FE3F2AC58696004D20CD /* CoffeeShopSubscription */ = {
-			isa = PBXGroup;
-			children = (
-				23A4FE402AC586A7004D20CD /* View */,
-			);
-			path = CoffeeShopSubscription;
-			sourceTree = "<group>";
-		};
-		23A4FE402AC586A7004D20CD /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		23A4FE412AC58808004D20CD /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,29 +463,6 @@
 				23A4FE672ACA1D57004D20CD /* CoffeesScroll.swift */,
 			);
 			path = CoffeeScroll;
-			sourceTree = "<group>";
-		};
-		23E407672AEACC5A008ABD48 /* RewardView */ = {
-			isa = PBXGroup;
-			children = (
-				23E407692AEACDF2008ABD48 /* Model */,
-				23E407682AEACDDA008ABD48 /* View */,
-			);
-			path = RewardView;
-			sourceTree = "<group>";
-		};
-		23E407682AEACDDA008ABD48 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		23E407692AEACDF2008ABD48 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		23E4076A2AEACE12008ABD48 /* View */ = {
@@ -657,13 +615,11 @@
 		BE16562E2A93AFC1003CBE8C /* appta */ = {
 			isa = PBXGroup;
 			children = (
-				23E407672AEACC5A008ABD48 /* RewardView */,
 				23E9A1502AE513C500494951 /* LockSwiftUIView */,
 				23E9D6C72AD0C0B20044A47F /* Fonts */,
 				237B5CB42ACC369E00F35311 /* Map02 */,
 				237B5C342ACB386B00F35311 /* Map01 */,
 				23A4FE522AC96113004D20CD /* FeatureTools */,
-				23A4FE3F2AC58696004D20CD /* CoffeeShopSubscription */,
 				23A4FE3D2AC4699B004D20CD /* CoffeeShopProfile */,
 				23A4FE322AC467E3004D20CD /* Introduction  */,
 				BED02CFB2A9603D6007DEE6D /* HomeView */,
@@ -750,8 +706,6 @@
 				BEFBB8E62AA6F0B100896A83 /* DarkeningScrollView.swift */,
 				BED02D082A960AB1007DEE6D /* HomeView.swift */,
 				BEFBB8E82AA74EBF00896A83 /* NavigationBar.swift */,
-				BE2F0C1F2AAED0050089FD6A /* StoryPageView.swift */,
-				BE2F0C212AAED2B90089FD6A /* ETCView.swift */,
 				BE2F0C252AAEDBBA0089FD6A /* CarouselView.swift */,
 				BE2F0C232AAED3F70089FD6A /* hehehe.mp4 */,
 			);
@@ -929,9 +883,7 @@
 				23E9D6C62AD0905F0044A47F /* CardShape.swift in Sources */,
 				23E407662AEA6C60008ABD48 /* MenuReward04.swift in Sources */,
 				BEFBB8E92AA74EBF00896A83 /* NavigationBar.swift in Sources */,
-				BE2F0C222AAED2B90089FD6A /* ETCView.swift in Sources */,
 				23A4FE542AC9613E004D20CD /* CustomCarousel.swift in Sources */,
-				BE2F0C202AAED0050089FD6A /* StoryPageView.swift in Sources */,
 				23E5100E2AE91C1A006C03A4 /* MenuElementModel02.swift in Sources */,
 				BEFBB8E12AA6A8B500896A83 /* CategoryItemStory.swift in Sources */,
 				BED02D112A961AB6007DEE6D /* QrcodeView.swift in Sources */,

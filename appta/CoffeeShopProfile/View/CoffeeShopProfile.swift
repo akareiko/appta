@@ -18,134 +18,171 @@ struct CoffeeShopProfile: View {
 
     var body: some View {
         NavigationView {
-            VStack (spacing: 10){
-//                if selectedIndex < coffeeShops.count {
-                    VStack{
-                        CoffeeShopImageScroll()
-                    }
-                    .padding(.bottom, -200)
-                    .ignoresSafeArea()
-    
+            VStack {
                 ScrollView(showsIndicators: false){
+                    GeometryReader { geometry in
+                        Image("starbucks5")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.main.bounds.width + 20, height: geometry.frame(in: .global).minY +
+                                280)
+                            .ignoresSafeArea()
+                            .offset(y: -geometry.frame(in: .global).minY + 220)
+                    }
                     VStack{
-                            HStack{
-                                VStack (alignment: .leading, spacing: 5){
-                                    //        Text(coffeeShops[selectedIndex].name)
-                                    Text("Starbucks")
-                                        .font(.title)
-                                        .fontWeight(.semibold)
-                                    
-                                    //                                Text(coffeeShops[selectedIndex].name)
-                                    Text("Starbucks")
-                                        .font(.caption)
-                                        .foregroundColor(.gray)
+                        HStack{
+                            VStack (alignment: .leading, spacing: 5){
+                                //        Text(coffeeShops[selectedIndex].name)
+                                RoundedRectangle(cornerRadius: 50)
+                                            .frame(width: 50, height: 5)
+                                            .foregroundColor(Color("silver"))
+                                            .background(.thinMaterial)
+                                            .offset(x: 155, y: -20)
+                                Text("Starbucks")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                
+                                //                                Text(coffeeShops[selectedIndex].name)
+                                //                                    Text("Starbucks")
+                                //                                        .font(.caption)
+                                //                                        .foregroundColor(.gray)
+                            }
+                            
+                            Spacer()
+                            
+                            Text("5")
+                                .font(.caption)
+                                .padding(10)
+                                .background(Color(.systemGray5))
+                                .clipShape(Circle())
+                                .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 2, y: 2)
+                            
+                        }
+                        .padding(.horizontal)
+                        .padding(.top, 30)
+                        
+                        HStack{
+                            //                            Text(coffeeShops[selectedIndex].address)
+                            Text("Таlan Towers, Dostyq St 16")
+                                .foregroundColor(.gray)
+                                .font(.caption)
+                                .frame(width: 200, height: 40, alignment: .leading)
+                            
+                            Spacer()
+                            
+                            Text("2.4 km away")
+                                .font(.caption)
+                        }
+                        .padding(.horizontal)
+                        .padding(.top, -20)
+                        
+                        VStack(alignment: .leading){
+                            //                            Text(coffeeShops[selectedIndex].text)
+                            Text("Starbucks, an iconic coffeehouse chain founded in 1971, offers a wide range of expertly crafted coffee beverages and delectable treats. With thousands of locations worldwide, it's a go-to destination for quality coffee, delightful pastries, and a welcoming atmosphere, fostering connections and enhancing daily routines.")
+                                .font(.caption)
+                                .foregroundColor(.black)
+                                .lineLimit(isTextExpanded ? nil : 3)
+                            
+                            Button(action: {
+                                withAnimation {
+                                    isTextExpanded.toggle()
                                 }
-                                
-                                Spacer()
-                                
-                                Text("5")
+                            }) {
+                                Text(isTextExpanded ? "Show less" : "Show more")
                                     .font(.caption)
-                                    .padding(10)
-                                    .background(Color(.systemGray5))
-                                    .clipShape(Circle())
-                                    .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 2, y: 2)
-                                
+                                    .foregroundColor(Color(.systemGray))
+                                Image(systemName: isTextExpanded ? "chevron.up" : "chevron.down")
+                                    .foregroundColor(Color(.systemGray))
+                                    .imageScale(.small)
+                                    .padding(.leading, -5)
                             }
-                            .padding(.horizontal)
-                            .padding(.top, 30)
+                            .padding(.top, 0.5)
                             
-                            HStack{
-                                //                            Text(coffeeShops[selectedIndex].address)
-                                Text("Таlan Towers, Dostyq St 16, Astana 010000")
-                                    .font(.caption)
-                                    .frame(width: 200, height: 40, alignment: .leading)
-                                
-                                Spacer()
-                                
-                                Text("2.4 km away")
-                                    .font(.caption)
-                            }
-                            .padding(.horizontal)
-                            .padding(.top, -5)
-                            
-                            Divider()
-                            
-                            Button {
-                                
-                            } label: {
-                                Text("Get Your Starbucks Subscription Now! ")
-                                    .foregroundColor(.white)
-                                    .padding()
-                                    .frame(width: UIScreen.main.bounds.width - 20, height: 40)
-                                    .background(Color(.systemBlue))
-                                    .cornerRadius(20)
-                                    .shadow(color: Color.gray.opacity(0.5), radius: 10, x: 0, y: 5)
-                            }
                             
                             VStack(alignment: .leading){
-                                Text("About")
-                                    .font(.title2)
-                                    .fontWeight(.semibold)
-                                    .padding(.bottom, 5)
+                                
+                                Text("Specials")
+                                    .font(.title)
+                                    .fontWeight(.bold)
                                     .padding(.top)
                                 
-                                //                            Text(coffeeShops[selectedIndex].text)
-                                Text("Starbucks, an iconic coffeehouse chain founded in 1971, offers a wide range of expertly crafted coffee beverages and delectable treats. With thousands of locations worldwide, it's a go-to destination for quality coffee, delightful pastries, and a welcoming atmosphere, fostering connections and enhancing daily routines.")
-                                    .font(.body)
-                                    .foregroundColor(.black)
-                                    .lineLimit(isTextExpanded ? nil : 3)
+                                CoffeesScroll()
                                 
-                                Button(action: {
-                                    withAnimation {
-                                        isTextExpanded.toggle()
-                                    }
-                                }) {
-                                    Text(isTextExpanded ? "Show less" : "Show more")
-                                        .font(.caption)
-                                        .foregroundColor(Color(.systemGray))
-                                    Image(systemName: isTextExpanded ? "chevron.down" : "chevron.up")
-                                        .foregroundColor(Color(.systemGray))
-                                        .imageScale(.small)
-                                        .padding(.leading, -5)
-                                }
-                                .padding(.top, 0.5)
-                                
-                                
-                                VStack(alignment: .leading){
-                                    
-                                    Text("Specials")
-                                        .font(.title2)
-                                        .fontWeight(.semibold)
-                                        .padding(.top)
-                                    
-                                    CoffeesScroll()
-                                    
-                                }
-                                .frame(height: 370)
-                                .padding(.bottom, 15)
-                                
-                                Text("Working Hours")
-                                    .font(.title2)
-                                    .fontWeight(.semibold)
-                                    .padding(.top, 5)
-                                    .padding(.bottom, 5)
-                                
-                                //                            Text(coffeeShops[selectedIndex].workingHours)
-                                Text("Mon - Fri | 9am - 12pm,\nSat - Sun | 9am - 2am")
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
                             }
-                            .frame(maxHeight: .infinity)
-                            .padding(.horizontal)
-                            .padding(.bottom, 50)
+                            .frame(height: 370)
+                            .padding(.bottom, 15)
+                            
+                            HStack {
+                                Button {
+                                    
+                                } label: {
+                                    Text("Get Your Starbucks Subscription Now! ")
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .frame(width: UIScreen.main.bounds.width / 3 - 20, height: 50)
+                                        .background(Color(.black))
+                                        .cornerRadius(20)
+                                        .shadow(color: Color.gray.opacity(0.5), radius: 10, x: 0, y: 5)
+                                }
+                                Button {
+                                    
+                                } label: {
+                                    Text("Get Your Starbucks Subscription Now! ")
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .frame(width: UIScreen.main.bounds.width / 3 - 20, height: 50)
+                                        .background(Color(.black))
+                                        .cornerRadius(20)
+                                        .shadow(color: Color.gray.opacity(0.5), radius: 10, x: 0, y: 5)
+                                }
+                                Button {
+                                    
+                                } label: {
+                                    Text("Get Your Starbucks Subscription Now! ")
+                                        .foregroundColor(.white)
+                                        .padding()
+                                        .frame(width: UIScreen.main.bounds.width / 3 - 20, height: 50)
+                                        .background(Color(.black))
+                                        .cornerRadius(20)
+                                        .shadow(color: Color.gray.opacity(0.5), radius: 10, x: 0, y: 5)
+                                }
+                            }
+                            
+                            
+                            Text("Working Hours")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .padding(.top, 5)
+                                .padding(.bottom, 5)
+                            
+                            //                            Text(coffeeShops[selectedIndex].workingHours)
+                            Text("Mon - Fri | 9am - 12pm,\nSat - Sun | 9am - 2am")
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                            
+                            
                         }
-                        .background(Color.white)
-                            .clipShape(Rounded())
-                            .padding(.top)
+                        //                            .frame(maxHeight: .infinity)
+                        .padding(.horizontal)
+                        .padding(.bottom, 50)
+                        
+                    }
+                    //.offset(y: 200)
+                    .background(Color(red: 240 / 255, green: 240 / 255, blue: 240 / 255))
+                    .clipShape(Rounded())
+                    .padding(.top, 300)
+                    
+                        
+                    }
+//                .background(
+//                    Image("starbucks")
+//                )
+//                .background(
+//                    LinearGradient(gradient: Gradient(colors: [Color("starbucks-housegreen"), Color("starbucks-ceramic")]), startPoint: .top, endPoint: .bottom)
+//                )
+                        .ignoresSafeArea()
+
                 }
-                    Spacer()
-            }
-            
             }
             .ignoresSafeArea()
             .onAppear {
