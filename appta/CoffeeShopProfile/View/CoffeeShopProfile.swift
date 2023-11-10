@@ -24,7 +24,7 @@ struct CoffeeShopProfile: View {
                         Image("starbucks5")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.main.bounds.width + 20, height: geometry.frame(in: .global).minY +
+                            .frame(width: UIScreen.main.bounds.width, height: geometry.frame(in: .global).minY +
                                 280)
                             .ignoresSafeArea()
                             .offset(y: -geometry.frame(in: .global).minY + 220)
