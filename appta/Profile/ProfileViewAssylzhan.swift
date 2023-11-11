@@ -51,17 +51,17 @@ struct ProfileViewAssylzhan: View {
                                     .clipShape(CardShape(corners: [.topRight, .bottomRight, .topLeft, .bottomLeft]))
                                     .padding(.bottom, -10)
                                     .padding(.top, 10)
-                                    .offset(CGSize(width: 0.0, height: 20))
+                                    .offset(CGSize(width: 30.0, height: 20))
                                     .overlay(){
                                         RoundedRectangle(cornerRadius: 15)
                                             .stroke(LinearGradient(gradient: Gradient(colors: [Color("starbucks-ceramic"), Color("starbucks-lightgold")]), startPoint: .leading, endPoint: .trailing), lineWidth: 4)
                                             .stroke(LinearGradient(gradient: Gradient(colors: [Color("starbucks-lightgold"), Color("starbucks-black")]), startPoint: .leading, endPoint: .trailing), lineWidth: 4)
-                                            .offset(CGSize(width: 0.0, height: 30))
+                                            .offset(CGSize(width: 30.0, height: 30))
                                             
                                         
                                 Text("1738 бонусов")
                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                    .offset(CGSize(width: 0.0, height: 70))
+                                    .offset(CGSize(width: 30.0, height: 70))
                                     .fontWeight(.bold)
                                     .font(.headline)
                                     .foregroundColor(Color("starbucks-black"))
@@ -74,25 +74,17 @@ struct ProfileViewAssylzhan: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width:40, height: 40)
-                                    .offset(x: 130, y: -165)
+                                    .offset(x: 160, y: -165)
                             }
                             .background(Image("starbucks-background"))
                         }
                         .padding(.top, 20)
                         
-//                        RoundedRectangle(cornerRadius: 30)
-//                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-//                            .foregroundColor(.white)
-//                            .offset(y: 10)
-//                            .shadow(radius: 3)
-//                            .overlay(content: {
-//                                List{
-//                                    ForEach(0..<3, id: \.self) { index in
-//                                        Text("Current index: \(index)")
-//                                        
-//                                    }
-//                                }
-//                            })
+                        RoundedRectangle(cornerRadius: 30)
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                            .foregroundColor(.white)
+                            .offset(y: 10)
+                            .shadow(radius: 3)
                         
                     }
                 }
