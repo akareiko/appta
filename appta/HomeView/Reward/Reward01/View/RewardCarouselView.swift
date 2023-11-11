@@ -18,7 +18,8 @@ struct RewardCarouselView: View {
     @State private var stretchContent: Bool = true
     var body: some View {
         VStack{
-            Image(systemName: "star")
+            Image(systemName: "star.fill")
+                .foregroundColor(Color("starbucks-rewardgold"))
                 .padding(.bottom, 5)
             Text("Daily Cup Rewards")
                 .font(.title2.bold())

@@ -37,7 +37,7 @@ struct HomeView: View {
                         }
                         .offset(CGSize(width: 0, height: 20.0))
                         .padding(.horizontal, 20)
-                        .padding(.top, -10)
+                        .padding(.top, -5)
                     })
                 
                 ScrollView(showsIndicators: false){
@@ -62,17 +62,23 @@ struct HomeView: View {
                             MainMenuRoundedPanel(element: Element)
                                 .offset(x: 0, y: -970)
                             
-                            CategoryRow(                 categoryName: ModelData().coffeeshops[0].category.rawValue,        items: ModelData().coffeeshops)
-                                .offset(x: 0, y: -400)
-                            
                             MenuReward03(element03: Element03)
-                                .offset(y: -1080)
+                                .offset(y: -920)
                             
-                            MenuReward02(menuReward02: menuReward02)
-                                .padding(.bottom, 120)
+                            MenuRoundedPanel03()
+                                .offset(x: 0, y: -850)
+                            
+                            MenuRoundedPanel04(model04: MenuRPmodel04)
+                                .offset(x: 0, y: -800)
+                            
+                            CategoryRow(categoryName: ModelData().coffeeshops[0].category.rawValue, items: ModelData().coffeeshops)
+                                .offset(x: 0, y: -750)
                             
                             RewardCarouselView(rewardCarousel: RewardCarousels)
-                                .offset(y: -1300)
+                                .offset(y: -700)
+                            
+                            MenuReward02(menuReward02: menuReward02)
+                                .offset(CGSize(width: 0.0, height: -700.0)).padding(.bottom, 120)
                             
                         }
                     }

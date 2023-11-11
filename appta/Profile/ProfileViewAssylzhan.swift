@@ -80,19 +80,19 @@ struct ProfileViewAssylzhan: View {
                         }
                         .padding(.top, 20)
                         
-                        RoundedRectangle(cornerRadius: 30)
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                            .foregroundColor(.white)
-                            .offset(y: 10)
-                            .shadow(radius: 3)
-                            .overlay(content: {
-                                List{
-                                    ForEach(0..<3, id: \.self) { index in
-                                        Text("Current index: \(index)")
-                                        
-                                    }
-                                }
-                            })
+//                        RoundedRectangle(cornerRadius: 30)
+//                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+//                            .foregroundColor(.white)
+//                            .offset(y: 10)
+//                            .shadow(radius: 3)
+//                            .overlay(content: {
+//                                List{
+//                                    ForEach(0..<3, id: \.self) { index in
+//                                        Text("Current index: \(index)")
+//                                        
+//                                    }
+//                                }
+//                            })
                         
                     }
                 }

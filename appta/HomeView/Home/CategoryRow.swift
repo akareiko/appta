@@ -7,7 +7,7 @@ struct CategoryRow: View {
     var body: some View {
         
         RoundedRectangle(cornerRadius: 30)
-            .frame(width: UIScreen.main.bounds.width, height: 150)
+            .frame(width: UIScreen.main.bounds.width, height: 140)
             .foregroundColor(.white)
             .offset(y: 10)
             .shadow(radius: 5)

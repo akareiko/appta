@@ -12,7 +12,8 @@ struct MenuReward03: View {
 
     var body: some View {
         VStack{
-            Image(systemName: "star")
+            Image(systemName: "star.fill")
+                .foregroundColor(Color("starbucks-rewardgold"))
                 .padding(.bottom, 5)
             Text("Today's Rewards")
                 .font(.title2.bold())
