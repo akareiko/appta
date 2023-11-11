@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2303C6152AFE3B0700C66365 /* ProfileViewAssylzhan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303C6142AFE3B0700C66365 /* ProfileViewAssylzhan.swift */; };
+		2303C6182AFF9CA700C66365 /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303C6172AFF9CA700C66365 /* Voucher.swift */; };
+		2303C61D2AFF9D1500C66365 /* InfiniteCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303C61C2AFF9D1500C66365 /* InfiniteCarousel.swift */; };
+		2303C61F2AFF9D3600C66365 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303C61E2AFF9D3600C66365 /* PageControl.swift */; };
+		2303C6212AFF9D4E00C66365 /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303C6202AFF9D4E00C66365 /* OffsetKey.swift */; };
+		2303C6232AFF9D7D00C66365 /* InfiniteCarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2303C6222AFF9D7D00C66365 /* InfiniteCarouselModel.swift */; };
 		2311E8DE2ABD5BCF00868F63 /* CoffeeShopProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2311E8DD2ABD5BCF00868F63 /* CoffeeShopProfile.swift */; };
 		2311E8EF2ABE070400868F63 /* SubscriptionUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2311E8EE2ABE070400868F63 /* SubscriptionUpdatedView.swift */; };
 		2311E8F22ABE073E00868F63 /* CustomPagingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2311E8F12ABE073E00868F63 /* CustomPagingSlider.swift */; };
@@ -96,6 +102,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2303C6142AFE3B0700C66365 /* ProfileViewAssylzhan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewAssylzhan.swift; sourceTree = "<group>"; };
+		2303C6172AFF9CA700C66365 /* Voucher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voucher.swift; sourceTree = "<group>"; };
+		2303C61C2AFF9D1500C66365 /* InfiniteCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteCarousel.swift; sourceTree = "<group>"; };
+		2303C61E2AFF9D3600C66365 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		2303C6202AFF9D4E00C66365 /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
+		2303C6222AFF9D7D00C66365 /* InfiniteCarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteCarouselModel.swift; sourceTree = "<group>"; };
 		2311E8DD2ABD5BCF00868F63 /* CoffeeShopProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopProfile.swift; sourceTree = "<group>"; };
 		2311E8EE2ABE070400868F63 /* SubscriptionUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionUpdatedView.swift; sourceTree = "<group>"; };
 		2311E8F12ABE073E00868F63 /* CustomPagingSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPagingSlider.swift; sourceTree = "<group>"; };
@@ -197,6 +209,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2303C6162AFF9C9800C66365 /* Voucher */ = {
+			isa = PBXGroup;
+			children = (
+				2303C6172AFF9CA700C66365 /* Voucher.swift */,
+			);
+			path = Voucher;
+			sourceTree = "<group>";
+		};
+		2303C6192AFF9CE800C66365 /* InfiniteScroll */ = {
+			isa = PBXGroup;
+			children = (
+				2303C6242AFF9E0500C66365 /* Helpers */,
+				2303C61B2AFF9CFD00C66365 /* Model */,
+				2303C61A2AFF9CF900C66365 /* View */,
+			);
+			path = InfiniteScroll;
+			sourceTree = "<group>";
+		};
+		2303C61A2AFF9CF900C66365 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2303C61C2AFF9D1500C66365 /* InfiniteCarousel.swift */,
+				2303C61E2AFF9D3600C66365 /* PageControl.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2303C61B2AFF9CFD00C66365 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2303C6222AFF9D7D00C66365 /* InfiniteCarouselModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2303C6242AFF9E0500C66365 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2303C6202AFF9D4E00C66365 /* OffsetKey.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2303C6252AFFA44300C66365 /* Reward */ = {
+			isa = PBXGroup;
+			children = (
+				23E510162AE98706006C03A4 /* Reward04 */,
+				2316A3132AE8EC540078BFB8 /* Reward03 */,
+				2316A3012AE6C8890078BFB8 /* Reward02 */,
+				2316A3042AE6E2D20078BFB8 /* Reward01 */,
+			);
+			path = Reward;
+			sourceTree = "<group>";
+		};
+		2303C6262AFFA45C00C66365 /* MenuRoundedPanel */ = {
+			isa = PBXGroup;
+			children = (
+				2303C6282AFFA6B600C66365 /* MenuRewardPanel03 */,
+				23E5100A2AE91BC7006C03A4 /* MenuRoundedPanel02 */,
+				238B6B072AE5412F0076087B /* MenuRoundedPanel01 */,
+			);
+			path = MenuRoundedPanel;
+			sourceTree = "<group>";
+		};
+		2303C6272AFFA46E00C66365 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BE2F305B2A93D9C6009E72DC /* ApptaView.swift */,
+				BE2F30572A93D89D009E72DC /* ContentView.swift */,
+				BE2F30592A93D926009E72DC /* CustomTabBar.swift */,
+				BED02CF82A9416DA007DEE6D /* CategoryRow.swift */,
+				BEFBB8E22AA6AA0300896A83 /* CategoryRowStory.swift */,
+				BED02CF62A94168B007DEE6D /* CategoryItem.swift */,
+				BEFBB8E02AA6A8B500896A83 /* CategoryItemStory.swift */,
+				BEFBB8E62AA6F0B100896A83 /* DarkeningScrollView.swift */,
+				BED02D082A960AB1007DEE6D /* HomeView.swift */,
+				BEFBB8E82AA74EBF00896A83 /* NavigationBar.swift */,
+				BE2F0C252AAEDBBA0089FD6A /* CarouselView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2303C6282AFFA6B600C66365 /* MenuRewardPanel03 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MenuRewardPanel03;
+			sourceTree = "<group>";
+		};
 		2316A3012AE6C8890078BFB8 /* Reward02 */ = {
 			isa = PBXGroup;
 			children = (
@@ -615,6 +716,8 @@
 		BE16562E2A93AFC1003CBE8C /* appta */ = {
 			isa = PBXGroup;
 			children = (
+				2303C6192AFF9CE800C66365 /* InfiniteScroll */,
+				2303C6162AFF9C9800C66365 /* Voucher */,
 				23E9A1502AE513C500494951 /* LockSwiftUIView */,
 				23E9D6C72AD0C0B20044A47F /* Fonts */,
 				237B5CB42ACC369E00F35311 /* Map02 */,
@@ -682,6 +785,7 @@
 			isa = PBXGroup;
 			children = (
 				BED02D0E2A9617FF007DEE6D /* ProfileView.swift */,
+				2303C6142AFE3B0700C66365 /* ProfileViewAssylzhan.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -689,24 +793,10 @@
 		BED02CFB2A9603D6007DEE6D /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				23E510162AE98706006C03A4 /* Reward04 */,
-				23E5100A2AE91BC7006C03A4 /* MenuRoundedPanel02 */,
-				2316A3132AE8EC540078BFB8 /* Reward03 */,
-				2316A3042AE6E2D20078BFB8 /* Reward01 */,
+				2303C6272AFFA46E00C66365 /* Home */,
+				2303C6262AFFA45C00C66365 /* MenuRoundedPanel */,
+				2303C6252AFFA44300C66365 /* Reward */,
 				2316A3022AE6D8F20078BFB8 /* StarGraph */,
-				2316A3012AE6C8890078BFB8 /* Reward02 */,
-				238B6B072AE5412F0076087B /* MenuRoundedPanel01 */,
-				BE2F305B2A93D9C6009E72DC /* ApptaView.swift */,
-				BE2F30572A93D89D009E72DC /* ContentView.swift */,
-				BE2F30592A93D926009E72DC /* CustomTabBar.swift */,
-				BED02CF82A9416DA007DEE6D /* CategoryRow.swift */,
-				BEFBB8E22AA6AA0300896A83 /* CategoryRowStory.swift */,
-				BED02CF62A94168B007DEE6D /* CategoryItem.swift */,
-				BEFBB8E02AA6A8B500896A83 /* CategoryItemStory.swift */,
-				BEFBB8E62AA6F0B100896A83 /* DarkeningScrollView.swift */,
-				BED02D082A960AB1007DEE6D /* HomeView.swift */,
-				BEFBB8E82AA74EBF00896A83 /* NavigationBar.swift */,
-				BE2F0C252AAEDBBA0089FD6A /* CarouselView.swift */,
 				BE2F0C232AAED3F70089FD6A /* hehehe.mp4 */,
 			);
 			path = HomeView;
@@ -893,10 +983,12 @@
 				23E510122AE93B22006C03A4 /* ProgressMeter.swift in Sources */,
 				BE2F305C2A93D9C6009E72DC /* ApptaView.swift in Sources */,
 				23A4FE362AC4682E004D20CD /* GuideView.swift in Sources */,
+				2303C6182AFF9CA700C66365 /* Voucher.swift in Sources */,
 				237B5C382ACB389D00F35311 /* SearchView1.swift in Sources */,
 				238B6B0B2AE5418B0076087B /* MenuElementModel01.swift in Sources */,
 				BED02D0F2A9617FF007DEE6D /* ProfileView.swift in Sources */,
 				23A4FE382AC46848004D20CD /* CustomTextField.swift in Sources */,
+				2303C61D2AFF9D1500C66365 /* InfiniteCarousel.swift in Sources */,
 				231BFE402ACA917200B60737 /* MapViewUpdated.swift in Sources */,
 				BED02CF72A94168B007DEE6D /* CategoryItem.swift in Sources */,
 				23E9D6BB2AD02FA70044A47F /* SubscriptionCard1_Front.swift in Sources */,
@@ -919,9 +1011,11 @@
 				23E4076C2AEACE1F008ABD48 /* StarGraphView.swift in Sources */,
 				23E9D6CF2AD1A3C90044A47F /* CoffeeShopImageScroll.swift in Sources */,
 				BED02D0D2A9617F3007DEE6D /* SubscriptionView.swift in Sources */,
+				2303C6232AFF9D7D00C66365 /* InfiniteCarouselModel.swift in Sources */,
 				23E9D6BD2AD035530044A47F /* SubscriptionCardModel.swift in Sources */,
 				2316A3082AE6E4200078BFB8 /* RewardCarouselModel.swift in Sources */,
 				2316A3122AE7C8550078BFB8 /* MenuReward02.swift in Sources */,
+				2303C6152AFE3B0700C66365 /* ProfileViewAssylzhan.swift in Sources */,
 				23E9D6C02AD081A30044A47F /* SubscriptionCard2_Front.swift in Sources */,
 				BE9BBC182A94080400B0C05D /* CoffeeShop.swift in Sources */,
 				2316A3192AE8EDCE0078BFB8 /* MenuReward03.swift in Sources */,
@@ -930,6 +1024,8 @@
 				2311E8DE2ABD5BCF00868F63 /* CoffeeShopProfile.swift in Sources */,
 				23E9D6C42AD0902C0044A47F /* SubscriptionCard1_Back.swift in Sources */,
 				231BFE482ACA93B500B60737 /* Extenstions.swift in Sources */,
+				2303C6212AFF9D4E00C66365 /* OffsetKey.swift in Sources */,
+				2303C61F2AFF9D3600C66365 /* PageControl.swift in Sources */,
 				BE17D1FA2A98A5C100FB5054 /* sample.swift in Sources */,
 				23E9A1552AE5181600494951 /* PINView.swift in Sources */,
 				237B5CBC2ACC36C700F35311 /* SearchView.swift in Sources */,

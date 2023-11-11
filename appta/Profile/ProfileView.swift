@@ -34,14 +34,14 @@ struct ProfileView: View {
                 
                 VStack{
                     RoundedRectangle(cornerRadius: 15)
-                        .frame(width: UIScreen.main.bounds.width - 40, height: 150)
+                        .frame(width: 320, height: 150)
 //                    .foregroundColor(Color("starbucks-black"))
                     .foregroundColor(Color("starbucks-white"))
                     .overlay(){
                         RoundedRectangle(cornerRadius: 15)
-//                            .stroke(LinearGradient(gradient: Gradient(colors: [Color("starbucks-ceramic"), Color("starbucks-lightgold")]), startPoint: .leading, endPoint: .trailing), lineWidth: 4)
+                            .stroke(LinearGradient(gradient: Gradient(colors: [Color("starbucks-ceramic"), Color("starbucks-lightgold")]), startPoint: .leading, endPoint: .trailing), lineWidth: 4)
                             .stroke(LinearGradient(gradient: Gradient(colors: [Color("starbucks-lightgold"), Color("starbucks-black")]), startPoint: .leading, endPoint: .trailing), lineWidth: 4)
-                            .frame(width: UIScreen.main.bounds.width - 44, height: 150)
+                            .frame(width: 320, height: 200)
 //                        Text("hehehaha")
                         HStack {
                             Image(systemName: "camera.filters")

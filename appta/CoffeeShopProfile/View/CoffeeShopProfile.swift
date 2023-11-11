@@ -168,6 +168,7 @@ struct CoffeeShopProfile: View {
                         
                     }
                     //.offset(y: 200)
+                    .padding(.bottom, 50)
                     .background(Color(red: 240 / 255, green: 240 / 255, blue: 240 / 255))
                     .clipShape(Rounded())
                     .padding(.top, 300)

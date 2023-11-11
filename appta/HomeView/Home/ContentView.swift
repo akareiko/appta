@@ -21,7 +21,7 @@ struct ContentView: View {
                 case .plus:
                     SubscriptionUpdatedView()
                 case .person:
-                    ProfileView()
+                    ProfileViewAssylzhan(subscriptionCards: SubscriptionCards, selectedIndex: 0)
                 }
             }
             VStack {

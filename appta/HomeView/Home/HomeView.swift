@@ -11,6 +11,8 @@ struct HomeView: View {
                 Rectangle()
                     .frame(width: UIScreen.main.bounds.width, height: 100)
                     .foregroundColor(.white)
+                    .shadow(radius: 1)
+                    .padding(.bottom, -7)
                     .overlay(content: {
                         HStack(){
                             Image("starbucks-logo")
@@ -35,15 +37,15 @@ struct HomeView: View {
                         }
                         .offset(CGSize(width: 0, height: 20.0))
                         .padding(.horizontal, 20)
+                        .padding(.top, -10)
                     })
                 
                 ScrollView(showsIndicators: false){
                     ZStack(){
                         VStack{
-                            Image("main_starbucks")
-                                .resizable()
-                                .frame(width: UIScreen.main.bounds.width, height: 300)
-                                .aspectRatio(contentMode: .fill)
+                            InfiniteCarousel()
+                                .frame(width: UIScreen.main.bounds.width - 20)
+                                .scaledToFit()
                             
                             Rectangle()
                                 .fill(Color("starbucks-white"))
