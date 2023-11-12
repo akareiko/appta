@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "costacoffee-horizontal.jpeg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "costacoffee-horizontal.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
