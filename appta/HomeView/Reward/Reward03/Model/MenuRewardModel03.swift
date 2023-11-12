@@ -17,7 +17,7 @@ struct ElementModel03: Identifiable, Hashable{
 }
 
 var Element03 : [ElementModel03] = [
-    .init(image: "circle_01", title: "Birthday Rewards", text: "A complementary grande", totalScore: 10, currentScore: 8),
-    .init(image: "circle_02", title: "Reedem free drink", text: "A complementary merchandise", totalScore: 12, currentScore: 3),
-    .init(image: "circle_03", title: "Free in store refill", text: "A complementary merchandise", totalScore: 12, currentScore: 7)
+    .init(image: "circle_01", title: "Награды Дня Рождения", text: "Гранде в подарок", totalScore: 10, currentScore: 8),
+    .init(image: "circle_02", title: "Бесплатный напиток", text: "Мерч в подарок", totalScore: 12, currentScore: 3),
+    .init(image: "circle_03", title: "Бесплатный рефилл", text: "Мерч в подарок", totalScore: 12, currentScore: 7)
 ]

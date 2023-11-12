@@ -16,14 +16,14 @@ struct ProgressBar: View {
         GeometryReader{ screen in
             ZStack(alignment: .leading){
                 RoundedRectangle(cornerRadius: .infinity)
-                    .foregroundColor(Color("starbucks-rewardgold").opacity(0.5))
-                    .frame(width: 270)
+                    .foregroundColor(Color("starbucks-lightgold").opacity(0.5))
+                    .frame(width: 235)
                 
                 RoundedRectangle(cornerRadius: .infinity)
-                    .foregroundColor(Color("starbucks-rewardgold"))
-                    .frame(width: 270 * CGFloat(barValue)/CGFloat(barTotal))
+                    .foregroundColor(Color("starbucks-lightgold"))
+                    .frame(width: 235 * CGFloat(barValue)/CGFloat(barTotal))
             }
-            .frame(width: UIScreen.main.bounds.width, height: 5)
+            .frame(width: UIScreen.main.bounds.width - 30, height: 5)
             
         }
     }

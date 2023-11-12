@@ -11,50 +11,71 @@ struct MenuReward03: View {
     @State var element03: [ElementModel03]
 
     var body: some View {
-        VStack{
-            Image(systemName: "star.fill")
-                .foregroundColor(Color("starbucks-rewardgold"))
-                .padding(.bottom, 5)
-            Text("Today's Rewards")
-                .font(.title2.bold())
+        HStack {
+            VStack {
+                HStack {
+                    Image(systemName: "star.fill")
+                        .foregroundColor(Color("starbucks-rewardgold"))
+                    
+                    Text("Награды")
+                        .font(.title2.bold())
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(.leading, 30)
+                
+                Text("Посмотрите на наше очко")
+                    .font(.footnote)
+                    .foregroundStyle(.gray)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 30)
+            }
+            
+            Text("еще...")
+                .font(.footnote)
+                .foregroundColor(.secondary)
+                .padding(.trailing, 30)
         }
-        .multilineTextAlignment(.center)
-        .padding(.bottom, 40)
+        .padding(.bottom, 10)
         
         ForEach(element03){element in
-            RoundedRectangle(cornerRadius: 30)
-                .frame(width: UIScreen.main.bounds.width, height: 80)
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(LinearGradient(gradient: Gradient(colors: [Color("starbucks-lightgold"), Color("starbucks-lightgold")]), startPoint: .leading, endPoint: .trailing), lineWidth: 1)
+                .frame(width: UIScreen.main.bounds.width - 50, height: 70)
+//                .foregroundColor(Color("starbucks-white"))
                 .foregroundColor(.white)
-                .shadow(radius: 2)
+                .shadow(radius: 3)
                 .padding(.horizontal, 25)
                 .padding(.bottom, 10)
                 .overlay(content:{
                     HStack(spacing: 5){
                         Image(element.image)
                             .resizable()
-                            .frame(width: 70, height: 70)
-                            .offset(y: -5)
+                            .frame(width: 50, height: 50)
+                            .offset(x: 5, y: -5)
                         
                         Spacer()
                         
                         VStack(alignment: .leading){
                             HStack{
                                 Text(element.title)
-                                    .font(.title3.bold())
+                                    .font(.subheadline.bold())
                                 
                                 Spacer()
                                 
                                 Text("\(element.currentScore) / \(element.totalScore)")
-                                    .font(.callout.bold())
+                                    .font(.subheadline.bold())
                                     .padding(.trailing, 30)
+                                    .foregroundColor(.secondary)
                             }
                             
                             Text(element.text)
-                                .font(.callout)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
                             
                             ProgressBar(barTotal: Float(element.totalScore), barValue: Float(element.currentScore))
                                 .frame(width: 100)
-                                .offset(x: -60)
+                                .offset(x: -63)
                         }
                         .offset(y: 10)
                         

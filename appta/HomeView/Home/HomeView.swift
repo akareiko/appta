@@ -59,26 +59,26 @@ struct HomeView: View {
                                 .aspectRatio(contentMode: .fill)
                                 .padding(.top, -10)
                             
-                            MainMenuRoundedPanel(element: Element)
-                                .offset(x: 0, y: -970)
-                            
-                            MenuReward03(element03: Element03)
-                                .offset(y: -920)
+//                            MainMenuRoundedPanel(element: Element)
+//                                .offset(x: 0, y: -970)
                             
                             MenuRoundedPanel03()
-                                .offset(x: 0, y: -850)
+                                .offset(x: 0, y: -950)
+                            
+                            MenuRoundedPanel05(shops: MenuRPmodel05)
+                                .offset(y: -920)
+                            
+                            MenuReward03(element03: Element03)
+                                .offset(y: -830)
                             
                             MenuRoundedPanel04(model04: MenuRPmodel04)
                                 .offset(x: 0, y: -800)
                             
-                            CategoryRow(categoryName: ModelData().coffeeshops[0].category.rawValue, items: ModelData().coffeeshops)
-                                .offset(x: 0, y: -750)
-                            
                             RewardCarouselView(rewardCarousel: RewardCarousels)
                                 .offset(y: -700)
                             
-                            MenuReward02(menuReward02: menuReward02)
-                                .offset(CGSize(width: 0.0, height: -700.0)).padding(.bottom, 120)
+//                            MenuReward02(menuReward02: menuReward02)
+//                                .offset(CGSize(width: 0.0, height: -700.0)).padding(.bottom, 120)
                             
                         }
                     }

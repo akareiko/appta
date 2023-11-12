@@ -14,31 +14,41 @@ struct MenuRoundedPanel03: View {
     var body: some View {
         VStack(){
             RoundedRectangle(cornerRadius: 30.0)
-                .frame(width: UIScreen.main.bounds.width, height: 120)
-                .foregroundColor(Color("starbucks-green"))
+                .stroke(LinearGradient(gradient: Gradient(colors: [Color("starbucks-lightgold"), Color("starbucks-lightgold")]), startPoint: .leading, endPoint: .trailing), lineWidth: 1)
+                .frame(width: UIScreen.main.bounds.width - 40, height: 120)
+//                .foregroundColor(Color("starbucks-white"))
+                .foregroundColor(.white)
+                .shadow(radius: 3)
                 .overlay(content: {
                     HStack(){
                         VStack(alignment: .leading){
-                            Text("Starbucks Rewards")
+                            Text("Награды Старбакс")
                                 .font(.title3)
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .fontWeight(.semibold)
-                                .offset(CGSize(width: -80.0, height: 10.0))
+                                .offset(CGSize(width: -80.0, height: 15.0))
+                            
+//                            Text("50 / 100")
+//                                .font(.title3)
+//                                .foregroundColor(.black)
+//                                .fontWeight(.semibold)
+//                                .offset(CGSize(width: -80.0, height: -10.0))
+//                                .padding(.top, 20)
                             
                             Text("50 / 100")
                                 .font(.title3)
-                                .foregroundColor(.white)
+                                .foregroundColor(.black)
                                 .fontWeight(.semibold)
-                                .offset(CGSize(width: -80.0, height: -10.0))
-                                .padding(.top, 20)
+                                .offset(CGSize(width: -80.0, height: -5.0))
+                                .padding(.top, 10)
+                            
                                 
                             ProgressBar01(barTotal: barLimit, barValue: progressValue)
-                                .offset(CGSize(width: -60.0, height: -15.0))
+                                .offset(CGSize(width: -60.0, height: -10.0))
                             
-                            Text("50 Stars till next reward")
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .fontWeight(.semibold)
+                            Text("50 Звёзд до награды")
+                                .font(.callout)
+                                .foregroundColor(.secondary)
                                 .offset(CGSize(width: -80.0, height: -15.0))
                         }
                         .offset(CGSize(width: 100.0, height: 0.0))
@@ -46,20 +56,22 @@ struct MenuRoundedPanel03: View {
                         Image(systemName: "star.fill")
                             .resizable()
                             .frame(width: 60, height: 60)
-                            .offset(CGSize(width: -10, height: 0.0))
-                            .foregroundColor(Color("starbucks-ceramic"))
+                            .offset(CGSize(width: -40, height: 0.0))
+                            .offset(y: -5)
+                            .foregroundColor(Color("starbucks-lightgold"))
                             .overlay(content: {
                                 Text("2")
                                     .font(.title2)
-                                    .foregroundColor(Color("starbucks-green"))
+                                    .foregroundColor(Color("starbucks-white"))
                                     .bold()
-                                    .offset(CGSize(width: -10, height: 3.0))
+                                    .offset(y: -5)
+                                    .offset(CGSize(width: -40, height: 3.0))
                             })
                         
-                        Text("250 Stars to \n Gold Level")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .offset(CGSize(width: -10.0, height: 0.0))
+//                        Text("250 Stars to \n Gold Level")
+//                            .font(.headline)
+//                            .foregroundColor(.black)
+//                            .offset(CGSize(width: -10.0, height: 0.0))
                     }
                 })
         }
@@ -75,11 +87,11 @@ struct ProgressBar01: View {
         GeometryReader{ screen in
             ZStack(alignment: .leading){
                 RoundedRectangle(cornerRadius: .infinity)
-                    .foregroundColor(Color("starbucks-rewardgold").opacity(0.5))
+                    .foregroundColor(Color("starbucks-lightgold").opacity(0.5))
                     .frame(width: 180)
                 
                 RoundedRectangle(cornerRadius: .infinity)
-                    .foregroundColor(Color("starbucks-rewardgold"))
+                    .foregroundColor(Color("starbucks-lightgold"))
                     .frame(width: 180 * CGFloat(barValue)/CGFloat(barTotal))
             }
             .frame(width: 140, height: 5)

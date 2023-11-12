@@ -11,25 +11,20 @@ struct CategoryItem: View {
     var coffeeshop: CoffeeShop
 
     var body: some View {
-        VStack{
-            RoundedRectangle(cornerRadius: 10)
-                .frame(width: 45, height: 45)
-                .foregroundColor(.white)
-                .shadow(radius: 2)
-                
-                .overlay(content:{
-                    coffeeshop.image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 30, height: 30)
-                        .cornerRadius(16)
-                })
-            
+        VStack(alignment: .leading) {
+            coffeeshop.image
+                .renderingMode(.original)
+                .resizable()
+                .frame(width: 290, height: 190)
+                .cornerRadius(20)
             Text(coffeeshop.name)
-                .frame(width: 90, height: 15)
+                .truncationMode(.tail)
+                .frame(width: 250, height: 20)
                 .foregroundColor(.primary)
-                .font(.caption)
-                
+                .font(
+                    .caption
+                    .weight(.bold)
+                )
         }
         .padding(.leading, 15)
     }
@@ -38,14 +33,5 @@ struct CategoryItem: View {
 struct CategoryItem_Previews: PreviewProvider {
     static var previews: some View {
         CategoryItem(coffeeshop: ModelData().coffeeshops[0])
-    }
-}
-
-struct ShadowMask: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        path.addRect(rect)
-        path.addRect(CGRect(x: 0, y: 0, width: rect.width, height: rect.height))
-        return path
     }
 }
