@@ -23,7 +23,7 @@ struct MenuReward03: View {
                 }
                 .padding(.leading, 30)
                 
-                Text("Посмотрите на наше очко")
+                Text("Зарабатывайте очки каждый день")
                     .font(.footnote)
                     .foregroundStyle(.gray)
                     .multilineTextAlignment(.center)

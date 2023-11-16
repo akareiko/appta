@@ -11,19 +11,24 @@ struct MenuRoundedPanel04: View {
     @State var model04: [MenuRoundedPanelModel04]
     var body: some View {
         VStack(){
-            VStack{
-                Image(systemName: "star.fill")
-                    .foregroundColor(Color("starbucks-rewardgold"))
-                    .padding(.bottom, 5)
-                Text("Explore")
-                    .font(.title2.bold())
-                Text("Check out all of our services")
+            VStack {
+                HStack {
+                    Image(systemName: "star.fill")
+                        .foregroundColor(Color("starbucks-rewardgold"))
+                    
+                    Text("Services")
+                        .font(.title2.bold())
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(.leading, 30)
+                
+                Text("We make our lives easier")
+                    .font(.footnote)
                     .foregroundStyle(.gray)
                     .multilineTextAlignment(.center)
-
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 30)
             }
-            .multilineTextAlignment(.center)
-            .padding(.bottom, 20)
             
             ScrollView(.horizontal){
                 HStack(){

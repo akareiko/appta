@@ -46,6 +46,8 @@ struct HomeView: View {
                             InfiniteCarousel()
                                 .frame(width: UIScreen.main.bounds.width - 20)
                                 .scaledToFit()
+                                .offset(CGSize(width: 0.0, height: -20.0))
+                                .padding(.bottom, -20)
                             
                             Rectangle()
                                 .fill(Color("starbucks-white"))
@@ -69,13 +71,19 @@ struct HomeView: View {
                                 .offset(y: -920)
                             
                             MenuReward03(element03: Element03)
-                                .offset(y: -830)
+                                .offset(y: -880)
+                            
+                            MenuRoundedPanel06()
+                                .offset(y: -860)
                             
                             MenuRoundedPanel04(model04: MenuRPmodel04)
-                                .offset(x: 0, y: -800)
+                                .offset(y: -830)
+                            
+                            MenuRoundedPanel07(shops: MenuRPmodel07)
+                                .offset(y: -800)
                             
                             RewardCarouselView(rewardCarousel: RewardCarousels)
-                                .offset(y: -700)
+                                .offset(y: -760)
                             
 //                            MenuReward02(menuReward02: menuReward02)
 //                                .offset(CGSize(width: 0.0, height: -700.0)).padding(.bottom, 120)

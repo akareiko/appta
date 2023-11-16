@@ -13,7 +13,7 @@ struct MenuRoundedPanel03: View {
     
     var body: some View {
         VStack(){
-            RoundedRectangle(cornerRadius: 30.0)
+            RoundedRectangle(cornerRadius: 15.0)
                 .stroke(LinearGradient(gradient: Gradient(colors: [Color("starbucks-lightgold"), Color("starbucks-lightgold")]), startPoint: .leading, endPoint: .trailing), lineWidth: 1)
                 .frame(width: UIScreen.main.bounds.width - 40, height: 120)
 //                .foregroundColor(Color("starbucks-white"))

@@ -32,7 +32,7 @@ struct InfiniteCarousel: View {
                                         Image(card.image)
                                             .resizable()
                                             .aspectRatio(contentMode: .fill)
-                                            .offset(x: -minX + 30)
+                                            .offset(x: -minX + 30, y: 20)
                                             .frame(width: cardSize.width, height: cardSize.height)
                                             .clipShape(.rect(cornerRadius: 15))
                                             .shadow(color: .black.opacity(0.25), radius: 8, x: 5, y: 1)
@@ -77,7 +77,7 @@ struct InfiniteCarousel: View {
                         .scrollTargetBehavior(.viewAligned)
                         .scrollIndicators(.hidden)
                     })
-                    .frame(height: 300)
+                    .frame(height: 320)
                     .padding(.horizontal, -15)
                     .padding(.top, 10)
                     // Calculating Entire Page Scroll Offset
@@ -87,7 +87,7 @@ struct InfiniteCarousel: View {
             .tabViewStyle(.page(indexDisplayMode: .never))
             .overlay(alignment: .bottom) {
                 PageControl(totalPages: listOfPages.count, currentPage: originalIndex(currentPage))
-                    .offset(y: -55)
+                    .offset(y: -45)
             }
         }
         .frame(height: 400)

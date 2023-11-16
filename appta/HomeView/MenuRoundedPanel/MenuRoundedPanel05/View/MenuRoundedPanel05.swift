@@ -4,26 +4,26 @@
 //
 //  Created by Assylzhan Tati on 11/12/23.
 //
-
 import SwiftUI
 
 struct MenuRoundedPanel05: View {
     @State var shops: [MenuRoundedPanelModel05]
+
     var body: some View {
-        VStack(){
+        VStack {
             HStack {
                 VStack {
                     HStack {
                         Image(systemName: "star.fill")
                             .foregroundColor(Color("starbucks-rewardgold"))
-                        
-                        Text("Обзор очка")
+
+                        Text("Coffee Shops")
                             .font(.title2.bold())
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding(.leading, 30)
-                    
-                    Text("Посмотрите на наше очко")
+
+                    Text("Your favorite coffee temples")
                         .font(.footnote)
                         .foregroundStyle(.gray)
                         .multilineTextAlignment(.center)
@@ -31,15 +31,18 @@ struct MenuRoundedPanel05: View {
                         .padding(.leading, 30)
                 }
                 
-                Text("еще...")
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
-                    .padding(.trailing, 30)
+                NavigationLink(destination: CoffeeShopList(coffeeshoplist: coffeeshoplist)) {
+                        Text("all")
+                            .font(.footnote)
+                            .underline()
+                            .foregroundColor(.secondary)
+                            .padding(.trailing, 30)
+                    }
             }
 
-            ScrollView(.horizontal, showsIndicators: false){
-                HStack(){
-                    ForEach(shops){thing in
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(shops) { thing in
                         Image(thing.image)
                             .resizable()
                             .frame(width: 280, height: 140)
@@ -55,9 +58,6 @@ struct MenuRoundedPanel05: View {
                                     .offset(CGSize(width: 0, height: 45))
                                     .foregroundColor(.white)
                             })
-
-
-
                     }
                     .padding(.leading, 10)
                 }
@@ -67,6 +67,7 @@ struct MenuRoundedPanel05: View {
     }
 }
 
-#Preview {
+// Use ContentView_Previews for the preview
+#Preview{
     MenuRoundedPanel05(shops: MenuRPmodel05)
 }

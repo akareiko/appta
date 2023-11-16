@@ -20,7 +20,7 @@ struct MenuRoundedPanel06: View {
                 .multilineTextAlignment(.center)
             
             ScrollView(.horizontal){
-                Image("starbucks-horizontal")
+                Image("arabica-horizontal")
                     .resizable()
                     .frame(width: UIScreen.main.bounds.width - 20, height: 150)
                     .foregroundColor(.white)
