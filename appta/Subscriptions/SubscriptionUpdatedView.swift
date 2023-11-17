@@ -50,19 +50,30 @@ struct SubscriptionUpdatedView: View {
                             .resizable()
                             .frame(width: 30, height: 30)
                             .foregroundColor(Color("starbucks-rewardgold"))
-                            .offset(CGSize(width: 160, height: -400))
+                            .offset(CGSize(width: 190, height: -400))
                         
                         VStack(alignment: .leading, spacing: 10){
                             Text("Subscription Info")
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.primary)
-                                .padding(.top, 20)
+                                
                             
-                            
-                            Text("Discover the joy of a fresh cup of coffee delivered to your doorstep every week. With our coffee subscription, you'll enjoy:")
-                                .font(.body)
-                                .foregroundColor(.secondary)
+                            RoundedRectangle(cornerRadius: 15.0)
+                                .frame(width: UIScreen.main.bounds.width - 50, height: 100)
+                                .foregroundColor(.white)
+                                .shadow(radius: 2)
+                                .overlay(content:{
+                                    HStack(){
+                                        Text("Your Coffee Tokens: ")
+                                        
+                                        Spacer()
+                                        
+                                        GrowingCircle()
+                                            .padding(.top, -15)
+                                    }
+                                    .padding(.horizontal, 20)
+                                })
                             
                             Text("Plan: Basic")
                                 .font(.body)
@@ -70,7 +81,8 @@ struct SubscriptionUpdatedView: View {
                             
                             Spacer()
                         }
-                        .frame(width: 350)
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 1000)
                         
                     }
                         

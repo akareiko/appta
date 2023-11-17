@@ -19,6 +19,7 @@
 		2311E8DE2ABD5BCF00868F63 /* CoffeeShopProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2311E8DD2ABD5BCF00868F63 /* CoffeeShopProfile.swift */; };
 		2311E8EF2ABE070400868F63 /* SubscriptionUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2311E8EE2ABE070400868F63 /* SubscriptionUpdatedView.swift */; };
 		2311E8F22ABE073E00868F63 /* CustomPagingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2311E8F12ABE073E00868F63 /* CustomPagingSlider.swift */; };
+		2313FC5F2B07DE4500AE125A /* GrowingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313FC5E2B07DE4500AE125A /* GrowingCircle.swift */; };
 		2316A3082AE6E4200078BFB8 /* RewardCarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2316A3072AE6E4200078BFB8 /* RewardCarouselModel.swift */; };
 		2316A30A2AE6E5BC0078BFB8 /* RewardCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2316A3092AE6E5BC0078BFB8 /* RewardCarouselView.swift */; };
 		2316A3102AE7C1C50078BFB8 /* MenuRewardModel02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2316A30F2AE7C1C50078BFB8 /* MenuRewardModel02.swift */; };
@@ -126,6 +127,7 @@
 		2311E8DD2ABD5BCF00868F63 /* CoffeeShopProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopProfile.swift; sourceTree = "<group>"; };
 		2311E8EE2ABE070400868F63 /* SubscriptionUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionUpdatedView.swift; sourceTree = "<group>"; };
 		2311E8F12ABE073E00868F63 /* CustomPagingSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPagingSlider.swift; sourceTree = "<group>"; };
+		2313FC5E2B07DE4500AE125A /* GrowingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingCircle.swift; sourceTree = "<group>"; };
 		2316A3072AE6E4200078BFB8 /* RewardCarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCarouselModel.swift; sourceTree = "<group>"; };
 		2316A3092AE6E5BC0078BFB8 /* RewardCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCarouselView.swift; sourceTree = "<group>"; };
 		2316A30F2AE7C1C50078BFB8 /* MenuRewardModel02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRewardModel02.swift; sourceTree = "<group>"; };
@@ -1002,6 +1004,7 @@
 				23E9D6C12AD08F9A0044A47F /* SubscriptionCard */,
 				BED02D0C2A9617F3007DEE6D /* SubscriptionView.swift */,
 				2311E8EE2ABE070400868F63 /* SubscriptionUpdatedView.swift */,
+				2313FC5E2B07DE4500AE125A /* GrowingCircle.swift */,
 			);
 			path = Subscriptions;
 			sourceTree = "<group>";
@@ -1196,6 +1199,7 @@
 				23A4FE432AC58821004D20CD /* Coffee.swift in Sources */,
 				BE76B0DF2B00F14200B6BE3E /* MenuRoundedPanel05.swift in Sources */,
 				BE9BBC162A9407F300B0C05D /* ModelData.swift in Sources */,
+				2313FC5F2B07DE4500AE125A /* GrowingCircle.swift in Sources */,
 				BED02D0B2A9617E9007DEE6D /* MapView.swift in Sources */,
 				23E510102AE91C29006C03A4 /* MainMenuRoundedPanel02.swift in Sources */,
 				BE2F0C262AAEDBBA0089FD6A /* CarouselView.swift in Sources */,
