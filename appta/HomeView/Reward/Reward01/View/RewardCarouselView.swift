@@ -45,7 +45,12 @@ struct RewardCarouselView: View {
             }
             .multilineTextAlignment(.center)
             .padding(.bottom, 25)
+        } bottomContent: { $reward in
+            VStack(){
+                
+            }
         }
+        
         HStack(spacing: 23){
             Button(action: {
                 self.isClicked.toggle()

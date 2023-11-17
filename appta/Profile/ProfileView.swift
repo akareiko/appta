@@ -58,7 +58,7 @@ struct ProfileView: View {
                                                         .font(.caption)
                                                     
                                                     Image(systemName: "chevron.forward")
-                                                        .foregroundColor(Color("starbucks-black"))
+                                                        .foregroundColor(Color("starbucks-rewardgold"))
                                                         .offset(y: 10)
                                                         .font(.caption)
                                                         .fontWeight(.bold)
@@ -137,7 +137,7 @@ struct ProfileView: View {
                         }
                         
                         NavigationLink(destination: AnotherView()) {
-                            HStack {
+                            HStack(){
                                 Image(systemName: "tengesign")
                                     .frame(width: 30, height: 30)
                                 Text("Язык интерфейса")
@@ -146,8 +146,6 @@ struct ProfileView: View {
                             .listRowBackground(Color("starbucks-white"))
                             .listRowSeparator(.hidden)
                         }
-                        
-                        
                     }
                     .frame(minHeight: 100 * 3)
                     .scrollContentBackground(.hidden)

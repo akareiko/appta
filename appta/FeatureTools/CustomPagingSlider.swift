@@ -16,18 +16,20 @@ struct Item: Identifiable {
 }
 
 //Custom View
-struct CustomPagingSlider<Content: View, TitleContent: View, Item: RandomAccessCollection>: View where Item: MutableCollection, Item.Element: Identifiable {
+struct CustomPagingSlider<Content: View, TitleContent: View, BottomContent: View, Item: RandomAccessCollection>: View where Item: MutableCollection, Item.Element: Identifiable {
     // Customization Properties
     var showsIndicator: ScrollIndicatorVisibility = .hidden
     var showPagingControl: Bool = true
     var disablePagingInteraction: Bool = false
     var titleScrollSpeed: CGFloat = 0.6
+    var bottomScrollSpeed: CGFloat = 0.2
     var pagingControlSpacing: CGFloat = 20
     var spacing: CGFloat = 10
     
     @Binding var data: Item
     @ViewBuilder var content: (Binding<Item.Element>) -> Content
     @ViewBuilder var titleContent: (Binding<Item.Element>) -> TitleContent
+    @ViewBuilder var bottomContent: (Binding<Item.Element>) -> BottomContent
     
     // View Properties
     @State private var activeID: UUID?
@@ -44,7 +46,30 @@ struct CustomPagingSlider<Content: View, TitleContent: View, Item: RandomAccessC
                                     content
                                         .offset(x: scrollOffset(geometryProxy))
                                 }
+                            
                             content(item)
+                                .padding(.bottom, 20)
+                            
+                            if showPagingControl {
+                                PagingControl(numberOfPages: data.count, activePage: activePage) { value in
+                                    //Updating to current Page
+                                    if let index = value as? Item.Index, data.indices.contains(index) {
+                                        if let id = data[index].id as? UUID {
+                                            withAnimation(.snappy(duration: 0.35, extraBounce: 0)) {
+                                                activeID = id
+                                            }
+                                        }
+                                    }
+                                }
+                                .disabled(disablePagingInteraction)
+                            }
+                            
+                            bottomContent(item)
+                                .frame(maxWidth: .infinity)
+                                .visualEffect { content, geometryProxy in
+                                    content
+                                        .offset(x: scrollOffsetBottom(geometryProxy))
+                                }
                         }
                         .containerRelativeFrame(.horizontal)
                     }
@@ -56,19 +81,7 @@ struct CustomPagingSlider<Content: View, TitleContent: View, Item: RandomAccessC
             .scrollTargetBehavior(.viewAligned)
             .scrollPosition(id: $activeID)
             
-            if showPagingControl {
-                PagingControl(numberOfPages: data.count, activePage: activePage) { value in
-                    //Updating to current Page
-                    if let index = value as? Item.Index, data.indices.contains(index) {
-                        if let id = data[index].id as? UUID {
-                            withAnimation(.snappy(duration: 0.35, extraBounce: 0)) {
-                                activeID = id
-                            }
-                        }
-                    }
-                }
-                .disabled(disablePagingInteraction)
-            }
+            
         }
     }
     
@@ -84,6 +97,12 @@ struct CustomPagingSlider<Content: View, TitleContent: View, Item: RandomAccessC
         let minX = proxy.bounds(of: .scrollView)?.minX ?? 0
         
         return -minX * min(titleScrollSpeed, 1.0)
+    }
+    
+    func scrollOffsetBottom(_ proxy: GeometryProxy) -> CGFloat{
+        let minX = proxy.bounds(of: .scrollView)?.minX ?? 0
+        
+        return -minX * min(bottomScrollSpeed, 1.0)
     }
 }
 

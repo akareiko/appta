@@ -13,49 +13,34 @@ struct CoffeeShopList: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         VStack(){
-            Rectangle()
-                .frame(width: UIScreen.main.bounds.width, height: 100)
-                .foregroundColor(.white)
-                .shadow(radius: 1)
-                .padding(.bottom, -7)
-                .overlay(content: {
-                    HStack(){
-                        Image("starbucks-logo")
-                            .resizable()
-                            .frame(width: 35, height: 35)
-                            .offset(CGSize(width: 0.0, height: 3.0))
-                        
-                        Spacer()
-                        
-                        Text("COFFEE SHOPS")
-                            .font(.custom("Helvetica", size: 15))
-                            .offset(CGSize(width: -8.0, height: 7.0))
-                            .fontWeight(.semibold)
-                        
-                        Spacer()
-                        
-                        Image(systemName: "line.3.horizontal")
-                            .resizable()
-                            .offset(CGSize(width: 0.0, height: 3.0))
-                            .frame(width: 20, height: 20)
-                        
-                    }
-                    .offset(CGSize(width: 0, height: 20.0))
-                    .padding(.horizontal, 20)
-                    .padding(.top, -5)
-                })
+            VStack(){
+                Image(systemName: "star.fill")
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                    .foregroundColor(Color("starbucks-rewardgold"))
+                    .padding(.bottom, -2)
+                Text("Coffee Shops")
+                    .font(.title.bold())
+                Text("Find all your favorite establishments")
+                    .foregroundStyle(.gray)
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.top, 70)
+            .padding(.bottom, -20)
             
             ScrollView(showsIndicators: false){
-                VStack(spacing: 20){
+                VStack(spacing: 30){
                     ForEach(coffeeshoplist){thing in
                         ScrollView(.horizontal){
-                            CoffeeShopPanel(image: thing.image, title: thing.title, raiting: thing.raiting)
+                            CoffeeShopPanel(image: thing.image, title: thing.title, num_rest: thing.num_rest)
                         }
-                        .padding(.leading, 12)
                     }
                 }
+                .padding(.bottom, 100)
+                .padding(.top, 30)
             }
             .padding(.top, 20)
+            
         }
         .ignoresSafeArea(.all)
         .toolbar {
@@ -73,6 +58,7 @@ struct CoffeeShopList: View {
                     }
                 }
             }
+            .navigationBarBackButtonHidden(true)
             .navigationBarTitle("", displayMode: .inline)
     }
 }

@@ -32,10 +32,8 @@ struct MenuRoundedPanel05: View {
                 }
                 
                 NavigationLink(destination: CoffeeShopList(coffeeshoplist: coffeeshoplist)) {
-                        Text("all")
-                            .font(.footnote)
-                            .underline()
-                            .foregroundColor(.secondary)
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(Color("starbucks-rewardgold"))
                             .padding(.trailing, 30)
                     }
             }

@@ -30,7 +30,7 @@ struct MenuRoundedPanel04: View {
                     .padding(.leading, 30)
             }
             
-            ScrollView(.horizontal){
+            ScrollView(.horizontal, showsIndicators: false){
                 HStack(){
                     ForEach(model04){ thing in
                         RoundedRectangle(cornerRadius: 30)

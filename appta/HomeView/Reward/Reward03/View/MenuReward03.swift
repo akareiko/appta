@@ -31,9 +31,8 @@ struct MenuReward03: View {
                     .padding(.leading, 30)
             }
             
-            Text("еще...")
-                .font(.footnote)
-                .foregroundColor(.secondary)
+            Image(systemName: "chevron.right")
+                .foregroundColor(Color("starbucks-rewardgold"))
                 .padding(.trailing, 30)
         }
         .padding(.bottom, 10)

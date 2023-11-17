@@ -15,7 +15,7 @@ struct MenuRoundedPanel03: View {
         VStack(){
             RoundedRectangle(cornerRadius: 15.0)
                 .stroke(LinearGradient(gradient: Gradient(colors: [Color("starbucks-lightgold"), Color("starbucks-lightgold")]), startPoint: .leading, endPoint: .trailing), lineWidth: 1)
-                .frame(width: UIScreen.main.bounds.width - 40, height: 120)
+                .frame(width: UIScreen.main.bounds.width - 40, height: 80)
 //                .foregroundColor(Color("starbucks-white"))
                 .foregroundColor(.white)
                 .shadow(radius: 3)
@@ -23,20 +23,13 @@ struct MenuRoundedPanel03: View {
                     HStack(){
                         VStack(alignment: .leading){
                             Text("Награды Старбакс")
-                                .font(.title3)
+                                .font(.headline)
                                 .foregroundColor(.black)
                                 .fontWeight(.semibold)
                                 .offset(CGSize(width: -80.0, height: 15.0))
                             
-//                            Text("50 / 100")
-//                                .font(.title3)
-//                                .foregroundColor(.black)
-//                                .fontWeight(.semibold)
-//                                .offset(CGSize(width: -80.0, height: -10.0))
-//                                .padding(.top, 20)
-                            
                             Text("50 / 100")
-                                .font(.title3)
+                                .font(.subheadline)
                                 .foregroundColor(.black)
                                 .fontWeight(.semibold)
                                 .offset(CGSize(width: -80.0, height: -5.0))
@@ -44,27 +37,25 @@ struct MenuRoundedPanel03: View {
                             
                                 
                             ProgressBar01(barTotal: barLimit, barValue: progressValue)
-                                .offset(CGSize(width: -60.0, height: -10.0))
+                                .offset(CGSize(width: -60.0, height: -8.0))
                             
                             Text("50 Звёзд до награды")
-                                .font(.callout)
+                                .font(.subheadline)
                                 .foregroundColor(.secondary)
-                                .offset(CGSize(width: -80.0, height: -15.0))
+                                .offset(CGSize(width: -80.0, height: -10.0))
                         }
                         .offset(CGSize(width: 100.0, height: 0.0))
                             
                         Image(systemName: "star.fill")
                             .resizable()
-                            .frame(width: 60, height: 60)
+                            .frame(width: 55, height: 55)
                             .offset(CGSize(width: -40, height: 0.0))
-                            .offset(y: -5)
                             .foregroundColor(Color("starbucks-lightgold"))
                             .overlay(content: {
                                 Text("2")
                                     .font(.title2)
                                     .foregroundColor(Color("starbucks-white"))
                                     .bold()
-                                    .offset(y: -5)
                                     .offset(CGSize(width: -40, height: 3.0))
                             })
                         
@@ -72,6 +63,7 @@ struct MenuRoundedPanel03: View {
 //                            .font(.headline)
 //                            .foregroundColor(.black)
 //                            .offset(CGSize(width: -10.0, height: 0.0))
+
                     }
                 })
         }

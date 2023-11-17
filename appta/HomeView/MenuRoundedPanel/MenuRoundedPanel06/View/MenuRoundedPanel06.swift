@@ -12,7 +12,7 @@ struct MenuRoundedPanel06: View {
         VStack(){
             Image(systemName: "star.fill")
                 .foregroundColor(Color("starbucks-rewardgold"))
-                .padding(.bottom, 5)
+                .padding(.bottom, -2)
             Text("Explore")
                 .font(.title2.bold())
             Text("Check out all of our services")

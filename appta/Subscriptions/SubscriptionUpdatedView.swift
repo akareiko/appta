@@ -23,62 +23,66 @@ struct SubscriptionUpdatedView: View {
     
     var body: some View {
         VStack{
-            CustomPagingSlider(showPagingControl: showPagingControl, disablePagingInteraction: disablePagingInteraction, titleScrollSpeed: titleScrollSpeed, pagingControlSpacing: pagingSpacing,  data: $items)
-            { $item in
-                let index = items.firstIndex(where: { $0.id == $item.wrappedValue.id }) ?? 0
-                SubscriptionCard1_Front(subscriptionCards: SubscriptionCards, selectedIndex: index)
-            } titleContent: { $item in
-               
-                VStack(spacing: 5){
-                    Text(item.title)
-                        .font(.largeTitle.bold())
-                    Text(item.subTitle)
-                        .foregroundStyle(.gray)
-                        .multilineTextAlignment(.center)
-                        .frame(height: 45)
-                }
-                .padding(.bottom, 35)
-            }
-            .safeAreaPadding([.horizontal, .top], 35)
-            
-            VStack(alignment: .leading, spacing: 10){
-                Text("Join Our Coffee Subscription")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(.primary)
-                    .padding(.top, 20)
+            ScrollView(){
+                
+                CustomPagingSlider(showPagingControl: showPagingControl, disablePagingInteraction: disablePagingInteraction, titleScrollSpeed: titleScrollSpeed, pagingControlSpacing: pagingSpacing,  data: $items)
+                { $item in
+                    let index = items.firstIndex(where: { $0.id == $item.wrappedValue.id }) ?? 0
+                    SubscriptionCard1_Front(subscriptionCards: SubscriptionCards, selectedIndex: index)
+                } titleContent: { $item in
                     
-//                    Text(SubscriptionCards[index].text1)
-                Text("Discover the joy of a fresh cup of coffee delivered to your doorstep every week. With our coffee subscription, you'll enjoy:")
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                    
-//                    Text($item.text2)
-                Text("Ready to experience exceptional coffee moments?")
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                    
-                Button(action: {
+                    VStack(spacing: 5){
                         
-                }) {
-                    Text("Join Now")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.accentColor)
-                        .cornerRadius(10)
+                        Text(item.title)
+                            .font(.largeTitle.bold())
+                        Text(item.subTitle)
+                            .foregroundStyle(.gray)
+                            .multilineTextAlignment(.center)
+                            .frame(height: 45)
                     }
-            
-                Spacer()
+                    .safeAreaPadding([.horizontal], 35)
+                    .padding(.bottom, 20)
+                    .padding(.top, 60)
+                
+                } bottomContent:{ $item in
+                    VStack(alignment: .leading, spacing: 10){
+                        Image(systemName: "star.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .foregroundColor(Color("starbucks-rewardgold"))
+                            .offset(CGSize(width: 160, height: -400))
+                        
+                        VStack(alignment: .leading, spacing: 10){
+                            Text("Subscription Info")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(.primary)
+                                .padding(.top, 20)
+                            
+                            
+                            Text("Discover the joy of a fresh cup of coffee delivered to your doorstep every week. With our coffee subscription, you'll enjoy:")
+                                .font(.body)
+                                .foregroundColor(.secondary)
+                            
+                            Text("Plan: Basic")
+                                .font(.body)
+                                .foregroundColor(.secondary)
+                            
+                            Spacer()
+                        }
+                        .frame(width: 350)
+                        
+                    }
+                        
+                }
+
+                
             }
-            .frame(width: 350)
         }
     }
 }
 
-struct SubscriptionViewUpdatedView_Previews: PreviewProvider {
-    static var previews: some View {
-        SubscriptionUpdatedView()
-    }
+#Preview {
+    SubscriptionUpdatedView()
 }
+

@@ -27,7 +27,7 @@ struct CoffeeShopProfile: View {
                             .frame(width: UIScreen.main.bounds.width, height: geometry.frame(in: .global).minY +
                                 280)
                             .ignoresSafeArea()
-                            .offset(y: -geometry.frame(in: .global).minY + 220)
+                            .offset(x: 10, y: -geometry.frame(in: .global).minY + 220)
                     }
                     VStack{
                         HStack{
@@ -97,7 +97,11 @@ struct CoffeeShopProfile: View {
                                     .padding(.leading, -5)
                             }
                             .padding(.top, 0.5)
-                            
+                            VStack(alignment: .leading){
+                                RoundedRectangle(cornerRadius: 20)
+                                    .frame(width: UIScreen.main.bounds.width-10, height: 100)
+                                    .foregroundColor(Color("starbucks-lightgold"))
+                            }
                             
                             VStack(alignment: .leading){
                                 

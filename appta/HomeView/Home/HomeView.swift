@@ -64,9 +64,6 @@ struct HomeView: View {
 //                            MainMenuRoundedPanel(element: Element)
 //                                .offset(x: 0, y: -970)
                             
-                            MenuRoundedPanel03()
-                                .offset(x: 0, y: -950)
-                            
                             MenuRoundedPanel05(shops: MenuRPmodel05)
                                 .offset(y: -920)
                             
@@ -81,9 +78,10 @@ struct HomeView: View {
                             
                             MenuRoundedPanel07(shops: MenuRPmodel07)
                                 .offset(y: -800)
+                                .padding(.bottom, -1000)
                             
-                            RewardCarouselView(rewardCarousel: RewardCarousels)
-                                .offset(y: -760)
+//                            RewardCarouselView(rewardCarousel: RewardCarousels)
+//                                .offset(y: -760)
                             
 //                            MenuReward02(menuReward02: menuReward02)
 //                                .offset(CGSize(width: 0.0, height: -700.0)).padding(.bottom, 120)

@@ -11,14 +11,15 @@ struct CoffeeShopListModel: Identifiable, Hashable{
     var id: String = UUID().uuidString
     var image: String
     var title: String
-    var raiting: String
+    var num_rest: Int
 }
 
 var coffeeshoplist: [CoffeeShopListModel] = [
-    .init(image: "starbucks-horizontal", title: "Starbucks", raiting: "4.8"),
-    .init(image: "costacoffee-horizontal", title: "Costa Coffee", raiting: "4.5"),
-    .init(image: "arabica-horizontal", title: "Arabica", raiting: "5.0"),
-    .init(image: "timhortons-horizontal", title: "Tim Horton's", raiting: "4.9"),
-    .init(image: "pretamanger-horizontal", title: "Pret A Manger", raiting: "4.8"),
+    .init(image: "starbucks-horizontal", title: "Starbucks", num_rest: 9),
+    .init(image: "pretamanger-horizontal", title: "Pret A Manger", num_rest: 3),
+    .init(image: "arabica-horizontal", title: "Arabica", num_rest: 2),
+    .init(image: "costacoffee-horizontal", title: "Costa Coffee", num_rest: 5),
+    .init(image: "timhortons-horizontal", title: "Tim Horton's", num_rest: 4),
+    
 ]
 
