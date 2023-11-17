@@ -1,9 +1,35 @@
+
 import SwiftUI
 
+struct GradientStrokeModifier: AnimatableModifier {
+    var colors: [Color]
+    var lineWidth: CGFloat
+
+    var animatableData: [Color] {
+        get { colors }
+        set { colors = newValue }
+    }
+
+    func body(content: Content) -> some View {
+        content.overlay(
+            RoundedRectangle(cornerRadius: 15)
+                .stroke(LinearGradient(gradient: Gradient(colors: colors), startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: lineWidth)
+        )
+    }
+}
+
+extension View {
+    func gradientStroke(colors: [Color], lineWidth: CGFloat) -> some View {
+        self.modifier(GradientStrokeModifier(colors: colors, lineWidth: lineWidth))
+    }
+}
+
 struct ProfileView: View {
+    @State private var gradientColors: [Color] = [Color("starbucks-lightgold"), Color("starbucks-silver")]
+    
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 HStack {
                     Circle()
                         .foregroundColor(.clear)
@@ -29,155 +55,171 @@ struct ProfileView: View {
                 }
 
                 VStack{
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .frame(width: UIScreen.main.bounds.width - 40, height: 150)
-                //                    .foregroundColor(Color("starbucks-black"))
-                                    .foregroundColor(Color("starbucks-white"))
-                                    .overlay(){
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .stroke(LinearGradient(gradient: Gradient(colors: [Color("starbucks-lightgold"), Color("starbucks-black")]), startPoint: .leading, endPoint: .trailing), lineWidth: 4)
-                                            .frame(width: UIScreen.main.bounds.width - 40, height: 150)
-                //                        Text("hehehaha")
-                                        HStack {
-                                            Image(systemName: "camera.filters")
-                                                .frame(maxWidth: .infinity, alignment: .leading)
-                                                .frame(maxHeight: .infinity, alignment: .top)
-                                                .font(.title)
-                                                .fontWeight(.bold)
-                //                                .foregroundColor(.white)
-                                                .foregroundColor(Color("starbucks-black"))
-                                                .padding()
-                                            
-                                            NavigationLink(destination: HowToEarnView()) {
-                                                HStack {
-                                                    Text("как накопить")
-                        //                                .foregroundColor(.white)
-                                                        .foregroundColor(Color("starbucks-black"))
-                                                        .fontWeight(.semibold)
-                                                        .offset(y: 10)
-                                                        .font(.caption)
-                                                    
-                                                    Image(systemName: "chevron.forward")
-                                                        .foregroundColor(Color("starbucks-rewardgold"))
-                                                        .offset(y: 10)
-                                                        .font(.caption)
-                                                        .fontWeight(.bold)
-                                                }
-                                                    .padding()
-                                                .frame(maxHeight: .infinity, alignment: .top)
-                                            }
-                                        }
-                                        Text("1738 бонусов")
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                            .fontWeight(.bold)
-                //                            .foregroundColor(.white)
-                                            .foregroundColor(Color("starbucks-black"))
-                                            .padding()
-                                            .font(.title3)
+                    RoundedRectangle(cornerRadius: 15)
+                        .frame(width: UIScreen.main.bounds.width - 40, height: 150)
+//                    .foregroundColor(Color("starbucks-black"))
+//                                    .foregroundColor(Color("starbucks-white"))
+                        .shadow(radius: 3)
+                        .foregroundColor(Color.white)
+                        .overlay(){
+                            RoundedRectangle(cornerRadius: 15)
+                                .foregroundColor(Color.clear)
+                                .gradientStroke(colors: gradientColors, lineWidth: 1)
+                                .onAppear {
+                                    withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses: true)) {
+                                        self.gradientColors = [Color("starbucks-lightgold"), Color("starbucks-silver")]
                                     }
-                                    
                                 }
-                                .padding(.top, 20)
+                            .frame(width: UIScreen.main.bounds.width - 40, height: 150)
+//                        Text("hehehaha")
+                        HStack {
+                            Image(systemName: "camera.filters")
+                                .symbolEffect(.pulse)
+                                .foregroundColor(Color("starbucks-black"))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .frame(maxHeight: .infinity, alignment: .top)
+                                .font(.title)
+                                .fontWeight(.bold)
+//                                .foregroundColor(.white)
+                                .foregroundColor(Color("starbucks-black"))
+                                .padding()
+                            
+                            NavigationLink(destination: HowToEarnView()) {
+                                HStack {
+                                    Text("как накопить")
+        //                                .foregroundColor(.white)
+                                        .foregroundColor(Color("starbucks-black"))
+                                        .fontWeight(.semibold)
+                                        .offset(y: 10)
+                                        .font(.caption)
+                                    
+                                    Image(systemName: "chevron.forward")
+                                        .foregroundColor(Color("starbucks-black"))
+                                        .offset(y: 10)
+                                        .font(.caption)
+                                        .fontWeight(.bold)
+                                }
+                                    .padding()
+                                .frame(maxHeight: .infinity, alignment: .top)
+                            }
+                        }
+                        Text("1738 бонусов")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .fontWeight(.bold)
+//                            .foregroundColor(.white)
+                            .foregroundColor(Color("starbucks-black"))
+                            .padding()
+                            .font(.title3)
+                    }
+                    
+                }
+                .padding(.top, 20)
 
                 VStack {
-                    List {
-                        NavigationLink(destination: PaymentMethodsView()) {
-                            HStack {
-                                Image(systemName: "creditcard")
-                                    .frame(width: 30, height: 30)
-                                Text("Способы оплаты")
-                                Spacer()
-                            }
-                            .listRowBackground(Color("starbucks-white"))
-                            .listRowSeparator(.hidden)
+                    ZStack {
+                        VStack {
+                            Color(.clear)
                         }
-
-                        NavigationLink(destination: SomeOtherView()) {
-                            HStack {
-                                Image(systemName: "map")
-                                    .frame(width: 30, height: 30)
-                                Text("Мои адреса ")
-                                Spacer()
+                        .frame(width: 370, height: 390)
+                        .background(Color.gray.brightness(0.41))
+                        .cornerRadius(15)
+                        .offset(y: -93)
+                        VStack {
+                            List {
+                                HStack {
+                                    NavigationLink(destination: AnotherView()) {
+                                        Image(systemName: "creditcard")
+                                            .frame(width: 30, height: 30)
+                                        Text("Способ оплаты")
+                                        Spacer()
+                                    }
+                                }
+                                //                            .listRowBackground(Color("starbucks-white"))
+                                .listRowSeparator(.hidden)
+                                
+                                HStack {
+                                    NavigationLink(destination: AnotherView()) {
+                                        Image(systemName: "map")
+                                            .frame(width: 30, height: 30)
+                                        Text("Мои адреса")
+                                        Spacer()
+                                    }
+                                }
+                                //                            .listRowBackground(Color("starbucks-white"))
+                                .listRowSeparator(.hidden)
+                                
+                                HStack {
+                                    NavigationLink(destination: AnotherView()) {
+                                        Image(systemName: "bag")
+                                            .frame(width: 30, height: 30)
+                                        Text("История заказов")
+                                        Spacer()
+                                    }
+                                }
+                                //                            .listRowBackground(Color("starbucks-white"))
+                                .listRowSeparator(.hidden)
+                                
+                                HStack {
+                                    NavigationLink(destination: AnotherView()) {
+                                        Image(systemName: "bell")
+                                            .frame(width: 30, height: 30)
+                                        Text("Уведомления")
+                                        Spacer()
+                                    }
+                                }
+                                //                            .listRowBackground(Color("starbucks-white"))
+                                .listRowSeparator(.hidden)
+                                
+                                HStack {
+                                    NavigationLink(destination: AnotherView()) {
+                                        Image(systemName: "poweroutlet.type.d")
+                                            .frame(width: 30, height: 30)
+                                        Text("Ввести промокод")
+                                        Spacer()
+                                    }
+                                }
+                                //                            .listRowBackground(Color("starbucks-white"))
+                                .listRowSeparator(.hidden)
+                                
+                                HStack {
+                                    NavigationLink(destination: AnotherView()) {
+                                        Image(systemName: "tengesign")
+                                            .frame(width: 30, height: 30)
+                                        Text("Язык интерфейса")
+                                        Spacer()
+                                    }
+                                }
+                                //                            .listRowBackground(Color("starbucks-white"))
+                                .listRowSeparator(.hidden)
                             }
-                            .listRowBackground(Color("starbucks-white"))
-                            .listRowSeparator(.hidden)
-                        }
-
-                        NavigationLink(destination: AnotherView()) {
-                            HStack {
-                                Image(systemName: "bag")
-                                    .frame(width: 30, height: 30)
-                                Text("История заказов")
-                                Spacer()
+                            .frame(minHeight: 100 * 3)
+                            .scrollContentBackground(.hidden)
+                            //                    .background(Color("starbucks-ceramic"))
+                            //                    .overlay(
+                            //                        RoundedRectangle(cornerRadius: 15)
+                            //                            .stroke(Color.black, lineWidth: 1)
+                            //                            .frame(width: UIScreen.main.bounds.width - 40, height: 290)
+                            //                            .offset(y: 18)
+                            //                    )
+                            .scrollDisabled(true)
+                            
+                            List {
+                                HStack {
+                                    NavigationLink(destination: AnotherView()) {
+                                        Image(systemName: "tengesign")
+                                            .frame(width: 30, height: 30)
+                                        Text("Написать в поддержку")
+                                        Spacer()
+                                    }
+                                }
+                                //                            .listRowBackground(Color("starbucks-white"))
+                                .listRowSeparator(.hidden)
                             }
-                            .listRowBackground(Color("starbucks-white"))
-                            .listRowSeparator(.hidden)
-                        }
-                        
-                        NavigationLink(destination: AnotherView()) {
-                            HStack {
-                                Image(systemName: "bell")
-                                    .frame(width: 30, height: 30)
-                                Text("Уведомления")
-                                Spacer()
-                            }
-                            .listRowBackground(Color("starbucks-white"))
-                            .listRowSeparator(.hidden)
-                        }
-                        
-                        NavigationLink(destination: AnotherView()) {
-                            HStack {
-                                Image(systemName: "poweroutlet.type.d")
-                                    .frame(width: 30, height: 30)
-                                Text("Ввести промкод")
-                                Spacer()
-                            }
-                            .listRowBackground(Color("starbucks-white"))
-                            .listRowSeparator(.hidden)
-                        }
-                        
-                        NavigationLink(destination: AnotherView()) {
-                            HStack(){
-                                Image(systemName: "tengesign")
-                                    .frame(width: 30, height: 30)
-                                Text("Язык интерфейса")
-                                Spacer()
-                            }
-                            .listRowBackground(Color("starbucks-white"))
-                            .listRowSeparator(.hidden)
+                            .frame(minHeight: 100 * 3)
+                            .scrollContentBackground(.hidden)
+                            .scrollDisabled(true)
                         }
                     }
-                    .frame(minHeight: 100 * 3)
-                    .scrollContentBackground(.hidden)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color.black, lineWidth: 1)
-                            .frame(width: UIScreen.main.bounds.width - 40, height: 290)
-                            .offset(y: 18)
-                    )
-                    .scrollDisabled(true)
-                    
-                    List {
-                        NavigationLink(destination: PaymentMethodsView()) {
-                            HStack {
-                                Image(systemName: "creditcard")
-                                    .frame(width: 30, height: 30)
-                                Text("Написать в поддержку")
-                                Spacer()
-                            }
-                            .listRowBackground(Color("starbucks-white"))
-                            .listRowSeparator(.hidden)
-                        }
-                    }
-                    .frame(minHeight: 100 * 3)
-                    .scrollContentBackground(.hidden)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color.black, lineWidth: 1)
-                            .frame(width: UIScreen.main.bounds.width - 40, height: 60)
-                            .offset(y: -90)
-                    )
-                    .scrollDisabled(true)
                 }
             }
         }
