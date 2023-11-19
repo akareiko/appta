@@ -138,8 +138,6 @@ struct CustomCarousel<Content: View, Item, ID>: View where Item: RandomAccessCol
     }
 }
 
-struct CustomCarousel_Preview: PreviewProvider{
-    static var previews: some View {
-        ContentView()
-    }
+#Preview{
+    ContentView()
 }

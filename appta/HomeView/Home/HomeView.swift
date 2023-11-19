@@ -20,19 +20,24 @@ struct HomeView: View {
                                 .frame(width: 35, height: 35)
                                 .offset(CGSize(width: 0.0, height: 3.0))
                             
-                            Spacer()
-                            
                             Text("DAILY CUP")
-                                .font(.custom("Helvetica", size: 15))
+                                .font(.custom("Helvetica", size: 17))
                                 .offset(CGSize(width: -8.0, height: 4.0))
                                 .fontWeight(.semibold)
+                                .padding(.leading, 15)
                             
                             Spacer()
                             
-                            Image(systemName: "line.3.horizontal")
+                            Image(systemName: "bell")
                                 .resizable()
                                 .offset(CGSize(width: 0.0, height: 3.0))
                                 .frame(width: 20, height: 20)
+                                .overlay(content:{
+                                    Circle()
+                                        .foregroundColor(.red)
+                                        .frame(width: 10, height: 10)
+                                        .offset(CGSize(width: 10, height: -10))
+                                })
                             
                         }
                         .offset(CGSize(width: 0, height: 20.0))
@@ -43,42 +48,48 @@ struct HomeView: View {
                 ScrollView(showsIndicators: false){
                     ZStack(){
                         VStack{
+                            HStack(){
+                                Text("Good Morning, Iska!")
+                                    .font(.headline.bold())
+                                
+                                Spacer()
+                                
+                                HStack(){
+                                    Image(systemName: "star.fill")
+                                        .frame(width: 15, height: 15)
+                                        .foregroundColor(Color("starbucks-rewardgold"))
+                                    
+                                    Text("Green Level")
+                                        .font(.callout.bold())
+                                        .foregroundColor(Color("starbucks-truegreen"))
+                                }
+                            }
+                            .safeAreaPadding([.horizontal, .top], 10)
+                            
                             InfiniteCarousel()
                                 .frame(width: UIScreen.main.bounds.width - 20)
                                 .scaledToFit()
-                                .offset(CGSize(width: 0.0, height: -20.0))
-                                .padding(.bottom, -20)
-                            
-                            Rectangle()
-                                .fill(Color("starbucks-white"))
-                                .frame(width: UIScreen.main.bounds.width, height: 420)
-                                .aspectRatio(contentMode: .fill)
-                                .padding(.top, -10)
-                            
-                            Rectangle()
-                                .fill(Color("starbucks-white"))
-                                .frame(width: UIScreen.main.bounds.width, height: 500)
-                                .aspectRatio(contentMode: .fill)
-                                .padding(.top, -10)
+                                .offset(CGSize(width: 0.0, height: 0.0))
+                                .padding(.bottom, 0)
                             
 //                            MainMenuRoundedPanel(element: Element)
-//                                .offset(x: 0, y: -970)
+//                                .padding(.bottom, 30)
                             
                             MenuRoundedPanel05(shops: MenuRPmodel05)
-                                .offset(y: -920)
+                                .padding(.bottom, 30)
+                                
                             
                             MenuReward03(element03: Element03)
-                                .offset(y: -880)
                             
                             MenuRoundedPanel06()
-                                .offset(y: -860)
+                                .padding(.bottom, 30)
+                                .padding(.top, 20)
                             
                             MenuRoundedPanel04(model04: MenuRPmodel04)
-                                .offset(y: -830)
+                                .padding(.bottom, 30)
                             
                             MenuRoundedPanel07(shops: MenuRPmodel07)
-                                .offset(y: -800)
-                                .padding(.bottom, -1000)
+                                .padding(.bottom, 120)
                             
 //                            RewardCarouselView(rewardCarousel: RewardCarousels)
 //                                .offset(y: -760)
