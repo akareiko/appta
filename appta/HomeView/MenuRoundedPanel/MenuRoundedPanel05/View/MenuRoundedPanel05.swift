@@ -8,7 +8,7 @@ import SwiftUI
 
 struct MenuRoundedPanel05: View {
     @State var shops: [MenuRoundedPanelModel05]
-
+    @State private var isCoffeeShopProfileActive = false
     var body: some View {
         VStack {
             HStack {
@@ -41,21 +41,23 @@ struct MenuRoundedPanel05: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(shops) { thing in
-                        Image(thing.image)
-                            .resizable()
-                            .frame(width: 280, height: 140)
-                            .foregroundColor(.white)
-                            .shadow(radius: 3)
-                            .padding([.top, .bottom], 5)
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .overlay(content: {
-                                Text(thing.title)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .padding(.leading, 20)
-                                    .font(.title2.bold())
-                                    .offset(CGSize(width: 0, height: 45))
-                                    .foregroundColor(.white)
-                            })
+                        NavigationLink(destination: CoffeeShopProfile().navigationBarBackButtonHidden(true)) {
+                            Image(thing.image)
+                                .resizable()
+                                .frame(width: 280, height: 140)
+                                .foregroundColor(.white)
+                                .shadow(radius: 3)
+                                .padding([.top, .bottom], 5)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                                .overlay(content: {
+                                    Text(thing.title)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .padding(.leading, 20)
+                                        .font(.title2.bold())
+                                        .offset(CGSize(width: 0, height: 45))
+                                        .foregroundColor(.white)
+                                })
+                        }
                     }
                     .padding(.leading, 10)
                 }

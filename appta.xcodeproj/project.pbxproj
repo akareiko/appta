@@ -20,6 +20,8 @@
 		2311E8EF2ABE070400868F63 /* SubscriptionUpdatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2311E8EE2ABE070400868F63 /* SubscriptionUpdatedView.swift */; };
 		2311E8F22ABE073E00868F63 /* CustomPagingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2311E8F12ABE073E00868F63 /* CustomPagingSlider.swift */; };
 		2313FC5F2B07DE4500AE125A /* GrowingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313FC5E2B07DE4500AE125A /* GrowingCircle.swift */; };
+		2313FCEC2B09DDE300AE125A /* MenuRoundedPanel08.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313FCEB2B09DDE300AE125A /* MenuRoundedPanel08.swift */; };
+		2313FCF32B09E51500AE125A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2313FCF22B09E51500AE125A /* Category.swift */; };
 		2316A3082AE6E4200078BFB8 /* RewardCarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2316A3072AE6E4200078BFB8 /* RewardCarouselModel.swift */; };
 		2316A30A2AE6E5BC0078BFB8 /* RewardCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2316A3092AE6E5BC0078BFB8 /* RewardCarouselView.swift */; };
 		2316A3102AE7C1C50078BFB8 /* MenuRewardModel02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2316A30F2AE7C1C50078BFB8 /* MenuRewardModel02.swift */; };
@@ -128,6 +130,8 @@
 		2311E8EE2ABE070400868F63 /* SubscriptionUpdatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionUpdatedView.swift; sourceTree = "<group>"; };
 		2311E8F12ABE073E00868F63 /* CustomPagingSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPagingSlider.swift; sourceTree = "<group>"; };
 		2313FC5E2B07DE4500AE125A /* GrowingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingCircle.swift; sourceTree = "<group>"; };
+		2313FCEB2B09DDE300AE125A /* MenuRoundedPanel08.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRoundedPanel08.swift; sourceTree = "<group>"; };
+		2313FCF22B09E51500AE125A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		2316A3072AE6E4200078BFB8 /* RewardCarouselModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCarouselModel.swift; sourceTree = "<group>"; };
 		2316A3092AE6E5BC0078BFB8 /* RewardCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCarouselView.swift; sourceTree = "<group>"; };
 		2316A30F2AE7C1C50078BFB8 /* MenuRewardModel02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRewardModel02.swift; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 		2303C6262AFFA45C00C66365 /* MenuRoundedPanel */ = {
 			isa = PBXGroup;
 			children = (
+				2313FCE82B09D50600AE125A /* MenuRoundedPanel08 */,
 				23DC1C392B0113FE00CF5F2F /* MenuRoundedPanel07 */,
 				BE76B0E42B00F62F00B6BE3E /* MenuRoundedPanel06 */,
 				BE76B0DD2B00F07100B6BE3E /* MenuRoundedPanel05 */,
@@ -365,6 +370,30 @@
 			isa = PBXGroup;
 			children = (
 				2303C6322AFFB94A00C66365 /* MenuRoundedPanelModel04.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2313FCE82B09D50600AE125A /* MenuRoundedPanel08 */ = {
+			isa = PBXGroup;
+			children = (
+				2313FCEA2B09DDCA00AE125A /* Model */,
+				2313FCE92B09DDC600AE125A /* View */,
+			);
+			path = MenuRoundedPanel08;
+			sourceTree = "<group>";
+		};
+		2313FCE92B09DDC600AE125A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2313FCEB2B09DDE300AE125A /* MenuRoundedPanel08.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2313FCEA2B09DDCA00AE125A /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -606,6 +635,7 @@
 			children = (
 				23A4FE422AC58821004D20CD /* Coffee.swift */,
 				23E9D6D12AD1A4900044A47F /* CoffeeShopImageModel.swift */,
+				2313FCF22B09E51500AE125A /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1174,6 +1204,7 @@
 				BEFBB8E92AA74EBF00896A83 /* NavigationBar.swift in Sources */,
 				23A4FE542AC9613E004D20CD /* CustomCarousel.swift in Sources */,
 				23E5100E2AE91C1A006C03A4 /* MenuElementModel02.swift in Sources */,
+				2313FCF32B09E51500AE125A /* Category.swift in Sources */,
 				BEFBB8E12AA6A8B500896A83 /* CategoryItemStory.swift in Sources */,
 				BED02D112A961AB6007DEE6D /* QrcodeView.swift in Sources */,
 				23A4FE3A2AC4686E004D20CD /* CustomIndicator.swift in Sources */,
@@ -1183,6 +1214,7 @@
 				23E510122AE93B22006C03A4 /* ProgressMeter.swift in Sources */,
 				BE2F305C2A93D9C6009E72DC /* ApptaView.swift in Sources */,
 				23DC1C4B2B01177700CF5F2F /* CoffeeReceiptModel.swift in Sources */,
+				2313FCEC2B09DDE300AE125A /* MenuRoundedPanel08.swift in Sources */,
 				23DC1C522B01198000CF5F2F /* CoffeeShopPanel.swift in Sources */,
 				23A4FE362AC4682E004D20CD /* GuideView.swift in Sources */,
 				2303C6182AFF9CA700C66365 /* Voucher.swift in Sources */,

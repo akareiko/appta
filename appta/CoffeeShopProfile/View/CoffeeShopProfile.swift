@@ -15,6 +15,7 @@ struct CoffeeShopProfile: View {
     @State private var isTextExpanded = false
     @State var currentIndex: Int = 0
     @Namespace var animation
+    @State var selectedCategory: Category = categories.first!
 
     var body: some View {
         NavigationView {
@@ -27,7 +28,7 @@ struct CoffeeShopProfile: View {
                             .frame(width: UIScreen.main.bounds.width, height: geometry.frame(in: .global).minY +
                                 280)
                             .ignoresSafeArea()
-                            .offset(x: 10, y: -geometry.frame(in: .global).minY + 220)
+                            .offset(x: 0, y: -geometry.frame(in: .global).minY + 220)
                     }
                     VStack{
                         HStack{
@@ -41,11 +42,6 @@ struct CoffeeShopProfile: View {
                                 Text("Starbucks")
                                     .font(.title)
                                     .fontWeight(.bold)
-                                
-                                //                                Text(coffeeShops[selectedIndex].name)
-                                //                                    Text("Starbucks")
-                                //                                        .font(.caption)
-                                //                                        .foregroundColor(.gray)
                             }
                             
                             Spacer()
@@ -56,7 +52,6 @@ struct CoffeeShopProfile: View {
                                 .background(Color(.systemGray5))
                                 .clipShape(Circle())
                                 .shadow(color: Color.gray.opacity(0.3), radius: 5, x: 2, y: 2)
-                            
                         }
                         .padding(.horizontal)
                         .padding(.top, 30)
@@ -97,11 +92,7 @@ struct CoffeeShopProfile: View {
                                     .padding(.leading, -5)
                             }
                             .padding(.top, 0.5)
-                            VStack(alignment: .leading){
-                                RoundedRectangle(cornerRadius: 20)
-                                    .frame(width: UIScreen.main.bounds.width-10, height: 100)
-                                    .foregroundColor(Color("starbucks-lightgold"))
-                            }
+                            
                             
                             VStack(alignment: .leading){
                                 
@@ -110,48 +101,50 @@ struct CoffeeShopProfile: View {
                                     .fontWeight(.bold)
                                     .padding(.top)
                                 
+                                ScrollView(.horizontal, showsIndicators: false, content: {
+                                    
+                                    HStack(spacing: 15){
+                                        ForEach(categories){ category in
+                                            HStack(spacing: 10){
+                                                Text(category.title)
+                                                    .font(.callout.bold())
+                                                    .foregroundColor(selectedCategory.id == category.id ? .white : .black)
+                                            }
+                                            .padding(.vertical, 5)
+                                            .padding(.horizontal)
+                                            .background(selectedCategory.id == category.id ? Color("starbucks-rewardgold") : Color.gray.opacity(0.3))
+                                            .clipShape(Capsule())
+                                            .shadow(color: Color.black.opacity(0.05), radius: 5, x: 5, y: 5)
+                                            .onTapGesture{
+                                                withAnimation(.spring()){
+                                                    selectedCategory = category
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .padding(.bottom, 60)
+                                })
+                                
                                 CoffeesScroll()
                                 
                             }
                             .frame(height: 370)
-                            .padding(.bottom, 15)
+                            .padding(.bottom, 45)
                             
-                            HStack {
-                                Button {
-                                    
-                                } label: {
-                                    Text("Get Your Starbucks Subscription Now! ")
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .frame(width: UIScreen.main.bounds.width / 3 - 20, height: 50)
-                                        .background(Color(.black))
-                                        .cornerRadius(20)
-                                        .shadow(color: Color.gray.opacity(0.5), radius: 10, x: 0, y: 5)
-                                }
-                                Button {
-                                    
-                                } label: {
-                                    Text("Get Your Starbucks Subscription Now! ")
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .frame(width: UIScreen.main.bounds.width / 3 - 20, height: 50)
-                                        .background(Color(.black))
-                                        .cornerRadius(20)
-                                        .shadow(color: Color.gray.opacity(0.5), radius: 10, x: 0, y: 5)
-                                }
-                                Button {
-                                    
-                                } label: {
-                                    Text("Get Your Starbucks Subscription Now! ")
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .frame(width: UIScreen.main.bounds.width / 3 - 20, height: 50)
-                                        .background(Color(.black))
-                                        .cornerRadius(20)
-                                        .shadow(color: Color.gray.opacity(0.5), radius: 10, x: 0, y: 5)
-                                }
-                            }
-                            
+//                            HStack {
+//                                Button {
+//                                    
+//                                } label: {
+//                                    Text("Get Your Starbucks Subscription Now! ")
+//                                        .font(.callout.bold())
+//                                        .foregroundColor(.white)
+//                                        .padding()
+//                                        .frame(width: UIScreen.main.bounds.width - 20, height: 30)
+//                                        .background(Color(.blue))
+//                                        .cornerRadius(20)
+//                                        .shadow(color: Color.gray.opacity(0.5), radius: 10, x: 0, y: 5)
+//                                }
+//                            }
                             
                             Text("Working Hours")
                                 .font(.title)
@@ -159,14 +152,12 @@ struct CoffeeShopProfile: View {
                                 .padding(.top, 5)
                                 .padding(.bottom, 5)
                             
-                            //                            Text(coffeeShops[selectedIndex].workingHours)
                             Text("Mon - Fri | 9am - 12pm,\nSat - Sun | 9am - 2am")
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                             
                             
                         }
-                        //                            .frame(maxHeight: .infinity)
                         .padding(.horizontal)
                         .padding(.bottom, 50)
                         
@@ -201,9 +192,11 @@ struct CoffeeShopProfile: View {
                     Circle()
                         .frame(width: 60)
                         .foregroundColor(.black)
+                        .padding(.leading, -20)
                         .overlay(
                             Image(systemName: "chevron.backward")
                                 .foregroundColor(.white)
+                                .padding(.leading, -18)
                         )
                     }
                 }
@@ -243,8 +236,6 @@ struct CoffeeShopModel: Codable {
     let workingHours: String
 }
 
-struct CoffeeShopProfile_Previews: PreviewProvider {
-    static var previews: some View {
-        CoffeeShopProfile()
-    }
+#Preview{
+    CoffeeShopProfile()
 }

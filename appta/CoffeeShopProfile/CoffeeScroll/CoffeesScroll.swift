@@ -42,9 +42,10 @@ struct CoffeesScroll: View {
                     
                     
                     Text(coffee.price)
-                        .font(.callout)
-                        .fontWeight(.black)
-                        .foregroundColor(Color("starbucks-white"))
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
+                        .padding(.bottom, 10)
+                        .padding(.top, -10)
                 }
             }
             
@@ -59,7 +60,7 @@ struct CoffeesScroll: View {
             ForEach(coffees.indices, id: \.self){index in
                 Circle()
                     .fill(Color("starbucks-green"))
-                    .frame(width: currentIndex == index ? 15 : 6, height: currentIndex == index ? 15 : 6)
+                    .frame(width: currentIndex == index ? 10 : 6, height: currentIndex == index ? 10 : 6)
                     .padding(.top, 2)
                     .background{
                         if currentIndex == index {

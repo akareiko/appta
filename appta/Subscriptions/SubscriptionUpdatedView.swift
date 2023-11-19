@@ -23,7 +23,7 @@ struct SubscriptionUpdatedView: View {
     
     var body: some View {
         VStack{
-            ScrollView(){
+            ScrollView(showsIndicators: false){
                 
                 CustomPagingSlider(showPagingControl: showPagingControl, disablePagingInteraction: disablePagingInteraction, titleScrollSpeed: titleScrollSpeed, pagingControlSpacing: pagingSpacing,  data: $items)
                 { $item in
@@ -50,7 +50,7 @@ struct SubscriptionUpdatedView: View {
                             .resizable()
                             .frame(width: 30, height: 30)
                             .foregroundColor(Color("starbucks-rewardgold"))
-                            .offset(CGSize(width: 190, height: -400))
+                            .offset(CGSize(width: 180, height: -400))
                         
                         VStack(alignment: .leading, spacing: 10){
                             Text("Subscription Info")
@@ -82,6 +82,7 @@ struct SubscriptionUpdatedView: View {
                             Spacer()
                         }
                         .padding(.horizontal, 20)
+                        .padding(.top, -20)
                         .padding(.bottom, 1000)
                         
                     }

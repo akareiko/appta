@@ -21,7 +21,7 @@ struct InfiniteCarousel: View {
                         let size = geometry.size
                         
                         ScrollView(.horizontal) {
-                            HStack(spacing: 0){
+                            HStack{
                                 ForEach(carousel){ card in
                                     // In order to Move the Card in Reverse Direction (Parallax Effect)
                                     GeometryReader(content: { proxy in
@@ -33,7 +33,7 @@ struct InfiniteCarousel: View {
                                             .resizable()
                                             .aspectRatio(contentMode: .fill)
                                             .offset(x: -minX + 30, y: 20)
-                                            .frame(width: cardSize.width, height: cardSize.height)
+                                            .frame(width: cardSize.width - 30, height: cardSize.height)
                                             .clipShape(.rect(cornerRadius: 15))
                                             .shadow(color: .black.opacity(0.25), radius: 8, x: 5, y: 1)
                                             .tag(thing.id.uuidString)
@@ -77,7 +77,7 @@ struct InfiniteCarousel: View {
                         .scrollTargetBehavior(.viewAligned)
                         .scrollIndicators(.hidden)
                     })
-                    .frame(height: 320)
+                    .frame(height: 280)
                     .padding(.horizontal, -15)
                     .padding(.top, 10)
                     // Calculating Entire Page Scroll Offset
@@ -90,7 +90,7 @@ struct InfiniteCarousel: View {
                     .offset(y: -45)
             }
         }
-        .frame(height: 400)
+        .frame(height: 350)
         .onAppear{
             guard fakedPages.isEmpty else {return}
             for image in carousel {

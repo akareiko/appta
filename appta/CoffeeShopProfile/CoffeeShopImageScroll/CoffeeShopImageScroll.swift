@@ -34,7 +34,7 @@
 //            }
 //            
 //            CustomPagingSlider(showPagingControl: showPagingControl, disablePagingInteraction: disablePagingInteraction, titleScrollSpeed: titleScrollSpeed, pagingControlSpacing: pagingSpacing, spacing: 0, data: $items) { item in
-//                Image(item)
+//                Image(item.image)
 //                    .resizable()
 //                    .frame(height: 450)
 //                    .aspectRatio(contentMode: .fit)
