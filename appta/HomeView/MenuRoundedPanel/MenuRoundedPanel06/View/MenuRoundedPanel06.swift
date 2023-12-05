@@ -11,11 +11,14 @@ struct MenuRoundedPanel06: View {
     var body: some View {
         VStack(){
             Image(systemName: "star.fill")
+                .resizable()
+                .frame(width: 18, height: 18)
                 .foregroundColor(Color("starbucks-rewardgold"))
                 .padding(.bottom, -2)
             Text("Explore")
-                .font(.title2.bold())
+                .font(.title3.bold())
             Text("Check out all of our services")
+                .font(.callout)
                 .foregroundStyle(.gray)
                 .multilineTextAlignment(.center)
             

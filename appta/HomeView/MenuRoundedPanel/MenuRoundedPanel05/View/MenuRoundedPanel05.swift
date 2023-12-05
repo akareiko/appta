@@ -15,10 +15,12 @@ struct MenuRoundedPanel05: View {
                 VStack {
                     HStack {
                         Image(systemName: "star.fill")
+                            .resizable()
+                            .frame(width: 18, height: 18)
                             .foregroundColor(Color("starbucks-rewardgold"))
 
                         Text("Coffee Shops")
-                            .font(.title2.bold())
+                            .font(.title3.bold())
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding(.leading, 30)
@@ -38,10 +40,12 @@ struct MenuRoundedPanel05: View {
                     }
             }
 
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(shops) { thing in
-                        NavigationLink(destination: CoffeeShopProfile().navigationBarBackButtonHidden(true)) {
+            ScrollView(.vertical){
+                VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/){
+                    GeometryReader {
+                        let size = $0.size
+                        
+                        LoopingScrollView(width: 280, spacing: 30, items: shops) { thing in
                             Image(thing.image)
                                 .resizable()
                                 .frame(width: 280, height: 140)
@@ -58,14 +62,19 @@ struct MenuRoundedPanel05: View {
                                         .foregroundColor(.white)
                                 })
                         }
+                        .padding(.leading, 10)
+                        //.contentMargins(.horizontal, 15, for: .scrollContent)
                     }
-                    .padding(.leading, 10)
+                    .frame(height: 140)
+
                 }
+                .padding(.vertical, 15)
             }
-            .padding(.leading, 10)
+            .scrollIndicators(.hidden)
         }
     }
 }
+
 
 // Use ContentView_Previews for the preview
 #Preview{

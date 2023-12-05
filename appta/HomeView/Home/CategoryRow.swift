@@ -14,7 +14,7 @@ struct CategoryRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(alignment: .top, spacing: 0) {
                     ForEach(items) { coffeeshop in
-                        NavigationLink(destination: CoffeeShopProfile().navigationBarBackButtonHidden(true)) {
+                        NavigationLink(destination: CoffeeShopProfile(coffees: coffees).navigationBarBackButtonHidden(true)) {
                             CategoryItem(coffeeshop: coffeeshop)
                         }
                     }

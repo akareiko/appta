@@ -87,7 +87,7 @@ struct InfiniteCarousel: View {
             .tabViewStyle(.page(indexDisplayMode: .never))
             .overlay(alignment: .bottom) {
                 PageControl(totalPages: listOfPages.count, currentPage: originalIndex(currentPage))
-                    .offset(y: -45)
+                    .offset(y: -35)
             }
         }
         .frame(height: 350)

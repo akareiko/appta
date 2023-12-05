@@ -15,10 +15,12 @@ struct MenuReward03: View {
             VStack {
                 HStack {
                     Image(systemName: "star.fill")
+                        .resizable()
+                        .frame(width: 18, height: 18)
                         .foregroundColor(Color("starbucks-rewardgold"))
                     
                     Text("Награды")
-                        .font(.title2.bold())
+                        .font(.title3.bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(.leading, 30)

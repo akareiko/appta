@@ -14,10 +14,12 @@ struct MenuRoundedPanel04: View {
             VStack {
                 HStack {
                     Image(systemName: "star.fill")
+                        .resizable()
+                        .frame(width: 18, height: 18)
                         .foregroundColor(Color("starbucks-rewardgold"))
                     
                     Text("Services")
-                        .font(.title2.bold())
+                        .font(.title3.bold())
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(.leading, 30)
@@ -45,8 +47,7 @@ struct MenuRoundedPanel04: View {
                                         .frame(width: 60, height: 60)
                                     
                                     Text(thing.title)
-                                        .font(.footnote)
-                                        .fontWeight(.semibold)
+                                        .font(.footnote.bold())
                                 }
                             })
                     }

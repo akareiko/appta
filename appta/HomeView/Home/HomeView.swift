@@ -67,10 +67,7 @@ struct HomeView: View {
                             .safeAreaPadding([.horizontal, .top], 10)
                             
                             InfiniteCarousel()
-                                .frame(width: UIScreen.main.bounds.width - 20)
-                                .scaledToFit()
-                                .offset(CGSize(width: 0.0, height: 0.0))
-                                .padding(.bottom, 0)
+                                .padding(.bottom, -20)
                             
 //                            MainMenuRoundedPanel(element: Element)
 //                                .padding(.bottom, 30)
@@ -92,7 +89,6 @@ struct HomeView: View {
                                 .padding(.bottom, 120)
                             
 //                            RewardCarouselView(rewardCarousel: RewardCarousels)
-//                                .offset(y: -760)
                             
 //                            MenuReward02(menuReward02: menuReward02)
 //                                .offset(CGSize(width: 0.0, height: -700.0)).padding(.bottom, 120)

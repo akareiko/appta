@@ -11,6 +11,17 @@ struct CoffeeShopList: View {
     @State var coffeeshoplist: [CoffeeShopListModel]
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
+    @State private var searchText = ""
+    @State private var isSearching = false
+    
+    var filteredCoffeeShops: [CoffeeShopListModel] {
+            if searchText.isEmpty {
+                return coffeeshoplist
+            } else {
+                return coffeeshoplist.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
+            }
+        }
+    
     var body: some View {
         VStack(){
             VStack(){
@@ -26,20 +37,23 @@ struct CoffeeShopList: View {
                     .multilineTextAlignment(.center)
             }
             .padding(.top, 70)
-            .padding(.bottom, -20)
             
-            ScrollView(showsIndicators: false){
-                VStack(spacing: 30){
-                    ForEach(coffeeshoplist){thing in
-                        ScrollView(.horizontal){
-                            CoffeeShopPanel(image: thing.image, title: thing.title, num_rest: thing.num_rest)
+            NavigationView{
+                ScrollView(showsIndicators: false){
+                    VStack(spacing: 30){
+                        SearchBar(searchText: $searchText, isSearching: $isSearching)
+                            .padding(.top, -10)
+                        
+                        ForEach(coffeeshoplist){thing in
+                            ScrollView(.horizontal){
+                                CoffeeShopPanel(image: thing.image, title: thing.title, num_rest: thing.num_rest)
+                            }
                         }
                     }
+                    .padding(.bottom, 100)
+                    .padding(.top, 30)
                 }
-                .padding(.bottom, 100)
-                .padding(.top, 30)
             }
-            .padding(.top, 20)
             
         }
         .ignoresSafeArea(.all)
@@ -51,9 +65,11 @@ struct CoffeeShopList: View {
                     Circle()
                         .frame(width: 60)
                         .foregroundColor(.black)
+                        .offset(CGSize(width: -10.0, height: 0.0))
                         .overlay(
                             Image(systemName: "chevron.backward")
                                 .foregroundColor(.white)
+                                .offset(CGSize(width: -10.0, height: 0.0))
                         )
                     }
                 }
