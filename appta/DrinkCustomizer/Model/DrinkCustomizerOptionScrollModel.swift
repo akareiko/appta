@@ -32,6 +32,8 @@ var optionscroll: [Option] = [
         image_gold: "milk-rewardgold",
         optionTypes: [
             OptionType(name: "Regular Milk", image: "milk", image_gold: "milk-rewardgold", price: nil),
+            OptionType(name: "Low Fat Milk", image: "milk", image_gold: "milk-rewardgold", price: nil),
+            OptionType(name: "Lactose Free Milk", image: "milk", image_gold: "milk-rewardgold", price: 200),
             OptionType(name: "Coconut Milk", image: "milk", image_gold: "milk-rewardgold", price: 300),
             OptionType(name: "Oat Milk", image: "milk", image_gold: "milk-rewardgold", price: 200),
             OptionType(name: "Soya Milk", image: "milk", image_gold: "milk-rewardgold", price: 300),
@@ -45,10 +47,12 @@ var optionscroll: [Option] = [
         image: "syrup",
         image_gold: "syrup-rewardgold",
         optionTypes: [
+            OptionType(name: "None", image: "none", image_gold: "none-rewardgold", price: nil),
             OptionType(name: "Caramel Syrup", image: "syrup", image_gold: "syrup-rewardgold", price: 100),
             OptionType(name: "Vanila Syrup", image: "syrup", image_gold: "syrup-rewardgold", price: 150),
-            OptionType(name: "Chestnut Syrup", image: "syrup", image_gold: "syrup-rewardgold", price: 100),
+            OptionType(name: "Hazelnut Syrup", image: "syrup", image_gold: "syrup-rewardgold", price: 100),
             OptionType(name: "Maple Syrup", image: "syrup", image_gold: "syrup-rewardgold", price: 200),
+            OptionType(name: "Lavender Syrup", image: "syrup", image_gold: "syrup-rewardgold", price: 200),
         ]
     ),
     .init(

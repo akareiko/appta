@@ -11,12 +11,13 @@ struct Size: Identifiable {
     
     var id: String = UUID().uuidString
     var title: String
+    var volume: Int
 
 }
 
 var sizes = [
-    Size(title: "S"),
-    Size(title: "M"),
-    Size(title: "L")
+    Size(title: "S", volume: 300),
+    Size(title: "M", volume: 400),
+    Size(title: "L", volume: 500)
 ]
 

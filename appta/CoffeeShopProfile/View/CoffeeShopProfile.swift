@@ -15,22 +15,17 @@ struct CoffeeShopProfile: View {
         NavigationView {
             VStack {
                 ScrollView(showsIndicators: false){
-                    ZStack {
-                        Image("starbucks")
-                            .resizable()
-                            .frame(height: 350)
-                            .clipped()
-                        
-                        Rectangle()
-                            .frame(width: UIScreen.main.bounds.width, height: 120)
-                            .overlay(
-                                ZStack {
-                                    LinearGradient(gradient: Gradient(colors: [Color.clear, Color("starbucks-neutral").opacity(2)]), startPoint: .center, endPoint: .bottom)
-                                }
-                            )
-                            .foregroundColor(.clear)
-                            .offset(CGSize(width: 0, height: 120))
-                    }
+                    Image("starbucks")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 300) // Adjust the height to fit your design
+                        .overlay(
+                            // Gradient from white at the bottom to transparent at the top
+                            LinearGradient(gradient: Gradient(colors: [Color.white, Color.white.opacity(0)]), startPoint: .bottom, endPoint: .top)
+                                .frame(height: 100) // Adjust this to control the gradient size
+                            , alignment: .bottom
+                        )
+                        .clipped()
                     VStack{
                         HStack{
                             Text("Starbucks")
@@ -87,34 +82,89 @@ struct CoffeeShopProfile: View {
                         .padding(.horizontal, 15)
                         
                         VStack(alignment: .leading){
+                            
                             VStack(alignment: .leading){
+                                HStack {
+                                    VStack {
+                                        HStack {
+                                            Image(systemName: "star.fill")
+                                                .resizable()
+                                                .frame(width: 18, height: 18)
+                                                .foregroundColor(Color("starbucks-rewardgold"))
+
+                                            Text("Menu")
+                                                .font(.title3.bold())
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                        }
+
+                                        Text("Your favourites drinks and more")
+                                            .font(.footnote)
+                                            .foregroundStyle(.gray)
+                                            .multilineTextAlignment(.center)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
+                                            
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    NavigationLink(destination: MenuView()) {
+                                            Image(systemName: "chevron.right")
+                                                .foregroundColor(Color("starbucks-rewardgold"))
+                                                .padding(.trailing, 20)
+                                        }
+                                }
                                 
-                                Text("Specials")
-                                    .font(.title2.bold())
-                                    .padding(.top)
+                                ScrollView(.horizontal){
+                                    Image("arabica-horizontal")
+                                        .resizable()
+                                        .frame(width: UIScreen.main.bounds.width - 20, height: 150)
+                                        .foregroundColor(.white)
+                                        .shadow(radius: 3)
+                                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                                }
+                            }
+                            .padding(.top, 20)
+                            .padding(.bottom, 20)
+                            
+                            VStack(alignment: .leading){
+                                HStack{
+                                    Image(systemName: "star.fill")
+                                        .resizable()
+                                        .frame(width: 18, height: 18)
+                                        .foregroundColor(Color("starbucks-rewardgold"))
+                                    
+                                    Text("\(selectedCategory.title)")
+                                        .font(.title2.bold())
+                                }
                                 
                                 ScrollView(.horizontal, showsIndicators: false, content: {
-                                    
                                     HStack(spacing: 15){
                                         ForEach(categories){ category in
                                             HStack(spacing: 10){
                                                 Text(category.title)
-                                                    .font(.callout.bold())
-                                                    .foregroundColor(selectedCategory.id == category.id ? .white : .black)
+                                                    .foregroundColor(selectedCategory.id == category.id ? Color(.white) : Color("starbucks-rewardgold"))
+                                                    .fontWeight(.bold)
+                                                    .font(.callout)
+                                                    .padding(.init(top: 6, leading: 12, bottom: 6, trailing: 12))
+                                                    .cornerRadius(20)
+                                                .overlay(
+                                                    Capsule()
+                                                        .stroke(Color("starbucks-rewardgold"), lineWidth: 2)
+                                                )
                                             }
-                                            .padding(.vertical, 5)
-                                            .padding(.horizontal)
-                                            .background(selectedCategory.id == category.id ? Color("starbucks-rewardgold") : Color.gray.opacity(0.3))
+                                            .background(selectedCategory.id == category.id ? Color("starbucks-rewardgold").opacity(0.8) : Color(.white))
                                             .clipShape(Capsule())
-                                            .shadow(color: Color.black.opacity(0.05), radius: 5, x: 5, y: 5)
+                                            .shadow(color: Color.black.opacity(0.05), radius: 1, x: 1, y: 1)
                                             .onTapGesture{
                                                 withAnimation(.spring()){
                                                     selectedCategory = category
                                                 }
                                             }
+                                            .padding(.leading, category.title == "Specials" ? 15 : 0)
+                                            .padding(.trailing, category.title == "Desserts" ? 15 : 0)
                                         }
                                     }
-                                    .padding(.bottom, 60)
+                                    .padding(.bottom, 20)
                                     
                                 })
                                 .padding(.horizontal, -20)
@@ -146,30 +196,32 @@ struct CoffeeShopProfile: View {
                     }
                     .padding(.bottom, 50)
                 }
-                .background(Color("starbucks-neutral"))
+                .background(.white)
                 .ignoresSafeArea()
             }
         }
         .onAppear {
             fetchData()
-        }
+        }  
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
-            Button(action: {
-                presentationMode.wrappedValue.dismiss()
-            }) {
-                Circle()
-                    .frame(width: 60)
-                    .foregroundColor(.black)
-                    .padding(.leading, -20)
-                    .overlay(
-                        Image(systemName: "chevron.backward")
-                            .foregroundColor(.white)
-                            .padding(.leading, -18)
-                    )
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Circle()
+                        .frame(width: 60)
+                        .foregroundColor(.black)
+                        .offset(CGSize(width: -10.0, height: 0.0))
+                        .overlay(
+                            Image(systemName: "chevron.backward")
+                                .foregroundColor(.white)
+                                .offset(CGSize(width: -10.0, height: 0.0))
+                        )
+                    }
                 }
             }
-        }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarTitle("", displayMode: .inline)
     }
 
     func fetchData() {
