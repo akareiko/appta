@@ -33,9 +33,11 @@ struct MenuReward03: View {
                     .padding(.leading, 30)
             }
             
-            Image(systemName: "chevron.right")
-                .foregroundColor(Color("starbucks-rewardgold"))
-                .padding(.trailing, 30)
+            NavigationLink(destination: ScrollableTabView()) {
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(Color("starbucks-rewardgold"))
+                        .padding(.trailing, 30)
+                }
         }
         .padding(.bottom, 10)
         

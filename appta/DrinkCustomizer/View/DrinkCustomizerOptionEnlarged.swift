@@ -10,7 +10,7 @@ import SwiftUI
 struct DrinkCustomizerOptionEnlarged: View {
     @State private var selectedOption: OptionType
     var options: [Option]
-    @State private var optionArray: [Int : OptionType] = [:]
+    @State var optionArray: [Int : OptionType] = [:]
     @State var isClicked: [Bool]
     private let selectedIndex: Int
     
@@ -215,7 +215,8 @@ extension DrinkCustomizerOptionEnlarged {
             }
         }
             
-        return total
+        return optionArray[0]?.price ?? 0
+
     }
 }
 
