@@ -107,7 +107,7 @@ struct CoffeeShopProfile: View {
                                     
                                     Spacer()
                                     
-                                    NavigationLink(destination: MenuView()) {
+                                    NavigationLink(destination: AnimatedHeader()) {
                                             Image(systemName: "chevron.right")
                                                 .foregroundColor(Color("starbucks-rewardgold"))
                                                 .padding(.trailing, 20)

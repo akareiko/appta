@@ -167,7 +167,7 @@ extension DrinkCustomizer {
             }
         }
             
-        return optionArray[3]?.price ?? 0
+        return total
     }
 }
 

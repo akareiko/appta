@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "BC92327E-DD6E-45DB-BA12-384ACC1A8940"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appta/Walkthrough/View/CustomTextField.swift"
@@ -22,7 +22,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "385C3554-4EE4-4773-A152-813F57EF2338"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "appta/Map01/ViewModel/LocationManager.swift"
@@ -35,7 +35,7 @@
             <Locations>
                <Location
                   uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - e298e565cc5e68e9"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "property wrapper backing initializer of appta.LocationManager.searchText : Swift.String"
@@ -50,7 +50,7 @@
                </Location>
                <Location
                   uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - a7a87ec590519e07"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "appta.LocationManager.searchText.getter : Swift.String"
@@ -65,7 +65,7 @@
                </Location>
                <Location
                   uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - 313523a76c7e9346"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "appta.LocationManager.searchText.setter : Swift.String"
@@ -80,7 +80,7 @@
                </Location>
                <Location
                   uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - 7855bde7ebe17f77"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "appta.LocationManager.searchText.modify : Swift.String"
@@ -95,7 +95,7 @@
                </Location>
                <Location
                   uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - 5ebba5be5115493c"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "appta.LocationManager.searchText.modify : Swift.String with unmangled suffix &quot;.resume.0&quot;"
@@ -110,7 +110,7 @@
                </Location>
                <Location
                   uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - 2e7202582281ad51"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "appta.LocationManager.$searchText.getter : Combine.Published&lt;Swift.String&gt;.Publisher"
@@ -125,7 +125,7 @@
                </Location>
                <Location
                   uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - e98324500ba2b15f"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "appta.LocationManager.$searchText.setter : Combine.Published&lt;Swift.String&gt;.Publisher"
@@ -140,7 +140,7 @@
                </Location>
                <Location
                   uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - 401154087628228"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "appta.LocationManager.$searchText.modify : Combine.Published&lt;Swift.String&gt;.Publisher"
@@ -155,7 +155,7 @@
                </Location>
                <Location
                   uuid = "385C3554-4EE4-4773-A152-813F57EF2338 - 24250ec395baf776"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "appta.LocationManager.$searchText.modify : Combine.Published&lt;Swift.String&gt;.Publisher with unmangled suffix &quot;.resume.0&quot;"
@@ -167,6 +167,193 @@
                   startingLineNumber = "0"
                   endingLineNumber = "0"
                   offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B0B09ADA-FE8F-41DB-9040-8E7C3A98D545"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../var/folders/mh/mhx1p6ws59d23dtt5_6qr_dh0000gn/T/swift-generated-sources/@__swiftmacro_5appta33_1CD66659873576D2899571B8BA603DC2Ll7PreviewfMf0_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1"
+            landmarkName = "$s5appta33_1CD66659873576D2899571B8BA603DC2Ll7PreviewfMf0_15PreviewRegistryfMu_"
+            landmarkType = "37">
+            <Locations>
+               <Location
+                  uuid = "B0B09ADA-FE8F-41DB-9040-8E7C3A98D545 - c6d0ac1dfc1f47b5"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.$s5appta33_1CD66659873576D2899571B8BA603DC2Ll7PreviewfMf0_15PreviewRegistryfMu_.init() -&gt; appta.$s5appta33_1CD66659873576D2899571B8BA603DC2Ll7PreviewfMf0_15PreviewRegistryfMu_"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///var/folders/mh/mhx1p6ws59d23dtt5_6qr_dh0000gn/T/swift-generated-sources/@__swiftmacro_5appta33_1CD66659873576D2899571B8BA603DC2Ll7PreviewfMf0_.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "2"
+                  endingLineNumber = "2"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "B0B09ADA-FE8F-41DB-9040-8E7C3A98D545 - c6d0ac1dfc1f47b5"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.$s5appta33_1CD66659873576D2899571B8BA603DC2Ll7PreviewfMf0_15PreviewRegistryfMu_.init() -&gt; appta.$s5appta33_1CD66659873576D2899571B8BA603DC2Ll7PreviewfMf0_15PreviewRegistryfMu_"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///var/folders/mh/mhx1p6ws59d23dtt5_6qr_dh0000gn/T/swift-generated-sources/@__swiftmacro_5appta33_1CD66659873576D2899571B8BA603DC2Ll7PreviewfMf0_.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "2"
+                  endingLineNumber = "2"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B6A893CF-7F5F-41BE-A0AF-5D515C817EB4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../var/folders/mh/mhx1p6ws59d23dtt5_6qr_dh0000gn/T/swift-generated-sources/@__swiftmacro_5appta33_1CD66659873576D2899571B8BA603DC2Ll7PreviewfMf_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1"
+            landmarkName = "$s5appta33_1CD66659873576D2899571B8BA603DC2Ll7PreviewfMf_15PreviewRegistryfMu_"
+            landmarkType = "37">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D6A125F7-EC96-4328-A3B6-8D36924854F2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "appta/Menu/AnimatedHeader/ViewModel/AnimatedHeaderModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "HomeViewModel"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "D6A125F7-EC96-4328-A3B6-8D36924854F2 - 78352674c9336536"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.HomeViewModel.deinit"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/appta/Menu/AnimatedHeader/ViewModel/AnimatedHeaderModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "D6A125F7-EC96-4328-A3B6-8D36924854F2 - 7e181653cec1b19"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.HomeViewModel.__deallocating_deinit"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/appta/Menu/AnimatedHeader/ViewModel/AnimatedHeaderModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "D6A125F7-EC96-4328-A3B6-8D36924854F2 - f96cb93135470221"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.HomeViewModel.__allocating_init() -&gt; appta.HomeViewModel"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/appta/Menu/AnimatedHeader/ViewModel/AnimatedHeaderModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "D6A125F7-EC96-4328-A3B6-8D36924854F2 - 500a9fe405d9c327"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.HomeViewModel.init() -&gt; appta.HomeViewModel"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/appta/Menu/AnimatedHeader/ViewModel/AnimatedHeaderModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "752">
+               </Location>
+               <Location
+                  uuid = "D6A125F7-EC96-4328-A3B6-8D36924854F2 - 78352674c9336536"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.HomeViewModel.deinit"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/appta/Menu/AnimatedHeader/ViewModel/AnimatedHeaderModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  uuid = "D6A125F7-EC96-4328-A3B6-8D36924854F2 - f96cb93135470221"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.HomeViewModel.__allocating_init() -&gt; appta.HomeViewModel"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/appta/Menu/AnimatedHeader/ViewModel/AnimatedHeaderModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "10">
+               </Location>
+               <Location
+                  uuid = "D6A125F7-EC96-4328-A3B6-8D36924854F2 - 500a9fe405d9c327"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "appta.HomeViewModel.init() -&gt; appta.HomeViewModel"
+                  moduleName = "appta"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/assylzhantati/Documents/appta/appta/Menu/AnimatedHeader/ViewModel/AnimatedHeaderModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "708">
                </Location>
             </Locations>
          </BreakpointContent>
