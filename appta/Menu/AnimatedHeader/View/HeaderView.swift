@@ -12,13 +12,15 @@ struct HeaderView: View {
     @Binding var currentTab: String
     @Binding var onTapCurrentTab: String
     @Namespace var animation
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
             
             HStack(spacing: 0){
                 // Backbutton...
                 if getSize() != 0 {
-                    Button(action: {}, label: {
+                    Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
                         Image(systemName: "arrow.left")
                             .font(.system(size: 20, weight: .bold))
                             .frame(width: getSize(), height: getSize())
@@ -76,8 +78,7 @@ struct HeaderView: View {
                         
                         HStack(spacing: 30){
 
-                            ForEach(tabsItems){tab in
-
+                            ForEach(drinksmenu){tab in
                                 VStack(){
                                     Text(tab.tab)
                                         .foregroundColor(currentTab
@@ -96,13 +97,12 @@ struct HeaderView: View {
                                             .padding(.horizontal, -10)
                                     }
                                 }
-                                .onTapGesture {
+                                .onTapGesture{
                                     withAnimation(.easeInOut){
                                             onTapCurrentTab = tab.id
                                             reader.scrollTo(tab.id, anchor: .topLeading)
                                      }
                                 }
-                                
                             }
                         }
                     }
@@ -118,7 +118,7 @@ struct HeaderView: View {
                     .opacity(homeData.offset > 200 ? Double(homeData.offset - 200) / 50 : 0)
                 }
             }
-            .frame(height: 60)
+            .frame(height: 50)
             
             if homeData.offset > 250 {
                 Divider()

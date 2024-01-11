@@ -23,7 +23,3 @@ struct DrinkCustomizerInfoPanel: View {
         
     }
 }
-
-#Preview {
-    DrinkCustomizer(isPresented: .constant(true), selectedCoffee: .constant(nil), options: optionscroll, optionArray: .constant([:]))
-}

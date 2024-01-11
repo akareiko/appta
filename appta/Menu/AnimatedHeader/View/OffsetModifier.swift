@@ -27,13 +27,13 @@ struct OffsetModifier: ViewModifier {
                 let offset = proxy.minY
                             
                 withAnimation(.easeInOut){
-                    if let currentIndex = tabsItems.firstIndex(where: { $0.id == currentTab }) {
-                    if offset < 120 && -offset < (proxy.midX / 2) && currentTab != tab.id && currentIndex < tabsItems.count - 1 {
+                    if let currentIndex = drinksmenu.firstIndex(where: { $0.id == currentTab }) {
+                    if offset < 120 && -offset < (proxy.midX / 2) && currentTab != tab.id && currentIndex < drinksmenu.count - 1 {
                     // Scrolling down
-                        currentTab = tabsItems[currentIndex + 1].id
+                        currentTab = drinksmenu[currentIndex + 1].id
                     } else if offset > 120 && offset > -(proxy.midX / 2) && currentTab == tab.id && currentIndex > 0 {
                 
-                    currentTab = tabsItems[currentIndex - 1].id
+                    currentTab = drinksmenu[currentIndex - 1].id
                     }
                 }
             }

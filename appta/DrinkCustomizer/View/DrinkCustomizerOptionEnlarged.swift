@@ -7,21 +7,25 @@
 
 import SwiftUI
 
+
 struct DrinkCustomizerOptionEnlarged: View {
+    
     @State private var selectedOption: OptionType
     var options: [Option]
     @State var optionArray: [Int : OptionType] = [:]
     @State var isClicked: [Bool]
     private let selectedIndex: Int
+    @Binding var totalPrice: Int
     
 
-    init(selectedIndex: Int, options: [Option], optionArray: [Int: OptionType], isClicked: [Bool]) {
+    init(totalPrice: Binding<Int>, selectedIndex: Int, options: [Option], optionArray: [Int: OptionType], isClicked: [Bool]) {
             self.selectedIndex = selectedIndex
             self.options = options
+            self._isClicked = State(initialValue: Array(repeating: false, count: options.count))
+        
             self._selectedOption = State(initialValue: options[selectedIndex].optionTypes.first ?? OptionType(name: "", image: "", image_gold: "", price: nil))
             self._optionArray = State(initialValue: optionArray)
-
-            self._isClicked = State(initialValue: Array(repeating: false, count: options.count))
+            self._totalPrice = totalPrice
         }
         
         let columns: [GridItem] = [
@@ -48,7 +52,7 @@ struct DrinkCustomizerOptionEnlarged: View {
                                     optionArray[selectedIndex] = nil
                                     isClicked[selectedIndex] = false
                                 }
-
+                                self.calculateTotalPrice()
                             }
                         })  {
                             ZStack {
@@ -123,52 +127,52 @@ struct DrinkCustomizerOptionEnlarged: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 15) {
                         ForEach(optionArray.keys.sorted(), id: \.self) { key in
-                                if let chosenOption = optionArray[key]{
-                                    VStack{
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .frame(width: 40, height: 40)
-                                            .foregroundColor(.white)
-                                            .shadow(radius: 2)
-                                            .padding(1)
-                                            .overlay {
-                                                RoundedRectangle(cornerRadius: 15)
-                                                                       .stroke(
-                                                                           chosenOption.name == "Hot" ? Color.red :
-                                                                               (chosenOption.name == "Cold" ? Color.blue : Color("starbucks-rewardgold")),
-                                                                           lineWidth: 1
-                                                                       )
-                                                                       .padding(1)
-                                            }
-                                                           
-                                            Image(chosenOption.image_gold)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(width: 30, height: 30)
-                                                .offset(CGSize(width: 0, height: -45))
-                                                           
-                                                           
-                                                           
-                                            Text(chosenOption.name)
-                                                .font(.footnote)
-                                                .foregroundColor(
-                                                chosenOption.id == chosenOption.id ? (chosenOption.name == "Hot" ? .red : (chosenOption.name == "Cold" ? .blue : Color("starbucks-rewardgold"))) : .black
+                            if let chosenOption = optionArray[key]{
+                                VStack{
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .frame(width: 40, height: 40)
+                                        .foregroundColor(.white)
+                                        .shadow(radius: 2)
+                                        .padding(1)
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 15)
+                                                .stroke(
+                                                    chosenOption.name == "Hot" ? Color.red :
+                                                        (chosenOption.name == "Cold" ? Color.blue : Color("starbucks-rewardgold")),
+                                                    lineWidth: 1
                                                 )
-                                                .frame(width: 120)
-                                                .offset(CGSize(width: 0, height: -40))
-                                                               
-                                            HStack(spacing: 3) {
-                                                Text(chosenOption.price == nil ? "" : "+ \(String(chosenOption.price ?? 0))")
-                                                                       .font(.footnote)
-                                                                       .foregroundColor(chosenOption.id == chosenOption.id ? Color("starbucks-rewardgold") : .black)
-                                                                   
-                                                Image(systemName: chosenOption.price == nil ? "" : "tengesign")
-                                                                       .resizable()
-                                                                       .frame(width: 8, height: 8)
-                                                                       .foregroundColor(chosenOption.id == chosenOption.id ? Color("starbucks-rewardgold") : .black)
-                                                               }
-                                                .padding(.top, -10)
-                                                .offset(CGSize(width: 0, height: -40))
-                                                .frame(width: 50)
+                                                .padding(1)
+                                        }
+                                    
+                                    Image(chosenOption.image_gold)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 30, height: 30)
+                                        .offset(CGSize(width: 0, height: -45))
+                                    
+                                    
+                                    
+                                    Text(chosenOption.name)
+                                        .font(.footnote)
+                                        .foregroundColor(
+                                            chosenOption.id == chosenOption.id ? (chosenOption.name == "Hot" ? .red : (chosenOption.name == "Cold" ? .blue : Color("starbucks-rewardgold"))) : .black
+                                        )
+                                        .frame(width: 120)
+                                        .offset(CGSize(width: 0, height: -40))
+                                    
+                                    HStack(spacing: 3) {
+                                        Text(chosenOption.price == nil ? "" : "+ \(String(chosenOption.price ?? 0))")
+                                            .font(.footnote)
+                                            .foregroundColor(chosenOption.id == chosenOption.id ? Color("starbucks-rewardgold") : .black)
+                                        
+                                        Image(systemName: chosenOption.price == nil ? "" : "tengesign")
+                                            .resizable()
+                                            .frame(width: 8, height: 8)
+                                            .foregroundColor(chosenOption.id == chosenOption.id ? Color("starbucks-rewardgold") : .black)
+                                    }
+                                    .padding(.top, -10)
+                                    .offset(CGSize(width: 0, height: -40))
+                                    .frame(width: 50)
                                 }
                                 .frame(width: 100) // Adjust the width to accommodate your content
                                 .padding(.leading, key == optionArray.keys.sorted().first ? 15 : 0)
@@ -179,17 +183,24 @@ struct DrinkCustomizerOptionEnlarged: View {
                     .padding(.trailing, 10) // Adjust this padding as needed
                 }
                 
-                Text("Total Price: \(calculateTotalPrice()) KZT")
+                Button("Change value"){
+                    self.calculateTotalPrice()
+                }
                     .font(.headline)
                     .foregroundColor(Color("starbucks-rewardgold"))
                     .padding(.top, 20)
+                
+                Text("Total Price: \(totalPrice) KZT")
+                    .font(.headline)
+                    .foregroundColor(Color("starbucks-rewardgold"))
+                    .padding(.top, 20)
+                
                     
             }
             .scrollIndicatorsFlash(onAppear: true)
             .frame(maxWidth: .infinity + 100)
             .offset(CGSize(width: -90, height: 0))
             .padding(.top, 30)
-            
         }
 }
 
@@ -208,20 +219,19 @@ extension DrinkCustomizerOptionEnlarged {
     
     func calculateTotalPrice() -> Int {
         var total = 0
-            
-        for (_, optionType) in optionArray {
+
+        for optionType in optionArray.values {
             if let price = optionType.price {
                 total += price
             }
         }
-            
-        return optionArray[0]?.price ?? 0
-
+        totalPrice = total
+        return total
     }
 }
 
 
 
 #Preview {
-    DrinkCustomizerOptionEnlarged(selectedIndex: 0, options: optionscroll, optionArray: [:], isClicked: [])
+    DrinkCustomizerOptionEnlarged(totalPrice: .constant(0), selectedIndex: 0, options: optionscroll, optionArray: [:], isClicked: [])
 }

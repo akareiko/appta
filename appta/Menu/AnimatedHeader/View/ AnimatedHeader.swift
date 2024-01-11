@@ -46,7 +46,7 @@ struct AnimatedHeader: View {
                         Section(header: HeaderView(currentTab: $currentTab, onTapCurrentTab: $onTapCurrentTab)){
                             // Tabs With Content...
                             
-                            ForEach(tabsItems){tab in
+                            ForEach(drinksmenu){tab in
                                 VStack(alignment: .leading, spacing: 15){
                                     MenuCardView(tab: tab, currentTab: $currentTab)
                                 }
@@ -72,10 +72,9 @@ struct AnimatedHeader: View {
             // Used it Environment object for accessing all sub objects....
             .environmentObject(homeData)
         }
-        .ignoresSafeArea()
         .navigationBarBackButtonHidden()
         .onAppear {
-            currentTab = tabsItems.first?.id ?? ""
+            currentTab = drinksmenu.first?.id ?? ""
         }
     }
 }

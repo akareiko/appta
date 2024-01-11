@@ -113,6 +113,10 @@
 		BE76B0E92B00F66B00B6BE3E /* MenuRoundedPanel06.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE76B0E82B00F66B00B6BE3E /* MenuRoundedPanel06.swift */; };
 		BE9BBC162A9407F300B0C05D /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC152A9407F300B0C05D /* ModelData.swift */; };
 		BE9BBC182A94080400B0C05D /* CoffeeShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC172A94080400B0C05D /* CoffeeShop.swift */; };
+		BEACCD412B49D170001C0CD8 /* SampleMag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEACCD402B49D170001C0CD8 /* SampleMag.swift */; };
+		BEACCD432B4B1C12001C0CD8 /* Pilowlava-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEACCD422B4B1C12001C0CD8 /* Pilowlava-Regular.otf */; };
+		BEACCD462B4B2D26001C0CD8 /* Vetrino.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEACCD452B4B2D26001C0CD8 /* Vetrino.otf */; };
+		BEACCD542B4B2F0C001C0CD8 /* Gara Gara Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = BEACCD532B4B2F0C001C0CD8 /* Gara Gara Bold.otf */; };
 		BED02CEF2A940B48007DEE6D /* coffeeshops.json in Resources */ = {isa = PBXBuildFile; fileRef = BED02CEE2A940B48007DEE6D /* coffeeshops.json */; };
 		BED02CF72A94168B007DEE6D /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02CF62A94168B007DEE6D /* CategoryItem.swift */; };
 		BED02CF92A9416DA007DEE6D /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02CF82A9416DA007DEE6D /* CategoryRow.swift */; };
@@ -122,6 +126,9 @@
 		BED02D0F2A9617FF007DEE6D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02D0E2A9617FF007DEE6D /* ProfileView.swift */; };
 		BED02D112A961AB6007DEE6D /* QrcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02D102A961AB6007DEE6D /* QrcodeView.swift */; };
 		BEF004192A963547008CEAAD /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = BEF004182A963547008CEAAD /* CodeScanner */; };
+		BEF2E49A2B5022F90086B23F /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF2E4992B5022F90086B23F /* BasketView.swift */; };
+		BEF2E49C2B5023100086B23F /* BasketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF2E49B2B5023100086B23F /* BasketModel.swift */; };
+		BEF2E4A02B5023770086B23F /* PaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF2E49F2B5023770086B23F /* PaymentMethodView.swift */; };
 		BEFBB8E12AA6A8B500896A83 /* CategoryItemStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB8E02AA6A8B500896A83 /* CategoryItemStory.swift */; };
 		BEFBB8E32AA6AA0300896A83 /* CategoryRowStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFBB8E22AA6AA0300896A83 /* CategoryRowStory.swift */; };
 /* End PBXBuildFile section */
@@ -254,6 +261,10 @@
 		BE76B0E82B00F66B00B6BE3E /* MenuRoundedPanel06.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRoundedPanel06.swift; sourceTree = "<group>"; };
 		BE9BBC152A9407F300B0C05D /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		BE9BBC172A94080400B0C05D /* CoffeeShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShop.swift; sourceTree = "<group>"; };
+		BEACCD402B49D170001C0CD8 /* SampleMag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleMag.swift; sourceTree = "<group>"; };
+		BEACCD422B4B1C12001C0CD8 /* Pilowlava-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pilowlava-Regular.otf"; sourceTree = "<group>"; };
+		BEACCD452B4B2D26001C0CD8 /* Vetrino.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Vetrino.otf; sourceTree = "<group>"; };
+		BEACCD532B4B2F0C001C0CD8 /* Gara Gara Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Gara Gara Bold.otf"; sourceTree = "<group>"; };
 		BED02CEE2A940B48007DEE6D /* coffeeshops.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = coffeeshops.json; sourceTree = "<group>"; };
 		BED02CF62A94168B007DEE6D /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		BED02CF82A9416DA007DEE6D /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
@@ -262,6 +273,9 @@
 		BED02D0C2A9617F3007DEE6D /* SubscriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionView.swift; sourceTree = "<group>"; };
 		BED02D0E2A9617FF007DEE6D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		BED02D102A961AB6007DEE6D /* QrcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrcodeView.swift; sourceTree = "<group>"; };
+		BEF2E4992B5022F90086B23F /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
+		BEF2E49B2B5023100086B23F /* BasketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModel.swift; sourceTree = "<group>"; };
+		BEF2E49F2B5023770086B23F /* PaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView.swift; sourceTree = "<group>"; };
 		BEFBB8E02AA6A8B500896A83 /* CategoryItemStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItemStory.swift; sourceTree = "<group>"; };
 		BEFBB8E22AA6AA0300896A83 /* CategoryRowStory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRowStory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -373,6 +387,10 @@
 				BED02CF62A94168B007DEE6D /* CategoryItem.swift */,
 				BEFBB8E02AA6A8B500896A83 /* CategoryItemStory.swift */,
 				BED02D082A960AB1007DEE6D /* HomeView.swift */,
+				BEACCD402B49D170001C0CD8 /* SampleMag.swift */,
+				BEACCD422B4B1C12001C0CD8 /* Pilowlava-Regular.otf */,
+				BEACCD452B4B2D26001C0CD8 /* Vetrino.otf */,
+				BEACCD532B4B2F0C001C0CD8 /* Gara Gara Bold.otf */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -535,8 +553,8 @@
 			children = (
 				2313FD002B0A832700AE125A /* DrinkCustomizer.swift */,
 				232F8A542B1DDEEC007817D4 /* DrinkCustomizerOptionScroll.swift */,
-				232F8A582B1DEAAA007817D4 /* DrinkCustomizerSize.swift */,
 				23E378252B1EEBEB00ACCAE1 /* DrinkCustomizerOptionEnlarged.swift */,
+				232F8A582B1DEAAA007817D4 /* DrinkCustomizerSize.swift */,
 				230C16FF2B20F228003215AC /* DrinkCustomizerStatistics.swift */,
 				238F865F2B381B340013FBB4 /* DrinkCustomizerInfoPanel.swift */,
 			);
@@ -1198,6 +1216,8 @@
 		BE16562E2A93AFC1003CBE8C /* appta */ = {
 			isa = PBXGroup;
 			children = (
+				BEF2E49D2B5023590086B23F /* PaymentMethod */,
+				BEF2E4962B5022C00086B23F /* BasketView */,
 				238F86612B3830DE0013FBB4 /* RewardView */,
 				232756B82B2B900400DC98A5 /* Menu */,
 				2313FCFD2B0A7F8B00AE125A /* DrinkCustomizer */,
@@ -1362,6 +1382,47 @@
 			path = Qrcode;
 			sourceTree = "<group>";
 		};
+		BEF2E4962B5022C00086B23F /* BasketView */ = {
+			isa = PBXGroup;
+			children = (
+				BEF2E4982B5022D60086B23F /* Model */,
+				BEF2E4972B5022D40086B23F /* View */,
+			);
+			path = BasketView;
+			sourceTree = "<group>";
+		};
+		BEF2E4972B5022D40086B23F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BEF2E4992B5022F90086B23F /* BasketView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BEF2E4982B5022D60086B23F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BEF2E49B2B5023100086B23F /* BasketModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BEF2E49D2B5023590086B23F /* PaymentMethod */ = {
+			isa = PBXGroup;
+			children = (
+				BEF2E49E2B5023690086B23F /* PaymentMethodView */,
+			);
+			path = PaymentMethod;
+			sourceTree = "<group>";
+		};
+		BEF2E49E2B5023690086B23F /* PaymentMethodView */ = {
+			isa = PBXGroup;
+			children = (
+				BEF2E49F2B5023770086B23F /* PaymentMethodView.swift */,
+			);
+			path = PaymentMethodView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1429,7 +1490,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					BE16562B2A93AFC1003CBE8C = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -1472,8 +1533,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEACCD432B4B1C12001C0CD8 /* Pilowlava-Regular.otf in Resources */,
 				BE2F0C242AAED4790089FD6A /* hehehe.mp4 in Resources */,
 				BED02CEF2A940B48007DEE6D /* coffeeshops.json in Resources */,
+				BEACCD542B4B2F0C001C0CD8 /* Gara Gara Bold.otf in Resources */,
+				BEACCD462B4B2D26001C0CD8 /* Vetrino.otf in Resources */,
 				BE1656372A93AFC1003CBE8C /* Preview Assets.xcassets in Resources */,
 				BE1656342A93AFC1003CBE8C /* Assets.xcassets in Resources */,
 			);
@@ -1503,6 +1567,7 @@
 				23A4FE682ACA1D57004D20CD /* CoffeesScroll.swift in Sources */,
 				2313FCFA2B0A77F400AE125A /* CoffeeBoxListModel.swift in Sources */,
 				2316A30A2AE6E5BC0078BFB8 /* RewardCarouselView.swift in Sources */,
+				BEACCD412B49D170001C0CD8 /* SampleMag.swift in Sources */,
 				23FE82DF2B1A495000500896 /* CoffeeScrollUpdated.swift in Sources */,
 				2303C62C2AFFA89900C66365 /* MenuRoundedPanel03.swift in Sources */,
 				23E9D6C62AD0905F0044A47F /* CardShape.swift in Sources */,
@@ -1534,6 +1599,7 @@
 				23A4FE362AC4682E004D20CD /* GuideView.swift in Sources */,
 				2303C6182AFF9CA700C66365 /* Voucher.swift in Sources */,
 				237B5C382ACB389D00F35311 /* SearchView1.swift in Sources */,
+				BEF2E4A02B5023770086B23F /* PaymentMethodView.swift in Sources */,
 				BE76B0E32B00F18000B6BE3E /* MenuRoundedPanelModel05.swift in Sources */,
 				238B6B0B2AE5418B0076087B /* MenuElementModel01.swift in Sources */,
 				2313FD032B0A836B00AE125A /* DrinkCutomizerModel.swift in Sources */,
@@ -1541,6 +1607,7 @@
 				2313FD012B0A832700AE125A /* DrinkCustomizer.swift in Sources */,
 				23A4FE382AC46848004D20CD /* CustomTextField.swift in Sources */,
 				2303C61D2AFF9D1500C66365 /* InfiniteCarousel.swift in Sources */,
+				BEF2E49A2B5022F90086B23F /* BasketView.swift in Sources */,
 				231BFE402ACA917200B60737 /* MapViewUpdated.swift in Sources */,
 				BED02CF72A94168B007DEE6D /* CategoryItem.swift in Sources */,
 				23E9D6BB2AD02FA70044A47F /* SubscriptionCard1_Front.swift in Sources */,
@@ -1568,6 +1635,7 @@
 				230C17002B20F228003215AC /* DrinkCustomizerStatistics.swift in Sources */,
 				23DC1C442B01170800CF5F2F /* CoffeeSticker.swift in Sources */,
 				2311E8EF2ABE070400868F63 /* SubscriptionUpdatedView.swift in Sources */,
+				BEF2E49C2B5023100086B23F /* BasketModel.swift in Sources */,
 				2313FD062B0A88B700AE125A /* SearchBar.swift in Sources */,
 				237B5C332ACB369800F35311 /* TrainingMap.swift in Sources */,
 				23A4FE3C2AC46883004D20CD /* PageIntro.swift in Sources */,
@@ -1649,6 +1717,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1710,6 +1779,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1770,7 +1840,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"appta/Preview Content\"";
-				DEVELOPMENT_TEAM = MF359GND8P;
+				DEVELOPMENT_TEAM = GSCFW35PK4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = appta/Info.plist;
@@ -1789,7 +1859,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = andersonscat.appta;
+				PRODUCT_BUNDLE_IDENTIFIER = akareiko.appta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1806,7 +1876,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"appta/Preview Content\"";
-				DEVELOPMENT_TEAM = MF359GND8P;
+				DEVELOPMENT_TEAM = GSCFW35PK4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = appta/Info.plist;
@@ -1825,7 +1895,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = andersonscat.appta;
+				PRODUCT_BUNDLE_IDENTIFIER = akareiko.appta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

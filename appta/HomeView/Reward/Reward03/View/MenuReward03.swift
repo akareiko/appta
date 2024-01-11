@@ -39,14 +39,16 @@ struct MenuReward03: View {
                         .padding(.trailing, 30)
                 }
         }
+        .padding()
+//        .background(.white)
         .padding(.bottom, 10)
+//        .shadow(radius: 5)
         
         ForEach(element03){element in
             RoundedRectangle(cornerRadius: 20)
+                .fill(.white)
                 .stroke(LinearGradient(gradient: Gradient(colors: [Color("starbucks-lightgold"), Color("starbucks-lightgold")]), startPoint: .leading, endPoint: .trailing), lineWidth: 1)
                 .frame(width: UIScreen.main.bounds.width - 50, height: 70)
-//                .foregroundColor(Color("starbucks-white"))
-                .foregroundColor(.white)
                 .shadow(radius: 3)
                 .padding(.horizontal, 25)
                 .padding(.bottom, 10)

@@ -170,8 +170,8 @@ struct CoffeeShopProfile: View {
                                 .padding(.horizontal, -20)
                                 
                                 
-                                CoffeeScrollUpdated(coffees: coffees)
-                                    .padding(.horizontal, -20)
+//                                CoffeeScrollUpdated(coffees: coffees)
+//                                    .padding(.horizontal, -20)
                                     
                                 
                             }

@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct DrinkCustomizerOptionScroll: View {
+    
     @State var options: [Option]
     @State private var selectedOption: Option?
     @State private var showEnlargedView = false
-    @Binding var optionArray: [Int : OptionType]
+//    @Binding var optionArray: [Int : OptionType]
+    
+    @Binding var totalPrice: Int
     
         var body: some View {
             VStack(alignment: .leading) {
@@ -85,10 +88,12 @@ struct DrinkCustomizerOptionScroll: View {
                 
                 if let selectedIndex = selectedOption?.index, showEnlargedView {
                     DrinkCustomizerOptionEnlarged(
+                        totalPrice: $totalPrice,
                         selectedIndex: selectedOption?.index ?? 0,
                         options: optionscroll,
                         optionArray: [:],
-                        isClicked: [])
+                        isClicked: []
+                        )
                     .offset(CGSize(width: 90, height: 0))
                     .padding(.top, 30)
                 
@@ -97,5 +102,3 @@ struct DrinkCustomizerOptionScroll: View {
             
         }
 }
-
-

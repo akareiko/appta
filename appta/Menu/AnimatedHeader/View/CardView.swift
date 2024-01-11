@@ -11,7 +11,6 @@ struct MenuCardView: View {
     var tab: TabMenu
     @Binding var currentTab: String
 
-
     let columns: [GridItem] = [
             GridItem(.flexible(), spacing: 70),
             GridItem(.flexible(), spacing: 70)
@@ -23,16 +22,16 @@ struct MenuCardView: View {
                 .font(.title.bold())
 
             LazyVGrid(columns: columns, spacing: 26) {
-                ForEach(tab.foods){food in
+                ForEach(tab.drinkList){thing in
                 // Food View...
                     VStack {
-                        Image(food.image)
+                        Image(thing.image)
                             .resizable()
                             .frame(width: 150, height: 150)
                             .clipShape(RoundedRectangle(cornerRadius: 25.0))
                             .padding([.top, .bottom], 5)
 
-                        Text(food.title)
+                        Text(thing.title)
                             .font(.headline)
                             .safeAreaPadding(.horizontal, 20)
                             .frame(height: 50)
@@ -40,27 +39,31 @@ struct MenuCardView: View {
                         Button(action: {
 
                         }) {
-                            Text("\(food.price)")
-                                .foregroundColor(Color.black)
-                                .fontWeight(.bold)
-                                .frame(width: 100)
-                                .padding(.init(top: 10, leading: 20, bottom: 10, trailing: 28))
-                                .background(Color.white)
-                                .cornerRadius(20)
-                                .overlay(content:{
-                                    Capsule()
-                                        .stroke(Color.white, lineWidth: 1)
-
-                                    Image(systemName: "tengesign")
-                                        .resizable()
-                                        .frame(width: 10, height: 10)
-                                        .foregroundColor(.black)
-                                        .offset(CGSize(width: 30, height: 1))
-
-                                    Image(systemName: "chevron.right")          .resizable()    .frame(width: 7, height: 13)
-                                    .foregroundColor(.black)
-                                    .offset(CGSize(width: 60, height: 0))
-                                })
+                            NavigationLink(destination: DrinkCustomizer(selectedCoffee: thing, options: optionscroll)){
+                                Text("\(thing.prices[0])")
+                                    .foregroundColor(Color.black)
+                                    .fontWeight(.bold)
+                                    .frame(width: 100)
+                                    .padding(.init(top: 10, leading: 20, bottom: 10, trailing: 28))
+                                    .background(Color.white)
+                                    .cornerRadius(20)
+                                    .overlay(content:{
+                                        Capsule()
+                                            .stroke(Color.white, lineWidth: 1)
+                                        
+                                        Image(systemName: "tengesign")
+                                            .resizable()
+                                            .frame(width: 10, height: 10)
+                                            .foregroundColor(.black)
+                                            .offset(CGSize(width: 30, height: 1))
+                                        
+                                        Image(systemName: "chevron.right")
+                                            .resizable()
+                                            .frame(width: 7, height: 13)
+                                            .foregroundColor(.black)
+                                            .offset(CGSize(width: 60, height: 0))
+                                    })
+                            }
                         }
 
                     }

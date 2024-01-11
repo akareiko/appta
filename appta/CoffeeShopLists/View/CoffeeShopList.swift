@@ -15,16 +15,16 @@ struct CoffeeShopList: View {
     @State private var isSearching = false
     
     var filteredCoffeeShops: [CoffeeShopListModel] {
-            if searchText.isEmpty {
-                return coffeeshoplist
-            } else {
-                return coffeeshoplist.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
-            }
+        if searchText.isEmpty {
+            return coffeeshoplist
+        } else {
+            return coffeeshoplist.filter { $0.title.localizedCaseInsensitiveContains(searchText) }
         }
+    }
     
     var body: some View {
-        VStack(){
-            VStack(){
+        VStack {
+            VStack {
                 Image(systemName: "star.fill")
                     .resizable()
                     .frame(width: 25, height: 25)
@@ -38,15 +38,15 @@ struct CoffeeShopList: View {
             }
             .padding(.top, 70)
             
-            NavigationView{
-                ScrollView(showsIndicators: false){
-                    VStack(spacing: 30){
+            NavigationView {
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 30) {
                         SearchBar(searchText: $searchText, isSearching: $isSearching)
                             .padding(.top, -10)
                         
-                        ForEach(coffeeshoplist){thing in
-                            ScrollView(.horizontal){
-                                CoffeeShopPanel(image: thing.image, title: thing.title, num_rest: thing.num_rest)
+                        ForEach(filteredCoffeeShops) { coffeeShop in
+                            ScrollView(.horizontal) {
+                                CoffeeShopPanel(image: coffeeShop.image, title: coffeeShop.title, num_rest: coffeeShop.num_rest)
                             }
                         }
                     }
@@ -54,7 +54,6 @@ struct CoffeeShopList: View {
                     .padding(.top, 30)
                 }
             }
-            
         }
         .ignoresSafeArea(.all)
         .toolbar {
@@ -71,13 +70,14 @@ struct CoffeeShopList: View {
                                 .foregroundColor(.white)
                                 .offset(CGSize(width: -10.0, height: 0.0))
                         )
-                    }
                 }
             }
-            .navigationBarBackButtonHidden(true)
-            .navigationBarTitle("", displayMode: .inline)
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitle("", displayMode: .inline)
     }
 }
+
 
 #Preview {
     CoffeeShopList(coffeeshoplist: coffeeshoplist)

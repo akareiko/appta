@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct DrinkCustomizer: View {
-    @Binding var isPresented: Bool
-    @Binding var selectedCoffee: Coffee?
+    @State var selectedCoffee: DrinkModel
     @State private var isClicked = false
     @State private var isTextExpanded = false
     @State var options: [Option]
-    @Binding var optionArray: [Int: OptionType]
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
+    
+    @State private var totalPrice: Int = 0
     
     var body: some View {
         
@@ -23,12 +23,21 @@ struct DrinkCustomizer: View {
             ZStack(alignment: .bottomTrailing) {
                 ScrollView(.vertical, showsIndicators: false){
                 VStack(alignment: .leading){
-                    ZStack{
-                        Text("Drink Customizer")
-                            .font(.title.bold())
+                    HStack{
+                        VStack(alignment: .leading){
+                            Text("Drink Customizer")
+                                .font(.title.bold())
+                            
+                            Text("Customize your drinks as you like")
+                                .font(.footnote)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(.horizontal, 20)
+                           
+                        Spacer()
                         
                         Button(action: {
-                            self.selectedCoffee = nil
+                            presentationMode.wrappedValue.dismiss()
                         }) {
                             Circle()
                                 .frame(width: 30)
@@ -38,60 +47,58 @@ struct DrinkCustomizer: View {
                                         .foregroundColor(.white)
                                 )
                         }
-                        .offset(CGSize(width: 245, height: 0))
+                        .padding(.horizontal, 20)
                     }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .offset(CGSize(width: 0, height: -40))
-                    .padding(.horizontal, 25)
-                    
+                        
+
                     ScrollView(.horizontal, showsIndicators: false){
-                        Image("Eggnog-Latte")
+                        Image(selectedCoffee.image)
                             .resizable()
                             .frame(width: 400, height: 400)
                             .padding(.leading, 5)
                     }
                     HStack(){
-                        VStack{
+                        VStack(alignment: .leading){
                             HStack{
                                 Image(systemName: "star.fill")
                                     .resizable()
                                     .frame(width: 25, height: 25)
                                     .foregroundColor(Color("starbucks-rewardgold"))
-                                
-                                Text("Cappucino")
-                                    .font(.title2.bold())
+                                    .offset(CGSize(width: 0, height: -10.0))
+                                VStack(alignment: .leading){
+                                    Text(selectedCoffee.title)
+                                        .font(.title2.bold())
+                                    
+                                    Text("Classic")
+                                        .font(.footnote)
+                                        .foregroundColor(.secondary)
+                                }
                             }
+                            
                         }
+                        
                         Spacer()
                         
                         Button(action: {
-                            self.isClicked.toggle()
+                            
                         }) {
-                            Text(isClicked ? "    Added  " : "+ Add   ")
-                                .foregroundColor(isClicked ? Color.white : Color.black)
+                            Text("KZT \(selectedCoffee.prices[0])")
+                                .foregroundColor(Color("starbucks-rewardgold"))
                                 .fontWeight(.bold)
-                                .padding(.init(top: 2, leading: 8, bottom: 2, trailing: 8))
-                                .background(isClicked ? Color("starbucks-rewardgold") : Color.white)
+                                .padding(.init(top: 8, leading: 14, bottom: 8, trailing: 14))
+                                .background(Color.white)
                                 .cornerRadius(20)
-                                .overlay(content:{
+                                .overlay(
                                     Capsule()
-                                        .stroke(isClicked ? Color("starbucks-rewardgold") : Color.black, lineWidth: 1)
-                                    
-                                    Image(systemName: isClicked ? "star.fill" : "")
-                                        .resizable()
-                                        .frame(width: 15, height: 15)
-                                        .foregroundColor(.white)
-                                        .offset(CGSize(width: -30, height: 0))
-                                    
-                                    
-                                })
+                                        .stroke(Color("starbucks-rewardgold"), lineWidth: 1)
+                                )
                         }
-                        .offset(CGSize(width: -18, height: 2))
+                        
                     }
                     .padding(.horizontal, 20)
                     
                     VStack(alignment: .leading){
-                        Text("A cappuccino is a delightful espresso-based drink that blends rich espresso with creamy steamed milk and a frothy milk foam topping. Its bold coffee flavor harmonizes perfectly with the smoothness of milk, creating a luxurious and comforting beverage that's both aromatic and indulgent.")
+                        Text(selectedCoffee.description)
                             .font(.footnote)
                             .foregroundColor(.black)
                             .lineLimit(isTextExpanded ? nil : 3)
@@ -122,7 +129,7 @@ struct DrinkCustomizer: View {
                         .padding(.horizontal, 20)
                     
                     VStack(){
-                        DrinkCustomizerOptionScroll(options: optionscroll, optionArray: $optionArray)
+                        DrinkCustomizerOptionScroll(options: optionscroll, totalPrice: $totalPrice)
                     }
                     
                     DrinkCustomizerStatistics()
@@ -137,17 +144,33 @@ struct DrinkCustomizer: View {
             
                 HStack(){
                     
-                    Text("Total Price: \(calculateTotalPrice()) KZT")
+                    Text("Total Price: \(totalPrice) KZT")
                         .font(.callout)
                         .padding(.horizontal, 20)
                         
                     Spacer()
+                    
+                    Button(action: {
+                    }) {
+                        NavigationLink(destination: BasketView()){
+                            Circle()
+                                .frame(width: 40)
+                                .foregroundColor(Color("starbucks-rewardgold"))
+                                .offset(CGSize(width: -10.0, height: 0.0))
+                                .overlay(
+                                    Image(systemName: "chevron.forward")
+                                        .foregroundColor(.white)
+                                        .offset(CGSize(width: -10.0, height: 0.0))
+                                )
+                        }
+                    }
+                        
                 }
                 .frame(width: nil, height: 80)
                 .background(.thinMaterial)
                 .cornerRadius(30)
                 .padding([.leading, .trailing], 30)
-                .padding(.bottom)
+                .padding(.bottom, 40)
                            
             }
             
@@ -157,20 +180,6 @@ struct DrinkCustomizer: View {
     }
 }
 
-extension DrinkCustomizer {
-    func calculateTotalPrice() -> Int {
-        var total = 0
-            
-        for (_, optionType) in optionArray {
-            if let price = optionType.price {
-                total += price
-            }
-        }
-            
-        return total
-    }
-}
-
 #Preview {
-    DrinkCustomizer(isPresented: .constant(true), selectedCoffee: .constant(nil), options: optionscroll, optionArray: .constant([:]))
+    DrinkCustomizer(selectedCoffee: DrinkModel(index: 0, image: "Caramel-Brule-Latte", title: "Caramel Brule Latte", description: "The Caramel-Brulé Latte is a luxurious coffee drink blending rich espresso with creamy milk, topped with a layer of frothy foam and a drizzle of caramel sauce, torched to create a caramelized topping reminiscent of crème brûlée. It's a perfect blend of bitter espresso and sweet, crunchy caramel, ideal for those who enjoy a sophisticated, dessert-like coffee experience.", prices: [1200, 1400, 1600], drinkSize: [300, 400, 500]), options: optionscroll)
 }
