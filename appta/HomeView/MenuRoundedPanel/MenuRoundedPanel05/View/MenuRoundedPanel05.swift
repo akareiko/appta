@@ -57,7 +57,7 @@ struct MenuRoundedPanel05: View {
                         let size = $0.size
                         
                         LoopingScrollView(width: 280, spacing: 30, items: shops) { thing in
-                            NavigationLink(destination: CoffeeShopProfile(coffees: coffees).navigationBarBackButtonHidden(true)) {
+                            NavigationLink(destination: CoffeeShopAddressView().navigationBarBackButtonHidden(true)) {
                                 
 //                                Image(thing.image)
 //                                    .resizable()
