@@ -35,7 +35,7 @@ struct InfiniteCarousel: View {
                                             .offset(x: -minX + 30, y: 20)
                                             .frame(width: cardSize.width - 30, height: cardSize.height)
                                             .clipShape(.rect(cornerRadius: 15))
-                                            .shadow(color: .black.opacity(0.25), radius: 8, x: 5, y: 1)
+//                                            .shadow(color: .black.opacity(0.25), radius: 8, x: 5, y: 1)
                                             .tag(thing.id.uuidString)
                                             .offsetX(currentPage == thing.id.uuidString){rect in
                                                 let minX = rect.minX

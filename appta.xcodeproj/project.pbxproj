@@ -48,7 +48,6 @@
 		232F8A552B1DDEEC007817D4 /* DrinkCustomizerOptionScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F8A542B1DDEEC007817D4 /* DrinkCustomizerOptionScroll.swift */; };
 		232F8A572B1DDF49007817D4 /* DrinkCustomizerOptionScrollModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F8A562B1DDF49007817D4 /* DrinkCustomizerOptionScrollModel.swift */; };
 		232F8A592B1DEAAA007817D4 /* DrinkCustomizerSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F8A582B1DEAAA007817D4 /* DrinkCustomizerSize.swift */; };
-		232F8A5B2B1DED33007817D4 /* DrinkCustomizerSizeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232F8A5A2B1DED33007817D4 /* DrinkCustomizerSizeModel.swift */; };
 		237B5C332ACB369800F35311 /* TrainingMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B5C322ACB369800F35311 /* TrainingMap.swift */; };
 		237B5C382ACB389D00F35311 /* SearchView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B5C372ACB389D00F35311 /* SearchView1.swift */; };
 		237B5C3A2ACB3A1600F35311 /* LocationManager1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B5C392ACB3A1600F35311 /* LocationManager1.swift */; };
@@ -103,6 +102,11 @@
 		BE1656412A93AFC2003CBE8C /* apptaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1656402A93AFC2003CBE8C /* apptaTests.swift */; };
 		BE16564B2A93AFC2003CBE8C /* apptaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16564A2A93AFC2003CBE8C /* apptaUITests.swift */; };
 		BE16564D2A93AFC2003CBE8C /* apptaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16564C2A93AFC2003CBE8C /* apptaUITestsLaunchTests.swift */; };
+		BE16E7DC2B56E87A00DB43D3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16E7DB2B56E87900DB43D3 /* SettingsView.swift */; };
+		BE16E7DE2B5D669D00DB43D3 /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16E7DD2B5D669D00DB43D3 /* PlansView.swift */; };
+		BE16E7E02B5E2C2700DB43D3 /* AnotherCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16E7DF2B5E2C2700DB43D3 /* AnotherCarouselView.swift */; };
+		BE16E7E42B5E2CD300DB43D3 /* AnotherPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16E7E32B5E2CD300DB43D3 /* AnotherPage.swift */; };
+		BE16E7E62B5E452200DB43D3 /* AnotherAnotherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE16E7E52B5E452200DB43D3 /* AnotherAnotherView.swift */; };
 		BE17D1FA2A98A5C100FB5054 /* sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE17D1F92A98A5C100FB5054 /* sample.swift */; };
 		BE2F0C242AAED4790089FD6A /* hehehe.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = BE2F0C232AAED3F70089FD6A /* hehehe.mp4 */; };
 		BE2F30582A93D89D009E72DC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2F30572A93D89D009E72DC /* ContentView.swift */; };
@@ -195,7 +199,6 @@
 		232F8A542B1DDEEC007817D4 /* DrinkCustomizerOptionScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCustomizerOptionScroll.swift; sourceTree = "<group>"; };
 		232F8A562B1DDF49007817D4 /* DrinkCustomizerOptionScrollModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCustomizerOptionScrollModel.swift; sourceTree = "<group>"; };
 		232F8A582B1DEAAA007817D4 /* DrinkCustomizerSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCustomizerSize.swift; sourceTree = "<group>"; };
-		232F8A5A2B1DED33007817D4 /* DrinkCustomizerSizeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCustomizerSizeModel.swift; sourceTree = "<group>"; };
 		237B5C322ACB369800F35311 /* TrainingMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMap.swift; sourceTree = "<group>"; };
 		237B5C372ACB389D00F35311 /* SearchView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView1.swift; sourceTree = "<group>"; };
 		237B5C392ACB3A1600F35311 /* LocationManager1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager1.swift; sourceTree = "<group>"; };
@@ -254,6 +257,11 @@
 		BE1656462A93AFC2003CBE8C /* apptaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = apptaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE16564A2A93AFC2003CBE8C /* apptaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apptaUITests.swift; sourceTree = "<group>"; };
 		BE16564C2A93AFC2003CBE8C /* apptaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apptaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BE16E7DB2B56E87900DB43D3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		BE16E7DD2B5D669D00DB43D3 /* PlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
+		BE16E7DF2B5E2C2700DB43D3 /* AnotherCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherCarouselView.swift; sourceTree = "<group>"; };
+		BE16E7E32B5E2CD300DB43D3 /* AnotherPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherPage.swift; sourceTree = "<group>"; };
+		BE16E7E52B5E452200DB43D3 /* AnotherAnotherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherAnotherView.swift; sourceTree = "<group>"; };
 		BE17D1F92A98A5C100FB5054 /* sample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sample.swift; sourceTree = "<group>"; };
 		BE2F0C232AAED3F70089FD6A /* hehehe.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = hehehe.mp4; sourceTree = "<group>"; };
 		BE2F30572A93D89D009E72DC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -572,7 +580,6 @@
 			children = (
 				2313FD022B0A836B00AE125A /* DrinkCutomizerModel.swift */,
 				232F8A562B1DDF49007817D4 /* DrinkCustomizerOptionScrollModel.swift */,
-				232F8A5A2B1DED33007817D4 /* DrinkCustomizerSizeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1187,6 +1194,7 @@
 			isa = PBXGroup;
 			children = (
 				23E9D6BC2AD035530044A47F /* SubscriptionCardModel.swift */,
+				BE16E7E32B5E2CD300DB43D3 /* AnotherPage.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1379,6 +1387,7 @@
 			isa = PBXGroup;
 			children = (
 				BED02D0E2A9617FF007DEE6D /* ProfileView.swift */,
+				BE16E7DB2B56E87900DB43D3 /* SettingsView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1399,6 +1408,9 @@
 			children = (
 				23E9D6C12AD08F9A0044A47F /* SubscriptionCard */,
 				BED02D0C2A9617F3007DEE6D /* SubscriptionView.swift */,
+				BE16E7DD2B5D669D00DB43D3 /* PlansView.swift */,
+				BE16E7DF2B5E2C2700DB43D3 /* AnotherCarouselView.swift */,
+				BE16E7E52B5E452200DB43D3 /* AnotherAnotherView.swift */,
 				2311E8EE2ABE070400868F63 /* SubscriptionUpdatedView.swift */,
 				2313FC5E2B07DE4500AE125A /* GrowingCircle.swift */,
 			);
@@ -1609,6 +1621,7 @@
 				2313FCFA2B0A77F400AE125A /* CoffeeBoxListModel.swift in Sources */,
 				2316A30A2AE6E5BC0078BFB8 /* RewardCarouselView.swift in Sources */,
 				BEACCD412B49D170001C0CD8 /* SampleMag.swift in Sources */,
+				BE16E7E02B5E2C2700DB43D3 /* AnotherCarouselView.swift in Sources */,
 				23FE82DF2B1A495000500896 /* CoffeeScrollUpdated.swift in Sources */,
 				2303C62C2AFFA89900C66365 /* MenuRoundedPanel03.swift in Sources */,
 				23E9D6C62AD0905F0044A47F /* CardShape.swift in Sources */,
@@ -1673,6 +1686,7 @@
 				23C89FDE2B188B4C00A6EF73 /* InfiniteViewModel.swift in Sources */,
 				23E9A1532AE514AF00494951 /* LockView.swift in Sources */,
 				BED02D092A960AB1007DEE6D /* HomeView.swift in Sources */,
+				BE16E7E42B5E2CD300DB43D3 /* AnotherPage.swift in Sources */,
 				230C17002B20F228003215AC /* DrinkCustomizerStatistics.swift in Sources */,
 				23DC1C442B01170800CF5F2F /* CoffeeSticker.swift in Sources */,
 				2311E8EF2ABE070400868F63 /* SubscriptionUpdatedView.swift in Sources */,
@@ -1699,8 +1713,10 @@
 				2311E8DE2ABD5BCF00868F63 /* CoffeeShopProfile.swift in Sources */,
 				23E9D6C42AD0902C0044A47F /* SubscriptionCard1_Back.swift in Sources */,
 				231BFE482ACA93B500B60737 /* Extenstions.swift in Sources */,
+				BE16E7E62B5E452200DB43D3 /* AnotherAnotherView.swift in Sources */,
 				2303C6212AFF9D4E00C66365 /* OffsetKey.swift in Sources */,
 				2303C6312AFFB71300C66365 /* MenuRoundedPanel04.swift in Sources */,
+				BE16E7DE2B5D669D00DB43D3 /* PlansView.swift in Sources */,
 				2303C61F2AFF9D3600C66365 /* PageControl.swift in Sources */,
 				BE17D1FA2A98A5C100FB5054 /* sample.swift in Sources */,
 				23E9A1552AE5181600494951 /* PINView.swift in Sources */,
@@ -1710,12 +1726,12 @@
 				237B5CBC2ACC36C700F35311 /* SearchView.swift in Sources */,
 				BED02CF92A9416DA007DEE6D /* CategoryRow.swift in Sources */,
 				BE2F305A2A93D926009E72DC /* CustomTabBar.swift in Sources */,
+				BE16E7DC2B56E87A00DB43D3 /* SettingsView.swift in Sources */,
 				237B5CB82ACC36BD00F35311 /* LocationManager.swift in Sources */,
 				23E510152AE94029006C03A4 /* ProgressBar.swift in Sources */,
 				23DC1C3F2B01145600CF5F2F /* MenuRoundedPanelModel07.swift in Sources */,
 				238F86602B381B340013FBB4 /* DrinkCustomizerInfoPanel.swift in Sources */,
 				238F86672B3838D00013FBB4 /* RewardModel.swift in Sources */,
-				232F8A5B2B1DED33007817D4 /* DrinkCustomizerSizeModel.swift in Sources */,
 				232F8A592B1DEAAA007817D4 /* DrinkCustomizerSize.swift in Sources */,
 				BE430EDC2B50295800EBD7DD /* CoffeeShopAddressesHelpers.swift in Sources */,
 				232F8A552B1DDEEC007817D4 /* DrinkCustomizerOptionScroll.swift in Sources */,

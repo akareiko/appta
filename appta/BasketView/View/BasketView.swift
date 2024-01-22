@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BasketView: View {
-    @State var orderModel: [OrderModel] = ordermodel
+    @State var customizedDrink: [OrderModel] = []
     @State private var showDetail: [Int : Bool] = [0 : true]
     @Namespace var animation
     @Environment(\.dismiss) private var dismiss
@@ -55,8 +55,8 @@ struct BasketView: View {
                     
                     ScrollView(.vertical){
                         LazyVStack(spacing: 10){
-                            if orderModel.count > 0 {
-                                ForEach(orderModel, id: \.self){thing in
+                            if customizedDrink.count > 0 {
+                                ForEach(customizedDrink){thing in
                                     SwipeAction(cornerRadius: 15, direction: .trailing) {
                                         BasketCardView(order: thing)
                                     } actions: {
@@ -66,7 +66,7 @@ struct BasketView: View {
                                         
                                         Action(tint: Color("starbucks-errorred"), icon: "trash.fill", text: "Delete"){
                                             withAnimation(.easeInOut){
-                                                orderModel.removeAll(where: {$0 == thing })
+                                                customizedDrink.removeAll(where: {$0 == thing })
                                             }
                                         }
                                     }
@@ -78,10 +78,10 @@ struct BasketView: View {
                                     .offset(CGSize(width: 0, height: 300))
                                 
 //                                NavigationLink(destination: CoffeeShopList()){
-                                    Text("Go shopping")
-                                        .font(.callout)
-                                        .foregroundColor(Color("starbucks-rewardgold"))
-                                        .offset(CGSize(width: 0, height: 300))
+//                                    Text("Go shopping")
+//                                        .font(.callout)
+//                                        .foregroundColor(Color("starbucks-rewardgold"))
+//                                        .offset(CGSize(width: 0, height: 300))
 //                                }
                             }
                         }
@@ -206,7 +206,7 @@ struct BasketView: View {
                             .foregroundColor(.black)
                             .multilineTextAlignment(.leading)
                         
-                        Text(order.volume)
+                        Text("\(order.drinkSize)")
                             .font(.footnote)
                             .foregroundColor(.secondary)
                     }
@@ -218,7 +218,7 @@ struct BasketView: View {
                             .font(.callout.bold())
                             .foregroundColor(.black)
                         
-                        Text("\(order.price)")
+                        Text("\(order.customizedPrice)")
                             .font(.callout)
                             .foregroundColor(.black)
                         

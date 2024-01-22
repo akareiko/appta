@@ -13,7 +13,8 @@ struct SubscriptionUpdatedView: View {
         .init(color: "timhortons-red", title: "Tim Hortons", subTitle: "Bringing Global Coffee Excellence to Your Daily Brew with Passion.", image: "timhortons-logo"),
         .init(color: "costacoffee-purple", title: "Costa Coffee", subTitle: "Innovative Coffee Blends, Elevating Your Daily Brew to New Heights.", image: "costacoffee-logo"),
         .init(color: "pretamanger-red", title: "Pret A Manger", subTitle: "Bringing Joy and Community Through Exceptional Daily Coffee Experiences.", image: "pretamanger-logo"),
-        .init(color: "pretamanger-red", title: "Coffee Day", subTitle: "Creating Moments of Delight Through Daily Coffee Rituals.", image: "pretamanger-logo")
+        .init(color: "pretamanger-red", title: "Coffee Day", subTitle: "Creating Moments of Delight Through Daily Coffee Rituals.", image: "pretamanger-logo"),
+        .init(color: "starbucks-black", title: "Add a new", subTitle: "Subscription card of your favourite coffee shops", image: "starbucks-logo")
     ]
     @State private var showPagingControl: Bool = true
     @State private var disablePagingInteraction: Bool = false

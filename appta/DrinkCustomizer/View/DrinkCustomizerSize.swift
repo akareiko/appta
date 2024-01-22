@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DrinkCustomizerSize: View {
-    @State private var selectedSize: Size = sizes.first!
+    @Binding var selectedSize: Size
     
     var body: some View {
         VStack(alignment: .leading){
@@ -27,8 +27,8 @@ struct DrinkCustomizerSize: View {
                         withAnimation(.spring()) {
                             selectedSize = size
                         }
-                    }) {
-                        VStack(){
+                    }){
+                        VStack{
                             Text(size.title)
                                 .font(.callout.bold())
                                 .foregroundColor(selectedSize.id == size.id ? .white : .black)
@@ -53,9 +53,4 @@ struct DrinkCustomizerSize: View {
             .padding(.top, 10)
         }
     }
-}
-
-
-#Preview {
-    DrinkCustomizerSize()
 }

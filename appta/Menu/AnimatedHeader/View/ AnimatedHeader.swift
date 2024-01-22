@@ -12,6 +12,10 @@ struct AnimatedHeader: View {
     @State var currentTab = ""
     @State var onTapCurrentTab: String = ""
     @Namespace var animation
+    @Binding var str: Bool
+    @Binding var nestr: Bool
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
         NavigationStack{
             ScrollView{
@@ -48,7 +52,7 @@ struct AnimatedHeader: View {
                             
                             ForEach(drinksmenu){tab in
                                 VStack(alignment: .leading, spacing: 15){
-                                    MenuCardView(tab: tab, currentTab: $currentTab)
+                                    MenuCardView(tab: tab, currentTab: $currentTab, nestr: $nestr)
                                 }
                                 .onChange(of: onTapCurrentTab) {oldValue, newValue in
                                     withAnimation(.easeInOut){
@@ -76,9 +80,12 @@ struct AnimatedHeader: View {
         .onAppear {
             currentTab = drinksmenu.first?.id ?? ""
         }
+        .onChange(of: str){
+            dismiss()
+        }
     }
 }
 
 #Preview {
-    AnimatedHeader()
+    AnimatedHeader(str: .constant(false), nestr: .constant(false))
 }

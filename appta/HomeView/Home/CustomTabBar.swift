@@ -23,6 +23,8 @@ struct CustomTabBar: View {
         symbolMappings[selectedTab] ?? selectedTab.rawValue
     }
     
+    @Binding var str: Bool
+    
     private var tabColor: Color {
         switch selectedTab {
         case .house:
@@ -51,6 +53,7 @@ struct CustomTabBar: View {
                             withAnimation(.easeIn(duration: 0.1)) {
                                 selectedTab = tab
                             }
+                            str.toggle()
                         }
                     Spacer()
                 }
@@ -66,6 +69,6 @@ struct CustomTabBar: View {
 
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTabBar(selectedTab: .constant(.house))
+        CustomTabBar(selectedTab: .constant(.house), str: .constant(true))
     }
 }

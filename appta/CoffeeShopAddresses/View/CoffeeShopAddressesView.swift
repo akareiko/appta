@@ -14,6 +14,8 @@ struct CoffeeShopAddressView: View {
     @Environment(\.presentationMode) var presentationMode
     // Tab Progress
     @State private var tabProgress: CGFloat = 0
+    @Binding var str: Bool
+    @Binding var nestr: Bool
     
     var body: some View {
         NavigationStack{
@@ -124,6 +126,9 @@ struct CoffeeShopAddressView: View {
             .navigationBarBackButtonHidden(true)
             .navigationBarTitle("", displayMode: .inline)
         }
+        .onChange(of: str){
+            dismiss()
+        }
     }
     
     @ViewBuilder
@@ -175,7 +180,7 @@ struct CoffeeShopAddressView: View {
                     Button {
                         
                     } label: {
-                        NavigationLink(destination: AnimatedHeader()){
+                        NavigationLink(destination: AnimatedHeader(str: $str, nestr: $nestr)){
                             HStack(spacing: 12){
                                 Image(address.logo)
                                     .resizable()
@@ -218,5 +223,5 @@ struct CoffeeShopAddressView: View {
 }
 
 #Preview {
-    CoffeeShopAddressView()
+    CoffeeShopAddressView(str: .constant(false), nestr: .constant(false))
 }

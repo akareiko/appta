@@ -14,13 +14,16 @@ struct HeaderView: View {
     @Namespace var animation
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0){
             
             HStack(spacing: 0){
                 // Backbutton...
                 if getSize() != 0 {
-                    Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }, label: {
                         Image(systemName: "arrow.left")
                             .font(.system(size: 20, weight: .bold))
                             .frame(width: getSize(), height: getSize())
@@ -148,5 +151,5 @@ struct HeaderView: View {
 }
 
 #Preview {
-    AnimatedHeader()
+    AnimatedHeader(str: .constant(false), nestr: .constant(false))
 }

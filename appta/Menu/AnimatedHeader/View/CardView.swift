@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuCardView: View {
     var tab: TabMenu
     @Binding var currentTab: String
+    @Binding var nestr: Bool
 
     let columns: [GridItem] = [
             GridItem(.flexible(), spacing: 70),
@@ -39,7 +40,7 @@ struct MenuCardView: View {
                         Button(action: {
 
                         }) {
-                            NavigationLink(destination: DrinkCustomizer(selectedCoffee: thing, options: optionscroll)){
+                            NavigationLink(destination: DrinkCustomizer(selectedCoffee: thing, nestr: $nestr)){
                                 Text("\(thing.prices[0])")
                                     .foregroundColor(Color.black)
                                     .fontWeight(.bold)
@@ -78,5 +79,18 @@ struct MenuCardView: View {
         .modifier(OffsetModifier(tab: tab, currentTab: $currentTab))
         // setting ID for Scroll View Reader...
         .id(tab.id)
+    }
+}
+
+struct ThemeAnimationStyle: ButtonStyle {
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .font(.title2)
+            .foregroundColor(Color.white)
+            .frame(height: 50, alignment: .center)
+            .background(configuration.isPressed ? Color.green.opacity(0.5) : Color.green)
+            .cornerRadius(8)
+            .shadow(color: Color.gray, radius: 10, x: 0, y: 0)
+            .scaleEffect(configuration.isPressed ? 0.9 : 1.0) //<- change scale value as per need. scaleEffect(configuration.isPressed ? 1.2 : 1.0)
     }
 }

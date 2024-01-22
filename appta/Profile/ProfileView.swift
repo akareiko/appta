@@ -25,7 +25,7 @@ extension View {
 }
 
 struct ProfileView: View {
-    @State private var gradientColors: [Color] = [Color("starbucks-lightgold"), Color("starbucks-silver")]
+    @State private var gradientColors: [Color] = [Color("starbucks-lightgold"), Color("starbucks-black")]
     
     var body: some View {
         NavigationView {
@@ -44,7 +44,7 @@ struct ProfileView: View {
                         .offset(x: -25)
 
                     NavigationLink(destination: SettingsView()) {
-                        Image(systemName: "gear")
+                        Image(systemName: "pencil.circle.fill")
                             .resizable()
                             .foregroundColor(.black)
                             .frame(width: 25, height: 25)
@@ -66,11 +66,14 @@ struct ProfileView: View {
                                 .foregroundColor(Color.clear)
                                 .gradientStroke(colors: gradientColors, lineWidth: 1)
                                 .onAppear {
-                                    withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses: true)) {
-                                        self.gradientColors = [Color("starbucks-lightgold"), Color("starbucks-silver")]
+                                    withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: true)) {
+                                        self.gradientColors = [Color("starbucks-black"), Color("starbucks-lightgold")]
                                     }
                                 }
-                            .frame(width: UIScreen.main.bounds.width - 40, height: 150)
+                                .frame(width: UIScreen.main.bounds.width - 40, height: 150)
+                                .onReceive([self.gradientColors].publisher.first()) { _ in
+                                                    // Trigger redraw when gradientColors change
+                                                }
 //                        Text("hehehaha")
                         HStack {
                             Image(systemName: "camera.filters")
@@ -223,12 +226,6 @@ struct ProfileView: View {
                 }
             }
         }
-    }
-}
-
-struct SettingsView: View {
-    var body: some View {
-        Text("Settings View")
     }
 }
 

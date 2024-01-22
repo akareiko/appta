@@ -3,10 +3,12 @@ import Foundation
 
 struct HomeView: View {
     @State private var selectedTab: Tab = .house
+    @Binding var str: Bool
+    @Binding var nestr: Bool
     
     var body: some View {
         
-        NavigationStack {
+        NavigationView {
             
             ZStack {
                 ParallaxImageView(maximumMovement: 150, usesFullWidth: true){size in
@@ -17,7 +19,6 @@ struct HomeView: View {
                         .offset(x: -285, y: 65)
                         .rotationEffect(.degrees(90))
                 }
-
                     
                 Image("vectwo")
                     .resizable()
@@ -108,7 +109,7 @@ struct HomeView: View {
                                     .fill(.ultraThinMaterial)
                                     .frame(width: 370, height: 200)
                                 
-                                MenuRoundedPanel05(shops: MenuRPmodel05)
+                                MenuRoundedPanel05(shops: MenuRPmodel05, str: $str, nestr: $nestr)
                                     .padding(.bottom, 30)
                                     .offset(y: -200)
                                     
@@ -171,8 +172,8 @@ struct ParallaxImageView<Content: View>: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//    }
+//}

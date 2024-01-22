@@ -89,3 +89,18 @@ var optionscroll: [Option] = [
     ),
     
 ]
+
+struct Size: Identifiable {
+    
+    var id: String = UUID().uuidString
+    var index: Int
+    var title: String
+    var volume: Int
+    
+}
+
+var sizes = [
+    Size(index: 0, title: "S", volume: 300),
+    Size(index: 1, title: "M", volume: 400),
+    Size(index: 2, title: "L", volume: 500)
+]

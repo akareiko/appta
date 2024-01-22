@@ -17,6 +17,9 @@ struct BottomClipper: Shape {
 struct MenuRoundedPanel05: View {
     @State var shops: [MenuRoundedPanelModel05]
     @State private var isCoffeeShopProfileActive = false
+    @Binding var str: Bool
+    @Binding var nestr: Bool
+    
     var body: some View {
         VStack {
             HStack {
@@ -41,7 +44,7 @@ struct MenuRoundedPanel05: View {
                         .padding(.leading, 30)
                 }
                 
-                NavigationLink(destination: CoffeeShopList(coffeeshoplist: coffeeshoplist)) {
+                NavigationLink(destination: CoffeeShopList(coffeeshoplist: coffeeshoplist)){
                         Image(systemName: "chevron.right")
                             .foregroundColor(Color("starbucks-rewardgold"))
                             .padding(.trailing, 30)
@@ -57,7 +60,8 @@ struct MenuRoundedPanel05: View {
                         let size = $0.size
                         
                         LoopingScrollView(width: 280, spacing: 30, items: shops) { thing in
-                            NavigationLink(destination: CoffeeShopAddressView().navigationBarBackButtonHidden(true)) {
+                            NavigationLink(destination: CoffeeShopAddressView(str: $str, nestr: $nestr).navigationBarBackButtonHidden(true)
+                            ) {
                                 
 //                                Image(thing.image)
 //                                    .resizable()
@@ -196,6 +200,6 @@ struct MenuRoundedPanel05: View {
 
 
 // Use ContentView_Previews for the preview
-#Preview{
-    MenuRoundedPanel05(shops: MenuRPmodel05)
-}
+//#Preview{
+//    MenuRoundedPanel05(shops: MenuRPmodel05)
+//}
