@@ -1,0 +1,31 @@
+[
+    {
+        "id": 101,
+        "imageName": "lizard",
+        "title": "HUI",
+        "description": "Classic simplicity, pure satisfaction – discover the Basic Brew",
+        "price": "3500KZT"
+    },
+    {
+        "id": 102,
+        "imageName": "bird",
+        "title": "Standard",
+        "description": "Everyday luxury in a cup – experience the Standard Sip",
+        "price": "4000KZT"
+    },
+    {
+        "id": 103,
+        "imageName": "fish",
+        "title": "Premium",
+        "description": "Elevated taste, unmatched quality – welcome the Premium",
+        "price": "7000KZT"
+    },
+    {
+        "id": 104,
+        "imageName": "cat",
+        "title": "Ultimate",
+        "description": "Indulge in luxury, savor perfection – it's the Ultimate Roast",
+        "price": "9000KZT"
+    }
+]
+

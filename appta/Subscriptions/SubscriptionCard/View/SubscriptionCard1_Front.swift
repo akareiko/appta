@@ -48,7 +48,6 @@ struct SubscriptionCard1_Front: View {
                     .offset(x: 100, y: -65)
                 
             }
-    //        .shadow(color: Color.gray.opacity(0.05), radius: 20, x: 5, y: 5)
         }
         else {
             ZStack {
@@ -86,7 +85,7 @@ struct SubscriptionCard1_Front: View {
                         } content: {
 //                            PlansView()
 //                                .presentationDetents([.large])
-                                AnotherCarouselView()
+                            GuideView()
                         }
                 }
                 

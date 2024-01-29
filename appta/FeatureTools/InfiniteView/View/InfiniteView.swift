@@ -9,14 +9,14 @@ import SwiftUI
 
 struct InfiniteView: View {
     @State private var items: [InfiniteViewModel] = [.red, .blue, .green, .yellow, .black].compactMap {
-        return .init(color: $0) }
+        return .init(color: $0, names:"Starbucks") }
     var body: some View {
         ScrollView(.vertical){
             VStack{
                 GeometryReader {
                     let size = $0.size
                     
-                    LoopingScrollView(width: size.width, spacing: 0, items: items) { item in
+                    LoopingScrollView(width: size.width, spacing: 0, items: items, searchText: "") { item in
                             RoundedRectangle(cornerRadius: 15)
                             .fill(item.color.gradient)
                             .padding(.horizontal, 15)

@@ -11,6 +11,7 @@ import SwiftUI
 struct InfiniteViewModel: Identifiable {
     var id: UUID = .init()
     var color: Color
+    var names: String
 }
 
 

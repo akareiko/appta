@@ -45,7 +45,7 @@ struct MenuRoundedPanel07: View {
                     GeometryReader {
                         let size = $0.size
                         
-                        LoopingScrollView(width: 280, spacing: 30, items: shops) { thing in
+                        LoopingScrollView(width: 280, spacing: 30, items: shops, searchText: "") { thing in
                             Image(thing.image)
                                 .resizable()
                                 .frame(width: 280, height: 140)

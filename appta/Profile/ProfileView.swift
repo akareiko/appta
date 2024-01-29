@@ -25,7 +25,7 @@ extension View {
 }
 
 struct ProfileView: View {
-    @State private var gradientColors: [Color] = [Color("starbucks-lightgold"), Color("starbucks-black")]
+    @State private var gradientColors: [Color] = [Color("starbucks-lightgold"), Color("starbucks-silver")]
     
     var body: some View {
         NavigationView {
@@ -67,7 +67,7 @@ struct ProfileView: View {
                                 .gradientStroke(colors: gradientColors, lineWidth: 1)
                                 .onAppear {
                                     withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: true)) {
-                                        self.gradientColors = [Color("starbucks-black"), Color("starbucks-lightgold")]
+                                        self.gradientColors = [Color("starbucks-silver"), Color("starbucks-lightgold")]
                                     }
                                 }
                                 .frame(width: UIScreen.main.bounds.width - 40, height: 150)

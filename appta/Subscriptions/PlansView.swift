@@ -16,267 +16,179 @@ struct NoTapAnimationStyle: PrimitiveButtonStyle {
     }
 }
 
-struct PlansView: View {
-    @State private var isClicked1: Bool = false
-    @State private var isClicked2: Bool = false
-    @State private var isClicked3: Bool = false
-    @State private var isClicked4: Bool = false
-    
+struct PlanButton: View {
+    var imageName: String
+    var title: String
+    var description: String
+    var price: String
+    @Binding var isClicked: Bool
+    @Binding var showUnlock: Bool
+    @Binding var didUnlock: Bool
     
     var body: some View {
-        ScrollView {
-            Text("Choose your plan")
+        Button(action: {withAnimation(Animation.easeInOut(duration: 0.2)) {isClicked.toggle()}}) {
+            if !isClicked {
+                HStack {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(.black)
+                            .frame(width: 380, height: 95)
+                        HStack {
+                            RoundedRectangle(cornerRadius: 25)
+                                .fill(.white)
+                                .frame(width: 90, height: 70)
+                                .padding(.horizontal, 20)
+                                .overlay(
+                                    Image(systemName: imageName)
+                                        .foregroundColor(.black)
+                                )
+                            
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text(title)
+                                        .foregroundColor(.white)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .fontWeight(.bold)
+                                    
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .fill(Color.white)
+                                        .frame(width: 90, height: 25)
+                                        .overlay(
+                                            Text(price)
+                                                .foregroundColor(.black)
+                                        )
+                                }
+                                Text(description)
+                                    .foregroundColor(.gray)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .font(.caption)
+                            }
+                            .padding(.trailing, 20)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }
+            }
+            else {
+                if showUnlock {
+                    SwipeButtonView()
+                        .onSwipeSuccess {
+                            self.didUnlock = true
+                }
+            }
+        }
+            
+        if didUnlock {
+            ZStack {
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(.ultraThinMaterial)
+                    .frame(width: 380, height: 65)
+                    .transition(AnyTransition.scale.animation(Animation.spring(response: 0.3, dampingFraction: 0.5)))
+                
+                HStack {
+                    Button(action: {
+//                            obj.abc = true
+                    }) {
+                        RoundedRectangle(cornerRadius: 15)
+                            .fill(Color("starbucks-lightgold"))
+                            .shadow(radius: 1)
+                            .frame(width: 260, height: 40)
+                            .overlay(
+                                Text("Подтвердить").foregroundColor(.white).fontWeight(.bold)
+                            )
+                    }
+                        RoundedRectangle(cornerRadius: 15)
+                            .fill(Color("starbucks-lightgold"))
+                            .shadow(radius: 1)
+                            .frame(width: 80, height: 40)
+                            .overlay(
+                                Image(systemName: "x.circle")
+                                    .font(.title)
+                                    .foregroundColor(.white)
+                            )
+                }
+            }
+            .padding(.bottom, 30)
+            
+//                if obj.abc {
+//                    Text("HAHA LOX")
+//                }
+        }
+        }
+        .buttonStyle(NoTapAnimationStyle())
+        .onAppear() {
+            self.showUnlock = true
+        }
+    }
+}
+
+struct PlanProperties {
+    var isClicked: Bool
+    var showUnlock: Bool
+    var didUnlock: Bool
+}
+
+struct PlansView: View {
+    @State var planProperties: [PlanProperties] = Array(repeating: PlanProperties(isClicked: false, showUnlock: false, didUnlock: false), count: 4)
+    
+    @EnvironmentObject var obj: GlobalWars
+    
+    var planplan: PlanPlan
+    
+    var body: some View {
+        VStack {
+            Text("Step Two")
                 .foregroundColor(.black)
                 .font(.title)
                 .fontWeight(.bold)
-                .frame(maxHeight: .infinity, alignment: .top)
-            
-            Text("Current plan")
+            Text("Choose your plan  ")
                 .foregroundColor(.black)
                 .font(.title2)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 20)
-            Button(action: {}){
-                HStack {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(.black)
-                            .frame(width: 350, height: 85)
-                        HStack {
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill(.white)
-                                .frame(width: 90, height: 70)
-                                .padding(.horizontal, 20)
-                                .overlay(
-                                    Image(systemName: "bird")
-                                        .foregroundColor(.black)
-                                )
-                            
-                            VStack {
-                                Text("Standard Sip")
-                                    .foregroundColor(.white)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .fontWeight(.bold)
-                                Text("Everyday luxury in a cup – experience the Standard Sip")
-                                    .foregroundColor(.gray)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .font(.caption)
-                            }
-                            
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.black)
-                                .frame(width: 30, height: 30)
-                                .padding(.horizontal, 20)
-                        }
-                    }
-                    
-                }
-                .padding()
-            }
-            
-            Text("All options")
-                .foregroundColor(.black)
-                .font(.title2)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 20)
-            
-            Button(action: { withAnimation(Animation.easeInOut(duration: 0.2)) {isClicked1.toggle()}}){
-                if(isClicked1 == false){
-                    HStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill(.black)
-                                .frame(width: 350, height: 85)
-                            HStack {
-                                RoundedRectangle(cornerRadius: 25)
-                                    .fill(.white)
-                                    .frame(width: 90, height: 70)
-                                    .padding(.horizontal, 20)
-                                    .overlay(
-                                        Image(systemName: "lizard")
-                                            .foregroundColor(.black)
-                                    )
-                                
-                                VStack {
-                                    Text("Basic Brew")
-                                        .foregroundColor(.white)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .fontWeight(.bold)
-                                    Text("Classic simplicity, pure satisfaction – discover the Basic Brew")
-                                        .foregroundColor(.gray)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .font(.caption)
-                                }
-                                
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.black)
-                                    .frame(width: 30, height: 30)
-                                    .padding(.horizontal, 20)
-                            }
-                        }
-                    }
-                }
-                else {
-                    HStack {
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill(.black)
-                                .frame(width: 350, height: 165)
-                            HStack {
-                                RoundedRectangle(cornerRadius: 25)
-                                    .fill(.white)
-                                    .frame(width: 90, height: 150)
-                                    .padding(.horizontal, 20)
-                                    .overlay(
-                                        Image(systemName: "lizard")
-                                            .foregroundColor(.black)
-                                    )
-                                
-                                VStack {
-                                    Text("Basic Brew")
-                                        .foregroundColor(.white)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .fontWeight(.bold)
-                                    Text("Classic simplicity, pure satisfaction – discover the Basic Brew")
-                                        .foregroundColor(.gray)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .font(.caption)
-                                }
-                                
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.black)
-                                    .frame(width: 30, height: 30)
-                                    .padding(.horizontal, 20)
-                            }
-                        }
-                    }
-                }
-            }
-            .padding()
-            .buttonStyle(NoTapAnimationStyle())
-            
-            Button(action: { withAnimation(Animation.easeInOut(duration: 0.2)) {isClicked2.toggle()}}){
-                HStack {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(.black)
-                            .frame(width: 350, height: 85)
-                        HStack {
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill(.white)
-                                .frame(width: 90, height: 70)
-                                .padding(.horizontal, 20)
-                                .overlay(
-                                    Image(systemName: "bird")
-                                        .foregroundColor(.black)
-                                )
-                            
-                            VStack {
-                                Text("Standard Sip")
-                                    .foregroundColor(.white)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .fontWeight(.bold)
-                                Text("Everyday luxury in a cup – experience the Standard Sip")
-                                    .foregroundColor(.gray)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .font(.caption)
-                            }
-                            
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.white)
-                                .frame(width: 30, height: 30)
-                                .padding(.horizontal, 20)
-                        }
-                    }
-                    
-                }
-            }
-            .padding()
-            .offset(y: -30)
-            .buttonStyle(NoTapAnimationStyle())
-            
-            Button(action: {}){
-                HStack {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(.black)
-                            .frame(width: 350, height: 85)
-                        HStack {
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill(.white)
-                                .frame(width: 90, height: 70)
-                                .padding(.horizontal, 20)
-                                .overlay(
-                                    Image(systemName: "fish")
-                                        .foregroundColor(.black)
-                                )
-                            
-                            VStack {
-                                Text("Premium Pour")
-                                    .foregroundColor(.white)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .fontWeight(.bold)
-                                Text("Elevated taste, unmatched quality – welcome the Premium")
-                                    .foregroundColor(.gray)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .font(.caption)
-                            }
-                            
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.black)
-                                .frame(width: 30, height: 30)
-                                .padding(.horizontal, 20)
-                        }
-                    }
-                    
-                }
-            }
-            .padding()
-            .offset(y: -60)
-            
-            Button(action: {}){
-                HStack {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(.black)
-                            .frame(width: 350, height: 80)
-                        HStack {
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill(.white)
-                                .frame(width: 90, height: 70)
-                                .padding(.horizontal, 20)
-                                .overlay(
-                                    Image(systemName: "cat")
-                                        .foregroundColor(.black)
-                                )
-                            
-                            VStack {
-                                Text("Ultimate Roast")
-                                    .foregroundColor(.white)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .fontWeight(.bold)
-                                Text("Indulge in luxury, savor perfection – it's the Ultimate Roast")
-                                    .foregroundColor(.gray)
-                                    .frame(maxWidth: .infinity, alignment: .leading)
-                                    .font(.caption)
-                            }
-                            
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.black)
-                                .frame(width: 30, height: 30)
-                                .padding(.horizontal, 20)
-                        }
-                    }
-                    
-                }
-            }
-            .padding()
-            .offset(y: -90)
+            +
+            Text(Image(systemName: "plus.rectangle"))
         }
-        .offset(y: 50)
+        
+        Spacer()
+            .frame(height: 20)
+        
+        Text("Current plan")
+            .foregroundColor(.black)
+            .font(.title2)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 20)
+        PlanButton(
+            imageName: planplan.imageName,
+            title: planplan.title,
+            description: planplan.description,
+            price: planplan.price,
+            isClicked: $planProperties[0].isClicked,
+            showUnlock: $planProperties[0].showUnlock,
+            didUnlock: $planProperties[0].didUnlock
+        )
+        
+        Text("All options")
+            .foregroundColor(.black)
+            .font(.title2)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 20)
+            
+        ScrollView {
+            ForEach($planProperties.indices, id: \.self) { item in
+                PlanButton(
+                    imageName: "bird",
+                    title: "Standard Sip",
+                    description: "Everyday luxury in a cup – experience the Standard Sip",
+                    price: "4000KZT",
+                    isClicked: $planProperties[item].isClicked,
+                    showUnlock: $planProperties[item].showUnlock,
+                    didUnlock: $planProperties[item].didUnlock
+                    )
+            }
+        }
     }
 }
 
 #Preview {
-    PlansView()
+    PlansView(planplan: ModelModelData().plansplans[0])
 }
+

@@ -13,6 +13,7 @@ struct LoopingScrollView<Content: View, InfiniteViewModel: RandomAccessCollectio
     var width: CGFloat
     var spacing: CGFloat = 0
     var items: InfiniteViewModel
+    var searchText: String
     
     @ViewBuilder var content: (InfiniteViewModel.Element) -> Content
     var body: some View {
@@ -114,5 +115,9 @@ fileprivate struct ScrollViewHelper: UIViewRepresentable {
             }
         }
     }
+}
+
+#Preview {
+    BeforePlansView()
 }
 

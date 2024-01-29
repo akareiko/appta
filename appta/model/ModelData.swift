@@ -20,6 +20,10 @@ final class ModelData: ObservableObject {
     }
 }
 
+final class ModelModelData: ObservableObject {
+    @Published var plansplans: [PlanPlan] = load("hehehehe.json")
+}
+
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
 

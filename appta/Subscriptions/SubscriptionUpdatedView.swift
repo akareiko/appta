@@ -85,12 +85,8 @@ struct SubscriptionUpdatedView: View {
                         .padding(.horizontal, 20)
                         .padding(.top, -20)
                         .padding(.bottom, 1000)
-                        
                     }
-                        
                 }
-
-                
             }
         }
     }
