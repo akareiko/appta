@@ -2,78 +2,146 @@ import SwiftUI
 
 struct GuideView: View{
     @State private var activeIntro: PageIntro = pageIntros[0]
-    @State private var emailID: String = ""
-    @State private var password: String = ""
-    @State private var keyboardHeight: CGFloat = 0
+    
     var body: some View {
         GeometryReader{
             let size = $0.size
-            IntroView(intro: $activeIntro, size: size){
-            }
+            IntroView(intro: $activeIntro, size: size)
             .padding(15)
         }
     }
 }
-struct IntroView<ActionView: View>: View {
+
+struct PaymentData: Identifiable, Codable {
+    var id: String = UUID().uuidString
+    var chosenShop: String
+    var chosenPlan: String
+}
+
+struct IntroView: View {
     @Binding var intro: PageIntro
     var size: CGSize
-    var actionView: ActionView
-    
-    init(intro: Binding<PageIntro>, size: CGSize, @ViewBuilder actionView: @escaping () -> ActionView) {
-        self._intro = intro
-        self.size = size
-        self.actionView = actionView()
-    }
-    
     @State private var showView: Bool = false
     @State private var hideWholeView: Bool = false
+    @State private var chosenShop: String = ""
+    @State private var chosenPlan: String = ""
+    
     var body: some View {
         VStack{
             VStack {
-                intro.introBlock
+                Text(intro.title)
+                    .font(.title)
+                    .foregroundColor(.black)
+                    .fontWeight(.bold)
+                Text(intro.subTitle)
+                    .font(.title2)
+                    .foregroundColor(.black)
+                +
+                Text(Image(systemName: intro.icon))
             }
-            .frame(width: UIScreen.main.bounds.width - 10, height: 580)
-            .offset(x: -10, y: showView ? 0 : -size.height / 2)
-            .opacity(showView ? 1 : 0)
-            .scaleEffect(0.85)
-            
-            VStack(alignment: .leading, spacing: 10){
-                Spacer(minLength: 0)
-                
-                if !intro.displaysAction1{
-                    Group {
-                        Spacer(minLength: 25)
-                        CustomIndicatorView(totalPages: filteredPages.count, currentPage: filteredPages.firstIndex(of: intro) ?? 0)
-                            .frame(maxWidth: .infinity)
-                        
-                        Spacer(minLength: 10)
-                        
-                        Button {
-                            changeIntro()
-                        } label: {
-                            Text("Next")
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                                .frame(width: size.width * 0.4)
-                                .padding(.vertical, 15)
-                                .background {
-                                    Capsule()
-                                        .fill(.black)
-                                }
-                        }
-                        .frame(maxWidth: .infinity)
+            .offset(y: showView ? 0 : -size.height / 2)
+            if !intro.displaysAction {
+                VStack {
+                    //                intro.introBlock
+                    if intro.introBlock == 1 {
+                        BeforePlansView(haha: $chosenShop).environmentObject(GlobalWars())
                     }
-                } else {
-                    actionView
-                        .offset(y: showView ? 0 : size.height / 2)
-                        .opacity(showView ? 1 : 0)
+                    else if intro.introBlock == 2 {
+                        PlansView(planplans: ModelModelData().plansplans, haha: $chosenPlan)
+                    }
+                    else if intro.introBlock == 3{
+                        AfterPlansView()
+                    }
+                    
+                    Spacer()
+                        .frame(height: 20)
+                    CustomIndicatorView(totalPages: pageIntros.count, currentPage: pageIntros.firstIndex(of: intro) ?? 0)
                 }
+                .frame(width: UIScreen.main.bounds.width - 70, height: 530)
+                .offset(x: showView ? 0 : size.height / 2)
+                .opacity(showView ? 1 : 0)
+                
+                VStack {
+                    VStack {
+                        Text(chosenShop)
+                            .foregroundColor(.black)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                        
+                        Text(chosenPlan)
+                            .foregroundColor(.black)
+                            .font(.title3)
+                    }
+                    .frame(height: 50)
+                    
+                    Spacer()
+                        .frame(height: 20)
+                    
+                    Button {
+                        changeIntro()
+                    } label: {
+                        Text("Next")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .frame(width: size.width * 0.4)
+                            .padding(.vertical, 15)
+                            .background {
+                                Capsule()
+                                    .fill(.black)
+                            }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .offset(y: showView ? 0 : size.height / 2)
+                .opacity(showView ? 1 : 0)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .offset(y: showView ? 0 : size.height / 2)
-            .opacity(showView ? 1 : 0)
+            else {
+                VStack {
+                    PaymentView()
+                }
+                .frame(width: UIScreen.main.bounds.width - 70, height: 530)
+                .offset(x: showView ? 0 : size.height / 2)
+                .opacity(showView ? 1 : 0)
+                
+                VStack {
+                    VStack {
+                        Text(chosenShop)
+                            .foregroundColor(.black)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                        
+                        Text(chosenPlan)
+                            .foregroundColor(.black)
+                            .font(.title3)
+                    }
+                    .frame(height: 50)
+                    
+                    Spacer()
+                        .frame(height: 20)
+                    
+                    Button {
+                        let _ = print(chosenShop)
+                        let _ = print(chosenPlan)
+                        savePaymentData()
+                        
+                    } label: {
+                        Text("Oplata")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .frame(width: size.width * 0.4)
+                            .padding(.vertical, 15)
+                            .background {
+                                Capsule()
+                                    .fill(.black)
+                            }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .center)
+                .offset(y: showView ? 0 : size.height / 2)
+                .opacity(showView ? 1 : 0)
+            }
         }
-        .offset(y: hideWholeView ? size.height / 2 : 0)
+        .offset(x: hideWholeView ? size.height / 2 : 0)
         .opacity(hideWholeView ? 0 : 1)
         .ignoresSafeArea()
         .overlay(alignment: .topLeading) {
@@ -99,6 +167,30 @@ struct IntroView<ActionView: View>: View {
         }
     }
     
+    func savePaymentData() {
+        let dataArray: [PaymentData] = [PaymentData(chosenShop: "hahaha", chosenPlan: "kekeke"),
+                                        PaymentData(chosenShop: "hahaha", chosenPlan: "kekeke")
+        ]
+
+        do {
+            let jsonData = try JSONEncoder().encode(dataArray)
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                print(jsonString)
+                
+                if let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                    let fileURL = documentsDirectory.appendingPathComponent("selectedPlanz.json")
+                    
+                    try jsonString.write(to: fileURL, atomically: true, encoding: .utf8)
+                    
+                    print("File saved at: \(fileURL)")
+                }
+            }
+            
+        } catch {
+            print("Error saving payment data: \(error)")
+        }
+    }
+
     
     func changeIntro(_ isPrevious: Bool = false) {
         withAnimation(.spring(response: 0.8, dampingFraction: 0.8, blendDuration: 0)){
@@ -120,8 +212,8 @@ struct IntroView<ActionView: View>: View {
             }
         }
     }
-    
-    var filteredPages: [PageIntro] {
-        return pageIntros.filter { !$0.displaysAction1 }
-    }
+}
+
+#Preview{
+    GuideView()
 }

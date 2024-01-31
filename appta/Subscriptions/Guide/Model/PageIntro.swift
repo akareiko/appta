@@ -5,19 +5,26 @@ struct PageIntro: Identifiable, Equatable {
         return lhs.id == rhs.id &&
                lhs.title == rhs.title &&
                lhs.subTitle == rhs.subTitle &&
-               lhs.displaysAction1 == rhs.displaysAction1 &&
-               lhs.displaysAction2 == rhs.displaysAction2
+               lhs.displaysAction == rhs.displaysAction
     }
     
     var id: UUID = .init()
-    var introBlock: AnyView
+    var introBlock: Int
     var title: String
     var subTitle: String
-    var displaysAction1: Bool = false
-    var displaysAction2: Bool = false
+    var icon: String
+    var displaysAction: Bool = false
 }
 
+
+//var pageIntros: [PageIntro] = [
+//    .init(introBlock: AnyView(BeforePlansView(myModel: MyModel()).environmentObject(GlobalWars())), title: "Step One", subTitle: "Choose Your CoffeeShop  ", icon: "mug.fill"),
+//    .init(introBlock: AnyView(PlansView(planplans: ModelModelData().plansplans).environmentObject(GlobalWars())), title: "Step Two", subTitle: "Choose your plan  ", icon: "plus.rectangle", displaysAction: true)
+//]
+
 var pageIntros: [PageIntro] = [
-    .init(introBlock: AnyView(BeforePlansView()), title: "Welcome to Appta!", subTitle: "Thank you for choosing us, we can make your daily life experience better!"),
-    .init(introBlock: AnyView(PlansView(planplan: ModelModelData().plansplans[0])), title: "Get More,\nSpend Less!", subTitle: "Get more coffee in more than 150 Coffee Shops by our subscription!")
+    .init(introBlock: 1, title: "Step One", subTitle: "Choose Your CoffeeShop  ", icon: "mug.fill"),
+    .init(introBlock: 2, title: "Step Two", subTitle: "Choose Your Plan  ", icon: "plus.rectangle"),
+    .init(introBlock: 3, title: "Step Three", subTitle: "Choose Payment Method  ", icon: "creditcard.fill"),
+    .init(introBlock: 4, title: "Proceed With Payment", subTitle: "Agree?  ", icon: "dollarsign", displaysAction: true)
 ]

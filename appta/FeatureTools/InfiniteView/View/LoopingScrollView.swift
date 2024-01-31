@@ -117,7 +117,7 @@ fileprivate struct ScrollViewHelper: UIViewRepresentable {
     }
 }
 
-#Preview {
-    BeforePlansView()
-}
+//#Preview {
+//    BeforePlansView()
+//}
 

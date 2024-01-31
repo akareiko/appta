@@ -8,32 +8,18 @@
 import SwiftUI
 
 struct BeforePlansView: View {
-//    @State private var items: [InfiniteViewModel] = [.red, .blue, .green, .yellow, .black].compactMap {
-//        return .init(color: $0, names: "Starbucks") }
-//    @State private var items: [PlansModel] = ["arabica-logo", "cinnabon-logo", "coffeeday-logo", "costacoffee-logo", "pretamanger-logo", "starbucks-logo", "timhortons-logo", "veneziano-logo", "zebracoffee-logo"].compactMap {
-//        return .init(imageName: $0, names: "Starbucks")
-//    }
     @EnvironmentObject var obj: GlobalWars
     @State private var searchText = ""
     @State private var isSearching = false
+    @Binding var haha: String
+    
     
     var body: some View {
-        VStack {
-            Text("Step One")
-                .font(.title)
-                .foregroundColor(.black)
-                .fontWeight(.bold)
-            Text("Choose Your CoffeeShop  ")
-                .font(.title2)
-                .foregroundColor(.black)
-            +
-            Text(Image(systemName: "mug.fill"))
-        }
-        
         Spacer()
             .frame(height: 30)
         
         SearchBar(searchText: $searchText, isSearching: $isSearching)
+            .frame(width: UIScreen.main.bounds.width - 20)
         
         Spacer()
             .frame(height: 30)
@@ -43,15 +29,29 @@ struct BeforePlansView: View {
             
             ScrollViewReader{ reader in
                 LoopingScrollView(width: size.width, spacing: 0, items: obj.coffeeShopArray, searchText: searchText) { item in
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 25)
-                            .fill(.black)
-                            .frame(width: 300)
-                        Image(item.imageName)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 150)
-                            .clipShape(Circle())
+                    Button(action: {
+                        haha = item.names
+                    }) {
+                        ZStack {
+                            Image(item.imageName)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 150)
+                                .clipShape(Circle())
+                                .scaleEffect(1.1)
+                            
+                            RoundedRectangle(cornerRadius: 25)
+                                .fill(.ultraThinMaterial)
+                                .frame(width: 300)
+                                .shadow(radius: 3)
+                                .scaleEffect(0.95)
+                            
+                            Image(item.imageName)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 150)
+                                .clipShape(Circle())
+                        }
                     }
                 }
                 .onChange(of: searchText) { _, newSearchText in
@@ -69,6 +69,6 @@ struct BeforePlansView: View {
 }
 
 #Preview {
-    BeforePlansView()
+    BeforePlansView(haha: .constant(""))
         .environmentObject(GlobalWars())
 }

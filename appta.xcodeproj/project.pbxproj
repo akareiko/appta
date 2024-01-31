@@ -124,6 +124,11 @@
 		BE76B0DF2B00F14200B6BE3E /* MenuRoundedPanel05.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE76B0DE2B00F14200B6BE3E /* MenuRoundedPanel05.swift */; };
 		BE76B0E32B00F18000B6BE3E /* MenuRoundedPanelModel05.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE76B0E22B00F18000B6BE3E /* MenuRoundedPanelModel05.swift */; };
 		BE76B0E92B00F66B00B6BE3E /* MenuRoundedPanel06.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE76B0E82B00F66B00B6BE3E /* MenuRoundedPanel06.swift */; };
+		BE7CF53E2B692322000929EF /* TestGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7CF53D2B692321000929EF /* TestGuideView.swift */; };
+		BE7CF5402B692335000929EF /* TestPageIntro.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7CF53F2B692335000929EF /* TestPageIntro.swift */; };
+		BE7CF5422B696D1C000929EF /* AfterPlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7CF5412B696D1C000929EF /* AfterPlansView.swift */; };
+		BE7CF5442B6A1733000929EF /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7CF5432B6A1733000929EF /* PaymentView.swift */; };
+		BE7CF54A2B6A26EC000929EF /* selectedPlanz.json in Resources */ = {isa = PBXBuildFile; fileRef = BE7CF5492B6A26EC000929EF /* selectedPlanz.json */; };
 		BE9BBC162A9407F300B0C05D /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC152A9407F300B0C05D /* ModelData.swift */; };
 		BE9BBC182A94080400B0C05D /* CoffeeShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE9BBC172A94080400B0C05D /* CoffeeShop.swift */; };
 		BEACCD412B49D170001C0CD8 /* SampleMag.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEACCD402B49D170001C0CD8 /* SampleMag.swift */; };
@@ -286,6 +291,11 @@
 		BE76B0DE2B00F14200B6BE3E /* MenuRoundedPanel05.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRoundedPanel05.swift; sourceTree = "<group>"; };
 		BE76B0E22B00F18000B6BE3E /* MenuRoundedPanelModel05.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRoundedPanelModel05.swift; sourceTree = "<group>"; };
 		BE76B0E82B00F66B00B6BE3E /* MenuRoundedPanel06.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRoundedPanel06.swift; sourceTree = "<group>"; };
+		BE7CF53D2B692321000929EF /* TestGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestGuideView.swift; sourceTree = "<group>"; };
+		BE7CF53F2B692335000929EF /* TestPageIntro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPageIntro.swift; sourceTree = "<group>"; };
+		BE7CF5412B696D1C000929EF /* AfterPlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterPlansView.swift; sourceTree = "<group>"; };
+		BE7CF5432B6A1733000929EF /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		BE7CF5492B6A26EC000929EF /* selectedPlanz.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = selectedPlanz.json; sourceTree = "<group>"; };
 		BE9BBC152A9407F300B0C05D /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		BE9BBC172A94080400B0C05D /* CoffeeShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShop.swift; sourceTree = "<group>"; };
 		BEACCD402B49D170001C0CD8 /* SampleMag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleMag.swift; sourceTree = "<group>"; };
@@ -890,6 +900,7 @@
 			children = (
 				23A4FE352AC4682E004D20CD /* GuideView.swift */,
 				23A4FE392AC4686E004D20CD /* CustomIndicator.swift */,
+				BE7CF5492B6A26EC000929EF /* selectedPlanz.json */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1306,7 +1317,8 @@
 				BE23D1AE2B6149B9008A6362 /* PopupViewModifier.swift */,
 				BE23D1B02B6149D5008A6362 /* SheetManager.swift */,
 				BE23D1B32B6262E6008A6362 /* MegaTestView.swift */,
-				BEFB515A2B62641400E3A11F /* SwipeButtonView.swift */,
+				BE7CF53D2B692321000929EF /* TestGuideView.swift */,
+				BE7CF53F2B692335000929EF /* TestPageIntro.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -1449,7 +1461,10 @@
 				2311E8EE2ABE070400868F63 /* SubscriptionUpdatedView.swift */,
 				BE23D19F2B5E504A008A6362 /* BeforePlansView.swift */,
 				BE16E7DD2B5D669D00DB43D3 /* PlansView.swift */,
+				BE7CF5412B696D1C000929EF /* AfterPlansView.swift */,
 				BE23D1A12B5E5C90008A6362 /* PlansModel.swift */,
+				BE7CF5432B6A1733000929EF /* PaymentView.swift */,
+				BEFB515A2B62641400E3A11F /* SwipeButtonView.swift */,
 			);
 			path = Subscriptions;
 			sourceTree = "<group>";
@@ -1623,6 +1638,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7CF54A2B6A26EC000929EF /* selectedPlanz.json in Resources */,
 				BEACCD432B4B1C12001C0CD8 /* Pilowlava-Regular.otf in Resources */,
 				BED02CEF2A940B48007DEE6D /* coffeeshops.json in Resources */,
 				BEACCD542B4B2F0C001C0CD8 /* Gara Gara Bold.otf in Resources */,
@@ -1677,6 +1693,7 @@
 				BED02D112A961AB6007DEE6D /* QrcodeView.swift in Sources */,
 				23A4FE3A2AC4686E004D20CD /* CustomIndicator.swift in Sources */,
 				23E9D6D22AD1A4900044A47F /* CoffeeShopImageModel.swift in Sources */,
+				BE7CF53E2B692322000929EF /* TestGuideView.swift in Sources */,
 				2313FCFC2B0A79ED00AE125A /* CoffeeBoxList.swift in Sources */,
 				237B5C3A2ACB3A1600F35311 /* LocationManager1.swift in Sources */,
 				230A20702B3F6B5200253297 /* HeaderView.swift in Sources */,
@@ -1703,12 +1720,15 @@
 				BED02D0F2A9617FF007DEE6D /* ProfileView.swift in Sources */,
 				2313FD012B0A832700AE125A /* DrinkCustomizer.swift in Sources */,
 				2303C61D2AFF9D1500C66365 /* InfiniteCarousel.swift in Sources */,
+				BE7CF5442B6A1733000929EF /* PaymentView.swift in Sources */,
+				BE7CF5422B696D1C000929EF /* AfterPlansView.swift in Sources */,
 				BE23D1AF2B6149B9008A6362 /* PopupViewModifier.swift in Sources */,
 				BEF2E49A2B5022F90086B23F /* BasketView.swift in Sources */,
 				231BFE402ACA917200B60737 /* MapViewUpdated.swift in Sources */,
 				BED02CF72A94168B007DEE6D /* CategoryItem.swift in Sources */,
 				23E9D6BB2AD02FA70044A47F /* SubscriptionCard1_Front.swift in Sources */,
 				2316A3172AE8EC7B0078BFB8 /* MenuRewardModel03.swift in Sources */,
+				BE7CF5402B692335000929EF /* TestPageIntro.swift in Sources */,
 				23A4FE432AC58821004D20CD /* Coffee.swift in Sources */,
 				239DFB672B0F7666007567E0 /* DropDownView.swift in Sources */,
 				23E378262B1EEBEB00ACCAE1 /* DrinkCustomizerOptionEnlarged.swift in Sources */,

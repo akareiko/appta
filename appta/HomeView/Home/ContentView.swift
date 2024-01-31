@@ -12,14 +12,14 @@ class GlobalWars: ObservableObject {
     @Published var abc: Bool = false
     
     var coffeeShopArray: [PlansModel] = [
-        .init(imageName: "arabica-logo", names: "arabica"),
-        .init(imageName: "cinnabon-logo", names: "cinnabon"),
-        .init(imageName: "coffeeday-logo", names: "coffeeday"),
-        .init(imageName: "pretamanger-logo", names: "pretamanger"),
-        .init(imageName: "starbucks-logo", names: "starbucks"),
-        .init(imageName: "timhortons-logo", names: "timhortons"),
-        .init(imageName: "veneziano-logo", names: "veneziano"),
-        .init(imageName: "zebracoffee-logo", names: "zebra"),
+        .init(imageName: "arabica-logo", names: "Arabica"),
+        .init(imageName: "cinnabon-logo", names: "Cinnabon"),
+        .init(imageName: "coffeeday-logo", names: "Coffeeday"),
+        .init(imageName: "pretamanger-logo", names: "Pretamanger"),
+        .init(imageName: "starbucks-logo", names: "Starbucks"),
+        .init(imageName: "timhortons-logo", names: "Timhortons"),
+        .init(imageName: "veneziano-logo", names: "Veneziano"),
+        .init(imageName: "zebracoffee-logo", names: "Zebra"),
         ]
 }
 

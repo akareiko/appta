@@ -185,6 +185,9 @@ struct SwipeButtonView: View {
         else {
             self.dragOffset = .zero
             self.thumbSize = CGSize.inactiveThumbSize
+            withAnimation() {
+                elemOpacity = 1.0
+            }
         }
     }
 }
