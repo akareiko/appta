@@ -1,9 +1,20 @@
 import CodeScanner
 import SwiftUI
 
+struct Window: Shape {
+    let size: CGSize
+    func path(in rect: CGRect) -> Path {
+        var path = Rectangle().path(in: rect)
+
+        let origin = CGPoint(x: rect.midX - size.width / 2, y: rect.midY - size.height / 2)
+        path.addRect(CGRect(origin: origin, size: size))
+        return path
+    }
+}
+
 struct QrcodeView: View {
     @State var isPresentingScanner = false
-    @State var scannedCode: String = "Scan a QR code to get started."
+    @State var scannedCode: String = "фывфыв"
     
     struct GrowingButton: ButtonStyle {
         func makeBody(configuration: Configuration) -> some View {
@@ -35,13 +46,24 @@ struct QrcodeView: View {
             Spacer()
             Text(scannedCode)
                 .padding(.bottom, 50)
-            Button("Scan QR Code") {
+            Button("Отсканировать") {
                 self.isPresentingScanner = true
             }
             .buttonStyle(GrowingButton())
             
             .sheet(isPresented: $isPresentingScanner) {
-                self.scannerSheet
+                
+                
+                ZStack {
+                    self.scannerSheet
+
+                    Rectangle()
+                        .fill(.ultraThinMaterial)
+                        .mask(Window(size: CGSize(width: 200, height: 200)).fill(style: FillStyle(eoFill: true)))
+
+                    RoundedRectangle(cornerRadius: 3).stroke(Color("starbucks-lightgold"), lineWidth: 3)
+                        .frame(width: 200, height: 200)
+                }
             }
             Spacer()
         }
