@@ -96,6 +96,12 @@
 		23E9D6CF2AD1A3C90044A47F /* CoffeeShopImageScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E9D6CE2AD1A3C90044A47F /* CoffeeShopImageScroll.swift */; };
 		23E9D6D22AD1A4900044A47F /* CoffeeShopImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E9D6D12AD1A4900044A47F /* CoffeeShopImageModel.swift */; };
 		23FE82DF2B1A495000500896 /* CoffeeScrollUpdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FE82DE2B1A495000500896 /* CoffeeScrollUpdated.swift */; };
+		BE0B30582B6F882700531D46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE0B30572B6F882700531D46 /* GoogleService-Info.plist */; };
+		BE0B30592B6F882700531D46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE0B30572B6F882700531D46 /* GoogleService-Info.plist */; };
+		BE0B305A2B6F882700531D46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE0B30572B6F882700531D46 /* GoogleService-Info.plist */; };
+		BE0B305D2B6F915B00531D46 /* FirebaseTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B305C2B6F915B00531D46 /* FirebaseTestView.swift */; };
+		BE0B305E2B6F915B00531D46 /* FirebaseTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B305C2B6F915B00531D46 /* FirebaseTestView.swift */; };
+		BE0B305F2B6F915B00531D46 /* FirebaseTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0B305C2B6F915B00531D46 /* FirebaseTestView.swift */; };
 		BE1656342A93AFC1003CBE8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1656332A93AFC1003CBE8C /* Assets.xcassets */; };
 		BE1656372A93AFC1003CBE8C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE1656362A93AFC1003CBE8C /* Preview Assets.xcassets */; };
 		BE1656412A93AFC2003CBE8C /* apptaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1656402A93AFC2003CBE8C /* apptaTests.swift */; };
@@ -260,6 +266,8 @@
 		23E9D6CE2AD1A3C90044A47F /* CoffeeShopImageScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopImageScroll.swift; sourceTree = "<group>"; };
 		23E9D6D12AD1A4900044A47F /* CoffeeShopImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopImageModel.swift; sourceTree = "<group>"; };
 		23FE82DE2B1A495000500896 /* CoffeeScrollUpdated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeScrollUpdated.swift; sourceTree = "<group>"; };
+		BE0B30572B6F882700531D46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BE0B305C2B6F915B00531D46 /* FirebaseTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestView.swift; sourceTree = "<group>"; };
 		BE16562C2A93AFC1003CBE8C /* appta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE1656332A93AFC1003CBE8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE1656362A93AFC1003CBE8C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -429,6 +437,7 @@
 				BEACCD422B4B1C12001C0CD8 /* Pilowlava-Regular.otf */,
 				BEACCD452B4B2D26001C0CD8 /* Vetrino.otf */,
 				BEACCD532B4B2F0C001C0CD8 /* Gara Gara Bold.otf */,
+				BE0B305C2B6F915B00531D46 /* FirebaseTestView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -490,25 +499,27 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		230A20672B3F691900253297 /* AnimatedHeader */ = {
+		230A20672B3F691900253297 /* CustomSheet */ = {
 			isa = PBXGroup;
 			children = (
 				230A206A2B3F694C00253297 /* ViewModel */,
 				230A20692B3F694500253297 /* Model */,
-				230A20682B3F694200253297 /* View */,
 			);
-			path = AnimatedHeader;
+			name = CustomSheet;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		230A20682B3F694200253297 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				230A20672B3F691900253297 /* CustomSheet */,
 				232756C92B2F355500DC98A5 /* OffsetModifier.swift */,
 				230A206B2B3F696000253297 /*  AnimatedHeader.swift */,
 				230A206D2B3F6A5000253297 /* CardView.swift */,
 				230A206F2B3F6B5200253297 /* HeaderView.swift */,
 			);
-			path = View;
+			name = View;
+			path = CustomSheet/View;
 			sourceTree = "<group>";
 		};
 		230A20692B3F694500253297 /* Model */ = {
@@ -754,9 +765,7 @@
 		232756B82B2B900400DC98A5 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				230A20672B3F691900253297 /* AnimatedHeader */,
-				232756BA2B2B908E00DC98A5 /* Model */,
-				232756B92B2B908900DC98A5 /* View */,
+				BE0B30602B6FD0D500531D46 /* MenuView */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -773,7 +782,8 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = Model;
+			name = Model;
+			path = ../Model;
 			sourceTree = "<group>";
 		};
 		237B5C342ACB386B00F35311 /* Map01 */ = {
@@ -1221,6 +1231,16 @@
 			path = CoffeeShopImageScroll;
 			sourceTree = "<group>";
 		};
+		BE0B30602B6FD0D500531D46 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				232756B92B2B908900DC98A5 /* View */,
+				230A20682B3F694200253297 /* View */,
+				232756BA2B2B908E00DC98A5 /* Model */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
 		BE1656232A93AFC1003CBE8C = {
 			isa = PBXGroup;
 			children = (
@@ -1244,6 +1264,7 @@
 		BE16562E2A93AFC1003CBE8C /* appta */ = {
 			isa = PBXGroup;
 			children = (
+				BE0B30572B6F882700531D46 /* GoogleService-Info.plist */,
 				BE430ED32B5028E600EBD7DD /* CoffeeShopAddresses */,
 				BEF2E49D2B5023590086B23F /* PaymentMethod */,
 				BEF2E4962B5022C00086B23F /* BasketView */,
@@ -1621,6 +1642,7 @@
 			mainGroup = BE1656232A93AFC1003CBE8C;
 			packageReferences = (
 				BEF004172A963546008CEAAD /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				BE0B305B2B6F90F800531D46 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = BE16562D2A93AFC1003CBE8C /* Products */;
 			projectDirPath = "";
@@ -1640,6 +1662,7 @@
 			files = (
 				BE7CF54A2B6A26EC000929EF /* selectedPlanz.json in Resources */,
 				BEACCD432B4B1C12001C0CD8 /* Pilowlava-Regular.otf in Resources */,
+				BE0B30582B6F882700531D46 /* GoogleService-Info.plist in Resources */,
 				BED02CEF2A940B48007DEE6D /* coffeeshops.json in Resources */,
 				BEACCD542B4B2F0C001C0CD8 /* Gara Gara Bold.otf in Resources */,
 				BEACCD462B4B2D26001C0CD8 /* Vetrino.otf in Resources */,
@@ -1653,6 +1676,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0B30592B6F882700531D46 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1660,6 +1684,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0B305A2B6F882700531D46 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1743,6 +1768,7 @@
 				232F8A572B1DDF49007817D4 /* DrinkCustomizerOptionScrollModel.swift in Sources */,
 				BEFBB8E32AA6AA0300896A83 /* CategoryRowStory.swift in Sources */,
 				23DC1C542B01238E00CF5F2F /* CoffeeShopListModel.swift in Sources */,
+				BE0B305D2B6F915B00531D46 /* FirebaseTestView.swift in Sources */,
 				23DC1C492B01174300CF5F2F /* CoffeeReceipt.swift in Sources */,
 				2311E8F22ABE073E00868F63 /* CustomPagingSlider.swift in Sources */,
 				237B5CBB2ACC36C700F35311 /* LocationDetailsView.swift in Sources */,
@@ -1809,6 +1835,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE1656412A93AFC2003CBE8C /* apptaTests.swift in Sources */,
+				BE0B305E2B6F915B00531D46 /* FirebaseTestView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1817,6 +1844,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE16564B2A93AFC2003CBE8C /* apptaUITests.swift in Sources */,
+				BE0B305F2B6F915B00531D46 /* FirebaseTestView.swift in Sources */,
 				BE16564D2A93AFC2003CBE8C /* apptaUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2141,6 +2169,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BE0B305B2B6F90F800531D46 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.20.0;
+			};
+		};
 		BEF004172A963546008CEAAD /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/twostraws/CodeScanner";
