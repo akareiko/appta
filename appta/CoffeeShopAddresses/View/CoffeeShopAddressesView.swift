@@ -14,29 +14,20 @@ struct CoffeeShopAddressView: View {
     @Environment(\.presentationMode) var presentationMode
     // Tab Progress
     @State private var tabProgress: CGFloat = 0
-    @Binding var str: Bool
-    @Binding var nestr: Bool
     
     var body: some View {
         NavigationStack{
             VStack(alignment: .leading, spacing: 15){
-                
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Circle()
-                        .frame(width: 35)
-                        .foregroundColor(.black)
-                        .offset(CGSize(width: -10.0, height: 0.0))
-                        .overlay(
-                            Image(systemName: "chevron.backward")
-                                .foregroundColor(.white)
-                                .offset(CGSize(width: -10.0, height: 0.0))
-                    )
-                }
-                .padding(.horizontal, 20)
-                
                 HStack(){
+                    Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
+                        Image(systemName: "arrow.left")
+                            .resizable()
+                            .font(.system(size: 20, weight: .bold))
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(.primary)
+                    })
+                    .padding(.trailing, 15)
+                    
                     VStack(alignment: .leading){
                         HStack{
                             Image(systemName: "map.fill")
@@ -106,28 +97,8 @@ struct CoffeeShopAddressView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.gray.opacity(0.1))
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarLeading) {
-//                    Button(action: {
-//                        presentationMode.wrappedValue.dismiss()
-//                    }) {
-//                        Circle()
-//                            .frame(width: 60)
-//                            .foregroundColor(.black)
-//                            .offset(CGSize(width: -10.0, height: 0.0))
-//                            .overlay(
-//                                Image(systemName: "chevron.backward")
-//                                    .foregroundColor(.white)
-//                                    .offset(CGSize(width: -10.0, height: 0.0))
-//                            )
-//                    }
-//                }
-//            }
             .navigationBarBackButtonHidden(true)
             .navigationBarTitle("", displayMode: .inline)
-        }
-        .onChange(of: str){
-            dismiss()
         }
     }
     
@@ -180,7 +151,7 @@ struct CoffeeShopAddressView: View {
                     Button {
                         
                     } label: {
-                        NavigationLink(destination: AnimatedHeader(str: $str, nestr: $nestr)){
+                        NavigationLink(destination: AnimatedHeader().ignoresSafeArea()){
                             HStack(spacing: 12){
                                 Image(address.logo)
                                     .resizable()
@@ -220,8 +191,4 @@ struct CoffeeShopAddressView: View {
                 .padding(.bottom, -100)
         }
     }
-}
-
-#Preview {
-    CoffeeShopAddressView(str: .constant(false), nestr: .constant(false))
 }

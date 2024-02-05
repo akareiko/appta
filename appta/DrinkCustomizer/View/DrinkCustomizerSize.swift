@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct DrinkCustomizerSize: View {
-    @Binding var selectedSize: Size
+    @ObservedObject var coffee: SelectedCoffee
     
     var body: some View {
         VStack(alignment: .leading){
             VStack(alignment: .leading){
                 Text("Size")
                     .font(.title3.bold())
+                    .foregroundColor(.black)
                 
                 Text("Choose your favourite size")
                     .font(.footnote)
@@ -25,15 +26,15 @@ struct DrinkCustomizerSize: View {
                 ForEach(sizes) { size in
                     Button(action: {
                         withAnimation(.spring()) {
-                            selectedSize = size
+                            coffee.selectedSize = size
                         }
                     }){
                         VStack{
                             Text(size.title)
                                 .font(.callout.bold())
-                                .foregroundColor(selectedSize.id == size.id ? .white : .black)
+                                .foregroundColor(coffee.selectedSize.id == size.id ? .white : .black)
                                 .frame(minWidth: 80, minHeight: 45) // Set a minimum size for the button
-                                .background(selectedSize.id == size.id ? Color("starbucks-rewardgold") : Color.white.opacity(0.3))
+                                .background(coffee.selectedSize.id == size.id ? Color("starbucks-rewardgold") : Color.white.opacity(0.3))
                                 .clipShape(RoundedRectangle(cornerRadius: 5))
                                 .shadow(color: Color.black.opacity(0.05), radius: 5, x: 5, y: 5)
                                 .overlay(

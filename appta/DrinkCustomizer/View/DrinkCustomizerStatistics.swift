@@ -13,6 +13,7 @@ struct DrinkCustomizerStatistics: View {
             
             Text("Nutritions")
                 .font(.title3.bold())
+                .foregroundColor(.black)
                 .padding(.leading, 5)
             
             Text("Healthy facts about your beverage")
@@ -37,6 +38,7 @@ struct DrinkCustomizerStatistics: View {
                     
                     Text("27 kcal")
                         .font(.title.bold())
+                        .foregroundColor(.black)
                 }
                 .offset(CGSize(width: -110, height: -40))
                 
@@ -47,6 +49,7 @@ struct DrinkCustomizerStatistics: View {
                     
                     Text("100 g")
                         .font(.callout.bold())
+                        .foregroundColor(.black)
                 }
                 .offset(CGSize(width: 10, height: -35))
                 
@@ -57,6 +60,7 @@ struct DrinkCustomizerStatistics: View {
                     
                     Text("36 mg")
                         .font(.callout.bold())
+                        .foregroundColor(.black)
                 }
                 .offset(CGSize(width: 120, height: -35))
                 
@@ -67,6 +71,7 @@ struct DrinkCustomizerStatistics: View {
                     
                     Text("2.5 g")
                         .font(.callout.bold())
+                        .foregroundColor(.black)
                 }
                 .offset(CGSize(width: -120, height: 40))
                 
@@ -77,6 +82,7 @@ struct DrinkCustomizerStatistics: View {
                     
                     Text("1.7 g")
                         .font(.callout.bold())
+                        .foregroundColor(.black)
                 }
                 .offset(CGSize(width: 10, height: 40))
                 
@@ -87,6 +93,7 @@ struct DrinkCustomizerStatistics: View {
                     
                     Text("1 g")
                         .font(.callout.bold())
+                        .foregroundColor(.black)
                 }
                 .offset(CGSize(width: 120, height: 40))
             }

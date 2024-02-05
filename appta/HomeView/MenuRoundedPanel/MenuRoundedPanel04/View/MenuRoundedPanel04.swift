@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MenuRoundedPanel04: View {
-    @State var model04: [MenuRoundedPanelModel04]
+    
     var body: some View {
         VStack(){
             VStack {
@@ -34,7 +34,7 @@ struct MenuRoundedPanel04: View {
             
             ScrollView(.horizontal, showsIndicators: false){
                 HStack(){
-                    ForEach(model04){ thing in
+                    ForEach(MenuRPmodel04){ thing in
                         RoundedRectangle(cornerRadius: 30)
                             .frame(width: 100, height: 100)
                             .shadow(radius: 1)
@@ -61,5 +61,5 @@ struct MenuRoundedPanel04: View {
 
 
 #Preview {
-    MenuRoundedPanel04(model04: MenuRPmodel04)
+    MenuRoundedPanel04()
 }

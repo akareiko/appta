@@ -25,7 +25,9 @@ struct DrinkCustomizerOptionEnlarged: View {
         VStack{
             Text("\(optionscroll[selectedIndex].title)")
                 .font(.title3.bold())
+                .foregroundColor(.black)
                 .padding(.bottom, 10)
+                .padding(.trailing, 10)
 
             LazyVGrid(columns: columns) {
                 ForEach(optionscroll[selectedIndex].optionTypes, id: \.id) { thing in
@@ -216,6 +218,3 @@ extension DrinkCustomizerOptionEnlarged {
     }
 }
 
-#Preview {
-    DrinkCustomizer(selectedCoffee: DrinkModel(index: 0, image: "Caramel-Brule-Latte", title: "Caramel Brule Latte", description: "The Caramel-Brulé Latte is a luxurious coffee drink blending rich espresso with creamy milk, topped with a layer of frothy foam and a drizzle of caramel sauce, torched to create a caramelized topping reminiscent of crème brûlée. It's a perfect blend of bitter espresso and sweet, crunchy caramel, ideal for those who enjoy a sophisticated, dessert-like coffee experience.", prices: [1200, 1400, 1600], drinkSize: [300, 400, 500]), nestr: .constant(false))
-}

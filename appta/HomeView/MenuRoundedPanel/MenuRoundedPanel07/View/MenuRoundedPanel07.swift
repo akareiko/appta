@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MenuRoundedPanel07: View {
-    @State var shops: [MenuRoundedPanelModel07]
+    
     var body: some View {
         VStack(){
             HStack {
@@ -45,7 +45,7 @@ struct MenuRoundedPanel07: View {
                     GeometryReader {
                         let size = $0.size
                         
-                        LoopingScrollView(width: 280, spacing: 30, items: shops, searchText: "") { thing in
+                        LoopingScrollView(width: 280, spacing: 30, items: MenuRPmodel07) { thing in
                             Image(thing.image)
                                 .resizable()
                                 .frame(width: 280, height: 140)
@@ -76,5 +76,5 @@ struct MenuRoundedPanel07: View {
 }
 
 #Preview {
-    MenuRoundedPanel07(shops: MenuRPmodel07)
+    MenuRoundedPanel07()
 }

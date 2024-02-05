@@ -15,10 +15,9 @@ struct BottomClipper: Shape {
 }
 
 struct MenuRoundedPanel05: View {
-    @State var shops: [MenuRoundedPanelModel05]
     @State private var isCoffeeShopProfileActive = false
-    @Binding var str: Bool
-    @Binding var nestr: Bool
+//    @Binding var str: Bool
+//    @Binding var nestr: Bool
     
     var body: some View {
         VStack {
@@ -44,7 +43,7 @@ struct MenuRoundedPanel05: View {
                         .padding(.leading, 30)
                 }
                 
-                NavigationLink(destination: CoffeeShopList(coffeeshoplist: coffeeshoplist)){
+                NavigationLink(destination: CoffeeShopList()){
                         Image(systemName: "chevron.right")
                             .foregroundColor(Color("starbucks-rewardgold"))
                             .padding(.trailing, 30)
@@ -59,8 +58,8 @@ struct MenuRoundedPanel05: View {
                     GeometryReader {
                         let size = $0.size
                         
-                        LoopingScrollView(width: 280, spacing: 30, items: shops, searchText: "") { thing in
-                            NavigationLink(destination: CoffeeShopAddressView(str: $str, nestr: $nestr).navigationBarBackButtonHidden(true)
+                        LoopingScrollView(width: 280, spacing: 30, items: MenuRPmodel05) { thing in
+                            NavigationLink(destination: CoffeeShopAddressView().navigationBarBackButtonHidden(true)
                             ) {
                                 
 //                                Image(thing.image)

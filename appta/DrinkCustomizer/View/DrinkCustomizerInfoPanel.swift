@@ -10,9 +10,7 @@ import SwiftUI
 struct DrinkCustomizerInfoPanel: View {
     var body: some View {
         HStack(){
-            
-            
-                
+             
             Spacer()
         }
         .frame(width: 350, height: 110)
@@ -23,3 +21,4 @@ struct DrinkCustomizerInfoPanel: View {
         
     }
 }
+

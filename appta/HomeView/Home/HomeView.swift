@@ -109,7 +109,7 @@ struct HomeView: View {
                                     .fill(.ultraThinMaterial)
                                     .frame(width: 370, height: 200)
                                 
-                                MenuRoundedPanel05(shops: MenuRPmodel05, str: $str, nestr: $nestr)
+                                MenuRoundedPanel05()
                                     .padding(.bottom, 30)
                                     .offset(y: -200)
                                     
@@ -117,17 +117,17 @@ struct HomeView: View {
                                     .fill(.ultraThinMaterial)
                                     .frame(width: 370, height: 400)
                                     .offset(y: -200)
-                                MenuReward03(element03: Element03)
+                                MenuReward03()
                                     .offset(y: -600)
                                 
                                 MenuRoundedPanel06()
                                     .padding(.bottom, 30)
                                     .padding(.top, 20)
                                 
-                                MenuRoundedPanel04(model04: MenuRPmodel04)
+                                MenuRoundedPanel04()
                                     .padding(.bottom, 30)
                                 
-                                MenuRoundedPanel07(shops: MenuRPmodel07)
+                                MenuRoundedPanel07()
                                     .padding(.bottom, 120)
                                 
     //                            RewardCarouselView(rewardCarousel: RewardCarousels)

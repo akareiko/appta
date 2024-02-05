@@ -19,6 +19,7 @@ struct DrinkCustomizerOptionScroll: View {
                 VStack(alignment: .leading) {
                     Text("Options")
                         .font(.title3.bold())
+                        .foregroundColor(.black)
                     
                     Text("Make your beverage even better!")
                         .font(.footnote)
@@ -34,7 +35,7 @@ struct DrinkCustomizerOptionScroll: View {
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack(spacing: 50){
                         ForEach(optionscroll){thing in
-                            Button(action: {
+                            Button(action: {                                
                                 withAnimation(.spring()) {
                                     if selectedOption.id == thing.id && showEnlargedView {
                                         showEnlargedView.toggle()
@@ -102,3 +103,4 @@ struct DrinkCustomizerOptionScroll: View {
 //    DrinkCustomizer(selectedCoffee: DrinkModel(index: 0, image: "Caramel-Brule-Latte", title: "Caramel Brule Latte", description: "The Caramel-Brulé Latte is a luxurious coffee drink blending rich espresso with creamy milk, topped with a layer of frothy foam and a drizzle of caramel sauce, torched to create a caramelized topping reminiscent of crème brûlée. It's a perfect blend of bitter espresso and sweet, crunchy caramel, ideal for those who enjoy a sophisticated, dessert-like coffee experience.", prices: [1200, 1400, 1600], drinkSize: [300, 400, 500]))
     DrinkCustomizerOptionScroll(totalPrice: .constant(1200), optionArray: .constant([:]))
 }
+

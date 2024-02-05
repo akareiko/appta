@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MenuReward03: View {
-    @State var element03: [ElementModel03]
 
     var body: some View {
         HStack {
@@ -44,7 +43,7 @@ struct MenuReward03: View {
         .padding(.bottom, 10)
 //        .shadow(radius: 5)
         
-        ForEach(element03){element in
+        ForEach(Element03){element in
             RoundedRectangle(cornerRadius: 20)
                 .fill(.white)
                 .stroke(LinearGradient(gradient: Gradient(colors: [Color("starbucks-lightgold"), Color("starbucks-lightgold")]), startPoint: .leading, endPoint: .trailing), lineWidth: 1)
@@ -92,5 +91,5 @@ struct MenuReward03: View {
 }
 
 #Preview {
-    MenuReward03(element03: Element03)
+    MenuReward03()
 }

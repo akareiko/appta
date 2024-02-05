@@ -47,3 +47,6 @@ enum ScrollableAddressTab: String, CaseIterable {
 struct BasketModel1: Identifiable, Hashable{
     var id: String = UUID().uuidString
 }
+
+
+

@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct DrinkCustomizer: View {
-    @State var selectedCoffee: DrinkModel
-    @State private var isClicked = false
-    @State private var isTextExpanded = false
-    @State var customizedDrink: [OrderModel] = []
-    @State var selectedSize: Size = sizes.first!
-    @State var addToFavourites: Bool = false
-    @Environment(\.dismiss) private var dismiss
-    @Environment(\.presentationMode) var presentationMode
-    @Binding var nestr: Bool
-//    @State private var opas = false
-    @State var appeared: Double = 0.0
+    @ObservedObject var coffee: SelectedCoffee
+    @EnvironmentObject var globalVar: GlobalModel
+    
+    @State private var isClicked: Bool = false
+    @State private var isTextExpanded: Bool = false
+    @State private var toggleBasketViewDrinkCustomizer: Bool = false
+    @State private var toggleFavourites: Bool = false
+    
+    @Binding var customizedDrink: [OrderModel]
     
     @State var totalPrice: Int = 0
     @State var optionArray: [Int : OptionType] = [
@@ -29,6 +27,9 @@ struct DrinkCustomizer: View {
         4 : optionscroll[4].optionTypes.first!,
     ]
     
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View{
         VStack{
             ZStack(alignment: .bottomTrailing) {
@@ -38,6 +39,7 @@ struct DrinkCustomizer: View {
                         VStack(alignment: .leading){
                             Text("Drink Customizer")
                                 .font(.title.bold())
+                                .foregroundColor(.black)
                             
                             Text("Customize your drinks as you like")
                                 .font(.footnote)
@@ -49,7 +51,6 @@ struct DrinkCustomizer: View {
                         
                         Button(action: {
                             presentationMode.wrappedValue.dismiss()
-                            nestr.toggle()
                         }) {
                             Circle()
                                 .frame(width: 30)
@@ -61,14 +62,14 @@ struct DrinkCustomizer: View {
                         }
                         .padding(.horizontal, 20)
                     }
-                        
 
                     ScrollView(.horizontal, showsIndicators: false){
-                        Image(selectedCoffee.image)
+                        Image(coffee.selectedCoffee.image)
                             .resizable()
                             .frame(width: 400, height: 400)
                             .padding(.leading, 5)
                     }
+                    
                     HStack(){
                         VStack(alignment: .leading){
                             HStack{
@@ -77,9 +78,11 @@ struct DrinkCustomizer: View {
                                     .frame(width: 25, height: 25)
                                     .foregroundColor(Color("starbucks-rewardgold"))
                                     .offset(CGSize(width: 0, height: -10.0))
+                                
                                 VStack(alignment: .leading){
-                                    Text(selectedCoffee.title)
+                                    Text(coffee.selectedCoffee.title)
                                         .font(.title2.bold())
+                                        .foregroundColor(.black)
                                     
                                     Text("Classic")
                                         .font(.footnote)
@@ -93,7 +96,7 @@ struct DrinkCustomizer: View {
                         Button(action: {
                             
                         }) {
-                            Text("KZT \(selectedCoffee.prices[selectedSize.index])")
+                            Text("KZT \(coffee.selectedCoffee.prices[coffee.selectedSize.index])")
                                 .foregroundColor(Color("starbucks-rewardgold"))
                                 .fontWeight(.bold)
                                 .padding(.init(top: 8, leading: 14, bottom: 8, trailing: 14))
@@ -109,7 +112,7 @@ struct DrinkCustomizer: View {
                     .padding(.horizontal, 20)
                     
                     VStack(alignment: .leading){
-                        Text(selectedCoffee.description)
+                        Text(coffee.selectedCoffee.description)
                             .font(.footnote)
                             .foregroundColor(.black)
                             .lineLimit(isTextExpanded ? nil : 3)
@@ -136,7 +139,7 @@ struct DrinkCustomizer: View {
                     .padding(.top, 10)
                     .padding(.bottom, 10)
                     
-                    DrinkCustomizerSize(selectedSize: $selectedSize)
+                    DrinkCustomizerSize(coffee: coffee)
                         .padding(.horizontal, 20)
                     
                     DrinkCustomizerOptionScroll(totalPrice: $totalPrice, optionArray: $optionArray)
@@ -148,22 +151,24 @@ struct DrinkCustomizer: View {
                     Spacer()
                     
                 }
-                .padding(.top, 80)
-                .padding(.bottom, 30)
+                .padding(.top, 30)
+                .padding(.bottom, 20)
             }
-            
+                
                 HStack(){
                     
                     Text("Total Price: \(calculateTotalPrice()) KZT")
                         .font(.callout)
-                        .padding(.horizontal, 20)
+                        .foregroundColor(.black)
+                        .padding(.leading, 20)
+                        .lineLimit(1)
                         
                     Spacer()
                     
                     Button {
-                        addToFavourites.toggle()
+                        addToFavourites()
                     } label: {
-                        if addToFavourites {
+                        if checkFavourites() {
                             withAnimation(.snappy){
                                 Circle()
                                     .frame(width: 40)
@@ -186,12 +191,15 @@ struct DrinkCustomizer: View {
                         }
                     }
                     .offset(CGSize(width: 15, height: 0))
-                    
-                    Button(action: {
-                        customizedDrink.append(OrderModel(image: selectedCoffee.image, title: selectedCoffee.title, customizedPrice: calculateTotalPrice(), drinkSize: selectedCoffee.prices[selectedSize.index], address: "", optionArray: optionArray))
-                    })
-                    {
-                        NavigationLink(destination: BasketView(customizedDrink: customizedDrink)){
+                    .sheet(isPresented: $toggleFavourites){
+                        FavouritesView()
+                            .presentationBackground(.ultraThinMaterial)
+                    }
+
+                    Button {
+                        addOrUpdateDrinkInOrder()
+                    } label: {
+                        withAnimation(.snappy){
                             Circle()
                                 .frame(width: 40)
                                 .foregroundColor(Color("starbucks-rewardgold"))
@@ -199,55 +207,111 @@ struct DrinkCustomizer: View {
                                     Image(systemName: "plus")
                                         .foregroundColor(.white)
                                 )
-                            }
+                        }
                     }
-                    .offset(CGSize(width: 18, height: 0))
+                    .offset(CGSize(width: 15, height: 0))
                     
                     Button(action: {
-                        customizedDrink.append(OrderModel(image: selectedCoffee.image, title: selectedCoffee.title, customizedPrice: calculateTotalPrice(), drinkSize: selectedCoffee.prices[selectedSize.index], address: "", optionArray: optionArray))
+                        toggleBasketViewDrinkCustomizer.toggle()
                     })
                     {
-                        NavigationLink(destination: BasketView(customizedDrink: customizedDrink)){
-                            Circle()
-                                .frame(width: 40)
-                                .foregroundColor(Color("starbucks-rewardgold"))
-                                .overlay(
-                                    Image(systemName: "chevron.forward")
-                                        .foregroundColor(.white)
-                                )
+                        Circle()
+                            .frame(width: 40)
+                            .foregroundColor(Color("starbucks-rewardgold"))
+                            .overlay(
+                                Image(systemName: "chevron.forward")
+                                    .foregroundColor(.white)
+                            )
+                            .sheet(isPresented: $toggleBasketViewDrinkCustomizer){
+                                BasketView(coffee: coffee, customizedDrink: $customizedDrink)
+                                    .presentationBackground(.ultraThinMaterial)
                             }
                     }
-                    .padding(.horizontal, 20)
+                    .padding(.horizontal, 15)
                 }
-                .frame(width: nil, height: 60)
+                .frame(width: nil, height: 80)
                 .background(.thinMaterial)
                 .cornerRadius(30)
-                .padding([.leading, .trailing], 30)
+                .padding([.leading, .trailing], 20)
                 .padding(.bottom, 30)
-                .opacity(appeared)
-//                .scaleEffect(appeared)
-                .animation(Animation.spring(duration: 2.5), value: appeared)
-                .onAppear {self.appeared = 1.0}
-                .onDisappear {self.appeared = 0.0}
             }
         }
         .edgesIgnoringSafeArea(.all)
         .navigationBarBackButtonHidden(true)
-        .onAppear(){
-            nestr.toggle()
-        }
-//        .opacity(opas ? 0 : 1)
-//        .scaleEffect(opas ? 1 : 1.5)
-//        .animation(.spring(), value: opas)
+
     }
 }
 
 extension DrinkCustomizer{
     func calculateTotalPrice() -> Int {
-        return totalPrice + selectedCoffee.prices[selectedSize.index]
+        return totalPrice + coffee.selectedCoffee.prices[coffee.selectedSize.index]
+    }
+    
+    func addOrUpdateDrinkInOrder() {
+            // Check if a similar drink already exists in the order
+            if let existingIndex = customizedDrink.firstIndex(where: { drink in
+                // Compare selectedCoffee, selectedSize, and optionArray
+                return drink.drink.title == coffee.selectedCoffee.title &&
+                drink.drink.drinkSize[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
+                    NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArray)
+            }) {
+                // Update the quantity if the drink already exists
+                customizedDrink[existingIndex].quantity += 1
+            } else {
+                // Add a new entry if the drink doesn't exist
+                customizedDrink.append(OrderModel(
+                    drink: coffee.selectedCoffee,
+                    customizedPrice: calculateTotalPrice(),
+                    drinkSizeIndex: coffee.selectedSize.index,
+                    quantity: 1,
+                    address: "",
+                    optionArray: optionArray
+                ))
+            }
+        }
+    
+    func addToFavourites(){
+        if let existingIndex = globalVar.favouritesArray.firstIndex(where: {
+            drink in
+            // Compare selectedCoffee, selectedSize, and optionArray
+            return drink.drink.title == coffee.selectedCoffee.title &&
+            drink.drink.drinkSize[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
+                NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArray)
+        }) {
+            if checkFavourites() {
+                globalVar.favouritesArray.remove(at: existingIndex)
+            }
+        } else {
+            globalVar.favouritesArray.append(OrderModel(
+                drink: coffee.selectedCoffee,
+                customizedPrice: calculateTotalPrice(),
+                drinkSizeIndex: coffee.selectedSize.index,
+                quantity: 1,
+                address: "",
+                optionArray: optionArray))
+        }
+    }
+    
+    func checkFavourites() -> Bool {
+        if let existingIndex = globalVar.favouritesArray.firstIndex(where: {
+            drink in
+            // Compare selectedCoffee, selectedSize, and optionArray
+            return drink.drink.title == coffee.selectedCoffee.title &&
+            drink.drink.drinkSize[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
+                NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArray)
+        }) {
+            if globalVar.favouritesArray[existingIndex].quantity == 1 {
+                return true
+            }
+        }
+        
+        return false
     }
 }
 
-#Preview {
-    DrinkCustomizer(selectedCoffee: DrinkModel(index: 0, image: "Caramel-Brule-Latte", title: "Caramel Brule Latte", description: "The Caramel-Brulé Latte is a luxurious coffee drink blending rich espresso with creamy milk, topped with a layer of frothy foam and a drizzle of caramel sauce, torched to create a caramelized topping reminiscent of crème brûlée. It's a perfect blend of bitter espresso and sweet, crunchy caramel, ideal for those who enjoy a sophisticated, dessert-like coffee experience.", prices: [1200, 1400, 1600], drinkSize: [300, 400, 500]), nestr: .constant(false))
+#Preview{
+    ContentView()
+        .environmentObject(GlobalModel())
 }
+
+

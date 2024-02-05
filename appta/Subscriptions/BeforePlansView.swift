@@ -28,7 +28,7 @@ struct BeforePlansView: View {
             let size = $0.size
             
             ScrollViewReader{ reader in
-                LoopingScrollView(width: size.width, spacing: 0, items: obj.coffeeShopArray, searchText: searchText) { item in
+                LoopingScrollView(width: size.width, spacing: 0, items: obj.coffeeShopArray) { item in
                     Button(action: {
                         haha = item.names
                     }) {
