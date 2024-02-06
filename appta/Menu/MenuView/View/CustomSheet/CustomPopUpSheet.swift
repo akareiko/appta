@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomPopUpSheet: View {
     @ObservedObject var coffee: SelectedCoffee
+    @ObservedObject var globalVar: GlobalModel
     
     var optionArrayMenu: [Int : OptionType] = [
         0 : optionscroll[0].optionTypes.first!,
@@ -94,7 +95,7 @@ struct CustomPopUpSheet: View {
                                     .foregroundColor(.white)
                             })
                             .sheet(isPresented: $toggleBasketViewCustomPopUp){
-                                BasketView(coffee: coffee, customizedDrink: $customizedDrink)
+                                BasketView(coffee: coffee, globalVar: globalVar, customizedDrink: $customizedDrink)
                             }
                     }
                     .padding(.leading, -4)

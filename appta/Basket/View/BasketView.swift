@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BasketView: View {
     @ObservedObject var coffee: SelectedCoffee
+    @ObservedObject var globalVar: GlobalModel
     
     @State private var isToggleOn: Bool = false
     @State private var showDetail: [String : Bool] = [:]
@@ -52,7 +53,7 @@ struct BasketView: View {
                                     .frame(width: 30, height: 30)
                                     .foregroundColor(Color("starbucks-rewardgold"))
                                     .sheet(isPresented: $showFavourites, content: {
-                                        FavouritesView()
+                                        FavouritesView(globalVar: globalVar)
                                             .presentationBackground(.ultraThinMaterial)
                                     })
                                     
@@ -189,7 +190,7 @@ struct BasketView: View {
                             }
                         }
                         .sheet(isPresented: $toggleDrinkCustomizerBasket){
-                            DrinkCustomizer(coffee: coffee, customizedDrink: $customizedDrink)
+                            DrinkCustomizer(coffee: coffee, globalVar: globalVar, customizedDrink: $customizedDrink)
                                 .presentationBackground(.ultraThinMaterial)
                         }
                         .padding(.horizontal, 20)

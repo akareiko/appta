@@ -11,6 +11,7 @@ struct MenuCardView: View {
     
     var tab: TabMenu
     @ObservedObject var coffee: SelectedCoffee
+    @ObservedObject var globalVar: GlobalModel
     
     var optionArrayMenu: [Int : OptionType] = [
         0 : optionscroll[0].optionTypes.first!,
@@ -172,7 +173,7 @@ struct MenuCardView: View {
                         }
                     })
                     .sheet(isPresented: $toggleDrinkCustomizerMenuCard){
-                        DrinkCustomizer(coffee: coffee, customizedDrink: $customizedDrink)
+                        DrinkCustomizer(coffee: coffee, globalVar: globalVar, customizedDrink: $customizedDrink)
                             .presentationBackground(.ultraThinMaterial)
                     }
                 }

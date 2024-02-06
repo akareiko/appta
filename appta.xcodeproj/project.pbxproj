@@ -28,6 +28,30 @@
 		231BFE402ACA917200B60737 /* MapViewUpdated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BFE3F2ACA917200B60737 /* MapViewUpdated.swift */; };
 		231BFE432ACA92C200B60737 /* CFAddressList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BFE422ACA92C200B60737 /* CFAddressList.swift */; };
 		231BFE482ACA93B500B60737 /* Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BFE472ACA93B500B60737 /* Extenstions.swift */; };
+		234C16942B722FC80023311C /* CoffeeShopListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16902B722FC80023311C /* CoffeeShopListModel.swift */; };
+		234C16952B722FC80023311C /* CoffeeShopPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16922B722FC80023311C /* CoffeeShopPanel.swift */; };
+		234C16962B722FC80023311C /* CoffeeShopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16932B722FC80023311C /* CoffeeShopList.swift */; };
+		234C16C72B72300F0023311C /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16992B72300F0023311C /* SearchBar.swift */; };
+		234C16C82B72300F0023311C /* DropDownPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C169C2B72300F0023311C /* DropDownPickerView.swift */; };
+		234C16C92B72300F0023311C /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C169D2B72300F0023311C /* DropView.swift */; };
+		234C16CA2B72300F0023311C /* TransparentBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16A02B72300F0023311C /* TransparentBlurView.swift */; };
+		234C16CB2B72300F0023311C /* TransparentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16A12B72300F0023311C /* TransparentBar.swift */; };
+		234C16CC2B72300F0023311C /* InfiniteCarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16A42B72300F0023311C /* InfiniteCarouselModel.swift */; };
+		234C16CD2B72300F0023311C /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16A62B72300F0023311C /* PageControl.swift */; };
+		234C16CE2B72300F0023311C /* InfiniteCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16A72B72300F0023311C /* InfiniteCarousel.swift */; };
+		234C16CF2B72300F0023311C /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16A92B72300F0023311C /* OffsetKey.swift */; };
+		234C16D02B72300F0023311C /* CoffeeSticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16B02B72300F0023311C /* CoffeeSticker.swift */; };
+		234C16D12B72300F0023311C /* CoffeeReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16B32B72300F0023311C /* CoffeeReceiptModel.swift */; };
+		234C16D22B72300F0023311C /* CoffeeReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16B52B72300F0023311C /* CoffeeReceipt.swift */; };
+		234C16D32B72300F0023311C /* CardShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16B72B72300F0023311C /* CardShape.swift */; };
+		234C16D42B72300F0023311C /* ProgressMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16B92B72300F0023311C /* ProgressMeter.swift */; };
+		234C16D52B72300F0023311C /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16BA2B72300F0023311C /* ProgressBar.swift */; };
+		234C16D62B72300F0023311C /* CustomCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16BC2B72300F0023311C /* CustomCarousel.swift */; };
+		234C16D72B72300F0023311C /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16BE2B72300F0023311C /* Voucher.swift */; };
+		234C16D82B72300F0023311C /* CustomPagingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16C02B72300F0023311C /* CustomPagingSlider.swift */; };
+		234C16D92B72300F0023311C /* InfiniteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16C32B72300F0023311C /* InfiniteViewModel.swift */; };
+		234C16DA2B72300F0023311C /* LoopingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16C52B72300F0023311C /* LoopingScrollView.swift */; };
+		234C16DB2B72300F0023311C /* InfiniteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16C62B72300F0023311C /* InfiniteView.swift */; };
 		237B5C332ACB369800F35311 /* TrainingMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B5C322ACB369800F35311 /* TrainingMap.swift */; };
 		237B5C382ACB389D00F35311 /* SearchView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B5C372ACB389D00F35311 /* SearchView1.swift */; };
 		237B5C3A2ACB3A1600F35311 /* LocationManager1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B5C392ACB3A1600F35311 /* LocationManager1.swift */; };
@@ -126,30 +150,6 @@
 		BEB71E3D2B6FD73000CCC2BE /* CoffeeShopAddressesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E392B6FD73000CCC2BE /* CoffeeShopAddressesView.swift */; };
 		BEB71E3E2B6FD73000CCC2BE /* CoffeeShopAddressHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E3B2B6FD73000CCC2BE /* CoffeeShopAddressHelpers.swift */; };
 		BEB71E412B6FD74E00CCC2BE /* GlobalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E402B6FD74E00CCC2BE /* GlobalModel.swift */; };
-		BEB71E722B6FD9DC00CCC2BE /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E442B6FD9DC00CCC2BE /* SearchBar.swift */; };
-		BEB71E732B6FD9DC00CCC2BE /* DropDownPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E472B6FD9DC00CCC2BE /* DropDownPickerView.swift */; };
-		BEB71E742B6FD9DC00CCC2BE /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E482B6FD9DC00CCC2BE /* DropView.swift */; };
-		BEB71E752B6FD9DC00CCC2BE /* TransparentBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E4B2B6FD9DC00CCC2BE /* TransparentBlurView.swift */; };
-		BEB71E762B6FD9DC00CCC2BE /* TransparentBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E4C2B6FD9DC00CCC2BE /* TransparentBar.swift */; };
-		BEB71E772B6FD9DC00CCC2BE /* InfiniteCarouselModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E4F2B6FD9DC00CCC2BE /* InfiniteCarouselModel.swift */; };
-		BEB71E782B6FD9DC00CCC2BE /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E512B6FD9DC00CCC2BE /* PageControl.swift */; };
-		BEB71E792B6FD9DC00CCC2BE /* InfiniteCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E522B6FD9DC00CCC2BE /* InfiniteCarousel.swift */; };
-		BEB71E7A2B6FD9DC00CCC2BE /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E542B6FD9DC00CCC2BE /* OffsetKey.swift */; };
-		BEB71E7B2B6FD9DC00CCC2BE /* CoffeeSticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E5B2B6FD9DC00CCC2BE /* CoffeeSticker.swift */; };
-		BEB71E7C2B6FD9DC00CCC2BE /* CoffeeReceiptModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E5E2B6FD9DC00CCC2BE /* CoffeeReceiptModel.swift */; };
-		BEB71E7D2B6FD9DC00CCC2BE /* CoffeeReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E602B6FD9DC00CCC2BE /* CoffeeReceipt.swift */; };
-		BEB71E7E2B6FD9DC00CCC2BE /* CardShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E622B6FD9DC00CCC2BE /* CardShape.swift */; };
-		BEB71E7F2B6FD9DC00CCC2BE /* ProgressMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E642B6FD9DC00CCC2BE /* ProgressMeter.swift */; };
-		BEB71E802B6FD9DC00CCC2BE /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E652B6FD9DC00CCC2BE /* ProgressBar.swift */; };
-		BEB71E812B6FD9DC00CCC2BE /* CustomCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E672B6FD9DC00CCC2BE /* CustomCarousel.swift */; };
-		BEB71E822B6FD9DC00CCC2BE /* Voucher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E692B6FD9DC00CCC2BE /* Voucher.swift */; };
-		BEB71E832B6FD9DC00CCC2BE /* CustomPagingSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E6B2B6FD9DC00CCC2BE /* CustomPagingSlider.swift */; };
-		BEB71E842B6FD9DC00CCC2BE /* InfiniteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E6E2B6FD9DC00CCC2BE /* InfiniteViewModel.swift */; };
-		BEB71E852B6FD9DC00CCC2BE /* LoopingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E702B6FD9DC00CCC2BE /* LoopingScrollView.swift */; };
-		BEB71E862B6FD9DC00CCC2BE /* InfiniteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E712B6FD9DC00CCC2BE /* InfiniteView.swift */; };
-		BEB71E962B6FDB1B00CCC2BE /* CoffeeShopListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E922B6FDB1B00CCC2BE /* CoffeeShopListModel.swift */; };
-		BEB71E972B6FDB1B00CCC2BE /* CoffeeShopPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E942B6FDB1B00CCC2BE /* CoffeeShopPanel.swift */; };
-		BEB71E982B6FDB1B00CCC2BE /* CoffeeShopList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB71E952B6FDB1B00CCC2BE /* CoffeeShopList.swift */; };
 		BED02CEF2A940B48007DEE6D /* coffeeshops.json in Resources */ = {isa = PBXBuildFile; fileRef = BED02CEE2A940B48007DEE6D /* coffeeshops.json */; };
 		BED02CF72A94168B007DEE6D /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02CF62A94168B007DEE6D /* CategoryItem.swift */; };
 		BED02CF92A9416DA007DEE6D /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED02CF82A9416DA007DEE6D /* CategoryRow.swift */; };
@@ -204,6 +204,30 @@
 		231BFE3F2ACA917200B60737 /* MapViewUpdated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewUpdated.swift; sourceTree = "<group>"; };
 		231BFE422ACA92C200B60737 /* CFAddressList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CFAddressList.swift; sourceTree = "<group>"; };
 		231BFE472ACA93B500B60737 /* Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extenstions.swift; sourceTree = "<group>"; };
+		234C16902B722FC80023311C /* CoffeeShopListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeShopListModel.swift; sourceTree = "<group>"; };
+		234C16922B722FC80023311C /* CoffeeShopPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeShopPanel.swift; sourceTree = "<group>"; };
+		234C16932B722FC80023311C /* CoffeeShopList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeShopList.swift; sourceTree = "<group>"; };
+		234C16992B72300F0023311C /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		234C169C2B72300F0023311C /* DropDownPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownPickerView.swift; sourceTree = "<group>"; };
+		234C169D2B72300F0023311C /* DropView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
+		234C16A02B72300F0023311C /* TransparentBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentBlurView.swift; sourceTree = "<group>"; };
+		234C16A12B72300F0023311C /* TransparentBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentBar.swift; sourceTree = "<group>"; };
+		234C16A42B72300F0023311C /* InfiniteCarouselModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCarouselModel.swift; sourceTree = "<group>"; };
+		234C16A62B72300F0023311C /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		234C16A72B72300F0023311C /* InfiniteCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCarousel.swift; sourceTree = "<group>"; };
+		234C16A92B72300F0023311C /* OffsetKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
+		234C16B02B72300F0023311C /* CoffeeSticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeSticker.swift; sourceTree = "<group>"; };
+		234C16B32B72300F0023311C /* CoffeeReceiptModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeReceiptModel.swift; sourceTree = "<group>"; };
+		234C16B52B72300F0023311C /* CoffeeReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeReceipt.swift; sourceTree = "<group>"; };
+		234C16B72B72300F0023311C /* CardShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardShape.swift; sourceTree = "<group>"; };
+		234C16B92B72300F0023311C /* ProgressMeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressMeter.swift; sourceTree = "<group>"; };
+		234C16BA2B72300F0023311C /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		234C16BC2B72300F0023311C /* CustomCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCarousel.swift; sourceTree = "<group>"; };
+		234C16BE2B72300F0023311C /* Voucher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Voucher.swift; sourceTree = "<group>"; };
+		234C16C02B72300F0023311C /* CustomPagingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPagingSlider.swift; sourceTree = "<group>"; };
+		234C16C32B72300F0023311C /* InfiniteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteViewModel.swift; sourceTree = "<group>"; };
+		234C16C52B72300F0023311C /* LoopingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopingScrollView.swift; sourceTree = "<group>"; };
+		234C16C62B72300F0023311C /* InfiniteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteView.swift; sourceTree = "<group>"; };
 		237B5C322ACB369800F35311 /* TrainingMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMap.swift; sourceTree = "<group>"; };
 		237B5C372ACB389D00F35311 /* SearchView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView1.swift; sourceTree = "<group>"; };
 		237B5C392ACB3A1600F35311 /* LocationManager1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager1.swift; sourceTree = "<group>"; };
@@ -302,30 +326,6 @@
 		BEB71E392B6FD73000CCC2BE /* CoffeeShopAddressesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeShopAddressesView.swift; sourceTree = "<group>"; };
 		BEB71E3B2B6FD73000CCC2BE /* CoffeeShopAddressHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeShopAddressHelpers.swift; sourceTree = "<group>"; };
 		BEB71E402B6FD74E00CCC2BE /* GlobalModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalModel.swift; sourceTree = "<group>"; };
-		BEB71E442B6FD9DC00CCC2BE /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		BEB71E472B6FD9DC00CCC2BE /* DropDownPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownPickerView.swift; sourceTree = "<group>"; };
-		BEB71E482B6FD9DC00CCC2BE /* DropView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
-		BEB71E4B2B6FD9DC00CCC2BE /* TransparentBlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentBlurView.swift; sourceTree = "<group>"; };
-		BEB71E4C2B6FD9DC00CCC2BE /* TransparentBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransparentBar.swift; sourceTree = "<group>"; };
-		BEB71E4F2B6FD9DC00CCC2BE /* InfiniteCarouselModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCarouselModel.swift; sourceTree = "<group>"; };
-		BEB71E512B6FD9DC00CCC2BE /* PageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
-		BEB71E522B6FD9DC00CCC2BE /* InfiniteCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteCarousel.swift; sourceTree = "<group>"; };
-		BEB71E542B6FD9DC00CCC2BE /* OffsetKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
-		BEB71E5B2B6FD9DC00CCC2BE /* CoffeeSticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeSticker.swift; sourceTree = "<group>"; };
-		BEB71E5E2B6FD9DC00CCC2BE /* CoffeeReceiptModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeReceiptModel.swift; sourceTree = "<group>"; };
-		BEB71E602B6FD9DC00CCC2BE /* CoffeeReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeReceipt.swift; sourceTree = "<group>"; };
-		BEB71E622B6FD9DC00CCC2BE /* CardShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardShape.swift; sourceTree = "<group>"; };
-		BEB71E642B6FD9DC00CCC2BE /* ProgressMeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressMeter.swift; sourceTree = "<group>"; };
-		BEB71E652B6FD9DC00CCC2BE /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		BEB71E672B6FD9DC00CCC2BE /* CustomCarousel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCarousel.swift; sourceTree = "<group>"; };
-		BEB71E692B6FD9DC00CCC2BE /* Voucher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Voucher.swift; sourceTree = "<group>"; };
-		BEB71E6B2B6FD9DC00CCC2BE /* CustomPagingSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPagingSlider.swift; sourceTree = "<group>"; };
-		BEB71E6E2B6FD9DC00CCC2BE /* InfiniteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteViewModel.swift; sourceTree = "<group>"; };
-		BEB71E702B6FD9DC00CCC2BE /* LoopingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopingScrollView.swift; sourceTree = "<group>"; };
-		BEB71E712B6FD9DC00CCC2BE /* InfiniteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteView.swift; sourceTree = "<group>"; };
-		BEB71E922B6FDB1B00CCC2BE /* CoffeeShopListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeShopListModel.swift; sourceTree = "<group>"; };
-		BEB71E942B6FDB1B00CCC2BE /* CoffeeShopPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeShopPanel.swift; sourceTree = "<group>"; };
-		BEB71E952B6FDB1B00CCC2BE /* CoffeeShopList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeeShopList.swift; sourceTree = "<group>"; };
 		BED02CEE2A940B48007DEE6D /* coffeeshops.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = coffeeshops.json; sourceTree = "<group>"; };
 		BED02CF62A94168B007DEE6D /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
 		BED02CF82A9416DA007DEE6D /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
@@ -655,6 +655,269 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		234C168E2B722FC80023311C /* CoffeeShopLists */ = {
+			isa = PBXGroup;
+			children = (
+				234C168F2B722FC80023311C /* Model */,
+				234C16912B722FC80023311C /* View */,
+			);
+			path = CoffeeShopLists;
+			sourceTree = "<group>";
+		};
+		234C168F2B722FC80023311C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				234C16902B722FC80023311C /* CoffeeShopListModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		234C16912B722FC80023311C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				234C16922B722FC80023311C /* CoffeeShopPanel.swift */,
+				234C16932B722FC80023311C /* CoffeeShopList.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		234C16972B72300F0023311C /* FeatureTools */ = {
+			isa = PBXGroup;
+			children = (
+				234C16982B72300F0023311C /* SearchBar */,
+				234C169A2B72300F0023311C /* DropDown */,
+				234C169E2B72300F0023311C /* TransparentBlur */,
+				234C16A22B72300F0023311C /* InfiniteScroll */,
+				234C16AA2B72300F0023311C /* DropDownPicker */,
+				234C16AB2B72300F0023311C /* CustomCoffeeReceipt */,
+				234C16AD2B72300F0023311C /* CoffeeSticker */,
+				234C16B12B72300F0023311C /* CoffeeReceipt */,
+				234C16B62B72300F0023311C /* CardShape */,
+				234C16B82B72300F0023311C /* ProgressBar */,
+				234C16BB2B72300F0023311C /* CustomCarousel */,
+				234C16BD2B72300F0023311C /* Voucher */,
+				234C16BF2B72300F0023311C /* CustomPagingSlider */,
+				234C16C12B72300F0023311C /* InfiniteView */,
+			);
+			name = FeatureTools;
+			path = Map01/FeatureTools;
+			sourceTree = "<group>";
+		};
+		234C16982B72300F0023311C /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				234C16992B72300F0023311C /* SearchBar.swift */,
+			);
+			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		234C169A2B72300F0023311C /* DropDown */ = {
+			isa = PBXGroup;
+			children = (
+				234C169B2B72300F0023311C /* View */,
+			);
+			path = DropDown;
+			sourceTree = "<group>";
+		};
+		234C169B2B72300F0023311C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				234C169C2B72300F0023311C /* DropDownPickerView.swift */,
+				234C169D2B72300F0023311C /* DropView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		234C169E2B72300F0023311C /* TransparentBlur */ = {
+			isa = PBXGroup;
+			children = (
+				234C169F2B72300F0023311C /* View */,
+			);
+			path = TransparentBlur;
+			sourceTree = "<group>";
+		};
+		234C169F2B72300F0023311C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				234C16A02B72300F0023311C /* TransparentBlurView.swift */,
+				234C16A12B72300F0023311C /* TransparentBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		234C16A22B72300F0023311C /* InfiniteScroll */ = {
+			isa = PBXGroup;
+			children = (
+				234C16A32B72300F0023311C /* Model */,
+				234C16A52B72300F0023311C /* View */,
+				234C16A82B72300F0023311C /* Helpers */,
+			);
+			path = InfiniteScroll;
+			sourceTree = "<group>";
+		};
+		234C16A32B72300F0023311C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				234C16A42B72300F0023311C /* InfiniteCarouselModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		234C16A52B72300F0023311C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				234C16A62B72300F0023311C /* PageControl.swift */,
+				234C16A72B72300F0023311C /* InfiniteCarousel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		234C16A82B72300F0023311C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				234C16A92B72300F0023311C /* OffsetKey.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		234C16AA2B72300F0023311C /* DropDownPicker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DropDownPicker;
+			sourceTree = "<group>";
+		};
+		234C16AB2B72300F0023311C /* CustomCoffeeReceipt */ = {
+			isa = PBXGroup;
+			children = (
+				234C16AC2B72300F0023311C /* Model */,
+			);
+			path = CustomCoffeeReceipt;
+			sourceTree = "<group>";
+		};
+		234C16AC2B72300F0023311C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		234C16AD2B72300F0023311C /* CoffeeSticker */ = {
+			isa = PBXGroup;
+			children = (
+				234C16AE2B72300F0023311C /* Model */,
+				234C16AF2B72300F0023311C /* View */,
+			);
+			path = CoffeeSticker;
+			sourceTree = "<group>";
+		};
+		234C16AE2B72300F0023311C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		234C16AF2B72300F0023311C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				234C16B02B72300F0023311C /* CoffeeSticker.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		234C16B12B72300F0023311C /* CoffeeReceipt */ = {
+			isa = PBXGroup;
+			children = (
+				234C16B22B72300F0023311C /* Model */,
+				234C16B42B72300F0023311C /* View */,
+			);
+			path = CoffeeReceipt;
+			sourceTree = "<group>";
+		};
+		234C16B22B72300F0023311C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				234C16B32B72300F0023311C /* CoffeeReceiptModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		234C16B42B72300F0023311C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				234C16B52B72300F0023311C /* CoffeeReceipt.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		234C16B62B72300F0023311C /* CardShape */ = {
+			isa = PBXGroup;
+			children = (
+				234C16B72B72300F0023311C /* CardShape.swift */,
+			);
+			path = CardShape;
+			sourceTree = "<group>";
+		};
+		234C16B82B72300F0023311C /* ProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				234C16B92B72300F0023311C /* ProgressMeter.swift */,
+				234C16BA2B72300F0023311C /* ProgressBar.swift */,
+			);
+			path = ProgressBar;
+			sourceTree = "<group>";
+		};
+		234C16BB2B72300F0023311C /* CustomCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				234C16BC2B72300F0023311C /* CustomCarousel.swift */,
+			);
+			path = CustomCarousel;
+			sourceTree = "<group>";
+		};
+		234C16BD2B72300F0023311C /* Voucher */ = {
+			isa = PBXGroup;
+			children = (
+				234C16BE2B72300F0023311C /* Voucher.swift */,
+			);
+			path = Voucher;
+			sourceTree = "<group>";
+		};
+		234C16BF2B72300F0023311C /* CustomPagingSlider */ = {
+			isa = PBXGroup;
+			children = (
+				234C16C02B72300F0023311C /* CustomPagingSlider.swift */,
+			);
+			path = CustomPagingSlider;
+			sourceTree = "<group>";
+		};
+		234C16C12B72300F0023311C /* InfiniteView */ = {
+			isa = PBXGroup;
+			children = (
+				234C16C22B72300F0023311C /* Model */,
+				234C16C42B72300F0023311C /* View */,
+			);
+			path = InfiniteView;
+			sourceTree = "<group>";
+		};
+		234C16C22B72300F0023311C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				234C16C32B72300F0023311C /* InfiniteViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		234C16C42B72300F0023311C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				234C16C52B72300F0023311C /* LoopingScrollView.swift */,
+				234C16C62B72300F0023311C /* InfiniteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		237B5C342ACB386B00F35311 /* Map01 */ = {
 			isa = PBXGroup;
 			children = (
@@ -962,33 +1225,33 @@
 		BE16562E2A93AFC1003CBE8C /* appta */ = {
 			isa = PBXGroup;
 			children = (
-				BE0B30572B6F882700531D46 /* GoogleService-Info.plist */,
-				BEB71DFC2B6FD6E000CCC2BE /* Favourites */,
-				BEB71E352B6FD73000CCC2BE /* CoffeeShopAddresses */,
-				BEF2E49D2B5023590086B23F /* PaymentMethod */,
+				BE1656332A93AFC1003CBE8C /* Assets.xcassets */,
 				BEB71E2E2B6FD72100CCC2BE /* Basket */,
-				238F86612B3830DE0013FBB4 /* RewardView */,
-				BEB71E112B6FD71100CCC2BE /* Menu */,
-				BEB71E002B6FD6FA00CCC2BE /* DrinkCustomizer */,
 				2313FCF42B0A77B200AE125A /* CoffeeBoxLists */,
-				BEB71E902B6FDB1B00CCC2BE /* CoffeeShopLists */,
-				23E9A1502AE513C500494951 /* LockSwiftUIView */,
-				237B5CB42ACC369E00F35311 /* Map02 */,
-				237B5C342ACB386B00F35311 /* Map01 */,
-				BEB71E422B6FD9DC00CCC2BE /* FeatureTools */,
+				BEB71E352B6FD73000CCC2BE /* CoffeeShopAddresses */,
+				234C168E2B722FC80023311C /* CoffeeShopLists */,
 				23A4FE3D2AC4699B004D20CD /* CoffeeShopProfile */,
+				BEB71E002B6FD6FA00CCC2BE /* DrinkCustomizer */,
+				BEB71DFC2B6FD6E000CCC2BE /* Favourites */,
+				234C16972B72300F0023311C /* FeatureTools */,
+				BE0B30572B6F882700531D46 /* GoogleService-Info.plist */,
 				BED02CFB2A9603D6007DEE6D /* HomeView */,
+				23E9D6CB2AD0CE7C0044A47F /* Info.plist */,
+				23E9A1502AE513C500494951 /* LockSwiftUIView */,
 				BED02CFE2A960404007DEE6D /* Map */,
+				237B5C342ACB386B00F35311 /* Map01 */,
+				237B5CB42ACC369E00F35311 /* Map02 */,
+				BEB71E112B6FD71100CCC2BE /* Menu */,
+				BE9BBC142A9407E100B0C05D /* model */,
+				BEF2E49D2B5023590086B23F /* PaymentMethod */,
+				BE1656352A93AFC1003CBE8C /* Preview Content */,
+				BED02CFA2A9603C8007DEE6D /* Profile */,
 				BED02CFF2A960412007DEE6D /* Qrcode */,
+				BE9BBC192A940A7E00B0C05D /* resources */,
+				238F86612B3830DE0013FBB4 /* RewardView */,
 				BED02CFD2A9603F7007DEE6D /* Subscriptions */,
 				BE23D1A72B614777008A6362 /* Test */,
-				BED02CFA2A9603C8007DEE6D /* Profile */,
-				BE9BBC192A940A7E00B0C05D /* resources */,
 				BE23D19E2B5E4FEE008A6362 /* TrashBin */,
-				BE9BBC142A9407E100B0C05D /* model */,
-				BE1656332A93AFC1003CBE8C /* Assets.xcassets */,
-				BE1656352A93AFC1003CBE8C /* Preview Content */,
-				23E9D6CB2AD0CE7C0044A47F /* Info.plist */,
 			);
 			path = appta;
 			sourceTree = "<group>";
@@ -1298,270 +1561,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		BEB71E422B6FD9DC00CCC2BE /* FeatureTools */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E432B6FD9DC00CCC2BE /* SearchBar */,
-				BEB71E452B6FD9DC00CCC2BE /* DropDown */,
-				BEB71E492B6FD9DC00CCC2BE /* TransparentBlur */,
-				BEB71E4D2B6FD9DC00CCC2BE /* InfiniteScroll */,
-				BEB71E552B6FD9DC00CCC2BE /* DropDownPicker */,
-				BEB71E562B6FD9DC00CCC2BE /* CustomCoffeeReceipt */,
-				BEB71E582B6FD9DC00CCC2BE /* CoffeeSticker */,
-				BEB71E5C2B6FD9DC00CCC2BE /* CoffeeReceipt */,
-				BEB71E612B6FD9DC00CCC2BE /* CardShape */,
-				BEB71E632B6FD9DC00CCC2BE /* ProgressBar */,
-				BEB71E662B6FD9DC00CCC2BE /* CustomCarousel */,
-				BEB71E682B6FD9DC00CCC2BE /* Voucher */,
-				BEB71E6A2B6FD9DC00CCC2BE /* CustomPagingSlider */,
-				BEB71E6C2B6FD9DC00CCC2BE /* InfiniteView */,
-			);
-			name = FeatureTools;
-			path = ../../../../Downloads/FeatureTools;
-			sourceTree = "<group>";
-		};
-		BEB71E432B6FD9DC00CCC2BE /* SearchBar */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E442B6FD9DC00CCC2BE /* SearchBar.swift */,
-			);
-			path = SearchBar;
-			sourceTree = "<group>";
-		};
-		BEB71E452B6FD9DC00CCC2BE /* DropDown */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E462B6FD9DC00CCC2BE /* View */,
-			);
-			path = DropDown;
-			sourceTree = "<group>";
-		};
-		BEB71E462B6FD9DC00CCC2BE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E472B6FD9DC00CCC2BE /* DropDownPickerView.swift */,
-				BEB71E482B6FD9DC00CCC2BE /* DropView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BEB71E492B6FD9DC00CCC2BE /* TransparentBlur */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E4A2B6FD9DC00CCC2BE /* View */,
-			);
-			path = TransparentBlur;
-			sourceTree = "<group>";
-		};
-		BEB71E4A2B6FD9DC00CCC2BE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E4B2B6FD9DC00CCC2BE /* TransparentBlurView.swift */,
-				BEB71E4C2B6FD9DC00CCC2BE /* TransparentBar.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BEB71E4D2B6FD9DC00CCC2BE /* InfiniteScroll */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E4E2B6FD9DC00CCC2BE /* Model */,
-				BEB71E502B6FD9DC00CCC2BE /* View */,
-				BEB71E532B6FD9DC00CCC2BE /* Helpers */,
-			);
-			path = InfiniteScroll;
-			sourceTree = "<group>";
-		};
-		BEB71E4E2B6FD9DC00CCC2BE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E4F2B6FD9DC00CCC2BE /* InfiniteCarouselModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		BEB71E502B6FD9DC00CCC2BE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E512B6FD9DC00CCC2BE /* PageControl.swift */,
-				BEB71E522B6FD9DC00CCC2BE /* InfiniteCarousel.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BEB71E532B6FD9DC00CCC2BE /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E542B6FD9DC00CCC2BE /* OffsetKey.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		BEB71E552B6FD9DC00CCC2BE /* DropDownPicker */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DropDownPicker;
-			sourceTree = "<group>";
-		};
-		BEB71E562B6FD9DC00CCC2BE /* CustomCoffeeReceipt */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E572B6FD9DC00CCC2BE /* Model */,
-			);
-			path = CustomCoffeeReceipt;
-			sourceTree = "<group>";
-		};
-		BEB71E572B6FD9DC00CCC2BE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		BEB71E582B6FD9DC00CCC2BE /* CoffeeSticker */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E592B6FD9DC00CCC2BE /* Model */,
-				BEB71E5A2B6FD9DC00CCC2BE /* View */,
-			);
-			path = CoffeeSticker;
-			sourceTree = "<group>";
-		};
-		BEB71E592B6FD9DC00CCC2BE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		BEB71E5A2B6FD9DC00CCC2BE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E5B2B6FD9DC00CCC2BE /* CoffeeSticker.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BEB71E5C2B6FD9DC00CCC2BE /* CoffeeReceipt */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E5D2B6FD9DC00CCC2BE /* Model */,
-				BEB71E5F2B6FD9DC00CCC2BE /* View */,
-			);
-			path = CoffeeReceipt;
-			sourceTree = "<group>";
-		};
-		BEB71E5D2B6FD9DC00CCC2BE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E5E2B6FD9DC00CCC2BE /* CoffeeReceiptModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		BEB71E5F2B6FD9DC00CCC2BE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E602B6FD9DC00CCC2BE /* CoffeeReceipt.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BEB71E612B6FD9DC00CCC2BE /* CardShape */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E622B6FD9DC00CCC2BE /* CardShape.swift */,
-			);
-			path = CardShape;
-			sourceTree = "<group>";
-		};
-		BEB71E632B6FD9DC00CCC2BE /* ProgressBar */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E642B6FD9DC00CCC2BE /* ProgressMeter.swift */,
-				BEB71E652B6FD9DC00CCC2BE /* ProgressBar.swift */,
-			);
-			path = ProgressBar;
-			sourceTree = "<group>";
-		};
-		BEB71E662B6FD9DC00CCC2BE /* CustomCarousel */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E672B6FD9DC00CCC2BE /* CustomCarousel.swift */,
-			);
-			path = CustomCarousel;
-			sourceTree = "<group>";
-		};
-		BEB71E682B6FD9DC00CCC2BE /* Voucher */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E692B6FD9DC00CCC2BE /* Voucher.swift */,
-			);
-			path = Voucher;
-			sourceTree = "<group>";
-		};
-		BEB71E6A2B6FD9DC00CCC2BE /* CustomPagingSlider */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E6B2B6FD9DC00CCC2BE /* CustomPagingSlider.swift */,
-			);
-			path = CustomPagingSlider;
-			sourceTree = "<group>";
-		};
-		BEB71E6C2B6FD9DC00CCC2BE /* InfiniteView */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E6D2B6FD9DC00CCC2BE /* Model */,
-				BEB71E6F2B6FD9DC00CCC2BE /* View */,
-			);
-			path = InfiniteView;
-			sourceTree = "<group>";
-		};
-		BEB71E6D2B6FD9DC00CCC2BE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E6E2B6FD9DC00CCC2BE /* InfiniteViewModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		BEB71E6F2B6FD9DC00CCC2BE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E702B6FD9DC00CCC2BE /* LoopingScrollView.swift */,
-				BEB71E712B6FD9DC00CCC2BE /* InfiniteView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BEB71E902B6FDB1B00CCC2BE /* CoffeeShopLists */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E912B6FDB1B00CCC2BE /* Model */,
-				BEB71E932B6FDB1B00CCC2BE /* View */,
-			);
-			name = CoffeeShopLists;
-			path = ../../../../Downloads/CoffeeShopLists;
-			sourceTree = "<group>";
-		};
-		BEB71E912B6FDB1B00CCC2BE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E922B6FDB1B00CCC2BE /* CoffeeShopListModel.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		BEB71E932B6FDB1B00CCC2BE /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BEB71E942B6FDB1B00CCC2BE /* CoffeeShopPanel.swift */,
-				BEB71E952B6FDB1B00CCC2BE /* CoffeeShopList.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		BED02CFA2A9603C8007DEE6D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1779,42 +1778,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEB71E7D2B6FD9DC00CCC2BE /* CoffeeReceipt.swift in Sources */,
 				BE23D1B42B6262E6008A6362 /* MegaTestView.swift in Sources */,
 				BEB71E2D2B6FD71100CCC2BE /* CustomPopUpViewModifier.swift in Sources */,
 				23A4FE682ACA1D57004D20CD /* CoffeesScroll.swift in Sources */,
 				BE23D1AB2B6147A3008A6362 /* TestView.swift in Sources */,
 				2313FCFA2B0A77F400AE125A /* CoffeeBoxListModel.swift in Sources */,
+				234C16CB2B72300F0023311C /* TransparentBar.swift in Sources */,
 				2316A30A2AE6E5BC0078BFB8 /* RewardCarouselView.swift in Sources */,
+				234C16962B722FC80023311C /* CoffeeShopList.swift in Sources */,
 				BEB71E262B6FD71100CCC2BE /* MenuCardView.swift in Sources */,
 				BEB71E252B6FD71100CCC2BE /* OffsetModifier.swift in Sources */,
 				BEB71E292B6FD71100CCC2BE /* HeaderView.swift in Sources */,
 				BEACCD412B49D170001C0CD8 /* SampleMag.swift in Sources */,
 				BE16E7E02B5E2C2700DB43D3 /* AnotherCarouselView.swift in Sources */,
-				BEB71E812B6FD9DC00CCC2BE /* CustomCarousel.swift in Sources */,
-				BEB71E7B2B6FD9DC00CCC2BE /* CoffeeSticker.swift in Sources */,
 				23FE82DF2B1A495000500896 /* CoffeeScrollUpdated.swift in Sources */,
-				BEB71E832B6FD9DC00CCC2BE /* CustomPagingSlider.swift in Sources */,
+				234C16CF2B72300F0023311C /* OffsetKey.swift in Sources */,
 				2303C62C2AFFA89900C66365 /* MenuRoundedPanel03.swift in Sources */,
+				234C16D92B72300F0023311C /* InfiniteViewModel.swift in Sources */,
 				BEB71E0F2B6FD6FA00CCC2BE /* DrinkCustomizerSize.swift in Sources */,
+				234C16CC2B72300F0023311C /* InfiniteCarouselModel.swift in Sources */,
 				23E407662AEA6C60008ABD48 /* MenuReward04.swift in Sources */,
 				BEB71E0D2B6FD6FA00CCC2BE /* DrinkCustomizerStatistics.swift in Sources */,
 				BE76B0E92B00F66B00B6BE3E /* MenuRoundedPanel06.swift in Sources */,
+				234C16D42B72300F0023311C /* ProgressMeter.swift in Sources */,
 				BEFB515B2B62641400E3A11F /* SwipeButtonView.swift in Sources */,
-				BEB71E802B6FD9DC00CCC2BE /* ProgressBar.swift in Sources */,
+				234C16942B722FC80023311C /* CoffeeShopListModel.swift in Sources */,
+				234C16D82B72300F0023311C /* CustomPagingSlider.swift in Sources */,
 				23E5100E2AE91C1A006C03A4 /* MenuElementModel02.swift in Sources */,
 				2313FCF32B09E51500AE125A /* Category.swift in Sources */,
 				BEB71E332B6FD72100CCC2BE /* BasketModel.swift in Sources */,
-				BEB71E7E2B6FD9DC00CCC2BE /* CardShape.swift in Sources */,
 				BEFBB8E12AA6A8B500896A83 /* CategoryItemStory.swift in Sources */,
-				BEB71E862B6FD9DC00CCC2BE /* InfiniteView.swift in Sources */,
+				234C16D52B72300F0023311C /* ProgressBar.swift in Sources */,
+				234C16D62B72300F0023311C /* CustomCarousel.swift in Sources */,
 				BEB71E0A2B6FD6FA00CCC2BE /* DrinkCustomizerOptionScrollModel.swift in Sources */,
 				BEB71E272B6FD71100CCC2BE /*  AnimatedHeader.swift in Sources */,
 				BE23D1A22B5E5C90008A6362 /* PlansModel.swift in Sources */,
 				BED02D112A961AB6007DEE6D /* QrcodeView.swift in Sources */,
 				23A4FE3A2AC4686E004D20CD /* CustomIndicator.swift in Sources */,
 				23E9D6D22AD1A4900044A47F /* CoffeeShopImageModel.swift in Sources */,
-				BEB71E822B6FD9DC00CCC2BE /* Voucher.swift in Sources */,
 				BE7CF53E2B692322000929EF /* TestGuideView.swift in Sources */,
 				2313FCFC2B0A79ED00AE125A /* CoffeeBoxList.swift in Sources */,
 				237B5C3A2ACB3A1600F35311 /* LocationManager1.swift in Sources */,
@@ -1823,23 +1824,26 @@
 				BEB71E282B6FD71100CCC2BE /* MenuCard.swift in Sources */,
 				BE2F305C2A93D9C6009E72DC /* ApptaView.swift in Sources */,
 				BEB71E0B2B6FD6FA00CCC2BE /* DrinkCustomizerInfoPanel.swift in Sources */,
+				234C16D02B72300F0023311C /* CoffeeSticker.swift in Sources */,
 				BE23D1A02B5E504A008A6362 /* BeforePlansView.swift in Sources */,
-				BEB71E842B6FD9DC00CCC2BE /* InfiniteViewModel.swift in Sources */,
+				234C16C92B72300F0023311C /* DropView.swift in Sources */,
 				BEB71E3D2B6FD73000CCC2BE /* CoffeeShopAddressesView.swift in Sources */,
 				BE23D1B12B6149D5008A6362 /* SheetManager.swift in Sources */,
 				2313FCEC2B09DDE300AE125A /* MenuRoundedPanel08.swift in Sources */,
 				BEB71E3C2B6FD73000CCC2BE /* CoffeeShopAddressesModel.swift in Sources */,
 				23A4FE362AC4682E004D20CD /* GuideView.swift in Sources */,
 				237B5C382ACB389D00F35311 /* SearchView1.swift in Sources */,
+				234C16C82B72300F0023311C /* DropDownPickerView.swift in Sources */,
 				BEF2E4A02B5023770086B23F /* PaymentMethodView.swift in Sources */,
 				BE76B0E32B00F18000B6BE3E /* MenuRoundedPanelModel05.swift in Sources */,
-				BEB71E972B6FDB1B00CCC2BE /* CoffeeShopPanel.swift in Sources */,
-				BEB71E7C2B6FD9DC00CCC2BE /* CoffeeReceiptModel.swift in Sources */,
 				238B6B0B2AE5418B0076087B /* MenuElementModel01.swift in Sources */,
 				BED02D0F2A9617FF007DEE6D /* ProfileView.swift in Sources */,
-				BEB71E722B6FD9DC00CCC2BE /* SearchBar.swift in Sources */,
+				234C16DA2B72300F0023311C /* LoopingScrollView.swift in Sources */,
+				234C16CE2B72300F0023311C /* InfiniteCarousel.swift in Sources */,
 				BE7CF5442B6A1733000929EF /* PaymentView.swift in Sources */,
 				BEB71E0C2B6FD6FA00CCC2BE /* DrinkCustomizerOptionScroll.swift in Sources */,
+				234C16D72B72300F0023311C /* Voucher.swift in Sources */,
+				234C16D32B72300F0023311C /* CardShape.swift in Sources */,
 				BE7CF5422B696D1C000929EF /* AfterPlansView.swift in Sources */,
 				BEB71E2A2B6FD71100CCC2BE /* CustomSheetManager.swift in Sources */,
 				BE23D1AF2B6149B9008A6362 /* PopupViewModifier.swift in Sources */,
@@ -1855,68 +1859,63 @@
 				BEB71E2B2B6FD71100CCC2BE /* CustomPopUpSheet.swift in Sources */,
 				BE9BBC162A9407F300B0C05D /* ModelData.swift in Sources */,
 				BEB71E342B6FD72100CCC2BE /* BasketView.swift in Sources */,
+				234C16C72B72300F0023311C /* SearchBar.swift in Sources */,
 				2313FC5F2B07DE4500AE125A /* GrowingCircle.swift in Sources */,
 				BED02D0B2A9617E9007DEE6D /* MapView.swift in Sources */,
 				23E510102AE91C29006C03A4 /* MainMenuRoundedPanel02.swift in Sources */,
 				23C89FD92B1888DD00A6EF73 /* MenuRoundedPanel09.swift in Sources */,
 				BEFBB8E32AA6AA0300896A83 /* CategoryRowStory.swift in Sources */,
 				BE0B305D2B6F915B00531D46 /* FirebaseTestView.swift in Sources */,
-				BEB71E752B6FD9DC00CCC2BE /* TransparentBlurView.swift in Sources */,
 				237B5CBB2ACC36C700F35311 /* LocationDetailsView.swift in Sources */,
 				23E9A1532AE514AF00494951 /* LockView.swift in Sources */,
 				BED02D092A960AB1007DEE6D /* HomeView.swift in Sources */,
-				BEB71E762B6FD9DC00CCC2BE /* TransparentBar.swift in Sources */,
 				BE16E7E42B5E2CD300DB43D3 /* AnotherPage.swift in Sources */,
 				2311E8EF2ABE070400868F63 /* SubscriptionUpdatedView.swift in Sources */,
+				234C16952B722FC80023311C /* CoffeeShopPanel.swift in Sources */,
 				BEB71E2C2B6FD71100CCC2BE /* MenuCompactSheetView.swift in Sources */,
 				BEB71E242B6FD71100CCC2BE /* TabMenu.swift in Sources */,
 				237B5C332ACB369800F35311 /* TrainingMap.swift in Sources */,
 				23A4FE3C2AC46883004D20CD /* PageIntro.swift in Sources */,
 				231BFE432ACA92C200B60737 /* CFAddressList.swift in Sources */,
-				BEB71E7A2B6FD9DC00CCC2BE /* OffsetKey.swift in Sources */,
 				23E9D6CF2AD1A3C90044A47F /* CoffeeShopImageScroll.swift in Sources */,
 				BED02D0D2A9617F3007DEE6D /* SubscriptionView.swift in Sources */,
 				2303C6332AFFB94A00C66365 /* MenuRoundedPanelModel04.swift in Sources */,
 				BEB71E102B6FD6FA00CCC2BE /* DrinkCustomizer.swift in Sources */,
+				234C16D22B72300F0023311C /* CoffeeReceipt.swift in Sources */,
 				23E9D6BD2AD035530044A47F /* SubscriptionCardModel.swift in Sources */,
 				230A20552B3C886500253297 /* View+Extensions.swift in Sources */,
+				234C16CD2B72300F0023311C /* PageControl.swift in Sources */,
 				2316A3082AE6E4200078BFB8 /* RewardCarouselModel.swift in Sources */,
 				BE23D1A92B614797008A6362 /* PopupView.swift in Sources */,
-				BEB71E742B6FD9DC00CCC2BE /* DropView.swift in Sources */,
-				BEB71E962B6FDB1B00CCC2BE /* CoffeeShopListModel.swift in Sources */,
 				2316A3122AE7C8550078BFB8 /* MenuReward02.swift in Sources */,
 				23E9D6C02AD081A30044A47F /* SubscriptionCard2_Front.swift in Sources */,
+				234C16DB2B72300F0023311C /* InfiniteView.swift in Sources */,
 				BEB71E3E2B6FD73000CCC2BE /* CoffeeShopAddressHelpers.swift in Sources */,
 				BE9BBC182A94080400B0C05D /* CoffeeShop.swift in Sources */,
 				2316A3192AE8EDCE0078BFB8 /* MenuReward03.swift in Sources */,
+				234C16D12B72300F0023311C /* CoffeeReceiptModel.swift in Sources */,
 				238B6B062AE53DB70076087B /* MainMenuRoundedPanel.swift in Sources */,
 				BE2F30582A93D89D009E72DC /* ContentView.swift in Sources */,
 				2311E8DE2ABD5BCF00868F63 /* CoffeeShopProfile.swift in Sources */,
-				BEB71E982B6FDB1B00CCC2BE /* CoffeeShopList.swift in Sources */,
 				23E9D6C42AD0902C0044A47F /* SubscriptionCard1_Back.swift in Sources */,
 				231BFE482ACA93B500B60737 /* Extenstions.swift in Sources */,
-				BEB71E792B6FD9DC00CCC2BE /* InfiniteCarousel.swift in Sources */,
 				BE16E7E62B5E452200DB43D3 /* AnotherAnotherView.swift in Sources */,
-				BEB71E7F2B6FD9DC00CCC2BE /* ProgressMeter.swift in Sources */,
 				2303C6312AFFB71300C66365 /* MenuRoundedPanel04.swift in Sources */,
 				BE16E7DE2B5D669D00DB43D3 /* PlansView.swift in Sources */,
-				BEB71E732B6FD9DC00CCC2BE /* DropDownPickerView.swift in Sources */,
 				BEB71E232B6FD71100CCC2BE /* AnimatedHeaderModel.swift in Sources */,
 				BE17D1FA2A98A5C100FB5054 /* sample.swift in Sources */,
-				BEB71E772B6FD9DC00CCC2BE /* InfiniteCarouselModel.swift in Sources */,
 				23E9A1552AE5181600494951 /* PINView.swift in Sources */,
 				23C89FE42B189A8300A6EF73 /* MenuRoundedPanelModel09.swift in Sources */,
 				23DC1C3D2B01143900CF5F2F /* MenuRoundedPanel07.swift in Sources */,
 				237B5CBC2ACC36C700F35311 /* SearchView.swift in Sources */,
 				BED02CF92A9416DA007DEE6D /* CategoryRow.swift in Sources */,
 				BE2F305A2A93D926009E72DC /* CustomTabBar.swift in Sources */,
-				BEB71E852B6FD9DC00CCC2BE /* LoopingScrollView.swift in Sources */,
 				BE16E7DC2B56E87A00DB43D3 /* SettingsView.swift in Sources */,
 				237B5CB82ACC36BD00F35311 /* LocationManager.swift in Sources */,
-				BEB71E782B6FD9DC00CCC2BE /* PageControl.swift in Sources */,
 				23DC1C3F2B01145600CF5F2F /* MenuRoundedPanelModel07.swift in Sources */,
 				238F86672B3838D00013FBB4 /* RewardModel.swift in Sources */,
 				2316A3102AE7C1C50078BFB8 /* MenuRewardModel02.swift in Sources */,
+				234C16CA2B72300F0023311C /* TransparentBlurView.swift in Sources */,
 				2313FCF82B0A77D400AE125A /* CoffeeBoxPanel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

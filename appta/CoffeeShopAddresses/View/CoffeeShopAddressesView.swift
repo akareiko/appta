@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CoffeeShopAddressView: View {
+    @ObservedObject var globalVar: GlobalModel
+    
     @State private var selectedTab: ScrollableAddressTab?
     @Environment(\.colorScheme) private var scheme
     @Environment(\.dismiss) private var dismiss
@@ -151,7 +153,7 @@ struct CoffeeShopAddressView: View {
                     Button {
                         
                     } label: {
-                        NavigationLink(destination: AnimatedHeader().ignoresSafeArea()){
+                        NavigationLink(destination: AnimatedHeader(globalVar: globalVar).ignoresSafeArea()){
                             HStack(spacing: 12){
                                 Image(address.logo)
                                     .resizable()

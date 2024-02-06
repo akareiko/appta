@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DrinkCustomizer: View {
     @ObservedObject var coffee: SelectedCoffee
-    @EnvironmentObject var globalVar: GlobalModel
+    @ObservedObject var globalVar: GlobalModel
     
     @State private var isClicked: Bool = false
     @State private var isTextExpanded: Bool = false
@@ -192,7 +192,7 @@ struct DrinkCustomizer: View {
                     }
                     .offset(CGSize(width: 15, height: 0))
                     .sheet(isPresented: $toggleFavourites){
-                        FavouritesView()
+                        FavouritesView(globalVar: globalVar)
                             .presentationBackground(.ultraThinMaterial)
                     }
 
@@ -223,7 +223,7 @@ struct DrinkCustomizer: View {
                                     .foregroundColor(.white)
                             )
                             .sheet(isPresented: $toggleBasketViewDrinkCustomizer){
-                                BasketView(coffee: coffee, customizedDrink: $customizedDrink)
+                                BasketView(coffee: coffee, globalVar: globalVar,  customizedDrink: $customizedDrink)
                                     .presentationBackground(.ultraThinMaterial)
                             }
                     }
@@ -311,7 +311,6 @@ extension DrinkCustomizer{
 
 #Preview{
     ContentView()
-        .environmentObject(GlobalModel())
 }
 
 

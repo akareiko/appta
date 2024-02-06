@@ -8,6 +8,13 @@ class GlobalVars: ObservableObject {
     @Published var abc: Bool = false
 }
 
+class GlobalModel: ObservableObject {
+//    @Published var userData: [UserDataModel]
+//    @Published var shopData: [ShopDataModel]
+    @Published var favouritesArray: [OrderModel] = []
+//    @Published var coffee: SelectedCoffee
+}
+
 class GlobalWars: ObservableObject {
     @Published var abc: Bool = false
     
@@ -25,11 +32,14 @@ class GlobalWars: ObservableObject {
 
 struct ContentView: View {
     @State private var selectedTab: Tab = .house
-    @Environment(\.isPresented) private var isPresented
+
+    @StateObject var globalVar = GlobalModel()
     @ObservedObject var globalvars = GlobalVars()
     @State private var keks: Double = 1.0
     
     @StateObject var obj = GlobalWars()
+    
+    @Environment(\.isPresented) private var isPresented
     
     init() {
         UITabBar.appearance().isHidden = true
@@ -40,7 +50,7 @@ struct ContentView: View {
             VStack {
                 switch selectedTab {
                 case .house:
-                    HomeView(str: $globalvars.str, nestr: $globalvars.nestr)
+                    HomeView(globalVar: globalVar, str: $globalvars.str, nestr: $globalvars.nestr)
                 case .magnifyingglass:
                     SearchView()
                 case .qrcode:

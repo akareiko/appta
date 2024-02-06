@@ -10,6 +10,7 @@ import SwiftUI
 struct AnimatedHeader: View {
     @StateObject var homeData = HomeViewModel()
     @StateObject var coffee = SelectedCoffee(selectedCoffee: drinksmenu[0].drinkList.first!, selectedSize: sizes.first!)
+    @ObservedObject var globalVar: GlobalModel
 
     @State var customizedDrink: [OrderModel] = []
     @State var cardToggles: [String : Bool] = [:]
@@ -55,6 +56,7 @@ struct AnimatedHeader: View {
                                         MenuCardView(
                                             tab: tab,
                                             coffee: coffee,
+                                            globalVar: globalVar,
                                             currentTab: $currentTab,
                                             customizedDrink: $customizedDrink,
                                             cardToggles: $cardToggles
@@ -83,7 +85,7 @@ struct AnimatedHeader: View {
                 
                 if cardToggles.values.contains(true) {
                     withAnimation(.easeIn(duration: 1.5)){
-                        CustomPopUpSheet(coffee: coffee, customizedDrink: $customizedDrink)
+                        CustomPopUpSheet(coffee: coffee, globalVar: globalVar, customizedDrink: $customizedDrink)
                             .offset(CGSize(width: 0, height: 360))
                             .transition(.move(edge: .bottom).animation(Animation.spring(response: 0.3, dampingFraction: 0.8).speed(0.3)))
                     }

@@ -3,6 +3,7 @@ import Foundation
 
 struct HomeView: View {
     @State private var selectedTab: Tab = .house
+    @ObservedObject var globalVar: GlobalModel
     @Binding var str: Bool
     @Binding var nestr: Bool
     
@@ -109,7 +110,7 @@ struct HomeView: View {
                                     .fill(.ultraThinMaterial)
                                     .frame(width: 370, height: 200)
                                 
-                                MenuRoundedPanel05()
+                                MenuRoundedPanel05(globalVar: globalVar)
                                     .padding(.bottom, 30)
                                     .offset(y: -200)
                                     

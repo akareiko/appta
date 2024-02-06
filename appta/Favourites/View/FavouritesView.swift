@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct FavouritesView: View {
-    @EnvironmentObject var globalVar: GlobalModel
+    @ObservedObject var globalVar: GlobalModel
+    
     @State private var toggleBasketViewFavouriteView: Bool = false
     @State private var addedToBasket: Bool = false
     @State private var descriptShow: [String : Bool] = [:]
