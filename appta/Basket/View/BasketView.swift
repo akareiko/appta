@@ -177,13 +177,20 @@ struct BasketView: View {
                             else {
                                 VStack{
                                     Text("Your basket is empty")
-                                        .font(.callout)
+                                        .font(.callout.bold())
                                         .foregroundColor(.black)
                                     
+                                    
                                     NavigationLink(destination: CoffeeShopList()){
-                                        Text("Go shopping")
-                                            .font(.callout)
-                                            .foregroundColor(Color("starbucks-rewardgold"))
+                                        HStack(){
+                                            Text("Go shopping")
+                                                .font(.callout)
+                                                .foregroundColor(.white)
+                                                .padding(.vertical, 15)
+                                                .padding(.horizontal, 25)
+                                        }
+                                        .background(.black)
+                                        .clipShape(Capsule())
                                     }
                                 }
                                 .offset(CGSize(width: 0, height: 200))
@@ -199,56 +206,55 @@ struct BasketView: View {
                 }
                 
                 VStack(alignment: .leading){
-                    HStack{
-                        Text("Do you want to use your coffee tokens?")
-                            .font(.callout)
-                            .foregroundColor(.black)
-                            .lineLimit(2)
-                            .frame(width: 150)
-                        
-                        Toggle("", isOn: $isToggleOn)
-                    }
-                    .padding(.horizontal, 20)
                     
                     HStack{
-                        DropView()
-                            .padding(.leading, 10)
-                            .offset(CGSize(width: 0, height: -115))
+                        Button {
+                            
+                        } label: {
+                            RoundedRectangle(cornerRadius: 15)
+                                .frame(height: 70)
+                                .frame(maxWidth: .infinity)
+                                .padding(.horizontal, 5)
+                                .background(.thinMaterial)
+                                .foregroundColor(.clear)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                        }
                         
-                        Spacer()
                         
-                        HStack{
-                            VStack(alignment: .leading){
-                                Text("Total Price: ")
-                                    .font(.callout)
-                                    .foregroundColor(.black)
-                                
-                                HStack{
-                                    Text("KZT \(calculateTotalPrice())")
-                                        .font(.title3.bold())
+                        VStack(alignment: .leading){
+                            HStack{
+                                VStack(alignment: .leading){
+                                    Text("Total Price: ")
+                                        .font(.callout)
                                         .foregroundColor(.black)
                                     
-                                    Image(systemName: "tengesign")
-                                        .resizable()
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.black)
-                                        .frame(width: 13, height: 13)
+                                    HStack{
+                                        Text("KZT \(calculateTotalPrice())")
+                                            .font(.title3.bold())
+                                            .foregroundColor(.black)
+                                        
+                                        Image(systemName: "tengesign")
+                                            .resizable()
+                                            .fontWeight(.bold)
+                                            .foregroundColor(.black)
+                                            .frame(width: 13, height: 13)
+                                    }
                                 }
+                                .padding(.horizontal, 10)
+                                
+                                Image(systemName: "chevron.right")
+                                    .resizable()
+                                    .frame(width: 10, height: 20)
+                                    .foregroundColor(.black)
                             }
-                            .padding(.horizontal, 10)
-                            
-                            Image(systemName: "chevron.right")
-                                .resizable()
-                                .frame(width: 10, height: 20)
-                                .foregroundColor(.black)
                         }
-                        .frame(width: 180)
-                        .padding(.trailing, 20)
-                        .offset(CGSize(width: 0, height: 2))
+                        .frame(width: 150, height: 70)
+                        .padding(.horizontal, 5)
+                        .background(.thinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
                     }
                 }
                 .frame(height: 130)
-                .background(.white)
                 .offset(CGSize(width: 0, height: 300))
             }
             .navigationBarBackButtonHidden()
@@ -339,6 +345,10 @@ struct BasketView: View {
             }
         }
     }
+}
+
+#Preview{
+    ContentView()
 }
 
 struct SwipeAction<Content: View>: View {
