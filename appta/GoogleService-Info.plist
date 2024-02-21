@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>akareiko.appta</string>
+	<string>akareiko.apptaProject</string>
 	<key>PROJECT_ID</key>
 	<string>appta-52453</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:991526297576:ios:1da129927ea8f5fb4a8e5d</string>
+	<string>1:991526297576:ios:989e44f1c827d5544a8e5d</string>
 </dict>
 </plist>

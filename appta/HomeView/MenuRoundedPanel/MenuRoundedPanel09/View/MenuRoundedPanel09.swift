@@ -15,7 +15,7 @@ struct MenuRoundedPanel09: View {
                 GeometryReader {
                     let size = $0.size
                     
-                    LoopingScrollView(width: size.width - 100, spacing: 0, items: items) { item in
+                    LoopingScrollView(coffeeShopCardOffset: .constant(0), width: size.width - 100, spacing: 0, items: items) { item in
                             RoundedRectangle(cornerRadius: 15)
                                 .foregroundColor(.white)
                                 .padding()

@@ -10,6 +10,7 @@ import SwiftUI
 // Custom View
 struct LoopingScrollView<Content: View, InfiniteViewModel: RandomAccessCollection>: View where InfiniteViewModel.Element : Identifiable {
     // Customization Properties
+    @Binding var coffeeShopCardOffset: CGFloat
     var width: CGFloat
     var spacing: CGFloat = 0
     var items: InfiniteViewModel
@@ -41,7 +42,8 @@ struct LoopingScrollView<Content: View, InfiniteViewModel: RandomAccessCollectio
                         width: width,
                         spacing: spacing,
                         itemsCount: items.count,
-                        repeatingCount: repeatingCount
+                        repeatingCount: repeatingCount,
+                        coffeeShopCardOffset: $coffeeShopCardOffset
                     )
                 }
             }
@@ -56,12 +58,14 @@ fileprivate struct ScrollViewHelper: UIViewRepresentable {
     var spacing: CGFloat
     var itemsCount: Int
     var repeatingCount: Int
+    @Binding var coffeeShopCardOffset: CGFloat
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(width: width,
-                           spacing: spacing,
-                           itemsCount: itemsCount,
-                           repeatingCount: repeatingCount)
+        return Coordinator(
+            coffeeShopCardOffset: $coffeeShopCardOffset, width: width,
+            spacing: spacing,
+            itemsCount: itemsCount,
+            repeatingCount: repeatingCount)
     }
     
     func makeUIView(context: Context) -> UIView {
@@ -83,13 +87,16 @@ fileprivate struct ScrollViewHelper: UIViewRepresentable {
     }
     
     class Coordinator: NSObject, UIScrollViewDelegate {
+        @Binding var coffeeShopCardOffset: CGFloat
+        
         var width: CGFloat
         var spacing: CGFloat
         var itemsCount: Int
         var repeatingCount: Int
         
         
-        init(width: CGFloat, spacing: CGFloat, itemsCount: Int, repeatingCount: Int) {
+        init(coffeeShopCardOffset: Binding<CGFloat>, width: CGFloat, spacing: CGFloat, itemsCount: Int, repeatingCount: Int) {
+            self._coffeeShopCardOffset = coffeeShopCardOffset
             self.width = width
             self.spacing = spacing
             self.itemsCount = itemsCount
@@ -112,6 +119,9 @@ fileprivate struct ScrollViewHelper: UIViewRepresentable {
             if minX < 0 {
                 scrollView.contentOffset.x += (mainContentSize + spacingSize)
             }
+//            print(minX)
+            
+            _coffeeShopCardOffset.wrappedValue = minX
         }
     }
 }

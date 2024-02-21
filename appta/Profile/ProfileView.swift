@@ -43,7 +43,7 @@ struct ProfileView: View {
                         .frame(maxWidth: .infinity, alignment: .center)
                         .offset(x: -25)
 
-                    NavigationLink(destination: SettingsView()) {
+                    NavigationLink(destination: SettingsView(showSignInView: .constant(false))) {
                         Image(systemName: "pencil.circle.fill")
                             .resizable()
                             .foregroundColor(.black)
@@ -130,7 +130,7 @@ struct ProfileView: View {
                         VStack {
                             List {
                                 HStack {
-                                    NavigationLink(destination: AnotherView()) {
+                                    NavigationLink(destination: RootView()) {
                                         Image(systemName: "creditcard")
                                             .frame(width: 30, height: 30)
                                         Text("Способ оплаты")

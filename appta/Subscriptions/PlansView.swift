@@ -29,6 +29,7 @@ struct beforeClick: View {
                 RoundedRectangle(cornerRadius: 25)
                     .fill(.black)
                     .frame(width: 380, height: 95)
+                
                 HStack {
                     RoundedRectangle(cornerRadius: 25)
                         .fill(.white)
@@ -73,25 +74,30 @@ struct PlanButton: View {
     var description: String
     var price: String
     @Binding var isClicked: Bool
-    @Binding var didUnlock: Bool
+    @State var didUnlock: Bool = false
     @Binding var haha: String
+    @Binding var didSwipe: Bool
     
     var body: some View {
         Button(action: {withAnimation(Animation.easeInOut(duration: 0.2)) {isClicked.toggle()}}) {
-            if !isClicked {
+            if !isClicked && !didUnlock {
                 beforeClick(imageName: imageName, title: title, description: description, price: price, isClicked: $isClicked, didUnlock: $didUnlock)
             }
             else {
                 SwipeButtonView()
                     .onSwipeSuccess {
                         self.didUnlock = true
+                        didSwipe = true
+                        haha = title
+                    }
+                    .onSwipeFailure {
+                        self.didUnlock = false
+                        didSwipe = false
+                        haha = ""
                     }
             }
         }
         .buttonStyle(NoTapAnimationStyle())
-        .onChange(of: didUnlock) {
-            haha = title
-        }
     }
 }
 
@@ -103,67 +109,45 @@ struct PlanProperties {
 
 
 struct PlansView: View {
-    @State var planProperties: [PlanProperties]
-    
-    var planplans: [PlanPlan]
-    
+    @StateObject var viewModel = CoffeeshopViewModel()
+    var coffeeshop_id: String
     @Binding var haha: String
-    
-    init(planplans: [PlanPlan], haha: Binding<String>) {
-        _planProperties = State(initialValue: Array(repeating: PlanProperties(isClicked: false, didUnlock: false), count: planplans.count))
-        self.planplans = planplans
-        self._haha = haha
-    }
+    @Binding var didSwipe: Bool
     
     @State private var selectedPlanIndex: Int?
     
-//    @Binding var haha: String
-    
     var body: some View {
-        ScrollView {
-            Spacer()
-                .frame(height: 20)
-            
-            Text("Current plan")
-                .foregroundColor(.black)
-                .font(.title2)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal, 20)
-            beforeClick(
-                imageName: planplans[0].imageName,
-                title: planplans[0].title,
-                description: planplans[0].description,
-                price: planplans[0].price,
-                isClicked: $planProperties[0].isClicked,
-                didUnlock: $planProperties[0].didUnlock
-            )
-            
-            Text("All options")
+        VStack {
+            Text("Explore options")
                 .foregroundColor(.black)
                 .font(.title2)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
             
-            ForEach($planProperties.indices, id: \.self) { item in
+            ForEach(viewModel.plans.indices, id: \.self) { index in
                 PlanButton(
-                    imageName: planplans[item].imageName,
-                    title: planplans[item].title,
-                    description: planplans[item].description,
-                    price: planplans[item].price,
+                    imageName: viewModel.plans[index].plan_image,
+                    title: viewModel.plans[index].plan_name,
+                    description: viewModel.plans[index].plan_description,
+                    price: viewModel.plans[index].plan_price,
                     isClicked: Binding(
-                        get: { selectedPlanIndex == item },
+                        get: { selectedPlanIndex == index },
                         set: { newValue in
-                            selectedPlanIndex = newValue ? item : nil
+                            selectedPlanIndex = newValue ? index : nil
                         }
                     ),
-                    didUnlock: $planProperties[item].didUnlock,
-                    haha: $haha
-                    )
+                    haha: $haha,
+                    didSwipe: $didSwipe
+                )
             }
+            
+        }
+        .task {
+            try? await viewModel.getPlans(coffeeshop_id: coffeeshop_id)
         }
     }
 }
 
 #Preview {
-    PlansView(planplans: ModelModelData().plansplans, haha: .constant(""))
+    PlansView(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn", haha: .constant(""), didSwipe: .constant(false))
 }

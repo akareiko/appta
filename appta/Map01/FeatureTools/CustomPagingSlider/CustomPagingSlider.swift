@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Item: Identifiable {
-    private(set) var id: UUID = .init()
+    var id: String
     var color: String
     var title: String
     var subTitle: String
@@ -16,7 +16,7 @@ struct Item: Identifiable {
 }
 
 //Custom View
-struct CustomPagingSlider<Content: View, TitleContent: View, BottomContent: View, Item: RandomAccessCollection>: View where Item: MutableCollection, Item.Element: Identifiable {
+struct CustomPagingSlider<Content: View, TitleContent: View, BottomContent: View, Coffeeshops: RandomAccessCollection>: View where Coffeeshops: MutableCollection, Coffeeshops.Element: Identifiable {
     // Customization Properties
     var showsIndicator: ScrollIndicatorVisibility = .hidden
     var showPagingControl: Bool = true
@@ -26,19 +26,19 @@ struct CustomPagingSlider<Content: View, TitleContent: View, BottomContent: View
     var pagingControlSpacing: CGFloat = 20
     var spacing: CGFloat = 10
     
-    @Binding var data: Item
-    @ViewBuilder var content: (Binding<Item.Element>) -> Content
-    @ViewBuilder var titleContent: (Binding<Item.Element>) -> TitleContent
-    @ViewBuilder var bottomContent: (Binding<Item.Element>) -> BottomContent
+    var data: Coffeeshops
+    @ViewBuilder var content: (Coffeeshops.Element) -> Content
+    @ViewBuilder var titleContent: (Coffeeshops.Element) -> TitleContent
+    @ViewBuilder var bottomContent: (Coffeeshops.Element) -> BottomContent
     
     // View Properties
-    @State private var activeID: UUID?
+    @State private var activeID: String?
     
     var body: some View {
         VStack(spacing: pagingControlSpacing){
             ScrollView(.horizontal) {
                 HStack(spacing: spacing){
-                    ForEach($data) { item in
+                    ForEach(data) { item in
                         VStack(spacing: 0){
                             titleContent(item)
                                 .frame(maxWidth: .infinity)
@@ -53,8 +53,8 @@ struct CustomPagingSlider<Content: View, TitleContent: View, BottomContent: View
                             if showPagingControl {
                                 PagingControl(numberOfPages: data.count, activePage: activePage) { value in
                                     //Updating to current Page
-                                    if let index = value as? Item.Index, data.indices.contains(index) {
-                                        if let id = data[index].id as? UUID {
+                                    if let index = value as? Coffeeshops.Index, data.indices.contains(index) {
+                                        if let id = data[index].id as? String {
                                             withAnimation(.snappy(duration: 0.35, extraBounce: 0)) {
                                                 activeID = id
                                             }
@@ -86,7 +86,7 @@ struct CustomPagingSlider<Content: View, TitleContent: View, BottomContent: View
     }
     
     var activePage: Int {
-        if let index = data.firstIndex(where: { $0.id as? UUID == activeID}) as? Int {
+        if let index = data.firstIndex(where: { $0.id as? String == activeID}) as? Int {
             return index
         }
         

@@ -15,21 +15,30 @@ struct SearchBar: View {
             Button(action: {
                 isSearching = true
             }, label: {
-                Image(systemName: "magnifyingglass")
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                    .foregroundColor(.gray)
-                    .padding(.leading, 10)
+                ZStack {
+                    Circle()
+                        .fill(.thinMaterial)
+                        .frame(width: 40)
+                    Image(systemName: "magnifyingglass")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(.secondary)
+                }
             })
             VStack{
                 TextField("Search", text: $searchText)
-                    .padding(.horizontal, 15)
-                    .font(Font.system(size: 21))
+                    .padding(.init(top: 8, leading: 14, bottom: 8, trailing: 14))
+                    .font(.title3)
+                    .background(.thinMaterial)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
             }
         }
-        .padding(.horizontal)
         .onTapGesture {
             isSearching = true
         }
     }
+}
+
+#Preview {
+    SearchBar(searchText: .constant(""), isSearching: .constant(false))
 }

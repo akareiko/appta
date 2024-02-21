@@ -24,6 +24,12 @@ extension SwipeButtonView {
         this.actionSuccess = action
         return this
     }
+    
+    func onSwipeFailure(_ action: @escaping () -> Void) -> Self {
+        var this = self
+        this.actionFailure = action
+        return this
+    }
 }
 
 struct SwipeButtonView: View {
@@ -31,6 +37,7 @@ struct SwipeButtonView: View {
     @State private var dragOffset: CGSize = .zero
     @State private var isEnough = false
     private var actionSuccess: (() -> Void)?
+    private var actionFailure: (() -> Void)?
     
     @State var trackSize = CGSize.trackSize
     @State private var elemOpacity = 1.0
@@ -169,14 +176,14 @@ struct SwipeButtonView: View {
         if self.isEnough {
             self.dragOffset = CGSize(width: self.trackSize.width - self.thumbSize.width, height: 0)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                 withAnimation() {
                     elemOpacity = 0.0
                 }
             }
             
             if let actionSuccess = self.actionSuccess {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.55) {
                     actionSuccess()
                 }
             }
@@ -187,6 +194,12 @@ struct SwipeButtonView: View {
             self.thumbSize = CGSize.inactiveThumbSize
             withAnimation() {
                 elemOpacity = 1.0
+            }
+            
+            if let actionFailure = self.actionFailure {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                    actionFailure()
+                }
             }
         }
     }

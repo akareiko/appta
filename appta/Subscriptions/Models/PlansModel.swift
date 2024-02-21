@@ -1,0 +1,11 @@
+import SwiftUI
+import CoreLocation
+import Foundation
+
+struct PlanPlan: Hashable, Codable, Identifiable {
+    var id: Int
+    var imageName: String
+    var title: String
+    var description: String
+    var price: String
+}

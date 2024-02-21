@@ -63,7 +63,7 @@ struct AnotherCarouselView: View {
                     .offset(y: -15)
             }
         }
-        .frame(height: 400)
+        .frame(height: 300)
         .onAppear{
             guard fakedPages.isEmpty else {return}
             

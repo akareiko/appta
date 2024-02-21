@@ -59,7 +59,7 @@ struct MenuRoundedPanel05: View {
                     GeometryReader {
                         let size = $0.size
                         
-                        LoopingScrollView(width: 280, spacing: 30, items: MenuRPmodel05) { thing in
+                        LoopingScrollView(coffeeShopCardOffset: .constant(0), width: 280, spacing: 30, items: MenuRPmodel05) { thing in
                             NavigationLink(destination: CoffeeShopAddressView(globalVar: globalVar).navigationBarBackButtonHidden(true)
                             ) {
                                 
