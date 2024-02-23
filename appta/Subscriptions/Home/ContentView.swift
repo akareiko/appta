@@ -9,13 +9,8 @@ class GlobalVars: ObservableObject {
     @Published var nestr: Bool = false
     
     @Published var abc: Bool = false
-}
-
-class GlobalModel: ObservableObject {
-//    @Published var userData: [UserDataModel]
-//    @Published var shopData: [ShopDataModel]
+    
     @Published var favouritesArray: [OrderModel] = []
-//    @Published var coffee: SelectedCoffee
 }
 
 struct Plan: Identifiable, Codable {
@@ -137,8 +132,7 @@ final class CoffeeshopViewModel: ObservableObject {
 struct ContentView: View {
     @State private var selectedTab: Tab = .house
 
-    @StateObject var globalVar = GlobalModel()
-    @ObservedObject var globalvars = GlobalVars()
+    @ObservedObject var globalVars = GlobalVars()
     @State private var keks: Double = 1.0
     
     @Environment(\.isPresented) private var isPresented
@@ -148,16 +142,16 @@ struct ContentView: View {
     @State private var showSignInView: Bool = false
     
     @StateObject private var viewModelCoffeeshop = CoffeeshopViewModel()
+    @StateObject private var viewModelDrinks = DrinksModelViewModel()
+    @StateObject private var viewModelTabs = TabMenuModel()
     
     var body: some View {
         ZStack {
-            
-            
             VStack {
                 
                 switch selectedTab {
                 case .house:
-                    HomeView(globalVar: globalVar, str: $globalvars.str, nestr: $globalvars.nestr)
+                    HomeView(globalVars: globalVars, str: $globalVars.str, nestr: $globalVars.nestr)
                 case .magnifyingglass:
                     SearchView()
                 case .qrcode:
@@ -180,8 +174,8 @@ struct ContentView: View {
             }
             VStack {
                 Spacer()
-                if(globalvars.nestr == false) {
-                    CustomTabBar(selectedTab: $selectedTab, str: $globalvars.str)
+                if(globalVars.nestr == false) {
+                    CustomTabBar(selectedTab: $selectedTab, str: $globalVars.str)
                         .opacity(keks)
 //                        .scaleEffect(keks)
                         .animation(Animation.spring(duration: 1.0), value: keks)
@@ -190,9 +184,10 @@ struct ContentView: View {
                 }
             }
         }
-        .task {
+        .task{
             try? await viewModelCoffeeshop.getCoffeeshops()
             try? await viewModelCoffeeshop.getPlans(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn")
+            try? await viewModelTabs.getAllTabs()
         }
         .onAppear() {
             let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()

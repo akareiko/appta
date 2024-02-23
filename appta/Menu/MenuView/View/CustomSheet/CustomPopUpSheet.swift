@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CustomPopUpSheet: View {
     @ObservedObject var coffee: SelectedCoffee
-    @ObservedObject var globalVar: GlobalModel
+    @ObservedObject var globalVars: GlobalVars
     
     var optionArrayMenu: [Int : OptionType] = [
         0 : optionscroll[0].optionTypes.first!,
@@ -95,7 +95,7 @@ struct CustomPopUpSheet: View {
                                     .foregroundColor(.white)
                             })
                             .sheet(isPresented: $toggleBasketViewCustomPopUp){
-                                BasketView(coffee: coffee, globalVar: globalVar, customizedDrink: $customizedDrink)
+                                BasketView(coffee: coffee, globalVars: globalVars, customizedDrink: $customizedDrink)
                             }
                     }
                     .padding(.leading, -4)
@@ -122,7 +122,7 @@ extension CustomPopUpSheet {
         if let existingIndex = customizedDrink.firstIndex(where: { drink in
             // Compare selectedCoffee, selectedSize, and optionArray
             return drink.drink.title == coffee.selectedCoffee.title &&
-            drink.drink.drinkSize[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
+            drink.drink.drink_size[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
                 NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArrayMenu)
         }) {
             if customizedDrink[existingIndex].quantity > 0 {

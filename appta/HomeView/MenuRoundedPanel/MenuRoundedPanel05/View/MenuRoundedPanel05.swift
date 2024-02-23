@@ -16,7 +16,7 @@ struct BottomClipper: Shape {
 
 struct MenuRoundedPanel05: View {
     @State private var isCoffeeShopProfileActive = false
-    @ObservedObject var globalVar: GlobalModel
+    @ObservedObject var globalVars: GlobalVars
 //    @Binding var str: Bool
 //    @Binding var nestr: Bool
     
@@ -60,7 +60,7 @@ struct MenuRoundedPanel05: View {
                         let size = $0.size
                         
                         LoopingScrollView(coffeeShopCardOffset: .constant(0), width: 280, spacing: 30, items: MenuRPmodel05) { thing in
-                            NavigationLink(destination: CoffeeShopAddressView(globalVar: globalVar).navigationBarBackButtonHidden(true)
+                            NavigationLink(destination: CoffeeShopAddressView(globalVars: globalVars).navigationBarBackButtonHidden(true)
                             ) {
                                 
 //                                Image(thing.image)

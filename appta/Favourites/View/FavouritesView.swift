@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FavouritesView: View {
-    @ObservedObject var globalVar: GlobalModel
+    @ObservedObject var globalVars: GlobalVars
     
     @State private var toggleBasketViewFavouriteView: Bool = false
     @State private var addedToBasket: Bool = false
@@ -63,13 +63,13 @@ struct FavouritesView: View {
                 VStack(alignment: .leading){
                     ScrollView(showsIndicators: false){
                         VStack(spacing: 15){
-                            ForEach(globalVar.favouritesArray){thing in
+                            ForEach(globalVars.favouritesArray){thing in
                                 SwipeAction(cornerRadius: 15, direction: .trailing) {
                                     BasketCardView(order: thing)
                                 } actions: {
                                     Action(tint: Color("starbucks-errorred"), icon: "trash.fill", text: "Delete"){
                                         withAnimation(.easeInOut){
-                                            globalVar.favouritesArray.removeAll(where: {$0 == thing })
+                                        globalVars.favouritesArray.removeAll(where: {$0 == thing })
                                         }
                                     }
                                 }
@@ -143,9 +143,9 @@ struct FavouritesView: View {
                                     .font(.headline)
                             }
                         }
-                        .offset(CGSize(width: 0, height: UIScreen.main.bounds.height - 500))
                 }
             }
+            .offset(CGSize(width: 0, height: UIScreen.main.bounds.height - 500))
         }
     }
     
@@ -181,7 +181,7 @@ struct FavouritesView: View {
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
                         
-                        Text("Size: \(order.drink.drinkSize[order.drinkSizeIndex]) ml")
+                        Text("Size: \(order.drink.drink_size[order.drinkSizeIndex]) ml")
                             .font(.caption)
                             .foregroundColor(.secondary)
                             .lineLimit(1)
@@ -266,7 +266,7 @@ struct FavouritesView: View {
 
 #Preview{
     ContentView()
-        .environmentObject(GlobalModel())
+        .environmentObject(GlobalVars())
 }
 
 

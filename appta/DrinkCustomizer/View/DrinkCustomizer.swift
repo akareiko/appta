@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DrinkCustomizer: View {
     @ObservedObject var coffee: SelectedCoffee
-    @ObservedObject var globalVar: GlobalModel
+    @ObservedObject var globalVars: GlobalVars
     
     @State private var isClicked: Bool = false
     @State private var isTextExpanded: Bool = false
@@ -192,7 +192,7 @@ struct DrinkCustomizer: View {
                     }
                     .offset(CGSize(width: 15, height: 0))
                     .sheet(isPresented: $toggleFavourites){
-                        FavouritesView(globalVar: globalVar)
+                        FavouritesView(globalVars: globalVars)
                             .presentationBackground(.ultraThinMaterial)
                     }
 
@@ -223,7 +223,7 @@ struct DrinkCustomizer: View {
                                     .foregroundColor(.white)
                             )
                             .sheet(isPresented: $toggleBasketViewDrinkCustomizer){
-                                BasketView(coffee: coffee, globalVar: globalVar,  customizedDrink: $customizedDrink)
+                                BasketView(coffee: coffee, globalVars: globalVars, customizedDrink: $customizedDrink)
                                     .presentationBackground(.ultraThinMaterial)
                             }
                     }
@@ -252,7 +252,7 @@ extension DrinkCustomizer{
             if let existingIndex = customizedDrink.firstIndex(where: { drink in
                 // Compare selectedCoffee, selectedSize, and optionArray
                 return drink.drink.title == coffee.selectedCoffee.title &&
-                drink.drink.drinkSize[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
+                drink.drink.drink_size[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
                     NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArray)
             }) {
                 // Update the quantity if the drink already exists
@@ -271,18 +271,18 @@ extension DrinkCustomizer{
         }
     
     func addToFavourites(){
-        if let existingIndex = globalVar.favouritesArray.firstIndex(where: {
+        if let existingIndex = globalVars.favouritesArray.firstIndex(where: {
             drink in
             // Compare selectedCoffee, selectedSize, and optionArray
             return drink.drink.title == coffee.selectedCoffee.title &&
-            drink.drink.drinkSize[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
+            drink.drink.drink_size[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
                 NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArray)
         }) {
             if checkFavourites() {
-                globalVar.favouritesArray.remove(at: existingIndex)
+                globalVars.favouritesArray.remove(at: existingIndex)
             }
         } else {
-            globalVar.favouritesArray.append(OrderModel(
+            globalVars.favouritesArray.append(OrderModel(
                 drink: coffee.selectedCoffee,
                 customizedPrice: calculateTotalPrice(),
                 drinkSizeIndex: coffee.selectedSize.index,
@@ -293,14 +293,14 @@ extension DrinkCustomizer{
     }
     
     func checkFavourites() -> Bool {
-        if let existingIndex = globalVar.favouritesArray.firstIndex(where: {
+        if let existingIndex = globalVars.favouritesArray.firstIndex(where: {
             drink in
             // Compare selectedCoffee, selectedSize, and optionArray
             return drink.drink.title == coffee.selectedCoffee.title &&
-            drink.drink.drinkSize[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
+            drink.drink.drink_size[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
                 NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArray)
         }) {
-            if globalVar.favouritesArray[existingIndex].quantity == 1 {
+            if globalVars.favouritesArray[existingIndex].quantity == 1 {
                 return true
             }
         }

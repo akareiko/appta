@@ -152,5 +152,5 @@ struct HeaderView: View {
 
 #Preview{
     ContentView()
-        .environmentObject(GlobalModel())
+        .environmentObject(GlobalVars())
 }

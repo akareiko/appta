@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BasketView: View {
     @ObservedObject var coffee: SelectedCoffee
-    @ObservedObject var globalVar: GlobalModel
+    @ObservedObject var globalVars: GlobalVars
     
     @State private var isToggleOn: Bool = false
     @State private var showDetail: [String : Bool] = [:]
@@ -53,7 +53,7 @@ struct BasketView: View {
                                     .frame(width: 30, height: 30)
                                     .foregroundColor(Color("starbucks-rewardgold"))
                                     .sheet(isPresented: $showFavourites, content: {
-                                        FavouritesView(globalVar: globalVar)
+                                        FavouritesView(globalVars: globalVars)
                                             .presentationBackground(.ultraThinMaterial)
                                     })
                                     
@@ -197,62 +197,97 @@ struct BasketView: View {
                             }
                         }
                         .sheet(isPresented: $toggleDrinkCustomizerBasket){
-                            DrinkCustomizer(coffee: coffee, globalVar: globalVar, customizedDrink: $customizedDrink)
+                            DrinkCustomizer(coffee: coffee, globalVars: globalVars, customizedDrink: $customizedDrink)
                                 .presentationBackground(.ultraThinMaterial)
                         }
                         .padding(.horizontal, 20)
                         .padding(.top, 10)
                     }
                 }
+                .padding(.horizontal, 20)
                 
                 VStack(alignment: .leading){
                     
                     HStack{
-                        Button {
+                        HStack {
+                            Image("visa")
+                                .resizable()
+                                .foregroundColor(.black)
+                                .frame(width: 30, height: 30)
                             
-                        } label: {
-                            RoundedRectangle(cornerRadius: 15)
-                                .frame(height: 70)
-                                .frame(maxWidth: .infinity)
-                                .padding(.horizontal, 5)
-                                .background(.thinMaterial)
-                                .foregroundColor(.clear)
-                                .clipShape(RoundedRectangle(cornerRadius: 15))
-                        }
-                        
-                        
-                        VStack(alignment: .leading){
-                            HStack{
-                                VStack(alignment: .leading){
-                                    Text("Total Price: ")
-                                        .font(.callout)
-                                        .foregroundColor(.black)
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .fill(.ultraThinMaterial)
+                                    .frame(width: 270, height: 50)
+                                VStack {
+                                    Text("Visa •••• 4593")
+                                        .font(.caption)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                     
-                                    HStack{
-                                        Text("KZT \(calculateTotalPrice())")
-                                            .font(.title3.bold())
-                                            .foregroundColor(.black)
-                                        
-                                        Image(systemName: "tengesign")
-                                            .resizable()
-                                            .fontWeight(.bold)
-                                            .foregroundColor(.black)
-                                            .frame(width: 13, height: 13)
-                                    }
+                                    Text("•••• •••• •••• 4593. Expires: 05/25")
+                                        .font(.caption2)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .foregroundColor(.secondary)
                                 }
-                                .padding(.horizontal, 10)
+                                .padding(.leading, 20)
                                 
-                                Image(systemName: "chevron.right")
-                                    .resizable()
-                                    .frame(width: 10, height: 20)
-                                    .foregroundColor(.black)
+                                Image(systemName: "chevron.forward")
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                                    .padding(.trailing, 20)
                             }
+                            .frame(width: 270)
                         }
-                        .frame(width: 150, height: 70)
-                        .padding(.horizontal, 5)
-                        .background(.thinMaterial)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 20)
+                        
+                        
+//                        VStack(alignment: .leading){
+//                            HStack{
+//                                VStack(alignment: .leading){
+//                                    Text("Total Price: ")
+//                                        .font(.callout)
+//                                        .foregroundColor(.black)
+//                                    
+//                                    HStack{
+//                                        Text("KZT \(calculateTotalPrice())")
+//                                            .font(.title3.bold())
+//                                            .foregroundColor(.black)
+//                                        
+//                                        Image(systemName: "tengesign")
+//                                            .resizable()
+//                                            .fontWeight(.bold)
+//                                            .foregroundColor(.black)
+//                                            .frame(width: 13, height: 13)
+//                                    }
+//                                }
+//                                .padding(.horizontal, 10)
+//                                
+//                                Image(systemName: "chevron.right")
+//                                    .resizable()
+//                                    .frame(width: 10, height: 20)
+//                                    .foregroundColor(.black)
+//                            }
+//                        }
+//                        .frame(width: 150, height: 70)
+//                        .padding(.horizontal, 5)
+//                        .background(.thinMaterial)
+//                        .clipShape(RoundedRectangle(cornerRadius: 15))
                     }
+                 
+                    NavigationLink(destination: HomeView(globalVars: globalVars, str: .constant(true), nestr: .constant(true))){
+                        HStack(){
+                            Text("Payment")
+                                .font(.callout.bold())
+                                .foregroundColor(.white)
+                                .padding(.vertical, 15)
+                                .padding(.horizontal, 25)
+                        }
+                        .frame(width: UIScreen.main.bounds.width - 20)
+                        .background(.black)
+                        .clipShape(Capsule())
+                    }
+                    .padding(.top, 20)
+                    .padding(.horizontal, 20)
                 }
                 .frame(height: 130)
                 .offset(CGSize(width: 0, height: 300))
@@ -311,7 +346,7 @@ struct BasketView: View {
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
                     
-                        Text("Size: \(order.drink.drinkSize[order.drinkSizeIndex]) ml")
+                        Text("Size: \(order.drink.drink_size[order.drinkSizeIndex]) ml")
                             .font(.caption)
                             .foregroundColor(.secondary)
                             .lineLimit(1)

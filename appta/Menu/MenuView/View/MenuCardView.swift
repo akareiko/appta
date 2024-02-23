@@ -7,11 +7,26 @@
 
 import SwiftUI
 
-struct MenuCardView: View {
+@MainActor
+final class DrinksModelViewModel: ObservableObject {
     
+    let coffeeshop_id = "mqkKxYkBMX30XJaXgkWn"
+    let address_id = "srKh0QPkKzKK0VSr94rA"
+    
+    @Published private(set) var drinks: [DrinksModel] = []
+    
+    func getAllDrinks(coffeeshop_id: String, addressId: String, menuId: String) async throws {
+        self.drinks = try await MenuManager.shared.getAllDrinks(coffeeshop_id: coffeeshop_id, addressId: address_id, menuId: menuId)
+    }
+}
+
+
+struct MenuCardView: View {
     var tab: TabMenu
     @ObservedObject var coffee: SelectedCoffee
-    @ObservedObject var globalVar: GlobalModel
+    @ObservedObject var globalVars: GlobalVars
+    
+    @StateObject var viewModelMenu = DrinksModelViewModel()
     
     var optionArrayMenu: [Int : OptionType] = [
         0 : optionscroll[0].optionTypes.first!,
@@ -27,6 +42,8 @@ struct MenuCardView: View {
     @Binding var customizedDrink: [OrderModel]
     @Binding var cardToggles: [String : Bool]
     
+    
+    
     let columns: [GridItem] = [
             GridItem(.flexible(), spacing: 70),
             GridItem(.flexible(), spacing: 70)
@@ -38,7 +55,7 @@ struct MenuCardView: View {
                 .font(.title.bold())
             
             LazyVGrid(columns: columns, spacing: 26) {
-                ForEach(tab.drinkList){thing in
+                ForEach(viewModelMenu.drinks){thing in
                     Button {
                         updateSelectedCoffee(with: thing)
                         toggleDrinkCustomizerMenuCard.toggle()
@@ -48,12 +65,17 @@ struct MenuCardView: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .frame(width: 165, height: 170)
                                     .overlay(content: {
-                                        Image("\(thing.image)")
-                                            .resizable()
-                                            .frame(width: 200, height: 200)
-                                            .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                                            .padding([.top, .bottom], 5)
-                                            .offset(CGSize(width: 0, height: -15))
+                                        AsyncImage(url: URL(string: thing.image)) { image in
+                                            image
+                                                .resizable()
+                                                .frame(width: 200, height: 200)
+                                                .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                                                .padding([.top, .bottom], 5)
+                                                .offset(CGSize(width: 0, height: -15))
+                                        } placeholder: {
+                                            ProgressView()
+                                                .frame(width: 150, height: 150)
+                                        }
                                         
                                         if coffee.selectedCoffee == thing {
                                             ZStack{
@@ -61,7 +83,6 @@ struct MenuCardView: View {
                                                     .resizable()
                                                     .frame(width: 23, height: 23)
                                                     .foregroundColor(Color("starbucks-rewardgold"))
-                                                
                                                 
                                                 Image(systemName: "star.fill")
                                                     .resizable()
@@ -92,7 +113,7 @@ struct MenuCardView: View {
                                         .foregroundColor(.black)
                                         .lineLimit(1)
                                     
-                                    Text(thing == coffee.selectedCoffee ? "\(coffee.selectedSize.volume) ml" : "\(thing.drinkSize.first!) ml")
+                                    Text(thing == coffee.selectedCoffee ? "\(coffee.selectedSize.volume) ml" : "\(thing.drink_size.first!) ml")
                                         .font(.footnote)
                                         .foregroundColor(.secondary)
                                         .lineLimit(1)
@@ -155,7 +176,6 @@ struct MenuCardView: View {
                                 .onTapGesture {
                                     updateSelectedCoffee(with: thing)
                                 }
-                                
                             }
                         } else {
                             Button(action: {
@@ -173,7 +193,7 @@ struct MenuCardView: View {
                         }
                     })
                     .sheet(isPresented: $toggleDrinkCustomizerMenuCard){
-                        DrinkCustomizer(coffee: coffee, globalVar: globalVar, customizedDrink: $customizedDrink)
+                        DrinkCustomizer(coffee: coffee, globalVars: globalVars, customizedDrink: $customizedDrink)
                             .presentationBackground(.ultraThinMaterial)
                     }
                 }
@@ -184,20 +204,24 @@ struct MenuCardView: View {
         .modifier(OffsetModifier(tab: tab, currentTab: $currentTab))
         // setting ID for Scroll View Reader...
         .id(tab.id)
+        .task {
+            try? await viewModelMenu.getAllDrinks(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn", addressId: "srKh0QPkKzKK0VSr94rA", menuId: tab.id)
+            let _ = print(tab.id)
+        }
     }
 }
 
 extension MenuCardView{
-    func updateSelectedCoffee(with thing: DrinkModel) {
+    func updateSelectedCoffee(with thing: DrinksModel) {
             coffee.selectedCoffee = thing
         }
     
-    func calculateQuantity(for cardCoffee: DrinkModel) -> Int {
+    func calculateQuantity(for cardCoffee: DrinksModel) -> Int {
         var totalQuantityPopup = 0
         if let existingIndex = customizedDrink.firstIndex(where: { drink in
             // Compare selectedCoffee, selectedSize, and optionArray
             return drink.drink.title == cardCoffee.title &&
-            drink.drink.drinkSize[drink.drinkSizeIndex] == cardCoffee.drinkSize[coffee.selectedSize.index] &&
+            drink.drink.drink_size[drink.drinkSizeIndex] == cardCoffee.drink_size[coffee.selectedSize.index] &&
                 NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArrayMenu)
         }) {
             if customizedDrink[existingIndex].quantity >= 0{
@@ -207,21 +231,21 @@ extension MenuCardView{
         return totalQuantityPopup
     }
     
-    func subOrUpdateDrinkInOrder(for cardCoffee: DrinkModel) {
+    func subOrUpdateDrinkInOrder(for cardCoffee: DrinksModel) {
         if let existingIndex = customizedDrink.firstIndex(where: { drink in
             // Compare selectedCoffee, selectedSize, and optionArray
             return drink.drink.title == cardCoffee.title &&
-            drink.drink.drinkSize[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
+            drink.drink.drink_size[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
                 NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArrayMenu)
         }) {
             customizedDrink[existingIndex].quantity -= 1
         }
     }
 
-    func addOrUpdateDrinkInOrder(for cardCoffee: DrinkModel){
+    func addOrUpdateDrinkInOrder(for cardCoffee: DrinksModel){
         if let existingIndex = customizedDrink.firstIndex(where: { drink in
             return drink.drink.title == cardCoffee.title &&
-            drink.drink.drinkSize[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
+            drink.drink.drink_size[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
                 NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArrayMenu)
         }) {
             customizedDrink[existingIndex].quantity += 1

@@ -3,7 +3,7 @@ import Foundation
 
 struct HomeView: View {
     @State private var selectedTab: Tab = .house
-    @ObservedObject var globalVar: GlobalModel
+    @ObservedObject var globalVars: GlobalVars
     @Binding var str: Bool
     @Binding var nestr: Bool
     
@@ -133,7 +133,7 @@ struct HomeView: View {
                                     .fill(.ultraThinMaterial)
                                     .frame(width: 370, height: 200)
                                 
-                                MenuRoundedPanel05(globalVar: globalVar)
+                                MenuRoundedPanel05(globalVars: globalVars)
                                     .padding(.bottom, 30)
                                     .offset(y: -200)
                                     
@@ -197,5 +197,5 @@ struct ParallaxImageView<Content: View>: View {
 }
 
 #Preview {
-    HomeView(globalVar: GlobalModel(), str: .constant(false), nestr: .constant(false))
+    HomeView(globalVars: GlobalVars(), str: .constant(false), nestr: .constant(false))
 }
