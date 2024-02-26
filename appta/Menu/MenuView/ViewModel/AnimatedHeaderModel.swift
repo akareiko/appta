@@ -11,5 +11,5 @@ class HomeViewModel: ObservableObject {
     @Published var offset: CGFloat = 0
     
     // Selected Tab...
-    @Published var selectedTab = drinksmenu.first!.tab
+    @Published var selectedTab = "Cold Coffee"
 }

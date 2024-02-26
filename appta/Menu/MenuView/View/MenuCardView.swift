@@ -206,7 +206,6 @@ struct MenuCardView: View {
         .id(tab.id)
         .task {
             try? await viewModelMenu.getAllDrinks(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn", addressId: "srKh0QPkKzKK0VSr94rA", menuId: tab.id)
-            let _ = print(tab.id)
         }
     }
 }

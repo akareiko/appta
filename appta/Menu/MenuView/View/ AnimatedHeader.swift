@@ -21,10 +21,9 @@ final class TabMenuModel: ObservableObject {
 }
 
 struct AnimatedHeader: View {
-    @StateObject var viewModel = TabMenuModel()
-    
+    @StateObject var viewModelTab = TabMenuModel()
     @StateObject var homeData = HomeViewModel()
-    @StateObject var coffee = SelectedCoffee(selectedCoffee: drinksmenu[0].drinklist.first!, selectedSize: sizes.first!)
+    @StateObject var coffee = SelectedCoffee(selectedCoffee: DrinksModel(id: "", image: "Caramel-Brule-Latte", title: "Caramel Brule Latte", description: "The Caramel-Brulé Latte is a luxurious coffee drink blending rich espresso with creamy milk, topped with a layer of frothy foam and a drizzle of caramel sauce, torched to create a caramelized topping reminiscent of crème brûlée. It's a perfect blend of bitter espresso and sweet, crunchy caramel, ideal for those who enjoy a sophisticated, dessert-like coffee experience.", prices: [1200, 1400, 1600], drink_size: [300, 400, 500]), selectedSize: sizes.first!)
     @ObservedObject var globalVars: GlobalVars
 
     @State var customizedDrink: [OrderModel] = []
@@ -78,15 +77,14 @@ struct AnimatedHeader: View {
                             }
                             .frame(height: 300)
                             
-                            Section(header: HeaderView(currentTab: $currentTab, onTapCurrentTab: $onTapCurrentTab)){
+                            Section(header: HeaderView(viewModelTab: viewModelTab, currentTab: $currentTab, onTapCurrentTab: $onTapCurrentTab)){
                                 
-                                ForEach(viewModel.tabs){tab in
+                            ForEach(viewModelTab.tabs, id: \.self){tab in
                                     VStack(alignment: .leading, spacing: 15){
-                                        let _ = print(tab)
                                         MenuCardView(
                                             tab: tab,
                                             coffee: coffee,
-                                            globalVars: globalVars,
+                                            globalVars: globalVars,  
                                             currentTab: $currentTab,
                                             customizedDrink: $customizedDrink,
                                             cardToggles: $cardToggles
@@ -124,15 +122,15 @@ struct AnimatedHeader: View {
         }
         .navigationBarBackButtonHidden()
         .onAppear {
-            currentTab = drinksmenu.first?.id ?? ""
+            currentTab = "Oki0sTebfFRDiQAoTuO5"
             globalVars.nestr.toggle()
-            let _ = print(viewModel.tabs)
+            let _ = print(viewModelTab)
         }
         .onDisappear{
             globalVars.nestr.toggle()
         }
         .task{
-            try? await viewModel.getAllTabs()
+            try? await viewModelTab.getAllTabs()
         }
     }
 }

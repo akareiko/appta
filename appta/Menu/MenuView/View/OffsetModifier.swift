@@ -7,9 +7,22 @@
 
 import SwiftUI
 
+@MainActor
+final class OffsetModifierModel: ObservableObject {
+    let coffeeshop_id = "mqkKxYkBMX30XJaXgkWn"
+    let address_id = "srKh0QPkKzKK0VSr94rA"
+
+    @Published private(set) var tabs: [TabMenu] = []
+    
+    func getAllTabs() async throws {
+        self.tabs = try await MenuManager.shared.getAllTabs(coffeeshop_id: coffeeshop_id, addressId: address_id)
+    }
+}
+
 struct OffsetModifier: ViewModifier {
     
     var tab: TabMenu
+    @StateObject var viewModelOffset = OffsetModifierModel()
     @Binding var currentTab: String
     @State var index: Int = 0
     
@@ -26,17 +39,20 @@ struct OffsetModifier: ViewModifier {
                 let offset = proxy.minY
                             
                 withAnimation(.easeInOut){
-                    if let currentIndex = drinksmenu.firstIndex(where: { $0.id == currentTab }) {
-                    if offset < 120 && -offset < (proxy.midX / 2) && currentTab != tab.id && currentIndex < drinksmenu.count - 1 {
+                    if let currentIndex = viewModelOffset.tabs.firstIndex(where: { $0.id == currentTab }) {
+                    if offset < 120 && -offset < (proxy.midX / 2) && currentTab != tab.id && currentIndex < viewModelOffset.tabs.count - 1 {
                     // Scrolling down
-                        currentTab = drinksmenu[currentIndex + 1].id
+                        currentTab = viewModelOffset.tabs[currentIndex + 1].id
                     } else if offset > 120 && offset > -(proxy.midX / 2) && currentTab == tab.id && currentIndex > 0 {
                 
-                    currentTab = drinksmenu[currentIndex - 1].id
+                    currentTab = viewModelOffset.tabs[currentIndex - 1].id
+                        }
                     }
                 }
             }
-        }
+            .task{
+                try? await viewModelOffset.getAllTabs()
+            }
     }
 }
 

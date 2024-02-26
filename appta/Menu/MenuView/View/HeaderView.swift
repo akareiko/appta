@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HeaderView: View {
+    @ObservedObject var viewModelTab: TabMenuModel
+    
     @EnvironmentObject var homeData: HomeViewModel
     
     @Binding var currentTab: String
@@ -81,7 +83,7 @@ struct HeaderView: View {
                 ScrollViewReader{ reader in
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack(spacing: 30){
-                            ForEach(drinksmenu){tab in
+                            ForEach(viewModelTab.tabs){tab in
                                 VStack(){
                                     Text(tab.tab)
                                         .foregroundColor(currentTab
