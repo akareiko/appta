@@ -11,13 +11,13 @@ struct CustomPopUpSheet: View {
     @ObservedObject var coffee: SelectedCoffee
     @ObservedObject var globalVars: GlobalVars
     
-    var optionArrayMenu: [Int : OptionType] = [
-        0 : optionscroll[0].optionTypes.first!,
-        1 : optionscroll[1].optionTypes.first!,
-        2 : optionscroll[2].optionTypes.first!,
-        3 : optionscroll[3].optionTypes.first!,
-        4 : optionscroll[4].optionTypes.first!,
-    ]
+//    var optionArrayMenu: [Int : OptionType] = [
+//        0 : optionscroll[0].optiontypes.first!,
+//        1 : optionscroll[1].optiontypes.first!,
+//        2 : optionscroll[2].optiontypes.first!,
+//        3 : optionscroll[3].optiontypes.first!,
+//        4 : optionscroll[4].optiontypes.first!,
+//    ]
     
     @State private var selectedSizeIndex: Int = 0
     @State private var toggleBasketViewCustomPopUp: Bool = false
@@ -49,10 +49,10 @@ struct CustomPopUpSheet: View {
                                     
                                     Spacer()
                                     
-                                    Text("KZT \(calculatePricePoppUpSheet())")
-                                        .font(.headline.bold())
-                                        .padding(.horizontal, 20)
-                                        .lineLimit(1)
+//                                    Text("KZT \(calculatePricePoppUpSheet())")
+//                                        .font(.headline.bold())
+//                                        .padding(.horizontal, 20)
+//                                        .lineLimit(1)
                                 }
                             })
                     }
@@ -116,21 +116,21 @@ struct CustomPopUpSheet: View {
 }
 
 
-extension CustomPopUpSheet {
-    func calculatePricePoppUpSheet() -> Int {
-        var totalPricePopUp = 0
-        if let existingIndex = customizedDrink.firstIndex(where: { drink in
-            // Compare selectedCoffee, selectedSize, and optionArray
-            return drink.drink.title == coffee.selectedCoffee.title &&
-            drink.drink.drink_size[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
-                NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArrayMenu)
-        }) {
-            if customizedDrink[existingIndex].quantity > 0 {
-                totalPricePopUp = customizedDrink[existingIndex].quantity * coffee.selectedCoffee.prices[coffee.selectedSize.index]
-            }
-        }
-        
-        return totalPricePopUp
-    }
-}
+//extension CustomPopUpSheet {
+//    func calculatePricePoppUpSheet() -> Int {
+//        var totalPricePopUp = 0
+//        if let existingIndex = customizedDrink.firstIndex(where: { drink in
+//            // Compare selectedCoffee, selectedSize, and optionArray
+//            return drink.drink.title == coffee.selectedCoffee.title &&
+//            drink.drink.drink_size[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
+//                NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArrayMenu)
+//        }) {
+//            if customizedDrink[existingIndex].quantity > 0 {
+//                totalPricePopUp = customizedDrink[existingIndex].quantity * coffee.selectedCoffee.prices[coffee.selectedSize.index]
+//            }
+//        }
+//        
+//        return totalPricePopUp
+//    }
+//}
 

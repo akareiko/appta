@@ -52,8 +52,9 @@ struct MenuRoundedPanel04: View {
                             })
                     }
                 }
+                .padding(.leading, 20)
             }
-            .padding(.leading, 20)
+            .frame(maxWidth: .infinity)
         }
     }
 }

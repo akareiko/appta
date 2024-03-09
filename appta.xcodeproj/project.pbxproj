@@ -53,6 +53,8 @@
 		234C16DA2B72300F0023311C /* LoopingScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16C52B72300F0023311C /* LoopingScrollView.swift */; };
 		234C16DB2B72300F0023311C /* InfiniteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234C16C62B72300F0023311C /* InfiniteView.swift */; };
 		236D886F2B85D5B6005BD344 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236D886E2B85D5B6005BD344 /* MenuManager.swift */; };
+		2371B0B12B8D1C6600F84921 /* CoffeeShopAddressesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2371B0B02B8D1C6600F84921 /* CoffeeShopAddressesManager.swift */; };
+		2371B0BA2B8E4D3500F84921 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2371B0B92B8E4D3500F84921 /* ShimmerView.swift */; };
 		237B5C332ACB369800F35311 /* TrainingMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B5C322ACB369800F35311 /* TrainingMap.swift */; };
 		237B5C382ACB389D00F35311 /* SearchView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B5C372ACB389D00F35311 /* SearchView1.swift */; };
 		237B5C3A2ACB3A1600F35311 /* LocationManager1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237B5C392ACB3A1600F35311 /* LocationManager1.swift */; };
@@ -75,6 +77,8 @@
 		23E407662AEA6C60008ABD48 /* MenuReward04.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E407652AEA6C60008ABD48 /* MenuReward04.swift */; };
 		23E5100E2AE91C1A006C03A4 /* MenuElementModel02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5100D2AE91C1A006C03A4 /* MenuElementModel02.swift */; };
 		23E510102AE91C29006C03A4 /* MainMenuRoundedPanel02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E5100F2AE91C29006C03A4 /* MainMenuRoundedPanel02.swift */; };
+		23E530812B8F328C00DCAA32 /* FavouritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E530802B8F328C00DCAA32 /* FavouritesManager.swift */; };
+		23E85AB32B937A390076007A /* DrinkCustomizerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E85AB22B937A390076007A /* DrinkCustomizerManager.swift */; };
 		23E9A1532AE514AF00494951 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E9A1522AE514AF00494951 /* LockView.swift */; };
 		23E9A1552AE5181600494951 /* PINView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E9A1542AE5181600494951 /* PINView.swift */; };
 		23E9D6BB2AD02FA70044A47F /* SubscriptionCard1_Front.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E9D6BA2AD02FA70044A47F /* SubscriptionCard1_Front.swift */; };
@@ -238,6 +242,8 @@
 		234C16C52B72300F0023311C /* LoopingScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopingScrollView.swift; sourceTree = "<group>"; };
 		234C16C62B72300F0023311C /* InfiniteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteView.swift; sourceTree = "<group>"; };
 		236D886E2B85D5B6005BD344 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
+		2371B0B02B8D1C6600F84921 /* CoffeeShopAddressesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeShopAddressesManager.swift; sourceTree = "<group>"; };
+		2371B0B92B8E4D3500F84921 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		237B5C322ACB369800F35311 /* TrainingMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingMap.swift; sourceTree = "<group>"; };
 		237B5C372ACB389D00F35311 /* SearchView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView1.swift; sourceTree = "<group>"; };
 		237B5C392ACB3A1600F35311 /* LocationManager1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager1.swift; sourceTree = "<group>"; };
@@ -260,6 +266,8 @@
 		23E407652AEA6C60008ABD48 /* MenuReward04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuReward04.swift; sourceTree = "<group>"; };
 		23E5100D2AE91C1A006C03A4 /* MenuElementModel02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuElementModel02.swift; sourceTree = "<group>"; };
 		23E5100F2AE91C29006C03A4 /* MainMenuRoundedPanel02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuRoundedPanel02.swift; sourceTree = "<group>"; };
+		23E530802B8F328C00DCAA32 /* FavouritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesManager.swift; sourceTree = "<group>"; };
+		23E85AB22B937A390076007A /* DrinkCustomizerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCustomizerManager.swift; sourceTree = "<group>"; };
 		23E9A1522AE514AF00494951 /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		23E9A1542AE5181600494951 /* PINView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINView.swift; sourceTree = "<group>"; };
 		23E9D6BA2AD02FA70044A47F /* SubscriptionCard1_Front.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCard1_Front.swift; sourceTree = "<group>"; };
@@ -695,6 +703,7 @@
 		234C16972B72300F0023311C /* FeatureTools */ = {
 			isa = PBXGroup;
 			children = (
+				2371B0B82B8E4D1E00F84921 /* Shimmer */,
 				234C16982B72300F0023311C /* SearchBar */,
 				234C169A2B72300F0023311C /* DropDown */,
 				234C169E2B72300F0023311C /* TransparentBlur */,
@@ -937,6 +946,22 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		2371B0AF2B8D1C5700F84921 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2371B0B02B8D1C6600F84921 /* CoffeeShopAddressesManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		2371B0B82B8E4D1E00F84921 /* Shimmer */ = {
+			isa = PBXGroup;
+			children = (
+				2371B0B92B8E4D3500F84921 /* ShimmerView.swift */,
+			);
+			path = Shimmer;
+			sourceTree = "<group>";
+		};
 		237B5C342ACB386B00F35311 /* Map01 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1149,6 +1174,22 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		23E5307F2B8F327D00DCAA32 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				23E530802B8F328C00DCAA32 /* FavouritesManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		23E85AB12B937A290076007A /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				23E85AB22B937A390076007A /* DrinkCustomizerManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		23E9A1502AE513C500494951 /* LockSwiftUIView */ = {
@@ -1486,6 +1527,7 @@
 		BEB71DFC2B6FD6E000CCC2BE /* Favourites */ = {
 			isa = PBXGroup;
 			children = (
+				23E5307F2B8F327D00DCAA32 /* Manager */,
 				BEB71DFD2B6FD6E000CCC2BE /* View */,
 			);
 			path = Favourites;
@@ -1502,6 +1544,7 @@
 		BEB71E002B6FD6FA00CCC2BE /* DrinkCustomizer */ = {
 			isa = PBXGroup;
 			children = (
+				23E85AB12B937A290076007A /* Manager */,
 				BEB71E012B6FD6FA00CCC2BE /* Model */,
 				BEB71E032B6FD6FA00CCC2BE /* View */,
 			);
@@ -1612,6 +1655,7 @@
 		BEB71E352B6FD73000CCC2BE /* CoffeeShopAddresses */ = {
 			isa = PBXGroup;
 			children = (
+				2371B0AF2B8D1C5700F84921 /* Manager */,
 				BEB71E362B6FD73000CCC2BE /* Model */,
 				BEB71E382B6FD73000CCC2BE /* View */,
 				BEB71E3A2B6FD73000CCC2BE /* Helpers */,
@@ -1883,6 +1927,7 @@
 				BEB2A99D2B7B710E0094A8EB /* ProductCellView.swift in Sources */,
 				BEB71E252B6FD71100CCC2BE /* OffsetModifier.swift in Sources */,
 				BEB71E292B6FD71100CCC2BE /* HeaderView.swift in Sources */,
+				2371B0B12B8D1C6600F84921 /* CoffeeShopAddressesManager.swift in Sources */,
 				BE16E7E02B5E2C2700DB43D3 /* AnotherCarouselView.swift in Sources */,
 				23FE82DF2B1A495000500896 /* CoffeeScrollUpdated.swift in Sources */,
 				234C16CF2B72300F0023311C /* OffsetKey.swift in Sources */,
@@ -1899,6 +1944,7 @@
 				BEFB515B2B62641400E3A11F /* SwipeButtonView.swift in Sources */,
 				234C16942B722FC80023311C /* CoffeeShopListModel.swift in Sources */,
 				234C16D82B72300F0023311C /* CustomPagingSlider.swift in Sources */,
+				23E85AB32B937A390076007A /* DrinkCustomizerManager.swift in Sources */,
 				23E5100E2AE91C1A006C03A4 /* MenuElementModel02.swift in Sources */,
 				2313FCF32B09E51500AE125A /* Category.swift in Sources */,
 				BEB71E332B6FD72100CCC2BE /* BasketModel.swift in Sources */,
@@ -1972,6 +2018,7 @@
 				BE392A4C2B76C36300946240 /* AuthenticationView.swift in Sources */,
 				BEB71E242B6FD71100CCC2BE /* TabMenu.swift in Sources */,
 				237B5C332ACB369800F35311 /* TrainingMap.swift in Sources */,
+				23E530812B8F328C00DCAA32 /* FavouritesManager.swift in Sources */,
 				23A4FE3C2AC46883004D20CD /* PageIntro.swift in Sources */,
 				231BFE432ACA92C200B60737 /* CFAddressList.swift in Sources */,
 				23E9D6CF2AD1A3C90044A47F /* CoffeeShopImageScroll.swift in Sources */,
@@ -2002,6 +2049,7 @@
 				BE16E7DE2B5D669D00DB43D3 /* PlansView.swift in Sources */,
 				BEB2A9952B7B595F0094A8EB /* ProductsView.swift in Sources */,
 				BEB71E232B6FD71100CCC2BE /* AnimatedHeaderModel.swift in Sources */,
+				2371B0BA2B8E4D3500F84921 /* ShimmerView.swift in Sources */,
 				BE17D1FA2A98A5C100FB5054 /* sample.swift in Sources */,
 				23E9A1552AE5181600494951 /* PINView.swift in Sources */,
 				23C89FE42B189A8300A6EF73 /* MenuRoundedPanelModel09.swift in Sources */,

@@ -69,9 +69,9 @@ struct AnimatedHeader: View {
                                                     .font(.system(size: 20, weight: .bold))
                                                     .frame(width: 30, height: 30)
                                                     .foregroundColor(.primary)
-                                                    .offset(CGSize(width: -170, height: -80))
                                             })
                                             .padding(.horizontal, 20)
+                                            .offset(CGSize(width: -170, height: -80))
                                     }
                                 )
                             }
@@ -84,7 +84,7 @@ struct AnimatedHeader: View {
                                         MenuCardView(
                                             tab: tab,
                                             coffee: coffee,
-                                            globalVars: globalVars,  
+                                            globalVars: globalVars,
                                             currentTab: $currentTab,
                                             customizedDrink: $customizedDrink,
                                             cardToggles: $cardToggles
@@ -124,7 +124,6 @@ struct AnimatedHeader: View {
         .onAppear {
             currentTab = "Oki0sTebfFRDiQAoTuO5"
             globalVars.nestr.toggle()
-            let _ = print(viewModelTab)
         }
         .onDisappear{
             globalVars.nestr.toggle()

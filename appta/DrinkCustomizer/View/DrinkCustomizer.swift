@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct DrinkCustomizer: View {
+//    @StateObject var viewModelOptionEnlarged = DrinkCustomizerOptionEnlargedModel()
+    
     @ObservedObject var coffee: SelectedCoffee
     @ObservedObject var globalVars: GlobalVars
     
-    @State private var isClicked: Bool = false
     @State private var isTextExpanded: Bool = false
     @State private var toggleBasketViewDrinkCustomizer: Bool = false
     @State private var toggleFavourites: Bool = false
@@ -19,13 +20,7 @@ struct DrinkCustomizer: View {
     @Binding var customizedDrink: [OrderModel]
     
     @State var totalPrice: Int = 0
-    @State var optionArray: [Int : OptionType] = [
-        0 : optionscroll[0].optionTypes.first!,
-        1 : optionscroll[1].optionTypes.first!,
-        2 : optionscroll[2].optionTypes.first!,
-        3 : optionscroll[3].optionTypes.first!,
-        4 : optionscroll[4].optionTypes.first!,
-    ]
+    @State var optionArray: [Option : OptionType] = [:]
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
@@ -238,6 +233,9 @@ struct DrinkCustomizer: View {
         }
         .edgesIgnoringSafeArea(.all)
         .navigationBarBackButtonHidden(true)
+//        .task{
+//            try? await viewModelOptionEnlarged.getAllOptions(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn")
+//        }
 
     }
 }

@@ -7,8 +7,25 @@
 
 import SwiftUI
 
+@MainActor
+final class CoffeeShopAddressesViewModel: ObservableObject{
+    let coffeeshop_id = "mqkKxYkBMX30XJaXgkWn"
+    
+    @Published private(set) var coffeeshop: CoffeeShopDataModel = CoffeeShopDataModel(id: "", description: "", image_url: "", name: "", pattern: "", color: "")
+    @Published private(set) var addresses: [AddressModel] = []
+    
+    func getCoffeeShopData() async throws {
+        self.coffeeshop = try await CoffeeShopAddressesManager.shared.getCoffeeShopData(coffeeshopId: coffeeshop_id)
+    }
+    
+    func getAllAddresses() async throws {
+        self.addresses = try await CoffeeShopAddressesManager.shared.getAllAddresses(coffeeshop_id: coffeeshop_id)
+    }
+}
+
 struct CoffeeShopAddressView: View {
     @ObservedObject var globalVars: GlobalVars
+    @StateObject var viewModelAddresses = CoffeeShopAddressesViewModel()
     
     @State private var selectedTab: ScrollableAddressTab?
     @Environment(\.colorScheme) private var scheme
@@ -101,6 +118,12 @@ struct CoffeeShopAddressView: View {
             .background(.gray.opacity(0.1))
             .navigationBarBackButtonHidden(true)
             .navigationBarTitle("", displayMode: .inline)
+            .task{
+                try? await viewModelAddresses.getAllAddresses()
+                try? await viewModelAddresses.getCoffeeShopData()
+                let _ = print(viewModelAddresses.addresses)
+                let _ = print(viewModelAddresses.coffeeshop)
+            }
         }
     }
     
@@ -148,25 +171,31 @@ struct CoffeeShopAddressView: View {
     @ViewBuilder
     func SampleView() -> some View {
         ScrollView(.vertical) {
-            ForEach(addressmodel) {address in
+            ForEach(viewModelAddresses.addresses) {address in
                 VStack{
                     Button {
                         
                     } label: {
                         NavigationLink(destination: AnimatedHeader(globalVars: globalVars).ignoresSafeArea()){
                             HStack(spacing: 12){
-                                Image(address.logo)
-                                    .resizable()
-                                    .clipShape(Circle())
-                                    .frame(width: 50, height: 50)
+                                AsyncImage(url: URL(string: viewModelAddresses.coffeeshop.image_url)) { image in
+                                    image
+                                        .resizable()
+                                        .clipShape(Circle())
+                                        .frame(width: 50, height: 50)
+                                } placeholder: {
+                                    ShimmerView()
+                                        .clipShape(Circle())
+                                        .frame(width: 50, height: 50)
+                                }
                                 
                                 VStack(alignment: .leading, spacing: 5){
-                                    Text(address.title)
+                                    Text(viewModelAddresses.coffeeshop.name)
                                         .font(.callout.bold())
                                         .foregroundColor(.black)
                                         .multilineTextAlignment(.leading)
                                     
-                                    Text(address.address)
+                                    Text(address.address_name)
                                         .font(.footnote)
                                         .foregroundColor(.secondary)
                                         .multilineTextAlignment(.leading)

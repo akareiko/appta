@@ -28,6 +28,7 @@ struct LoopingScrollView<Content: View, InfiniteViewModel: RandomAccessCollectio
                     ForEach(items){ item in
                         content(item)
                             .frame(width: width, alignment: .center)
+                            
                     }
                     
                     ForEach(0..<repeatingCount, id: \.self){index in
@@ -37,6 +38,7 @@ struct LoopingScrollView<Content: View, InfiniteViewModel: RandomAccessCollectio
                             .frame(width: width, alignment: .center)
                     }
                 }
+                .padding(.horizontal, 10)
                 .background {
                     ScrollViewHelper(
                         width: width,
@@ -47,8 +49,7 @@ struct LoopingScrollView<Content: View, InfiniteViewModel: RandomAccessCollectio
                     )
                 }
             }
-            
-            
+            .frame(maxWidth: .infinity)
         }
     }
 }

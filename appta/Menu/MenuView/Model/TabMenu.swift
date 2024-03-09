@@ -17,24 +17,7 @@ class SelectedCoffee: ObservableObject{
         }
 }
 
-struct DrinkModel: Identifiable, Hashable {
-    var id: String = UUID().uuidString
-    var image: String
-    var title: String
-    var description: String
-    var prices: [Int]
-    var drinkSize: [Int]
-}
 
-struct OrderModel: Identifiable, Hashable{
-    var id: String = UUID().uuidString
-    var drink: DrinksModel
-    var customizedPrice: Int
-    var drinkSizeIndex: Int
-    var quantity: Int
-    var address: String
-    var optionArray: [Int : OptionType]
-}
 
 //var drinksmenu: [TabMenu] = [
 //    .init(tab: "Home Style",

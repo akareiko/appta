@@ -10,6 +10,7 @@ import SwiftUI
 struct BasketView: View {
     @ObservedObject var coffee: SelectedCoffee
     @ObservedObject var globalVars: GlobalVars
+    @ObservedObject var viewModel = DrinkCustomizerOptionScrollModel()
     
     @State private var isToggleOn: Bool = false
     @State private var showDetail: [String : Bool] = [:]
@@ -143,11 +144,11 @@ struct BasketView: View {
                                                             .font(.footnote)
                                                             .foregroundColor(.secondary)
                                                         
-                                                        Text("Milk: \(thing.optionArray[0]?.name ?? "")")
+                                                        Text("Milk: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
                                                             .font(.footnote)
                                                             .foregroundColor(.secondary)
                                                         
-                                                        Text("Syrup: \(thing.optionArray[1]?.name ?? "")")
+                                                        Text("Syrup: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
                                                             .font(.footnote)
                                                             .foregroundColor(.secondary)
                                                     }
@@ -155,15 +156,15 @@ struct BasketView: View {
                                                     Spacer()
                                                     
                                                     VStack(alignment: .leading){
-                                                        Text("Temperature: \(thing.optionArray[2]?.name ?? "")")
+                                                        Text("Temperature: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
                                                             .font(.footnote)
                                                             .foregroundColor(.secondary)
                                                         
-                                                        Text("Blend: \(thing.optionArray[3]?.name ?? "")")
+                                                        Text("Blend: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
                                                             .font(.footnote)
                                                             .foregroundColor(.secondary)
                                                         
-                                                        Text("Strength: \(thing.optionArray[4]?.name ?? "")")
+                                                        Text("Strength: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
                                                             .font(.footnote)
                                                             .foregroundColor(.secondary)
                                                     }

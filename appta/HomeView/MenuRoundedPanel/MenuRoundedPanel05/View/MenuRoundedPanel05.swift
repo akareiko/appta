@@ -59,62 +59,21 @@ struct MenuRoundedPanel05: View {
                     GeometryReader {
                         let size = $0.size
                         
-                        LoopingScrollView(coffeeShopCardOffset: .constant(0), width: 280, spacing: 30, items: MenuRPmodel05) { thing in
+                        LoopingScrollView(coffeeShopCardOffset: .constant(0), width: 280, spacing: 20, items: MenuRPmodel05) { thing in
                             NavigationLink(destination: CoffeeShopAddressView(globalVars: globalVars).navigationBarBackButtonHidden(true)
                             ) {
-                                
-//                                Image(thing.image)
-//                                    .resizable()
-//                                    .scaledToFill()
-//                                    .frame(width: 280, height: 120)
-//                                    .foregroundColor(.white)
-//                                    .shadow(radius: 3)
-//                                    .clipShape(BottomClipper(bottom: 95))
-//                                    .clipShape(RoundedRectangle(cornerRadius: 15))
-//                                    .overlay(content: {
-//                                        ZStack{
-//                                            UnevenRoundedRectangle(cornerRadii: .init( topLeading: 0, bottomLeading: 15, bottomTrailing: 15, topTrailing: 0), style: .continuous)
-//                                                .fill(.ultraThinMaterial)
-//                                                .frame(width: 280, height: 60)
-//                                                .foregroundStyle(.white)
-//                                                .offset(y: 40)
-//                                            Text(thing.title)
-//                                                .frame(maxWidth: .infinity, alignment: .leading)
-//                                                .padding(.leading, 20)
-//                                                .font(.title2.bold())
-//                                                .offset(CGSize(width: 0, height: 35))
-//                                                .foregroundColor(.primary)
-//                                        }
-//                                    })
-                                
-//                                Image(thing.image)
-//                                    .resizable()
-//                                    .scaledToFill()
-//                                    .frame(width: 280, height: 120)
-//                                    .foregroundColor(.white)
-//                                    .shadow(radius: 3)
-//                                    .padding([.top, .bottom], 5)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 15))
-//                                    .overlay(content: {
-//                                        ZStack{
-//                                            Text(thing.title)
-//                                                .frame(maxWidth: .infinity, alignment: .leading)
-//                                                .padding(.leading, 20)
-//                                                .font(.title2.bold())
-//                                                .offset(CGSize(width: 0, height: 45))
-//                                                .foregroundColor(.primary)
-//                                        }
-//                                    })
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
-                                        .fill(.white)
-                                        .frame(width: 280, height: 120)
+                                        .frame(width: 280, height: 140)
+                                        .background(.thinMaterial)
+                                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                                        .foregroundColor(.clear)
                                     
                                     Image(thing.image)
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: 260, height: 100)
-                                        .foregroundColor(.white)
+                                        .frame(width: 260, height: 120)
+                                        .background(.clear)
                                         .shadow(radius: 3)
                                         .clipShape(RoundedRectangle(cornerRadius: 15))
                                         .overlay(content: {
@@ -128,70 +87,12 @@ struct MenuRoundedPanel05: View {
                                             }
                                         })
                                 }
-                                
-                                
-//                                ZStack{
-//                                    RoundedRectangle(cornerRadius: 20)
-//                                        .fill(.ultraThinMaterial)
-//                                        .frame(width: 280, height: 120)
-//                                    
-//                                    RoundedRectangle(cornerRadius: 15)
-//                                        .fill(.ultraThinMaterial)
-//                                        .frame(width: 270, height: 110)
-//                                    
-//                                    Image(thing.image)
-//                                        .resizable()
-//                                        .scaledToFill()
-//                                        .frame(width: 90, height: 90)
-//                                        .clipShape(RoundedRectangle(cornerRadius: 10))
-//                                        .frame(maxWidth: .infinity, alignment: .leading)
-//                                        .offset(x: 15)
-//                                    
-//                                    Text(thing.title)
-//                                        .frame(maxWidth: .infinity, alignment: .leading)
-//                                        .offset(x: 120, y: -10)
-//                                        .font(.title3.bold())
-//                                        .foregroundColor(.white)
-//                                    
-//                                    Text("Talan Towers")
-//                                        .frame(maxWidth: .infinity, alignment: .leading)
-//                                        .offset(x: 120, y: 10)
-//                                        .font(.subheadline)
-//                                        .foregroundColor(.white)
-//                                    
-//                                    Image(systemName: "location.fill")
-//                                        .offset(x: 115, y: -35)
-//                                        .foregroundColor(.white)
-//                                }
-                                
-                                
-//                                Image(thing.image)
-//                                    .resizable()
-//                                    .scaledToFill()
-//                                    .frame(width: 280, height: 120)
-//                                    .foregroundColor(.white)
-//                                    .shadow(radius: 3)
-//                                    .padding([.top, .bottom], 5)
-//                                    .clipShape(RoundedRectangle(cornerRadius: 15))
-//                                    .overlay(content: {
-//                                        ZStack{
-//                                            Text(thing.title)
-//                                                .frame(maxWidth: .infinity, alignment: .leading)
-//                                                .padding(.leading, 20)
-//                                                .font(.title2.bold())
-//                                                .offset(CGSize(width: 0, height: 45))
-//                                                .foregroundColor(.primary)
-//                                        }
-//                                    })
                             }
                         }
-                        .padding(.leading, 10)
-                        //.contentMargins(.horizontal, 15, for: .scrollContent)
                     }
-                    .frame(height: 140)
+                    .frame(height: 150)
 
                 }
-//                .padding(.vertical, 15)
             }
             .scrollIndicators(.hidden)
         }

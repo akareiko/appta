@@ -48,6 +48,7 @@ struct HeaderView: View {
                     })
                 }
             }
+            .padding(.horizontal, 20)
             
             ZStack{
                 VStack(alignment: .leading, spacing: 10){
@@ -77,12 +78,13 @@ struct HeaderView: View {
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
+                .padding(.horizontal, 20)
                 
                 .opacity(homeData.offset > 250 ? 1 - Double(homeData.offset - 250) / 50 : 1)
                 // Custom ScrollView...
-                ScrollViewReader{ reader in
+                ScrollViewReader{reader in
                     ScrollView(.horizontal, showsIndicators: false){
-                        HStack(spacing: 30){
+                        HStack(spacing: 0){
                             ForEach(viewModelTab.tabs){tab in
                                 VStack(){
                                     Text(tab.tab)
@@ -108,16 +110,15 @@ struct HeaderView: View {
                                      }
                                 }
                             }
+                            .padding(.horizontal, 15)
                         }
                     }
-                    .padding(.horizontal, -30)
-                    .padding(.leading, 10)
+                    .frame(maxWidth: .infinity)
                     .onChange(of: currentTab) { oldValue, newValue in
                             withAnimation(.easeInOut) {
                         reader.scrollTo(newValue, anchor: .topLeading)
                         }
                     }
-                    .padding(.horizontal, 30)
                     // Visible Only when Scrolls Up
                     .opacity(homeData.offset > 250 ? Double(homeData.offset - 250) / 50 : 0)
                 }
@@ -128,7 +129,6 @@ struct HeaderView: View {
                 Divider()
             }
         }
-        .padding(.horizontal)
         .frame(height: 100)
         .padding(.top, homeData.offset > 250 ? 60 : Double(homeData.offset) / 15)
         .background(.white)

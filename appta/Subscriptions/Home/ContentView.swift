@@ -133,6 +133,7 @@ struct ContentView: View {
     @State private var selectedTab: Tab = .house
 
     @ObservedObject var globalVars = GlobalVars()
+    
     @State private var keks: Double = 1.0
     
     @Environment(\.isPresented) private var isPresented
@@ -143,7 +144,6 @@ struct ContentView: View {
     
     @StateObject private var viewModelCoffeeshop = CoffeeshopViewModel()
     @StateObject private var viewModelDrinks = DrinksModelViewModel()
-//    @StateObject private var viewModelTabs = TabMenuModel()
     
     var body: some View {
         ZStack {
@@ -187,10 +187,10 @@ struct ContentView: View {
         .task{
             try? await viewModelCoffeeshop.getCoffeeshops()
             try? await viewModelCoffeeshop.getPlans(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn")
-//            try? await viewModelTabs.getAllTabs()
         }
         .onAppear() {
             let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
+            let _ = try?  print(authUser)
             self.showSignInView = authUser == nil
         }
         .fullScreenCover(isPresented: $showSignInView, content: {

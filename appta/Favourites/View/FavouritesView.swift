@@ -7,8 +7,15 @@
 
 import SwiftUI
 
+//@MainActor
+//final class FavouritesViewModel: ObservableObject {
+//    
+//    @Published private(set) var 
+//}
+
 struct FavouritesView: View {
     @ObservedObject var globalVars: GlobalVars
+    @ObservedObject var viewModel = DrinkCustomizerOptionScrollModel()
     
     @State private var toggleBasketViewFavouriteView: Bool = false
     @State private var addedToBasket: Bool = false
@@ -86,11 +93,11 @@ struct FavouritesView: View {
                                                     .font(.footnote)
                                                     .foregroundColor(.black)
                                                 
-                                                Text("Milk: \(thing.optionArray[0]?.name ?? "")")
+                                                Text("Milk: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
                                                     .font(.footnote)
                                                     .foregroundColor(.black)
                                                 
-                                                Text("Syrup: \(thing.optionArray[1]?.name ?? "")")
+                                                Text("Syrup: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
                                                     .font(.footnote)
                                                     .foregroundColor(.black)
                                             }
@@ -98,15 +105,15 @@ struct FavouritesView: View {
                                             Spacer()
                                             
                                             VStack(alignment: .leading){
-                                                Text("Temperature: \(thing.optionArray[2]?.name ?? "")")
+                                                Text("Temperature: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
                                                     .font(.footnote)
                                                     .foregroundColor(.black)
                                                 
-                                                Text("Blend: \(thing.optionArray[3]?.name ?? "")")
+                                                Text("Blend: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
                                                     .font(.footnote)
                                                     .foregroundColor(.black)
                                                 
-                                                Text("Strength: \(thing.optionArray[4]?.name ?? "")")
+                                                Text("Strength: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
                                                     .font(.footnote)
                                                     .foregroundColor(.black)
                                             }
