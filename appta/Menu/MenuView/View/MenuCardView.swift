@@ -27,13 +27,6 @@ struct MenuCardView: View {
     
     @StateObject var viewModelMenu = DrinksModelViewModel()
     
-//    var optionArrayMenu: [Int : OptionType] = [
-//        0 : optionscroll[0].optiontypes.first!,
-//        1 : optionscroll[1].optiontypes.first!,
-//        2 : optionscroll[2].optiontypes.first!,
-//        3 : optionscroll[3].optiontypes.first!,
-//        4 : optionscroll[4].optiontypes.first!,
-//    ]
     
     @State private var toggleDrinkCustomizerMenuCard: Bool = false
     

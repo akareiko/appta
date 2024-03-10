@@ -66,7 +66,7 @@ struct OptionType: Codable, Identifiable, Hashable {
     var name: String
     var image: String
     var imagegold: String
-    var price: Int? = nil
+    var price: Int
 }
 
 struct Option: Codable, Identifiable, Hashable {
@@ -78,8 +78,8 @@ struct Option: Codable, Identifiable, Hashable {
 }
 
 var optiontype: [OptionType] = [
-    OptionType(name: "Regular Milk", image: "milk", imagegold: "milk-rewardgold", price: nil),
-    OptionType(name: "Low Fat Milk", image: "milk", imagegold: "milk-rewardgold", price: nil),
+    OptionType(name: "Regular Milk", image: "milk", imagegold: "milk-rewardgold", price: 0),
+    OptionType(name: "Low Fat Milk", image: "milk", imagegold: "milk-rewardgold", price: 0),
     OptionType(name: "Lactose Free Milk", image: "milk", imagegold: "milk-rewardgold", price: 200),
     OptionType(name: "Coconut Milk", image: "milk", imagegold: "milk-rewardgold", price: 300),
     OptionType(name: "Oat Milk", image: "milk", imagegold: "milk-rewardgold", price: 200),

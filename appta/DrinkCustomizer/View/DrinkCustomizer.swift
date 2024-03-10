@@ -7,20 +7,70 @@
 
 import SwiftUI
 
+@MainActor
+final class DrinkCustomizerModel: ObservableObject {
+    let coffeeshopId = "mqkKxYkBMX30XJaXgkWn"
+    
+    // Dummy variable declaration
+    @Published var selectedOption: Option = Option(id: "", index: 0, title: "", image: "", imagegold: "")
+    @Published var selectedEnlargedOption: OptionType = OptionType(id: "", name: "", image: "", imagegold: "", price: 0)
+    //
+    
+    @Published private(set) var options: [Option] = []
+    @Published private(set) var optionUltimates: [Option : [OptionType]] = [:]
+    @Published var optionArray: [Option : OptionType] = [:]
+    @Published var defaultArray: [Option : OptionType] = [:]
+    @Published var isClicked: [Option : Bool] = [:]
+    
+    
+    // Functions
+    func getAllOptions(coffeeshop_id: String) async throws {
+        self.options = try await DrinkCustomizerManager.shared.getAllOptions(coffeeshop_id: coffeeshopId)
+    }
+    
+    func getAllOptiontypes(coffeeshop_id: String, optionId: String) async throws -> [OptionType] {
+        return try await DrinkCustomizerManager.shared.getAllOptiontypes(coffeeshop_id: coffeeshopId, optionId: optionId)
+        }
+    
+    func zip(coffeeshop_id: String) async throws {
+        for option in options {
+            do {
+                let optionTypes = try await getAllOptiontypes(coffeeshop_id: coffeeshop_id, optionId: option.id)
+                self.optionUltimates[option] = optionTypes
+            } catch {
+                print("Error fetching option types: \(error)")
+            }
+        }
+    }
+    
+    func fillOptionArray() async throws {
+        for (key, value) in optionUltimates {
+            for optiontype in value {
+                if optiontype.price == 0{
+                    self.optionArray[key] = optiontype
+                    self.defaultArray[key] = optiontype
+                }
+            }
+        }
+    }
+
+}
+
 struct DrinkCustomizer: View {
-//    @StateObject var viewModelOptionEnlarged = DrinkCustomizerOptionEnlargedModel()
+    @StateObject var viewModel = DrinkCustomizerModel()
     
     @ObservedObject var coffee: SelectedCoffee
     @ObservedObject var globalVars: GlobalVars
     
+    // Dummy Variables
     @State private var isTextExpanded: Bool = false
     @State private var toggleBasketViewDrinkCustomizer: Bool = false
     @State private var toggleFavourites: Bool = false
+    //
     
     @Binding var customizedDrink: [OrderModel]
     
     @State var totalPrice: Int = 0
-    @State var optionArray: [Option : OptionType] = [:]
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
@@ -137,7 +187,7 @@ struct DrinkCustomizer: View {
                     DrinkCustomizerSize(coffee: coffee)
                         .padding(.horizontal, 20)
                     
-                    DrinkCustomizerOptionScroll(totalPrice: $totalPrice, optionArray: $optionArray)
+                    DrinkCustomizerOptionScroll(viewModel: viewModel, totalPrice: $totalPrice)
                         
                     DrinkCustomizerStatistics()
                         .padding(.bottom, 100)
@@ -233,9 +283,18 @@ struct DrinkCustomizer: View {
         }
         .edgesIgnoringSafeArea(.all)
         .navigationBarBackButtonHidden(true)
-//        .task{
-//            try? await viewModelOptionEnlarged.getAllOptions(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn")
-//        }
+        .task{
+            try? await viewModel.getAllOptions(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn")
+            try? await viewModel.zip(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn")
+            let _ = print("Starting here!")
+            try? await viewModel.fillOptionArray()
+            self.viewModel.selectedOption = viewModel.options.first!
+            if let firstOption = viewModel.optionUltimates[viewModel.selectedOption]?.first {
+                self.viewModel.selectedEnlargedOption = firstOption
+            } else {
+                
+            }
+        }
 
     }
 }
@@ -251,7 +310,7 @@ extension DrinkCustomizer{
                 // Compare selectedCoffee, selectedSize, and optionArray
                 return drink.drink.title == coffee.selectedCoffee.title &&
                 drink.drink.drink_size[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
-                    NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArray)
+                NSDictionary(dictionary: drink.optionArray).isEqual(to: viewModel.optionArray)
             }) {
                 // Update the quantity if the drink already exists
                 customizedDrink[existingIndex].quantity += 1
@@ -263,7 +322,7 @@ extension DrinkCustomizer{
                     drinkSizeIndex: coffee.selectedSize.index,
                     quantity: 1,
                     address: "",
-                    optionArray: optionArray
+                    optionArray: viewModel.optionArray
                 ))
             }
         }
@@ -274,7 +333,7 @@ extension DrinkCustomizer{
             // Compare selectedCoffee, selectedSize, and optionArray
             return drink.drink.title == coffee.selectedCoffee.title &&
             drink.drink.drink_size[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
-                NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArray)
+                NSDictionary(dictionary: drink.optionArray).isEqual(to: viewModel.optionArray)
         }) {
             if checkFavourites() {
                 globalVars.favouritesArray.remove(at: existingIndex)
@@ -286,7 +345,7 @@ extension DrinkCustomizer{
                 drinkSizeIndex: coffee.selectedSize.index,
                 quantity: 1,
                 address: "",
-                optionArray: optionArray))
+                optionArray: viewModel.optionArray))
         }
     }
     
@@ -296,7 +355,7 @@ extension DrinkCustomizer{
             // Compare selectedCoffee, selectedSize, and optionArray
             return drink.drink.title == coffee.selectedCoffee.title &&
             drink.drink.drink_size[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
-                NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArray)
+                NSDictionary(dictionary: drink.optionArray).isEqual(to: viewModel.optionArray)
         }) {
             if globalVars.favouritesArray[existingIndex].quantity == 1 {
                 return true

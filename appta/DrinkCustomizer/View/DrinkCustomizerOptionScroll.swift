@@ -7,42 +7,11 @@
 
 import SwiftUI
 
-@MainActor
-final class DrinkCustomizerOptionScrollModel: ObservableObject {
-    let coffeeshopId = "mqkKxYkBMX30XJaXgkWn"
-    
-    @Published var selectedOption: Option = Option(id: "", index: 0, title: "", image: "", imagegold: "")
-    @Published var selectedEnlargedOption: OptionType = OptionType(id: "", name: "", image: "", imagegold: "", price: 0)
-    
-    @Published private(set) var options: [Option] = []
-    @Published private(set) var optionUltimates: [Option : [OptionType]] = [:]
-    
-    func getAllOptions(coffeeshop_id: String) async throws {
-        self.options = try await DrinkCustomizerManager.shared.getAllOptions(coffeeshop_id: coffeeshopId)
-    }
-    
-    func getAllOptiontypes(coffeeshop_id: String, optionId: String) async throws -> [OptionType] {
-        return try await DrinkCustomizerManager.shared.getAllOptiontypes(coffeeshop_id: coffeeshopId, optionId: optionId)
-        }
-    
-    func zip(coffeeshop_id: String) async throws {
-        for option in options {
-            do {
-                let optionTypes = try await getAllOptiontypes(coffeeshop_id: coffeeshop_id, optionId: option.id)
-                self.optionUltimates[option] = optionTypes
-            } catch {
-                print("Error fetching option types: \(error)")
-            }
-        }
-    }
-}
-
 struct DrinkCustomizerOptionScroll: View {
-    @StateObject var viewModel = DrinkCustomizerOptionScrollModel()
-    @State private var showEnlargedView = false
+    @ObservedObject var viewModel: DrinkCustomizerModel
+    @State var showEnlargedView = false
     
     @Binding var totalPrice: Int
-    @Binding var optionArray: [Option : OptionType]
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -70,7 +39,7 @@ struct DrinkCustomizerOptionScroll: View {
                                 if viewModel.selectedOption.id == thing.id && showEnlargedView {
                                     showEnlargedView.toggle()
                                 } else {
-                                    viewModel.selectedOption = thing
+                                    self.viewModel.selectedOption = thing
                                     showEnlargedView = true
                                 }
                             }
@@ -81,6 +50,7 @@ struct DrinkCustomizerOptionScroll: View {
                                         .resizable()
                                 } placeholder: {
                                     ShimmerView()
+                                        .clipShape(Circle())
                                 }
                                     .scaleEffect(viewModel.selectedOption.id == thing.id && showEnlargedView ? 1.25 : 1.0)
                                     .frame(width: 35, height: 35)
@@ -120,22 +90,16 @@ struct DrinkCustomizerOptionScroll: View {
                     .offset(CGSize(width: 100, height: 10))
             }
             
-//            if showEnlargedView {
-//                DrinkCustomizerOptionEnlarged(totalPrice: $totalPrice, optionArray: $optionArray)
-//                    .offset(CGSize(width: 90, height: 0))
-//                    .padding(.top, 30)
-//                
-//            }
-        }
-        .task{
-            try? await viewModel.getAllOptions(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn")
-            try? await viewModel.zip(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn")
-            
+            if showEnlargedView {
+                DrinkCustomizerOptionEnlarged(viewModel: self.viewModel, totalPrice: $totalPrice)
+                    .offset(CGSize(width: 90, height: 0))
+                    .padding(.top, 30)
+            }
         }
     }
 }
 
 #Preview {
-    DrinkCustomizerOptionScroll(totalPrice: .constant(1200), optionArray: .constant([:]))
+    DrinkCustomizerOptionScroll(viewModel: DrinkCustomizerModel(), totalPrice: .constant(1200))
 }
 

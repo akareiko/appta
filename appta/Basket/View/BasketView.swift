@@ -10,7 +10,7 @@ import SwiftUI
 struct BasketView: View {
     @ObservedObject var coffee: SelectedCoffee
     @ObservedObject var globalVars: GlobalVars
-    @ObservedObject var viewModel = DrinkCustomizerOptionScrollModel()
+    @ObservedObject var viewModel = DrinkCustomizerModel()
     
     @State private var isToggleOn: Bool = false
     @State private var showDetail: [String : Bool] = [:]

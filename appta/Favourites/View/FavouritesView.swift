@@ -15,7 +15,8 @@ import SwiftUI
 
 struct FavouritesView: View {
     @ObservedObject var globalVars: GlobalVars
-    @ObservedObject var viewModel = DrinkCustomizerOptionScrollModel()
+    @ObservedObject var viewModel = DrinkCustomizerModel()
+    
     
     @State private var toggleBasketViewFavouriteView: Bool = false
     @State private var addedToBasket: Bool = false

@@ -31,15 +31,15 @@ final class FavouritesManager {
         chosenCoffeeshopDocument(userId: userId, addressId: addressId).collection("favourites")
     }
     
-    func getAllTabs(userId: String, addressId: String) async throws -> [OrderModel] {
-        let snapshot = try await favouritesCollection(userId: userId, addressId: addressId).getDocuments()
-        
-        let favourites = try snapshot.documents.map ({ document in
-            try document.data(as: OrderModel.self)
-        })
-        
-        return favourites
-    }
+//    func getAllTabs(userId: String, addressId: String) async throws -> [OrderModel] {
+//        let snapshot = try await favouritesCollection(userId: userId, addressId: addressId).getDocuments()
+//        
+//        let favourites = try snapshot.documents.map ({ document in
+//            try document.data(as: OrderModel.self)
+//        })
+//        
+//        return favourites
+//    }
 }
 
 struct OrderModel: Codable, Identifiable, Hashable{

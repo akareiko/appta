@@ -121,8 +121,6 @@ struct CoffeeShopAddressView: View {
             .task{
                 try? await viewModelAddresses.getAllAddresses()
                 try? await viewModelAddresses.getCoffeeShopData()
-                let _ = print(viewModelAddresses.addresses)
-                let _ = print(viewModelAddresses.coffeeshop)
             }
         }
     }

@@ -1562,12 +1562,12 @@
 		BEB71E032B6FD6FA00CCC2BE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BEB71E042B6FD6FA00CCC2BE /* DrinkCustomizerInfoPanel.swift */,
-				BEB71E052B6FD6FA00CCC2BE /* DrinkCustomizerOptionScroll.swift */,
-				BEB71E062B6FD6FA00CCC2BE /* DrinkCustomizerStatistics.swift */,
-				BEB71E072B6FD6FA00CCC2BE /* DrinkCustomizerOptionEnlarged.swift */,
-				BEB71E082B6FD6FA00CCC2BE /* DrinkCustomizerSize.swift */,
 				BEB71E092B6FD6FA00CCC2BE /* DrinkCustomizer.swift */,
+				BEB71E052B6FD6FA00CCC2BE /* DrinkCustomizerOptionScroll.swift */,
+				BEB71E072B6FD6FA00CCC2BE /* DrinkCustomizerOptionEnlarged.swift */,
+				BEB71E062B6FD6FA00CCC2BE /* DrinkCustomizerStatistics.swift */,
+				BEB71E042B6FD6FA00CCC2BE /* DrinkCustomizerInfoPanel.swift */,
+				BEB71E082B6FD6FA00CCC2BE /* DrinkCustomizerSize.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
