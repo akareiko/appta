@@ -4,6 +4,7 @@ import Foundation
 struct HomeView: View {
     @State private var selectedTab: Tab = .house
     @ObservedObject var globalVars: GlobalVars
+    @ObservedObject var viewModelCoffeeshop: CoffeeshopViewModel
     @Binding var str: Bool
     @Binding var nestr: Bool
     
@@ -102,23 +103,23 @@ struct HomeView: View {
                             }
                                 
                             VStack{
-//                                HStack(){
-//                                    Text("Good Morning, Iska!")
-//                                        .font(.headline.bold())
-//                                    
-//                                    Spacer()
-//                                    
-//                                    HStack(){
-//                                        Image(systemName: "star.fill")
-//                                            .frame(width: 15, height: 15)
-//                                            .foregroundColor(Color("starbucks-rewardgold"))
-//                                        
-//                                        Text("Green Level")
-//                                            .font(.callout.bold())
-//                                            .foregroundColor(Color("starbucks-truegreen"))
-//                                    }
-//                                }
-//                                .safeAreaPadding([.horizontal, .top], 10)
+                                HStack(){
+                                    Text("Good Morning, Iska!")
+                                        .font(.headline.bold())
+                                    
+                                    Spacer()
+                                    
+                                    HStack(){
+                                        Image(systemName: "star.fill")
+                                            .frame(width: 15, height: 15)
+                                            .foregroundColor(Color("starbucks-rewardgold"))
+                                        
+                                        Text("Green Level")
+                                            .font(.callout.bold())
+                                            .foregroundColor(Color("starbucks-truegreen"))
+                                    }
+                                }
+                                .safeAreaPadding([.horizontal, .top], 10)
                                 
 //                                InfiniteCarousel()
 //                                    .padding(.bottom, -20)
@@ -133,7 +134,7 @@ struct HomeView: View {
                                     .fill(.ultraThinMaterial)
                                     .frame(width: 370, height: 200)
                                 
-                                MenuRoundedPanel05(globalVars: globalVars)
+                                MenuRoundedPanel05(globalVars: globalVars, viewModelCoffeeshop: viewModelCoffeeshop)
                                     .padding(.bottom, 30)
                                     .offset(y: -200)
                                     
@@ -197,5 +198,5 @@ struct ParallaxImageView<Content: View>: View {
 }
 
 #Preview {
-    HomeView(globalVars: GlobalVars(), str: .constant(false), nestr: .constant(false))
+    HomeView(globalVars: GlobalVars(), viewModelCoffeeshop: CoffeeshopViewModel(), str: .constant(false), nestr: .constant(false))
 }

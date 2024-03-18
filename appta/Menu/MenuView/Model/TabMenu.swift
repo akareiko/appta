@@ -9,14 +9,13 @@ import SwiftUI
 
 class SelectedCoffee: ObservableObject{
     @Published var selectedCoffee: DrinksModel
-    @Published var selectedSize: Size
+    @Published var selectedSize: Int
     
-    init(selectedCoffee: DrinksModel, selectedSize: Size) {
+    init(selectedCoffee: DrinksModel, selectedSize: Int) {
             self.selectedCoffee = selectedCoffee
             self.selectedSize = selectedSize
         }
 }
-
 
 
 //var drinksmenu: [TabMenu] = [

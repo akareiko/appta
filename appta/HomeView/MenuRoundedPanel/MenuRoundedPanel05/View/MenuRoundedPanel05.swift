@@ -15,8 +15,11 @@ struct BottomClipper: Shape {
 }
 
 struct MenuRoundedPanel05: View {
-    @State private var isCoffeeShopProfileActive = false
     @ObservedObject var globalVars: GlobalVars
+    @ObservedObject var viewModelCoffeeshop: CoffeeshopViewModel
+    
+    @State private var isCoffeeShopProfileActive = false
+    
 //    @Binding var str: Bool
 //    @Binding var nestr: Bool
     
@@ -60,7 +63,7 @@ struct MenuRoundedPanel05: View {
                         let size = $0.size
                         
                         LoopingScrollView(coffeeShopCardOffset: .constant(0), width: 280, spacing: 20, items: MenuRPmodel05) { thing in
-                            NavigationLink(destination: CoffeeShopAddressView(globalVars: globalVars).navigationBarBackButtonHidden(true)
+                            NavigationLink(destination: CoffeeShopAddressView(globalVars: globalVars, viewModelCoffeeshop: viewModelCoffeeshop).navigationBarBackButtonHidden(true)
                             ) {
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 20)
@@ -98,9 +101,3 @@ struct MenuRoundedPanel05: View {
         }
     }
 }
-
-
-// Use ContentView_Previews for the preview
-//#Preview{
-//    MenuRoundedPanel05(shops: MenuRPmodel05)
-//}

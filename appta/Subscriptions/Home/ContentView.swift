@@ -151,7 +151,7 @@ struct ContentView: View {
                 
                 switch selectedTab {
                 case .house:
-                    HomeView(globalVars: globalVars, str: $globalVars.str, nestr: $globalVars.nestr)
+                    HomeView(globalVars: globalVars, viewModelCoffeeshop: viewModelCoffeeshop, str: $globalVars.str, nestr: $globalVars.nestr)
                 case .magnifyingglass:
                     SearchView()
                 case .qrcode:

@@ -189,7 +189,7 @@ struct FavouritesView: View {
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
                         
-                        Text("Size: \(order.drink.drink_size[order.drinkSizeIndex]) ml")
+                        Text("Size: \(order.drink.drinksize[order.drinkSizeIndex]) ml")
                             .font(.caption)
                             .foregroundColor(.secondary)
                             .lineLimit(1)

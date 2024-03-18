@@ -39,6 +39,22 @@ final class MenuManager {
         menuDocument(coffeeshop_id: coffeeshop_id, addressId: addressId, menuId: menuId).collection("drinklist")
     }
     
+    private func defaultOptionCollection(coffeeshop_id: String) -> CollectionReference {
+        coffeeshopDocument(coffeeshopId: coffeeshop_id).collection("defaultOptions")
+    }
+    
+    private func defaultOptionDocument(coffeeshop_id: String, optionId: String) -> DocumentReference {
+        defaultOptionCollection(coffeeshop_id: coffeeshop_id).document(optionId)
+    }
+    
+    private func defaultOptiontypeCollection(coffeeshop_id: String, optionId: String) -> CollectionReference {
+        defaultOptionDocument(coffeeshop_id: coffeeshop_id, optionId: optionId).collection("optiontypes")
+    }
+    
+    private func defaultOptiontypeDocument(coffeeshop_id: String, optionId: String, defaultOptiontypeId: String) -> DocumentReference {
+        defaultOptiontypeCollection(coffeeshop_id: coffeeshop_id, optionId: optionId).document(defaultOptiontypeId)
+    }
+    
     func getAllTabs(coffeeshop_id: String, addressId: String) async throws -> [TabMenu] {
         let snapshot = try await menuCollection(coffeeshop_id: coffeeshop_id, addressId: addressId).getDocuments()
         
@@ -58,6 +74,26 @@ final class MenuManager {
         print(drinks)
         return drinks
     }
+    
+    func getAllOptions(coffeeshop_id: String) async throws -> [Option] {
+        let snapshot = try await defaultOptionCollection(coffeeshop_id: coffeeshop_id).getDocuments()
+        
+        let options = try snapshot.documents.map ({ document in
+            try document.data(as: Option.self)
+        })
+        
+        return options
+    }
+    
+    func getAllOptiontypes(coffeeshop_id: String, optionId: String) async throws -> [OptionType] {
+        let snapshot = try await defaultOptiontypeCollection(coffeeshop_id: coffeeshop_id, optionId: optionId).getDocuments()
+        
+        let optiontypes = try snapshot.documents.map ({ document in
+            try document.data(as: OptionType.self)
+        })
+        
+        return optiontypes
+    }
 }
 
 struct DrinksModel: Codable, Identifiable, Hashable {
@@ -66,7 +102,7 @@ struct DrinksModel: Codable, Identifiable, Hashable {
     var title: String
     var description: String
     var prices: [Int]
-    var drink_size: [Int]
+    var drinksize: [Int]
 }
 
 struct TabMenu: Codable, Identifiable, Hashable{

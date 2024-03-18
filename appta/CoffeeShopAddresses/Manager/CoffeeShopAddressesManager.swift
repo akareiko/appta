@@ -42,7 +42,7 @@ final class CoffeeShopAddressesManager {
 }
 
 struct AddressModel: Codable, Identifiable, Hashable{
-    var id: String = UUID().uuidString
+    var id: String
     var address_name: String
 }
 

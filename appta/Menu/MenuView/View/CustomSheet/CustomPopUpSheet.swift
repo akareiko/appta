@@ -10,19 +10,14 @@ import SwiftUI
 struct CustomPopUpSheet: View {
     @ObservedObject var coffee: SelectedCoffee
     @ObservedObject var globalVars: GlobalVars
-    
-//    var optionArrayMenu: [Int : OptionType] = [
-//        0 : optionscroll[0].optiontypes.first!,
-//        1 : optionscroll[1].optiontypes.first!,
-//        2 : optionscroll[2].optiontypes.first!,
-//        3 : optionscroll[3].optiontypes.first!,
-//        4 : optionscroll[4].optiontypes.first!,
-//    ]
+    @ObservedObject var viewModelTab: TabMenuModel
+    @ObservedObject var viewModelCoffeeshop: CoffeeshopViewModel
     
     @State private var selectedSizeIndex: Int = 0
     @State private var toggleBasketViewCustomPopUp: Bool = false
     
     @Binding var customizedDrink: [OrderModel]
+    @Binding var chosenAddress: AddressModel
     
     var body: some View {
         ZStack(alignment: .bottom){
@@ -34,7 +29,8 @@ struct CustomPopUpSheet: View {
                         }
                     } label: {
                         RoundedRectangle(cornerRadius: 15)
-                            .frame(width: UIScreen.main.bounds.width - 125, height: 50)
+                            .frame(height: 50)
+                            .frame(maxWidth: .infinity)
                             .foregroundColor(Color("starbucks-rewardgold").opacity(0.8))
                             .overlay(content: {
                                 HStack{
@@ -49,10 +45,16 @@ struct CustomPopUpSheet: View {
                                     
                                     Spacer()
                                     
-//                                    Text("KZT \(calculatePricePoppUpSheet())")
-//                                        .font(.headline.bold())
-//                                        .padding(.horizontal, 20)
-//                                        .lineLimit(1)
+                                    HStack(spacing: 3){
+                                        Text("\(calculatePricePoppUpSheet())")
+                                            .font(.headline.bold())
+                                        
+                                        Image(systemName: "tengesign")
+                                            .resizable()
+                                            .frame(width: 10, height: 10)
+                                            .fontWeight(.bold)
+                                    }
+                                    .padding(.horizontal, 15)
                                 }
                             })
                     }
@@ -72,15 +74,15 @@ struct CustomPopUpSheet: View {
                             default:
                                 break
                         }
-                        coffee.selectedSize = sizes[selectedSizeIndex]
+                        coffee.selectedSize = coffee.selectedCoffee.drinksize[selectedSizeIndex]
                     }){
-                        Text(coffee.selectedSize.title)
-                            .font(.callout.bold())
-                            .foregroundColor(.white)
-                            .frame(width: 50, height: 50)
-                            .background(Color("starbucks-rewardgold").opacity(0.8))
-                            .clipShape(RoundedRectangle(cornerRadius: 15))
-                            .shadow(color: Color.black.opacity(0.05), radius: 2, x: 5, y: 5)
+                        Text(selectedSizeIndex == 0 ? "S" : selectedSizeIndex == 1 ? "M" : selectedSizeIndex == 2 ? "L" : selectedSizeIndex > 2 ? "XL" : "")
+                        .font(.callout.bold())
+                        .foregroundColor(.white)
+                        .frame(width: 50, height: 50)
+                        .background(Color("starbucks-rewardgold").opacity(0.8))
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .shadow(color: Color.black.opacity(0.05), radius: 2, x: 5, y: 5)
                     }
                     
                     Button{
@@ -95,7 +97,7 @@ struct CustomPopUpSheet: View {
                                     .foregroundColor(.white)
                             })
                             .sheet(isPresented: $toggleBasketViewCustomPopUp){
-                                BasketView(coffee: coffee, globalVars: globalVars, customizedDrink: $customizedDrink)
+                                BasketView(coffee: coffee, globalVars: globalVars, viewModelTab: viewModelTab, viewModelCoffeeshop: viewModelCoffeeshop, customizedDrink: $customizedDrink, chosenAddress: $chosenAddress)
                             }
                     }
                     .padding(.leading, -4)
@@ -103,34 +105,39 @@ struct CustomPopUpSheet: View {
                 }
                 .padding(.bottom, 10)
             }
-            .frame(width: UIScreen.main.bounds.width, height: 60)
+            .frame(width: UIScreen.main.bounds.width - 20, height: 25)
             .padding(.vertical, 30)
             .background(.ultraThinMaterial)
             .shadow(color: .black.opacity(0.2), radius: 2)
-            .cornerRadius(20)
+            .clipShape(RoundedRectangle(cornerRadius: 25))
             .multilineTextAlignment(.center)
             .transition(.move(edge: .bottom))
         }
+        .frame(maxHeight: .infinity, alignment: .bottom)
+        .padding(.bottom, 20)
         .ignoresSafeArea()
     }
 }
 
 
-//extension CustomPopUpSheet {
-//    func calculatePricePoppUpSheet() -> Int {
-//        var totalPricePopUp = 0
-//        if let existingIndex = customizedDrink.firstIndex(where: { drink in
-//            // Compare selectedCoffee, selectedSize, and optionArray
-//            return drink.drink.title == coffee.selectedCoffee.title &&
-//            drink.drink.drink_size[drink.drinkSizeIndex] == coffee.selectedSize.volume &&
-//                NSDictionary(dictionary: drink.optionArray).isEqual(to: optionArrayMenu)
-//        }) {
-//            if customizedDrink[existingIndex].quantity > 0 {
-//                totalPricePopUp = customizedDrink[existingIndex].quantity * coffee.selectedCoffee.prices[coffee.selectedSize.index]
-//            }
-//        }
-//        
-//        return totalPricePopUp
-//    }
-//}
+extension CustomPopUpSheet {
+    func calculatePricePoppUpSheet() -> Int {
+        var totalPricePopUp = 0
+        if let existingIndex = customizedDrink.firstIndex(where: { drink in
+            // Compare selectedCoffee, selectedSize, and optionArray
+            return drink.drink.title == coffee.selectedCoffee.title &&
+            drink.drink.drinksize[drink.drinkSizeIndex] == coffee.selectedCoffee.drinksize[coffee.selectedSize] &&
+            NSDictionary(dictionary: drink.optionArray).isEqual(to: viewModelTab.defaultArray)
+        }) {
+            if customizedDrink[existingIndex].quantity > 0 {
+                totalPricePopUp = customizedDrink[existingIndex].quantity * coffee.selectedCoffee.prices[coffee.selectedSize]
+            }
+        }
+        
+        return totalPricePopUp
+    }
+}
 
+#Preview{
+    ContentView()
+}

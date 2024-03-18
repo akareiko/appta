@@ -11,6 +11,8 @@ struct BasketView: View {
     @ObservedObject var coffee: SelectedCoffee
     @ObservedObject var globalVars: GlobalVars
     @ObservedObject var viewModel = DrinkCustomizerModel()
+    @ObservedObject var viewModelTab: TabMenuModel
+    @ObservedObject var viewModelCoffeeshop: CoffeeshopViewModel
     
     @State private var isToggleOn: Bool = false
     @State private var showDetail: [String : Bool] = [:]
@@ -18,6 +20,7 @@ struct BasketView: View {
     @State private var showFavourites: Bool = false
     
     @Binding var customizedDrink: [OrderModel]
+    @Binding var chosenAddress: AddressModel
     
     @Namespace var animation
     
@@ -103,7 +106,7 @@ struct BasketView: View {
                     
                     ScrollView(.vertical){
                         LazyVStack(spacing: 0){
-                            if customizedDrink.count > 0{
+                            if customizedDrink.count > 0 {
                                 ForEach(customizedDrink){thing in
                                         SwipeAction(cornerRadius: 15, direction: .trailing) {
                                             if thing.quantity > 0 {
@@ -144,11 +147,11 @@ struct BasketView: View {
                                                             .font(.footnote)
                                                             .foregroundColor(.secondary)
                                                         
-                                                        Text("Milk: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
+                                                        Text("Milk: \(thing.optionArray[viewModel.options[0]]?.name ?? "")")
                                                             .font(.footnote)
                                                             .foregroundColor(.secondary)
                                                         
-                                                        Text("Syrup: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
+                                                        Text("Syrup: \(thing.optionArray[viewModel.options[1]]?.name ?? "")")
                                                             .font(.footnote)
                                                             .foregroundColor(.secondary)
                                                     }
@@ -156,15 +159,15 @@ struct BasketView: View {
                                                     Spacer()
                                                     
                                                     VStack(alignment: .leading){
-                                                        Text("Temperature: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
+                                                        Text("Temperature: \(thing.optionArray[viewModel.options[2]]?.name ?? "")")
                                                             .font(.footnote)
                                                             .foregroundColor(.secondary)
                                                         
-                                                        Text("Blend: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
+                                                        Text("Blend: \(thing.optionArray[viewModel.options[3]]?.name ?? "")")
                                                             .font(.footnote)
                                                             .foregroundColor(.secondary)
                                                         
-                                                        Text("Strength: \(thing.optionArray[viewModel.selectedOption]?.name ?? "")")
+                                                        Text("Strength: \(thing.optionArray[viewModel.options[4]]?.name ?? "")")
                                                             .font(.footnote)
                                                             .foregroundColor(.secondary)
                                                     }
@@ -180,7 +183,6 @@ struct BasketView: View {
                                     Text("Your basket is empty")
                                         .font(.callout.bold())
                                         .foregroundColor(.black)
-                                    
                                     
                                     NavigationLink(destination: CoffeeShopList()){
                                         HStack(){
@@ -198,7 +200,7 @@ struct BasketView: View {
                             }
                         }
                         .sheet(isPresented: $toggleDrinkCustomizerBasket){
-                            DrinkCustomizer(coffee: coffee, globalVars: globalVars, customizedDrink: $customizedDrink)
+                            DrinkCustomizer(coffee: coffee, globalVars: globalVars, viewModelTab: viewModelTab, viewModelCoffeeshop: viewModelCoffeeshop, customizedDrink: $customizedDrink, chosenAddress: $chosenAddress)
                                 .presentationBackground(.ultraThinMaterial)
                         }
                         .padding(.horizontal, 20)
@@ -240,42 +242,32 @@ struct BasketView: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 20)
-                        
-                        
-//                        VStack(alignment: .leading){
-//                            HStack{
-//                                VStack(alignment: .leading){
-//                                    Text("Total Price: ")
-//                                        .font(.callout)
-//                                        .foregroundColor(.black)
-//                                    
-//                                    HStack{
-//                                        Text("KZT \(calculateTotalPrice())")
-//                                            .font(.title3.bold())
-//                                            .foregroundColor(.black)
-//                                        
-//                                        Image(systemName: "tengesign")
-//                                            .resizable()
-//                                            .fontWeight(.bold)
-//                                            .foregroundColor(.black)
-//                                            .frame(width: 13, height: 13)
-//                                    }
-//                                }
-//                                .padding(.horizontal, 10)
-//                                
-//                                Image(systemName: "chevron.right")
-//                                    .resizable()
-//                                    .frame(width: 10, height: 20)
-//                                    .foregroundColor(.black)
-//                            }
-//                        }
-//                        .frame(width: 150, height: 70)
-//                        .padding(.horizontal, 5)
-//                        .background(.thinMaterial)
-//                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                                                
+                        VStack(alignment: .leading){
+                            Text("Total Price: ")
+                                .font(.callout)
+                                .foregroundColor(.black)
+                            
+                            HStack{
+                                Text("KZT \(calculateTotalPrice())")
+                                    .font(.headline.bold())
+                                    .foregroundColor(.black)
+                                
+                                Image(systemName: "tengesign")
+                                    .resizable()
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.black)
+                                    .frame(width: 13, height: 13)
+                            }
+                        }
+                        .frame(height: 70)
+                        .frame(maxWidth: .infinity)
+                        .padding(.horizontal, 20)
+                        .background(.thinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 15))
                     }
-                 
-                    NavigationLink(destination: HomeView(globalVars: globalVars, str: .constant(true), nestr: .constant(true))){
+                    .frame(width: UIScreen.main.bounds.width - 20)
+                    NavigationLink(destination: HomeView(globalVars: globalVars, viewModelCoffeeshop: viewModelCoffeeshop, str: .constant(true), nestr: .constant(true))){
                         HStack(){
                             Text("Payment")
                                 .font(.callout.bold())
@@ -294,6 +286,9 @@ struct BasketView: View {
                 .offset(CGSize(width: 0, height: 300))
             }
             .navigationBarBackButtonHidden()
+            .task{
+                try? await viewModel.getAllOptions(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn")
+            }
         }
     }
     
@@ -306,8 +301,8 @@ struct BasketView: View {
                     showDetail[order.id, default: false].toggle()
                 }
             } label: {
-                HStack(spacing: 8){
-                    Spacer(minLength: 0)
+                HStack(spacing: 0){
+                    Spacer(minLength: 15)
                     
                     HStack(){
                         Text("\(order.quantity)")
@@ -320,25 +315,20 @@ struct BasketView: View {
                             .background(.thinMaterial)
                     }
                     
-                    Image(order.drink.image)
-                        .resizable()
-                        .clipShape(Circle())
-                        .frame(width: 60, height: 60)
-                        .padding(.bottom, 10)
-                        .padding(.leading, -10)
+                    AsyncImage(url: URL(string: order.drink.image)) { image in
+                        image
+                            .resizable()
+                            .clipShape(Circle())
+                            .scaledToFit()
+                            .frame(width: 50, height: 50)
+                    } placeholder: {
+                        ShimmerView()
+                            .clipShape(Circle())
+                            .frame(width: 50, height: 50)
+                    }
+                    .padding(.horizontal, 10)
                     
                     Spacer(minLength: 0)
-                    
-//                    Circle()
-//                        .frame(width: 50)
-//                        .foregroundColor(Color("starbucks-housegreen"))
-//                        .overlay(content: {
-//                            Image(order.image)
-//                                .resizable()
-//                                .clipShape(Circle())
-//                                .frame(width: 50, height: 50)
-//                                .padding(.bottom, 10)
-//                        })
                     
                     VStack(alignment: .leading, spacing: 5){
                         Text(order.drink.title)
@@ -347,26 +337,19 @@ struct BasketView: View {
                             .multilineTextAlignment(.leading)
                             .lineLimit(1)
                     
-                        Text("Size: \(order.drink.drink_size[order.drinkSizeIndex]) ml")
+                        Text("Size: \(order.drink.drinksize[order.drinkSizeIndex]) ml")
                             .font(.caption)
                             .foregroundColor(.secondary)
                             .lineLimit(1)
                     }
-                    .frame(width: 120)
-                    .padding(.leading, -40)
                     
-                    Spacer(minLength: 0)
+                    Spacer(minLength: 10)
                     
-                    HStack{
-                        Text("KZT")
-                            .font(.callout.bold())
-                            .foregroundColor(.black)
-                            .lineLimit(1)
+                    HStack(spacing: 5){
                         
                         Text("\(order.customizedPrice)")
                             .font(.callout)
                             .foregroundColor(.black)
-                            .lineLimit(1)
                         
                         Image(systemName: "tengesign")
                             .resizable()
@@ -374,8 +357,9 @@ struct BasketView: View {
                             .foregroundColor(.black)
                     }
                     
-                    Spacer(minLength: 0)
+                    Spacer(minLength: 15)
                 }
+                .frame(height: 70)
                 .foregroundStyle(.white.opacity(0.4))
                 .background(.thinMaterial)
             }

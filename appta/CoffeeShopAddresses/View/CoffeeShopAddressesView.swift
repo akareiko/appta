@@ -25,6 +25,7 @@ final class CoffeeShopAddressesViewModel: ObservableObject{
 
 struct CoffeeShopAddressView: View {
     @ObservedObject var globalVars: GlobalVars
+    @ObservedObject var viewModelCoffeeshop: CoffeeshopViewModel
     @StateObject var viewModelAddresses = CoffeeShopAddressesViewModel()
     
     @State private var selectedTab: ScrollableAddressTab?
@@ -174,7 +175,7 @@ struct CoffeeShopAddressView: View {
                     Button {
                         
                     } label: {
-                        NavigationLink(destination: AnimatedHeader(globalVars: globalVars).ignoresSafeArea()){
+                        NavigationLink(destination: AnimatedHeader(globalVars: globalVars, viewModelCoffeeshop: viewModelCoffeeshop, chosenAddress: address).ignoresSafeArea()){
                             HStack(spacing: 12){
                                 AsyncImage(url: URL(string: viewModelAddresses.coffeeshop.image_url)) { image in
                                     image
