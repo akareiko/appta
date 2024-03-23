@@ -129,6 +129,48 @@ struct DBUser: Codable {
     }
 }
 
+struct Chosen: Codable {
+    let id: String
+    let coffeeshopId: String?
+    let dateCreated: String?
+    let planId: String?
+    
+    init(
+        id: String,
+        coffeeshopId: String? = nil,
+        dateCreated: String? = nil,
+        planId: String? = nil
+    ) {
+        self.id = id
+        self.coffeeshopId = coffeeshopId
+        self.dateCreated = dateCreated
+        self.planId = planId
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case coffeeshopId = "coffeeshop_id"
+        case dateCreated = "date_created"
+        case planId = "plan_id"
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
+        try container.encodeIfPresent(self.coffeeshopId, forKey: .coffeeshopId)
+        try container.encodeIfPresent(self.dateCreated, forKey: .dateCreated)
+        try container.encodeIfPresent(self.planId, forKey: .planId)
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.coffeeshopId = try container.decodeIfPresent(String.self, forKey: .coffeeshopId)
+        self.dateCreated = try container.decodeIfPresent(String.self, forKey: .dateCreated)
+        self.planId = try container.decodeIfPresent(String.self, forKey: .planId)
+    }
+}
+
 final class UserManager {
     
     static let shared = UserManager()
@@ -136,8 +178,16 @@ final class UserManager {
     
     private let userCollection = Firestore.firestore().collection("users")
     
+    private func userChosenCoffeeshopsCollection(userId: String) -> CollectionReference {
+        userDocument(userId: userId).collection("chosen_coffeeshops")
+    }
+    
     private func userDocument(userId: String) -> DocumentReference {
         userCollection.document(userId)
+    }
+    
+    private func chosenCofeeshopAndPlanDocument(userId: String, planDocument: String) -> DocumentReference {
+        userChosenCoffeeshopsCollection(userId: userId).document(planDocument)
     }
     
     private func userFavoriteProductCollection(userId: String) -> CollectionReference {
@@ -187,13 +237,37 @@ final class UserManager {
         try await userDocument(userId: userId).updateData(data)
     }
     
-    func updateUserShopAndPlan(userId: String, chosenShop: String, chosenPlan: String) async throws {
-        let data: [String: Any] = [
-            DBUser.CodingKeys.chosenShop.rawValue : chosenShop,
-            DBUser.CodingKeys.chosenPlan.rawValue : chosenPlan,
-        ]
+    func updateUserShopAndPlan(userId: String, chosenShopId: String, chosenPlan: String) async throws {
+        let snapshot = try await userChosenCoffeeshopsCollection(userId: userId).getDocuments()
         
-        try await userDocument(userId: userId).updateData(data)
+        for document in snapshot.documents {
+            do {
+                let chosen = try document.data(as: Chosen.self)
+                print("chosen.coffeeshopId: \(chosen.coffeeshopId)")
+                print("chosenShopId: \(chosenShopId)")
+                if (chosen.coffeeshopId == chosenShopId) {
+                    let data: [String: String] = [
+                        Chosen.CodingKeys.planId.stringValue: chosenPlan
+                    ]
+                    try await chosenCofeeshopAndPlanDocument(userId: userId, planDocument: chosen.id).updateData(data)
+                    
+                    return
+                }
+                
+            } catch {
+                print("Error decoding Chosen: \(error)")
+            }
+        }
+        
+        let data: [String: String] = [
+            Chosen.CodingKeys.id.rawValue: self.userChosenCoffeeshopsCollection(userId: userId).document().documentID,
+            Chosen.CodingKeys.coffeeshopId.rawValue: chosenShopId,
+            Chosen.CodingKeys.planId.rawValue: chosenPlan,
+            Chosen.CodingKeys.dateCreated.rawValue: Date().description
+        ]
+        if let tempid = data[Chosen.CodingKeys.id.rawValue] {
+            try await userChosenCoffeeshopsCollection(userId: userId).document(tempid).setData(data)
+        }
     }
     
     func updateUserProfileImagePath(userId: String, path: String?, url: String?) async throws {
@@ -270,11 +344,11 @@ final class UserManager {
 //                print("NO DOCUMENTS")
 //                return
 //            }
-//            
+//
 //            let products: [UserFavoriteProduct] = documents.compactMap({ try? $0.data(as: UserFavoriteProduct.self)})
-//            
+//
 //            completion(products)
-//            
+//
 //            querySnapshot?.documentChanges.forEach { diff in
 //                if ( diff.type == .added) {
 //                    print("New products: \(diff.document.data())")
@@ -291,16 +365,16 @@ final class UserManager {
     
 //    func addListenerForAllUserFavoriteProducts(userId: String) -> AnyPublisher<[UserFavoriteProduct], Error> {
 //        let publisher = PassthroughSubject<[UserFavoriteProduct], Error>()
-//        
+//
 //        self.userFavoriteProductsListener = userFavoriteProductCollection(userId: userId).addSnapshotListener { querySnapshot, error in
 //            guard let documents = querySnapshot?.documents else {
 //                print("NO DOCUMENTS")
 //                return
 //            }
-//            
+//
 //            let products: [UserFavoriteProduct] = documents.compactMap({ try? $0.data(as: UserFavoriteProduct.self)})
 //            publisher.send(products)
-//            
+//
 //        }
 //        return publisher.eraseToAnyPublisher()
 //    }

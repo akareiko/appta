@@ -27,16 +27,16 @@ struct SubscriptionUpdatedView: View {
     var body: some View {
         VStack{
             ScrollView(showsIndicators: false){
-                CustomPagingSlider(showPagingControl: showPagingControl, disablePagingInteraction: disablePagingInteraction, titleScrollSpeed: titleScrollSpeed, pagingControlSpacing: pagingSpacing,  data: viewModelCoffeeshop.coffeeshops)
+                CustomPagingSlider(showPagingControl: showPagingControl, disablePagingInteraction: disablePagingInteraction, titleScrollSpeed: titleScrollSpeed, pagingControlSpacing: pagingSpacing,  data: viewModelCoffeeshop.subscriptions)
                 { item in
-                    SubscriptionCard1_Front(coffeeshop: item)
+                    SubscriptionCard1_Front(coffeeshop: item.coffeeshop)
                 } titleContent: { item in
                     ZStack {
                         Image("Rectangle")
                             .resizable()
                             .frame(width: 400, height: 200)
                             .offset(x: -20, y: 400)
-                            .colorMultiply(Color(item.color))
+                            .colorMultiply(Color(item.coffeeshop.color))
                             .blur(radius: 100)
                         
                         VStack(spacing: 5){
@@ -45,9 +45,9 @@ struct SubscriptionUpdatedView: View {
                                 .frame(width: 30, height: 30)
                                 .foregroundColor(Color("starbucks-rewardgold"))
                             
-                            Text(item.name)
+                            Text(item.coffeeshop.name)
                                 .font(.largeTitle.bold())
-                            Text(item.description)
+                            Text(item.coffeeshop.description)
                                 .foregroundStyle(.gray)
                                 .multilineTextAlignment(.center)
                                 .frame(height: 45)
@@ -71,7 +71,7 @@ struct SubscriptionUpdatedView: View {
                                 .resizable()
                                 .frame(width: 400, height: 400)
                                 .offset(x: -10, y: -400)
-                                .colorMultiply(Color(item.color))
+                                .colorMultiply(Color(item.coffeeshop.color))
                         }
                         
                         VStack(alignment: .leading, spacing: 10){
@@ -84,50 +84,21 @@ struct SubscriptionUpdatedView: View {
                                     .fontWeight(.bold)
                                     .foregroundColor(.primary)
                                 
-                                Text("Plan: Basic")
+                                Text("Plan: \(item.plan.plan_name)")
                                     .font(.title)
                                 
                                 RoundedRectangle(cornerRadius: 15.0)
                                     .fill(.ultraThinMaterial)
                                     .frame(width: UIScreen.main.bounds.width - 50, height: 100)
                                     .shadow(radius: 2)
-                                    .overlay(content:{
+                                    .overlay(content: {
                                         HStack {
-                                            VStack {
-                                                Text(Image(systemName: "mug"))
-                                                    .foregroundColor(.black)
+                                            ForEach(item.plan.plan_features.indices, id: \.self) { kek in
+                                                Text(Image(systemName: item.plan.plan_features_image[kek]))
+                                                    .foregroundColor(.primary)
                                                     .font(.title3)
-                                                +
-                                                Text(Image(systemName: "xmark"))
-                                                    .foregroundColor(.black)
-                                                    .font(.caption)
-                                                +
-                                                Text(Image(systemName: "3.circle.fill"))
-                                                    .foregroundColor(.black)
-                                                    .font(.title3)
-                                                
-                                                Text("Три бесплатных напитка")
-                                                    .foregroundColor(.black)
-                                                    .font(.caption)
-                                            }
-                                            
-                                            VStack {
-                                                Text(Image(systemName: "gift"))
-                                                    .foregroundColor(.black)
-                                                    .font(.title3)
-                                                
-                                                Text("Каждый 12-ый напиток в подарок")
-                                                    .foregroundColor(.black)
-                                                    .font(.caption)
-                                            }
-                                            
-                                            VStack {
-                                                Text(Image(systemName: "tengesign.circle"))
-                                                    .foregroundColor(.black)
-                                                    .font(.title3)
-                                                
-                                                Text("Накапливайте бонусы")
-                                                    .foregroundColor(.black)
+                                                Text(item.plan.plan_features[kek])
+                                                    .foregroundColor(.primary)
                                                     .font(.caption)
                                             }
                                         }
@@ -160,7 +131,7 @@ struct SubscriptionUpdatedView: View {
         }
         .ignoresSafeArea(.all)
         .task {
-            try? await viewModelCoffeeshop.getUserChosenCoffeeshops()
+            try? await viewModelCoffeeshop.getSubscriptions()
         }
         
     }

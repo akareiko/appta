@@ -19,6 +19,8 @@ struct Plan: Identifiable, Codable {
     let plan_price: String
     let plan_description: String
     let plan_image: String
+    let plan_features: [String]
+    let plan_features_image: [String]
 }
 
 struct Coffeeshop: Identifiable, Codable {
@@ -33,11 +35,13 @@ struct Coffeeshop: Identifiable, Codable {
 struct ChosenCoffeeshop: Identifiable, Codable {
     let id: String
     let coffeeshopId: String
-    let dateCreated: Date
+    let planId: String
+    let dateCreated: String
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
         case coffeeshopId = "coffeeshop_id"
+        case planId = "plan_id"
         case dateCreated = "date_created"
     }
     
@@ -45,8 +49,15 @@ struct ChosenCoffeeshop: Identifiable, Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .id)
         self.coffeeshopId = try container.decode(String.self, forKey: .coffeeshopId)
-        self.dateCreated = try container.decode(Date.self, forKey: .dateCreated)
+        self.planId = try container.decode(String.self, forKey: .planId)
+        self.dateCreated = try container.decode(String.self, forKey: .dateCreated)
     }
+}
+
+struct Subscription: Identifiable, Codable {
+    let id: String
+    let coffeeshop: Coffeeshop
+    let plan: Plan
 }
 
 final class CoffeeshopManager {
@@ -60,6 +71,10 @@ final class CoffeeshopManager {
         coffeeshopCollection.document(coffeeshopId)
     }
     
+    private func planDocument(coffeeshopId: String, planId: String) -> DocumentReference {
+        planCollection(coffeeshop_id: coffeeshopId).document(planId)
+    }
+    
     private func userDocument(userId: String) -> DocumentReference {
         userCollection.document(userId)
     }
@@ -67,29 +82,64 @@ final class CoffeeshopManager {
     func getAllCoffeeshops() async throws -> [Coffeeshop] {
         let snapshot = try await coffeeshopCollection.getDocuments()
         
-        var coffeeshops: [Coffeeshop] = []
-        for document in snapshot.documents {
-            let coffeeshop = try document.data(as: Coffeeshop.self)
-            coffeeshops.append(coffeeshop)
-        }
+//        var coffeeshops: [Coffeeshop] = []
+//        for document in snapshot.documents {
+//            let coffeeshop = try document.data(as: Coffeeshop.self)
+//            coffeeshops.append(coffeeshop)
+//        }
+        
+        let coffeeshops = try snapshot.documents.map({ document in
+            try document.data(as: Coffeeshop.self)
+        })
         
         return coffeeshops
     }
     
     func getAllUserChosenCoffeeshops(userId: String) async throws -> [Coffeeshop] {
         let snapshot = try await userChosenCoffeeshopsCollection(userId: userId).getDocuments()
-        
         var coffeeshops: [Coffeeshop] = []
         for document in snapshot.documents {
-            let tempChosenCofeeshop = try document.data(as: ChosenCoffeeshop.self)
-            let tempCoffeeshop = try await coffeeshopDocument(coffeeshopId: tempChosenCofeeshop.coffeeshopId).getDocument(as: Coffeeshop.self)
+            let tempChosenCoffeeshop = try document.data(as: ChosenCoffeeshop.self)
+            let tempCoffeeshop = try await coffeeshopDocument(coffeeshopId: tempChosenCoffeeshop.coffeeshopId).getDocument(as: Coffeeshop.self)
             coffeeshops.append(tempCoffeeshop)
         }
         return coffeeshops
     }
     
+    func getAllUserChosenPlans(userId: String) async throws -> [Plan] {
+        let snapshot = try await userChosenCoffeeshopsCollection(userId: userId).getDocuments()
+        var plans: [Plan] = []
+        for document in snapshot.documents {
+            let tempChosenCoffeeshop = try document.data(as: ChosenCoffeeshop.self)
+            let tempPlan = try await planDocument(coffeeshopId: tempChosenCoffeeshop.coffeeshopId, planId: tempChosenCoffeeshop.planId).getDocument(as: Plan.self)
+            plans.append(tempPlan)
+        }
+        return plans
+    }
+    
+    func getUserSubscriptions(userId: String) async throws -> [Subscription] {
+        let snapshot = try await userChosenCoffeeshopsCollection(userId: userId).getDocuments()
+        var subscriptionArr: [Subscription] = []
+        for document in snapshot.documents {
+            let tempChosenCoffeeshop = try document.data(as: ChosenCoffeeshop.self)
+            let tempCoffeeshop = try await coffeeshopDocument(coffeeshopId: tempChosenCoffeeshop.coffeeshopId).getDocument(as: Coffeeshop.self)
+            let tempPlan = try await planDocument(coffeeshopId: tempChosenCoffeeshop.coffeeshopId, planId: tempChosenCoffeeshop.planId).getDocument(as: Plan.self)
+            let subscription: Subscription = Subscription(id: UUID().uuidString, coffeeshop: tempCoffeeshop, plan: tempPlan)
+            subscriptionArr.append(subscription)
+        }
+        return subscriptionArr
+    }
+    
+//    func getAllUserChosenPlans(userId: String) async throws -> [Plan] {
+//        let snapshot = try await userChosenCoffeeshopsCollection(userId: String).getDocuments()
+//        var plan: Plan
+//        for document in snapshot.documents {
+//
+//        }
+//    }
+    
     func getCoffeeshopPlans(coffeeshop_id: String) async throws -> [Plan] {
-        let snapshot = try await PlanCollection(coffeeshop_id: coffeeshop_id).getDocuments()
+        let snapshot = try await planCollection(coffeeshop_id: coffeeshop_id).getDocuments()
         
         var plans: [Plan] = []
         for document in snapshot.documents {
@@ -103,7 +153,7 @@ final class CoffeeshopManager {
         userDocument(userId: userId).collection("chosen_coffeeshops")
     }
     
-    private func PlanCollection(coffeeshop_id: String) -> CollectionReference {
+    private func planCollection(coffeeshop_id: String) -> CollectionReference {
         coffeeshopDocument(coffeeshopId: coffeeshop_id).collection("plans")
     }
 }
@@ -112,6 +162,7 @@ final class CoffeeshopManager {
 final class CoffeeshopViewModel: ObservableObject {
     @Published private(set) var coffeeshops: [Coffeeshop] = []
     @Published private(set) var plans: [Plan] = []
+    @Published private(set) var subscriptions: [Subscription] = []
     
     func getUserChosenCoffeeshops() async throws {
         guard let authDataResult = try? AuthenticationManager.shared.getAuthenticatedUser() else { return }
@@ -120,12 +171,23 @@ final class CoffeeshopViewModel: ObservableObject {
         self.coffeeshops.append(defaultCoffeeshop)
     }
     
+    func getUserChosenPlans() async throws {
+        guard let authDataResult = try? AuthenticationManager.shared.getAuthenticatedUser() else { return }
+        self.plans = try await CoffeeshopManager.shared.getAllUserChosenPlans(userId: authDataResult.uid)
+    }
+    
     func getCoffeeshops() async throws {
         self.coffeeshops = try await CoffeeshopManager.shared.getAllCoffeeshops()
     }
     
     func getPlans(coffeeshop_id: String) async throws {
         self.plans = try await CoffeeshopManager.shared.getCoffeeshopPlans(coffeeshop_id: coffeeshop_id)
+    }
+    
+    func getSubscriptions() async throws {
+        guard let authDataResult = try? AuthenticationManager.shared.getAuthenticatedUser() else { return }
+        self.subscriptions = try await CoffeeshopManager.shared.getUserSubscriptions(userId: authDataResult.uid)
+        self.subscriptions.append(Subscription(id: UUID().uuidString, coffeeshop: Coffeeshop(id: "default_id", name: "Default Coffeeshop", image_url: "default_image_url", description: "Default Description", color: "default_color", pattern: "default_pattern"), plan: Plan(id: "", plan_name: "", plan_price: "", plan_description: "", plan_image: "", plan_features: [], plan_features_image: [])))
     }
 }
 

@@ -6,9 +6,9 @@ final class SubscriptionViewModel: ObservableObject {
     
     @Published private(set) var user: DBUser? = nil
     
-    func saveUserSubscription(chosenShop: String, chosenPlan: String) async throws {
+    func saveUserSubscription(chosenShopId: String, chosenPlan: String) async throws {
         let authDataResult = try AuthenticationManager.shared.getAuthenticatedUser()
-        try await UserManager.shared.updateUserShopAndPlan(userId: authDataResult.uid, chosenShop: chosenShop, chosenPlan: chosenPlan)
+        try await UserManager.shared.updateUserShopAndPlan(userId: authDataResult.uid, chosenShopId: chosenShopId, chosenPlan: chosenPlan)
     }
     
     func loadCurrentUser() async throws {
@@ -58,7 +58,7 @@ struct IntroView: View {
     @State private var showView: Bool = false
     @State private var hideWholeView: Bool = false
     @State private var chosenShop: Coffeeshop = Coffeeshop(id: "default_id", name: "Default Coffeeshop", image_url: "default_image_url", description: "Default Description", color: "default_color", pattern: "default_pattern")
-    @State private var chosenPlan: String = ""
+    @State private var chosenPlan: Plan = Plan(id: "", plan_name: "", plan_price: "", plan_description: "", plan_image: "", plan_features: [], plan_features_image: [])
     @State private var didSwipe: Bool = false
     
     @StateObject private var viewModel = SubscriptionViewModel()
@@ -162,7 +162,7 @@ extension IntroView {
                 PlansView(coffeeshop_id: chosenShop.id, haha: $chosenPlan, didSwipe: $didSwipe)
                     .onAppear {
                         didSwipe = false
-                        chosenPlan = ""
+                        chosenPlan = Plan(id: "", plan_name: "", plan_price: "", plan_description: "", plan_image: "", plan_features: [], plan_features_image: [])
                     }
                     .onChange(of: didSwipe) {
                         if didSwipe {
@@ -185,7 +185,7 @@ extension IntroView {
                     .font(.title2)
                     .fontWeight(.bold)
                 
-                Text(chosenPlan)
+                Text(chosenPlan.plan_name)
                     .foregroundColor(.black)
                     .font(.title3)
             }
@@ -212,8 +212,10 @@ extension IntroView {
             
             if intro.introBlock == 3 {
                 Button {
+                    let _ = print(chosenShop.id)
                     Task {
-                        try await viewModel.saveUserSubscription(chosenShop: chosenShop.name, chosenPlan: chosenPlan)
+                        try await viewModel.saveUserSubscription(chosenShopId: chosenShop.id, chosenPlan: chosenPlan.id)
+                        
                     }
                 } label: {
                     Text("GOTOVO")

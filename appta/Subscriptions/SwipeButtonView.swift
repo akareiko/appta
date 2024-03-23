@@ -33,11 +33,18 @@ extension SwipeButtonView {
 }
 
 struct SwipeButtonView: View {
-    @State private var thumbSize: CGSize = CGSize.inactiveThumbSize
-    @State private var dragOffset: CGSize = .zero
-    @State private var isEnough = false
-    private var actionSuccess: (() -> Void)?
-    private var actionFailure: (() -> Void)?
+    @State var thumbSize: CGSize = CGSize.inactiveThumbSize
+    @State var dragOffset: CGSize = .zero
+    @State var isEnough = false
+    var actionSuccess: (() -> Void)?
+    var actionFailure: (() -> Void)?
+    
+    var imageName: String
+    var title: String
+    var description: String
+    var price: String
+    var features: [String]
+    var features_image: [String]
     
     @State var trackSize = CGSize.trackSize
     @State private var elemOpacity = 1.0
@@ -59,13 +66,13 @@ struct SwipeButtonView: View {
                 
                 VStack {
                     HStack {
-                        Text("Basic")
+                        Text(title)
                             .fontWeight(.bold)
                         RoundedRectangle(cornerRadius: 25)
                             .fill(Color.white)
                             .frame(width: 90, height: 25)
                             .overlay(
-                                Text("4000KZT")
+                                Text(price)
                                     .foregroundColor(.black)
                             )
                     }
@@ -74,42 +81,15 @@ struct SwipeButtonView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     
                     HStack {
-                        VStack {
-                            Text(Image(systemName: "mug"))
-                                .foregroundColor(.white)
-                                .font(.title3)
-                            +
-                            Text(Image(systemName: "xmark"))
-                                .foregroundColor(.white)
-                                .font(.caption)
-                            +
-                            Text(Image(systemName: "3.circle.fill"))
-                                .foregroundColor(.white)
-                                .font(.title3)
-                            
-                            Text("Три бесплатных напитка")
-                                .foregroundColor(.white)
-                                .font(.caption)
-                        }
-                        
-                        VStack {
-                            Text(Image(systemName: "gift"))
-                                .foregroundColor(.white)
-                                .font(.title3)
-                            
-                            Text("Каждый 12-ый напиток в подарок")
-                                .foregroundColor(.white)
-                                .font(.caption)
-                        }
-                        
-                        VStack {
-                            Text(Image(systemName: "tengesign.circle"))
-                                .foregroundColor(.white)
-                                .font(.title3)
-                            
-                            Text("Накапливайте бонусы")
-                                .foregroundColor(.white)
-                                .font(.caption)
+                        ForEach(features.indices, id: \.self) { index in
+                            VStack {
+                                Text(Image(systemName: features_image[index]))
+                                    .foregroundColor(.white)
+                                    .font(.title3)
+                                Text(features[index])
+                                    .foregroundColor(.white)
+                                    .font(.caption)
+                            }
                         }
                     }
                 }
@@ -187,7 +167,7 @@ struct SwipeButtonView: View {
                     actionSuccess()
                 }
             }
-        } 
+        }
         
         else {
             self.dragOffset = .zero
@@ -206,5 +186,5 @@ struct SwipeButtonView: View {
 }
 
 #Preview {
-    SwipeButtonView()
+    SwipeButtonView(imageName: "bird", title: "basic", description: "haha", price: "4000", features: ["kek", "kek", "kek"], features_image: ["mug", "gift", "tengesign.circle"])
 }

@@ -73,9 +73,13 @@ struct PlanButton: View {
     var title: String
     var description: String
     var price: String
+    var features: [String]
+    var features_image: [String]
+    var planModel: Plan
+    
     @Binding var isClicked: Bool
     @State var didUnlock: Bool = false
-    @Binding var haha: String
+    @Binding var haha: Plan
     @Binding var didSwipe: Bool
     
     var body: some View {
@@ -84,16 +88,16 @@ struct PlanButton: View {
                 beforeClick(imageName: imageName, title: title, description: description, price: price, isClicked: $isClicked, didUnlock: $didUnlock)
             }
             else {
-                SwipeButtonView()
+                SwipeButtonView(imageName: imageName, title: title, description: description, price: price, features: features, features_image: features_image)
                     .onSwipeSuccess {
                         self.didUnlock = true
                         didSwipe = true
-                        haha = title
+                        haha = planModel
                     }
                     .onSwipeFailure {
                         self.didUnlock = false
                         didSwipe = false
-                        haha = ""
+                        haha = Plan(id: "", plan_name: "", plan_price: "", plan_description: "", plan_image: "", plan_features: [], plan_features_image: [])
                     }
             }
         }
@@ -111,7 +115,7 @@ struct PlanProperties {
 struct PlansView: View {
     @StateObject var viewModel = CoffeeshopViewModel()
     var coffeeshop_id: String
-    @Binding var haha: String
+    @Binding var haha: Plan
     @Binding var didSwipe: Bool
     
     @State private var selectedPlanIndex: Int?
@@ -124,23 +128,27 @@ struct PlansView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal, 20)
             
-            ForEach(viewModel.plans.indices, id: \.self) { index in
-                PlanButton(
-                    imageName: viewModel.plans[index].plan_image,
-                    title: viewModel.plans[index].plan_name,
-                    description: viewModel.plans[index].plan_description,
-                    price: viewModel.plans[index].plan_price,
-                    isClicked: Binding(
-                        get: { selectedPlanIndex == index },
-                        set: { newValue in
-                            selectedPlanIndex = newValue ? index : nil
-                        }
-                    ),
-                    haha: $haha,
-                    didSwipe: $didSwipe
-                )
+            withAnimation(Animation.easeIn(duration: 2.0)) {
+                ForEach(viewModel.plans.indices, id: \.self) { index in
+                    PlanButton(
+                        imageName: viewModel.plans[index].plan_image,
+                        title: viewModel.plans[index].plan_name,
+                        description: viewModel.plans[index].plan_description,
+                        price: viewModel.plans[index].plan_price,
+                        features: viewModel.plans[index].plan_features,
+                        features_image: viewModel.plans[index].plan_features_image,
+                        planModel: viewModel.plans[index],
+                        isClicked: Binding(
+                            get: { selectedPlanIndex == index },
+                            set: { newValue in
+                                selectedPlanIndex = newValue ? index : nil
+                            }
+                        ),
+                        haha: $haha,
+                        didSwipe: $didSwipe
+                    )
+                }
             }
-            
         }
         .task {
             try? await viewModel.getPlans(coffeeshop_id: coffeeshop_id)
@@ -149,5 +157,5 @@ struct PlansView: View {
 }
 
 #Preview {
-    PlansView(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn", haha: .constant(""), didSwipe: .constant(false))
+    PlansView(coffeeshop_id: "mqkKxYkBMX30XJaXgkWn", haha: .constant(Plan(id: "", plan_name: "", plan_price: "", plan_description: "", plan_image: "", plan_features: [""], plan_features_image: [])), didSwipe: .constant(false))
 }
