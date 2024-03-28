@@ -192,7 +192,7 @@ final class CoffeeshopViewModel: ObservableObject {
 }
 
 struct ContentView: View {
-    @State var selectedTab: Tab = .house
+    @State private var selectedTab: Tab = .house
 
     @ObservedObject var globalVars = GlobalVars()
     
@@ -202,9 +202,6 @@ struct ContentView: View {
     
     @State var isPresentingScanner = false
     
-    @State var animate = false
-    @State var endSplash = false
-    
     @State private var showSignInView: Bool = false
     
     @StateObject private var viewModelCoffeeshop = CoffeeshopViewModel()
@@ -212,8 +209,8 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            
             VStack {
+                
                 switch selectedTab {
                 case .house:
                     HomeView(globalVars: globalVars, viewModelCoffeeshop: viewModelCoffeeshop, str: $globalVars.str, nestr: $globalVars.nestr)
@@ -248,25 +245,6 @@ struct ContentView: View {
                         .onDisappear {self.keks = 0.0}
                 }
             }
-            
-            ZStack{
-                Color("bg")
-                
-                Image("alishlogo")
-                    .resizable()
-                    .renderingMode(.original)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 285, height: 285)
-                
-                // scalling View...
-                    .scaleEffect(animate ? 3 : 1)
-                //setting width to avoid over size ...
-                    .frame(width: UIScreen.main.bounds.width)
-            }
-            .ignoresSafeArea(.all, edges: .all)
-            .onAppear(perform: animateSplash)
-            // hiding view after finished...
-            .opacity(endSplash ? 0 : 1)
         }
         .task{
             try? await viewModelCoffeeshop.getCoffeeshops()
@@ -274,6 +252,7 @@ struct ContentView: View {
         }
         .onAppear() {
             let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
+            let _ = try?  print(authUser)
             self.showSignInView = authUser == nil
         }
         .fullScreenCover(isPresented: $showSignInView, content: {
@@ -282,26 +261,10 @@ struct ContentView: View {
             }
         })
     }
-    
-    func animateSplash(){
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.25){
-            UINotificationFeedbackGenerator().notificationOccurred(.error)
-            withAnimation(Animation.easeOut(duration: 0.55)){
-                animate.toggle()
-            }
-            
-            withAnimation(Animation.easeOut(duration: 0.45)){
-                endSplash.toggle()
-            }
-        }
-    }
 }
-                      
-                      
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
