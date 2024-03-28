@@ -311,7 +311,7 @@ struct DrinkCustomizer: View {
                                     )
                                     .sheet(isPresented: $toggleBasketViewDrinkCustomizer){
                                         BasketView(coffee: coffee, globalVars: globalVars, viewModelTab: viewModelTab, viewModelCoffeeshop: viewModelCoffeeshop, customizedDrink: $customizedDrink, chosenAddress: $chosenAddress)
-                                            .presentationBackground(.ultraThinMaterial)
+//                                            .presentationBackground(.ultraThinMaterial)
                                     }
                             }
                             .frame(maxWidth: .infinity)
@@ -438,7 +438,7 @@ extension DrinkCustomizer{
                 customizedPrice: calculateTotalPrice(),
                 drinkSizeIndex: coffee.selectedSize,
                 quantity: 1,
-                address: "",
+                address: chosenAddress.address_name,
                 optionArray: viewModel.optionArray))
         }
     }

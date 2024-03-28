@@ -8,5 +8,14 @@
 		<string>Gara Gara Bold.otf</string>
 		<string>Pilowlava-Regular.otf</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>bg</string>
+		<key>UIImageName</key>
+		<string>alishlogo</string>
+		<key>UILaunchScreen</key>
+		<dict/>
+	</dict>
 </dict>
 </plist>

@@ -4,10 +4,11 @@ import Firebase
 @main
 struct MyApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+    @StateObject var navigationStateViewModel = NavigationStateViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(navigationStateViewModel)
         }
     }
 }
