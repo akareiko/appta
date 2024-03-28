@@ -103,14 +103,11 @@ struct DrinksModel: Codable, Identifiable, Hashable {
     var description: String
     var prices: [Int]
     var drinksize: [Int]
+    var status: Bool
 }
 
 struct TabMenu: Codable, Identifiable, Hashable{
     var id: String = UUID().uuidString
     var tab: String
 }
-//
-//class TabMenuuu {
-//    var tabmenu: TabMenu = TabMenu(id: "", tab: "")
-//    var drinks: [DrinksModel] = []
-//}
+

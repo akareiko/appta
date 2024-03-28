@@ -130,7 +130,7 @@ final class CoffeeshopViewModel: ObservableObject {
 }
 
 struct ContentView: View {
-    @State private var selectedTab: Tab = .house
+    @State var selectedTab: Tab = .house
 
     @ObservedObject var globalVars = GlobalVars()
     
@@ -148,7 +148,6 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             VStack {
-                
                 switch selectedTab {
                 case .house:
                     HomeView(globalVars: globalVars, viewModelCoffeeshop: viewModelCoffeeshop, str: $globalVars.str, nestr: $globalVars.nestr)
@@ -190,7 +189,6 @@ struct ContentView: View {
         }
         .onAppear() {
             let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
-            let _ = try?  print(authUser)
             self.showSignInView = authUser == nil
         }
         .fullScreenCover(isPresented: $showSignInView, content: {

@@ -17,12 +17,16 @@ struct BasketView: View {
     @State private var isToggleOn: Bool = false
     @State private var showDetail: [String : Bool] = [:]
     @State private var toggleDrinkCustomizerBasket: Bool = false
+    @State private var togglePlaceOrderSheet: Bool = false
     @State private var showFavourites: Bool = false
+    @State private var addedToBasket: Bool = false
     
     @Binding var customizedDrink: [OrderModel]
     @Binding var chosenAddress: AddressModel
     
     @Namespace var animation
+    
+    @EnvironmentObject var navigationStateViewModel: NavigationStateViewModel
     
     @Environment(\.dismiss) private var dismiss
     @Environment(\.presentationMode) var presentationMode
@@ -40,7 +44,7 @@ struct BasketView: View {
                                         .frame(width: 20, height: 20)
                                         .foregroundColor(.black)
                                     
-                                    Text("Basket")
+                                    Text("My Order")
                                         .font(.title.bold())
                                         .foregroundColor(.black)
                                 }
@@ -83,7 +87,7 @@ struct BasketView: View {
                     .offset(CGSize(width: 0, height: 20))
                     
                     HStack{
-                        Text("Address: Dostyk 5 (TRC 'Keruen')")
+                        Text("\(chosenAddress.address_name)")
                             .font(.footnote.bold())
                             .foregroundColor(.black)
                         
@@ -201,31 +205,37 @@ struct BasketView: View {
                         }
                         .sheet(isPresented: $toggleDrinkCustomizerBasket){
                             DrinkCustomizer(coffee: coffee, globalVars: globalVars, viewModelTab: viewModelTab, viewModelCoffeeshop: viewModelCoffeeshop, customizedDrink: $customizedDrink, chosenAddress: $chosenAddress)
-                                .presentationBackground(.ultraThinMaterial)
                         }
                         .padding(.horizontal, 20)
                         .padding(.top, 10)
                     }
                 }
                 .padding(.horizontal, 20)
-                
-                VStack(alignment: .leading){
+
+                VStack{
                     
-                    HStack{
-                        HStack {
-                            Image("visa")
-                                .resizable()
-                                .foregroundColor(.black)
-                                .frame(width: 30, height: 30)
-                            
+                    Divider()
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.secondary)
+                    
+                    Spacer()
+                    
+                    
+                    HStack(spacing: 10){
+                        Image("visa")
+                            .resizable()
+                            .foregroundColor(.black)
+                            .frame(width: 40, height: 40)
+                        
+                        Button {
+                            togglePlaceOrderSheet.toggle()
+                        } label: {
                             ZStack {
-                                RoundedRectangle(cornerRadius: 15)
-                                    .fill(.ultraThinMaterial)
-                                    .frame(width: 270, height: 50)
                                 VStack {
                                     Text("Visa •••• 4593")
                                         .font(.caption)
                                         .frame(maxWidth: .infinity, alignment: .leading)
+                                        .foregroundColor(.primary)
                                     
                                     Text("•••• •••• •••• 4593. Expires: 05/25")
                                         .font(.caption2)
@@ -237,52 +247,44 @@ struct BasketView: View {
                                 Image(systemName: "chevron.forward")
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                                     .padding(.trailing, 20)
+                                    .foregroundColor(.primary)
                             }
-                            .frame(width: 270)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 60)
+                            .background(.ultraThinMaterial)
+                            .clipShape(RoundedRectangle(cornerRadius: 15))
                         }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal, 20)
-                                                
-                        VStack(alignment: .leading){
-                            Text("Total Price: ")
-                                .font(.callout)
-                                .foregroundColor(.black)
-                            
-                            HStack{
-                                Text("KZT \(calculateTotalPrice())")
-                                    .font(.headline.bold())
-                                    .foregroundColor(.black)
-                                
-                                Image(systemName: "tengesign")
-                                    .resizable()
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.black)
-                                    .frame(width: 13, height: 13)
-                            }
+                        .sheet(isPresented: $togglePlaceOrderSheet){
+                            PaymentMethodSheet()
+                                .presentationDetents([.fraction(0.4)])
+                                .presentationCornerRadius(30)
+                                .presentationDragIndicator(.visible)
                         }
-                        .frame(height: 70)
-                        .frame(maxWidth: .infinity)
-                        .padding(.horizontal, 20)
-                        .background(.thinMaterial)
-                        .clipShape(RoundedRectangle(cornerRadius: 15))
+                        .padding(.vertical, 15)
                     }
-                    .frame(width: UIScreen.main.bounds.width - 20)
-                    NavigationLink(destination: HomeView(globalVars: globalVars, viewModelCoffeeshop: viewModelCoffeeshop, str: .constant(true), nestr: .constant(true))){
-                        HStack(){
-                            Text("Payment")
+                    .padding(.horizontal, 20)
+                    
+                    Button {
+//                        togglePlaceOrderSheet.toggle()
+//                        presentationMode.wrappedValue.dismiss()
+                        navigationStateViewModel.onViewChanged(newView: .HomeView)
+                    } label: {
+                        HStack{
+                            Text("Payment   \(calculateTotalPrice()) KZT")
                                 .font(.callout.bold())
                                 .foregroundColor(.white)
-                                .padding(.vertical, 15)
-                                .padding(.horizontal, 25)
+                                .padding(.vertical, 16)
+                                .lineLimit(1)
                         }
-                        .frame(width: UIScreen.main.bounds.width - 20)
+                        .frame(maxWidth: .infinity)
                         .background(.black)
                         .clipShape(Capsule())
+                        .padding(.horizontal, 20)
                     }
-                    .padding(.top, 20)
-                    .padding(.horizontal, 20)
+                    .padding(.bottom, 30)
                 }
-                .frame(height: 130)
+                .frame(width: UIScreen.main.bounds.width, height: 150)
+                .background(.white)
                 .offset(CGSize(width: 0, height: 300))
             }
             .navigationBarBackButtonHidden()
@@ -303,17 +305,6 @@ struct BasketView: View {
             } label: {
                 HStack(spacing: 0){
                     Spacer(minLength: 15)
-                    
-                    HStack(){
-                        Text("\(order.quantity)")
-                            .font(.callout.bold())
-                            .foregroundColor(.black)
-                            .padding(.trailing, 5)
-                        
-                        Rectangle()
-                            .frame(width: 1, height: 20)
-                            .background(.thinMaterial)
-                    }
                     
                     AsyncImage(url: URL(string: order.drink.image)) { image in
                         image
@@ -341,25 +332,52 @@ struct BasketView: View {
                             .font(.caption)
                             .foregroundColor(.secondary)
                             .lineLimit(1)
+                        
+                        HStack(spacing: 5){
+                            
+                            Text("\(order.customizedPrice)")
+                                .font(.callout)
+                                .foregroundColor(.black)
+                            
+                            Image(systemName: "tengesign")
+                                .resizable()
+                                .frame(width: 12, height: 12)
+                                .foregroundColor(.black)
+                        }
                     }
                     
-                    Spacer(minLength: 10)
-                    
-                    HStack(spacing: 5){
-                        
-                        Text("\(order.customizedPrice)")
-                            .font(.callout)
-                            .foregroundColor(.black)
-                        
-                        Image(systemName: "tengesign")
-                            .resizable()
-                            .frame(width: 12, height: 12)
-                            .foregroundColor(.black)
+                    Button {
+                        addedToBasket.toggle()
+                    } label: {
+                        HStack{
+                            Button {
+                                
+                            } label: {
+                                Image(systemName: "minus")
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding(.horizontal, 10)
+                            
+                            Text("\(order.quantity)")
+                                .font(.callout)
+                                .foregroundColor(.black)
+                            
+                            Button {
+                                
+                            } label: {
+                                Image(systemName: "plus")
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding(.horizontal, 10)
+                        }
+                        .frame(height: 40)
+                        .background(.thinMaterial)
+                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
                     }
+                    .padding(.horizontal, 10)
                     
-                    Spacer(minLength: 15)
                 }
-                .frame(height: 70)
+                .frame(height: 100)
                 .foregroundStyle(.white.opacity(0.4))
                 .background(.thinMaterial)
             }

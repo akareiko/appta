@@ -18,7 +18,6 @@ enum Tab: String, CaseIterable {
 
 struct CustomTabBar: View {
     @Binding var selectedTab: Tab
-    
     private var fillImage: String {
         symbolMappings[selectedTab] ?? selectedTab.rawValue
     }
